@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)https://www.linuxidc.com/Linux/2016-06/132262.htm -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站</title>
+
+<link rel="icon" href="https://www.linuxidc.com/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://www.linuxidc.com/favicon.ico" type="image/x-icon">
+<meta name="description" content="我们要说的是Linux下的免费软件Vim！Vim插件安装的教程在互联网上已经数不胜数，但是质量也参差不齐，很多都是在其它地方转载cop">
+<meta name="keywords" content="Vim打造成IDE,Vim,把Vim打造成优秀的C++ IDE,Linux,Linux教程,Linux系统,Linux安装,Ubuntu,Fedora,RedHat,SUSE,CentOS,红旗Linux">
+<link rel="canonical" href="https://www.linuxidc.com/Linux/2016-06/132262.htm">
+<meta name="generator" content="Linux公社">
+<meta name="generator" content="Linux">
+<link rel="stylesheet" href="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/style.css" type="text/css">
+<meta name="generator" content="专业的Linux网站">
+<script charset="utf-8" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/s.js.下载"></script><script src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(8).txt"></script><script src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/ca-pub-5195587195407606.js.下载"></script><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/jquery.js.下载"></script>
+<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/iwms.js.下载"></script>
+<script type="text/javascript">iwms.urlPrefix="../../";</script>
+
+<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/show.js.下载"></script>
+<link rel="preload" href="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(9).txt" as="script"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(9).txt"></script><style>html #hm_t_undefined .hm-t-go-top {position:fixed;right:2px;bottom:2px;z-index:99998;cursor:pointer;width:40px;height:37px!important;text-align:center;white-space:normal;font-size:14px;line-height:17px;padding-top:3px;color:#fff;background:#404040;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEkAAAAXCAYAAABH92JbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowMjgwMTE3NDA3MjA2ODExODA4M0UyNDA4ODdDRTZBQiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBQjc5RkRFNkI5ODMxMUUzQkZGNDhENEJFQjM2OTcyRiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBQjc5RkRFNUI5ODMxMUUzQkZGNDhENEJFQjM2OTcyRiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDI4MDExNzQwNzIwNjgxMTgwODNFMjQwODg3Q0U2QUIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDI4MDExNzQwNzIwNjgxMTgwODNFMjQwODg3Q0U2QUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5HPYM5AAACC0lEQVR42uyZTSgEYRjH90NoqaVcpDblvKW2XOSkNh8H5Yac9sBBDqQokiJKSMpNTi5OPo6Ktsgu67JcUHIXWfK1u3b8Xx6Zxuzu+64dM83uv34zNfu8b8/8Z+d5P8YqSZLFJNLsRmyWvIRMKgVD4AhEwA3YAV0pzGwEqyAEwmAddIICHe7FqhnsdQM14FxKLj+ooFiGE2ykiD8GVbJ4I1ELAnTmasMODnAhpVcIFIMicMgRH6Z4IxnUAh4pP3Zu5TVpUOLXDJgWiB8wkEF9IK7IL07X05oUFLjpZ4JXQQOYYwfzafJcoDjVPqw43KE4lWtUTF+AQ8eBqQSsgTaO2E0apJ7URrdCDZOM62hQJfBzGmShOD+1+2XSiYaJ7utkkBsEgEewnYfauZUmzWmU6DuY0sEgLzgArgzbu6i992cu/1WclqXsa1iHIt0DYlnKP0b9fRZu5pWdZs7dWXqa7B80+s//oF5aMSjflGqBPq5BQnFtVv4UmGHjIPEH96PAZ6C5kVMwf6daPzbFKnqCqvx9Bk/yFjSBFTMvcL+1DerAmUA/p9Rm1+y7AHJdgnqwx9EHm1s0gKtc2CpR6gE00/ZHMm3RKxbJlf0kNb2BDrCk8hsbDdvBay5tuiUTGxL7waTs2iLw0YTR9BLZQRwDUVqwjuTS9q3VRB8C1OQUnM6UqdXX/IcADn0IMADs2AqDOPSutQAAAABJRU5ErkJggg==) no-repeat -42px center #666;*background-image:url(http://ecma.bdimg.com/holmes/t-popup-icons-png8.png);_position:absolute;_top:expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight||document.body.clientHeight)-this.offsetHeight-2));}</style></head>
+<body>
+<div class="topBar">
+	<div class="twidth">
+	
+	<div style="float:right">
+		<a href="http://m.linuxidc.com/" rel="nofollow">手机版</a>
+		<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/language.js.下载"></script> <a id="StranLink" href="javascript:StranBody()" title="點擊以繁體中文方式浏覽">繁體</a>
+	</div>
+	
+	<div id="topUser">你好，游客 <a href="https://www.linuxidc.com/Linux/2016-06/132262.htm#" onclick="iwms.logPop()">登录</a>
+	<a href="https://www.linuxidc.com/memberreg.aspx" rel="nofollow">注册</a>
+	<a href="https://www.linuxidc.com/search.aspx" rel="nofollow">搜索</a>
+	</div>
+	</div>
+</div>
+<div class="twidth">
+<div id="sitehead">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<table width="100%">
+	<tbody><tr align="center"><td width="160">
+	<a href="https://www.linuxidc.com/"><img style="filter: chroma(color=#FFFFFF);" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/logo.jpg" alt="Linux公社" width="155" height="53" border="0"></a>
+	</td><td>
+	<div align="center"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux.js.下载"></script><a href="http://www.magedu.com/74163.html" rel="nofollow" target="_blank"><img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/mg.png" alt="" width="600" height="60"></a>
+</div>
+	</td>
+	</tr></tbody></table>
+</div>
+</div>
+<div id="navbar">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="https://www.linuxidc.com/index.htm" class="first">首页</a><a href="https://www.linuxidc.com/it/">Linux新闻</a><a href="https://www.linuxidc.com/Linuxit/" class="thisclass">Linux教程</a><a href="https://www.linuxidc.com/MySql/">数据库技术</a><a href="https://www.linuxidc.com/RedLinux/">Linux编程</a><a href="https://www.linuxidc.com/Apache/">服务器应用</a><a href="https://www.linuxidc.com/Unix/">Linux安全</a><a href="https://www.linuxidc.com/download/">Linux下载</a><a href="https://www.linuxidc.com/theme/">Linux主题</a><a href="https://www.linuxidc.com/Linuxwallpaper/">Linux壁纸</a><a href="https://www.linuxidc.com/linuxsoft/">Linux软件</a><a href="https://www.linuxidc.com/digi/">数码</a><a href="https://www.linuxidc.com/mobile/">手机</a><a href="https://www.linuxidc.com/diannao/">电脑</a>
+
+</div>
+</div>
+
+<div id="navsub">
+<div class="l"></div>
+<div class="r"></div>
+<div class="m">
+	<a href="https://www.linuxidc.com/index.htm">首页</a> → <a href="https://www.linuxidc.com/Linuxit/">Linux教程</a>
+</div>
+</div>
+<div class="linuxe1"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linuxe1.js.下载"></script></div>
+<div class="linux1"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux1.js.下载"></script></div>
+<div class="linuxa"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linuxa.js.下载"></script></div>
+<div class="linuxa1"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linuxa1.js.下载"></script></div>
+<table id="middle" width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed">
+<tbody><tr valign="top"><td>
+
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<div class="moreR">
+			背景：<script type="text/javascript">WriteBg()</script><img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#EDF0F5" alt="#EDF0F5" onclick="ContentBg(&quot;#EDF0F5&quot;)"> <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FAFBE6" alt="#FAFBE6" onclick="ContentBg(&quot;#FAFBE6&quot;)"> <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FFF2E2" alt="#FFF2E2" onclick="ContentBg(&quot;#FFF2E2&quot;)"> <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FDE6E0" alt="#FDE6E0" onclick="ContentBg(&quot;#FDE6E0&quot;)"> <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#F3FFE1" alt="#F3FFE1" onclick="ContentBg(&quot;#F3FFE1&quot;)"> <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#DAFAF3" alt="#DAFAF3" onclick="ContentBg(&quot;#DAFAF3&quot;)"> <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#EAEAEF" alt="#EAEAEF" onclick="ContentBg(&quot;#EAEAEF&quot;)"> <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" style="cursor:pointer;width:7px;height:6px;border:1px solid #999;background:#FFF" alt="默认" onclick="ContentBg(&quot;&quot;)"> 
+		</div>
+		<span class="tt">阅读新闻</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm" id="bodyTd">
+		<div id="printBody" style="word-break:break-all;">
+			<div style="text-align:center"><h1 class="aTitle">把Vim打造成优秀的C++ IDE</h1></div>
+			
+			<table width="97%" align="center">
+				<tbody><tr>
+				<td width="140">[日期：2016-06-13]</td>
+				<td align="center">来源：Linux社区&nbsp;
+				作者：doc_sgl</td>
+				<td width="160" align="right">[字体：<a href="javascript:ContentSize(16)">大</a> <a href="javascript:ContentSize(0)">中</a> <a href="javascript:ContentSize(12)">小</a>]
+				</td></tr>
+			</tbody></table>
+<div id="li_all">
+<div id="li_1"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux201.js.下载"></script><script async="" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(10).txt"></script>
+<!-- Linux公社336*280上左 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5195587195407606" data-ad-slot="8487173177" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><iframe width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:336px;height:280px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/saved_resource(3).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div id="li_2"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux2.js.下载"></script><script async="" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(10).txt"></script>
+<!-- Linux����336*280���� -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-5195587195407606" data-ad-slot="4266779067" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><iframe width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:336px;height:280px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/saved_resource(4).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+			<div id="content" style="overflow-x: hidden; word-break: break-all;"><p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">对于Windows上做C++开发的用户来说，vs为他们做了大量的工作，语法高亮、自动缩进、智能提示等等，当你happy的使用vs时，请记住一点，这是一个收费软件，虽然在我大中华普遍都在使用微软的盗版软件，但作为程序员我们心里应该知道这是不对的行为，然后再去——等等，我们今天讨论的不是这个话题，我们要说的是Linux下的免费软件Vim！</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">Vim插件安装的教程在互联网上已经数不胜数，但是质量也参差不齐，很多都是在其它地方转载copy，而且没有注明使用环境，很多人安装时发现无法work，最后搞得一团糟，今天这篇文章的宗旨只有两个：1、使得安装简单；2、保证可以用。</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">阅读这篇文章的前提是你至少使用过Vim，知道基本的操作。下面就开始进入主题。</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">推荐：把Vim打造成一个简单实用的IDE <a href="https://www.linuxidc.com/Linux/2011-06/37032.htm">http://www.linuxidc.com/Linux/2011-06/37032.htm</a></p>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">准备工作</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">由于大多数vim插件都可以在github上找到，而且通过git安装、删除、升级插件都异常简单，因此我们需要首先安装git工具，如果不知道git和github，可以先自行Google</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;"><a href="https://www.linuxidc.com/topicnews.aspx?tid=14" target="_blank" title="CentOS">CentOS</a>安装</span></p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">sudo yum install git
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;"><a href="https://www.linuxidc.com/topicnews.aspx?tid=2" target="_blank" title="Ubuntu">Ubuntu</a>安装</span></p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">sudo apt-get install git
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">Mac安装</span><br>由于Mac没有像yum和apt-get一样的包管理工具，需要先安装一个类似的包管理工具，这对于安装一些Linux命令是非常有帮助的</p>
+<ol style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; list-style-position: outside; color: #444444; line-height: 24px; border-width: 0px; padding: 0px;">
+<li style="vertical-align: baseline; border-width: 0px; padding: 0px;">安装包管理工具<a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="http://brew.sh/" target="_blank">homebrew</a>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;"> ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+</code></pre>
+</li>
+<li style="vertical-align: baseline; border-width: 0px; padding: 0px;">通过brew安装git
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;"> brew install git
+</code></pre>
+</li>
+</ol>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">我将本文需要安装的插件和配置文件都放在了github上，如果你不想大费周折的了解每个插件的安装方式，可以直接下载所有插件即可使用，项目地址<a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="https://github.com/handy1989/vim" target="_blank">https://github.com/handy1989/vim</a>，可以按照如下命令备份并一次安装所有插件（注意，从git上下载的vim目录下都是隐藏文件，<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">ls -a</code>可以查看）</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">mv ~/.vimrc ~/.vimrcbak
+mv ~/.vim ~/.vimbak
+git clone https://github.com/handy1989/vim.git
+mv vim/.vimrc ~/.vim ~/
+</code></pre>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">第一个插件pathogen</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">为了不让插件安装后目录显得凌乱，我们很有必要安装一个管理插件的插件，这样功能的插件有好几个，这里只推荐一个<span style="vertical-align: baseline; border-width: 0px; padding: 0px;">pathogen</span></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">项目地址</span><br><a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="https://github.com/tpope/vim-pathogen" target="_blank">https://github.com/tpope/vim-pathogen</a></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">安装</span><br>可以通过git安装，也可以直接下载插件文件，由于这个插件只有一个文件，我们选择后者，而该插件的说明文档上也是用的这种方法。</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; 
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">然后，就没有然后，这个插件就安装完了。是不是觉得so easy! 不过先别急，我们还要对插件进行一些配置，用vim打开~/.vimrc，输入如下三行类容</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">execute pathogen#infect()
+syntax on
+filetype plugin indent on
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">保存退出，这个插件的安装配置就完成了，怎么验证插件有没有生效呢，别急，后面有的是机会验证。我们先来讲讲vim插件是个什么东西。</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">此时你的~/.vim目录结构应该是这样的</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">├── autoload
+│&nbsp;  └── pathogen.vim
+└── bundle
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">可见~/.vim目录下是有两个目录，其中autoload放的是pathogen插件，所谓的插件其实就是一个脚本，当vim启动时，它会自动加载~/.vim/autoload目录下的脚本，由于你~/.vimrc里配置了<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">execute pathogen#infect()</code>，所以它会去自动的执行脚本里这个函数，至于这个函数是怎么实现的，我们不用管它，总之这个函数的功能就是去加载~/.vim/bundle目录下你安装的所有插件，pathogen的管理方法大致就是这样，而我们也看到，vim的插件其实就是一个脚本文件，丰富一点的还会带有说明文档等其它内容，后面我们碰到了再讲解。</p>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">auto-pairs</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">项目地址</span><br><a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="https://github.com/jiangmiao/auto-pairs" target="_blank">https://github.com/jiangmiao/auto-pairs</a>（感兴趣的可以看）</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">功能</span><br>自动匹配括号、引号等</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">安装</span></p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这样就将auto-pairs在github上的项目文件下载到了~/.vim/bundle/auto-pairs目录下</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">测试</span><br>随便打开一个文件，输入左括号'('，看右括号是不是自动出现了，然后删除左括号，看右括号是不是也被删除了。当然功能远不止这些，但常用的就这几点。</p>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">NERDTree</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">项目地址</span><br><a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="https://github.com/scrooloose/nerdtree" target="_blank">https://github.com/scrooloose/nerdtree</a></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">功能</span><br>显示目录树</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">安装</span></p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">此时~/.vim/bundle/nerdtree下应该有如下几个目录和文件</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">autoload
+doc
+lib
+nerdtree_plugin
+plugin
+README.markdown
+syntax
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这几个目录是vim默认的插件目录，如果我们不是通过pathogen加载插件，就需要在~/.vim目录下创建对应的这几个目录，并将NERDTree对应的文件拷到相应的目录，这样每个目录下会放置多个插件的内容，比如~/.vim/doc下就会放置所有插件的帮组文档，而我们通过pathogen来管理，每个插件的所有内容都放在同一个目录中，比如这里的NERDTree插件的内容我们下载到了~/.vim/bundle/nerdtree下，直接删除这个目录即可删除插件，如果后续插件有更新，在该目录下通过git命令也可以很容易更新到最新版本。</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">打开vim，在命令行模式下输入:Helptags载入插件的帮组文档，或者用:helptags help_dir载入指定目录的帮组文档，其中help_dir是你需要加载的插件帮组文档所在的目录，比如这里是~/.vim/bundle/nerdtree/doc</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">测试</span><br>用vim打开一个文件，在命令行模式下输入:NERDTree，然后回车，窗口左侧就出现了vim工作目录的目录树，如下图所示<br><img style="max-width: 100%; vertical-align: baseline; border-width: 0px; padding: 0px; cursor: pointer; display: block;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/160613152360122.png" alt="" width="705" vspace="5"></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">将光标置于NERDTree窗口，按'?'可查看帮助，NERDTree的操作很简单，通常是将光标置于一个目录/文件上，通过一个按键来操作，下面列出几个常用按键及其对应的操作</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">文件相关操作
+o  : 在光标所在的上一个窗口打开文件，并将光标置于新打开的窗口
+go : 预览文件，光标停留在NERDTree窗口中
+t  : 在新标签中打开文件并激活
+gt : 在新标签打开文件，光标留在NERDTree窗口中
+i  : 水平分割打开文件
+gi : 水平分割预览
+s  : 垂直分割打开文件
+gs : 垂直分割预览
+
+目录树相关操作
+o  : 展开/关闭目录
+O  : 递归展开目录。慎用，如果目录层级多，打开会很慢
+x  : 关闭父目录
+C  : 切换光标所在目录为根目录
+u  : 切换目录树的根目录为上层目录
+U  : 切换目录树的根目录为上层目录，并保持旧的目录树的状态
+r  : 刷新当前目录
+R  : 刷新当前根目录（这个在新加入文件后会用到）
+cd : 切换vim工作目录为光标所在目录（命令模式下:pwd可查看当前工作目录）
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">为了方便打开NERDTree，我们可以设置快捷键，打开~/.vimrc，插入如下一行</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">map &lt;C-n&gt; :NERDTree&lt;CR&gt;
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这样，当打开vim时，只要输入ctrl+n即可打开NERDTree</p>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">MiniBufExplorer</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">项目地址</span><br><a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="http://www.vim.org/scripts/script.php?script_id=159" target="_blank">http://www.vim.org/scripts/script.php?script_id=159</a></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">功能</span><br>显示已打开的buffer</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">安装</span><br>以6.3.2版本为例，根据项目地址可以找到对应版本的下载链接</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">mkdir -p ~/.vim/bundle/minibufexplorer/plugin &amp;&amp; wget "http://www.vim.org/scripts/download_script.php?src_id=3640" -O ~/.vim/bundle/minibufexplorer/plugin/minibufexpl.vim
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">测试</span><br>用vim打开一个文件，此时看不到minibufexplorer窗口，因为默认是只有一个buffer时不显示窗口的，在命令行模式下通过<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">:vsp filename</code>打开另一个文件（或者用NERDTree浏览打开其它文件），看看此时窗口上方是不是出现了MiniBufExplorer的窗口，如下所示<br><img style="max-width: 100%; vertical-align: baseline; border-width: 0px; padding: 0px; cursor: pointer; display: block;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/160613152360121.png" alt="" width="705" vspace="5"></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">我们先来解释一下什么叫buffer，vim为每个打开的文件都创建了一个buffer，这个buffer存储在内存中，为了下次打开文件时快速加载，比如我们通过NERDTree浏览并打开了多个文件，即便某些文件你退出了编辑，它的buffer仍旧是存在的，在命令模式下，我们输入<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">:ls</code>可以查看打开的buffer列表，每一行前面的数字对应buffer的编号，通过输入<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">:b N</code>，其中N代表buffer编号，可以打开对应的buffer。对应上面的截图，我们打开了两个文件，此时minibufexplorer窗口显示有两个buffer，即便我们关闭一个文件，这两个buffer仍然存在，将光标移到某个buffer的名称上，回车可打开对应的buffer，按<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">d</code>可删除buffer，具体的操作可以直接阅读插件文件，路径为~/.vim/bundle/minibufexplorer/plugin/minibufexpl.vim</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">配置</span><br>在~/.vimrc文件中加入如下命令</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">let g:miniBufExplMaxSize = 2
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">该配置含义为minibufexplorer窗口最大高度为2行，默认是没有上限的，你打开的buffer足够多，一会一直增长下去，为了方便阅读我一般将它设为2，其它配置不怎么用到，需要用的时候可以参考插件文件，并在~/.vimrc中添加配置</p>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">ctags+taglist+omnicppcomplete</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">接下来就到了重磅戏了，前面还只是一些窗口相关的基本操作，是为了方便浏览文件，我们阅读C++代码时希望能快速定位函数、变量，类似于VS等其它IDE提供的功能</p>
+<h4 style="font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; color: #444444; clear: both; line-height: 1.8461; border-width: 0px; padding: 0px;">ctags</h4>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这个并不是插件，而是可执行程序，是用来对代码建索引，方便查找的，有些Linux版本是自带ctags的，如果没有，按如下方式安装</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">sudo yum install ctags
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">ubuntu安装方式</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">sudo apt-get install ctags
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">mac也是自带ctags的，但是那个不好用，可以重新安装</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">brew install ctags
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">如果安装失败，看是不是因为/usr/bin/ctags文件已经存在，可以先mv走，然后再执行</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">创建索引：在你代码的根目录执行如下命令，会生成一个tags文件，此时在代码根目录下打开一个文件（vim默认只加载工作目录下的tags文件），将光标置于一个函数或结构体名字上，按<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">ctr+]</code>即可跳转到该名称的定义处，如果出现多个选项，可以输入编号选择对应跳转的地方，按<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">ctr+o</code>可回到光标之前的位置</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
+</code></pre>
+<h4 style="font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; color: #444444; clear: both; line-height: 1.8461; border-width: 0px; padding: 0px;">taglist</h4>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">taglist是vim的一个插件，可以将代码内的函数、变量等按规律列出来，方便查找</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">下载地址</span><br><a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="http://www.vim.org/scripts/script.php?script_id=273" target="_blank">http://www.vim.org/scripts/script.php?script_id=273</a>，或者直接按如下方式下载并安装</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">cd ~/.vim/bundle &amp;&amp; wget "http://www.vim.org/scripts/download_script.php?src_id=19574" -O taglist.zip &amp;&amp; unzip taglist.zip -d taglist
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这样就生成了~/.vim/bundle/taglist目录，该目录的结构为</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">taglist
+├── doc
+│&nbsp;  └── taglist.txt
+└── plugin
+    └── taglist.vim
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">其中plugin目录下为插件文件，doc目录下为说明文档。打开vim，在命令行模式下输入<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">:helptags ~/.vim/bundle/taglist/doc</code>可以加载说明文档，然后输入<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">help taglist.txt</code>则可以显示说明文档</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">配置</span><br>打开~/.vimrc，输入如下内容</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">let Tlist_Show_One_File=1    " 只展示一个文件的taglist
+let Tlist_Exit_OnlyWindow=1  " 当taglist是最后以个窗口时自动退出
+let Tlist_Use_Right_Window=1 " 在右边显示taglist窗口
+let Tlist_Sort_Type="name"   " tag按名字排序
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这几行配置看名字就能知道什么意思，引号后边是说明，在vim配置文件里，双引号代表注释，类似于C语言里的/</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">如果打开过程中出现问题，例如</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">Taglist: Failed to generate tags for /Users/Zorba/Dropbox/RubymineProjects/rcafe/app/controllers/posts_controller.rb /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ctags: illegal option -- -^@usage: &nbsp;<br>ctags [-BFadtuwvx] [-f tagsfile] file ...^@ &nbsp;</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">就要重新安装一遍ctags</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">```</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">brew install ctags-exuberant</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">```</span></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">测试</span><br>打开一个文件，在命令行模式下输入<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">:TlistToggle</code>即可显示taglist窗口，配合NERDTree一起效果如下<br><img style="max-width: 100%; vertical-align: baseline; border-width: 0px; padding: 0px; cursor: pointer; display: block;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/160613152360126.png" alt="" width="705" vspace="5"></p>
+<h4 style="font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; color: #444444; clear: both; line-height: 1.8461; border-width: 0px; padding: 0px;">OmniCppComplete</h4>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这是一个对C++进行语法补全的插件，可以对函数、命名空间、类成员等进行补全，使用起来和绝大多数IDE差不多，不一样的是IDE为你做了很多你不知道的事情，而omni补全需要依赖tags文件，需要你用ctags命令自己生成</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">下载地址</span><br><a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="http://www.vim.org/scripts/script.php?script_id=1520" target="_blank">http://www.vim.org/scripts/script.php?script_id=1520</a></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">也可用如下命令直接下载并安装</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">cd ~/.vim/bundle &amp;&amp; wget "http://www.vim.org/scripts/download_script.php?src_id=7722" -O omnicppcomplete.zip &amp;&amp; unzip omnicppcomplete.zip -d omnicppcomplete
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">该命令会生成~/.vim/bundle/omnicppcomplete目录，目录结构为</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">├── after
+│&nbsp;  └── ftplugin
+│&nbsp;      ├── cpp.vim
+│&nbsp;      └── c.vim
+├── autoload
+│&nbsp;  └── omni
+│&nbsp;      ├── common
+│&nbsp;      │&nbsp;  ├── debug.vim
+│&nbsp;      │&nbsp;  └── utils.vim
+│&nbsp;      └── cpp
+│&nbsp;          ├── complete.vim
+│&nbsp;          ├── includes.vim
+│&nbsp;          ├── items.vim
+│&nbsp;          ├── maycomplete.vim
+│&nbsp;          ├── namespaces.vim
+│&nbsp;          ├── settings.vim
+│&nbsp;          ├── tokenizer.vim
+│&nbsp;          └── utils.vim
+└── doc
+    └── omnicppcomplete.txt
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">打开vim，在命令行模式下输入<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">:helptags ~/.vim/bundle/omnicppcomplete/doc</code>即可加载说明文档，输入<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">:help omnicppcomplete</code>查看说明文档</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">配置</span><br>打开~/.vimrc文件，输入</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">filetype plugin indent on
+set completeopt=longest,menu
+let OmniCpp_NamespaceSearch = 2     " search namespaces in the current buffer   and in included files
+let OmniCpp_ShowPrototypeInAbbr = 1 " 显示函数参数列表
+let OmniCpp_MayCompleteScope = 1    " 输入 :: 后自动补全
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">测试</span><br>前面说过，omni插件的补全是依赖于tags文件的，因此需要我们手动建立tags文件，假设现在有两个文件hello.h和hello.cpp如下<br><img style="max-width: 100%; vertical-align: baseline; border-width: 0px; padding: 0px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/160613152360123.png" alt=""></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">我们在和这两个文件所在的目录输入</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这样就生成了tags文件，然后我们打开main.cpp来测试，当输入hello.h和hello.cpp中的函数或结构体时，通过按<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">ctr+x ctr+o</code>就可以自动补全了，效果如下<br><img style="max-width: 100%; vertical-align: baseline; border-width: 0px; padding: 0px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/160613152360124.png" alt=""></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">通过按ctr+n和ctr+p可以对候选项进行上下选择。通过这种方式可以实现对函数、结构体的补全</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">对STL补全</span><br>上面的方式只能对自己的代码进行补全，是当我们要使用其它库比如STL甚至是第三方库时就无法补全，原因很简单，我们只对自己的代码建立了tags文件，想要对其它库进行补全，就必须对它们的源代码建立tags文件，所幸的是vim的插件编写者们早已解决了这个需求，并且他们专门针对STL头文件进行了修改，以便能更好的适应omni的补全，首先下载STL源代码，地址为<a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="http://www.vim.org/scripts/script.php?script_id=2358" target="_blank">http://www.vim.org/scripts/script.php?script_id=2358</a>，可通过如下命令下载并解压</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">mkdir -p ~/.vim/tags &amp;&amp; cd ~/.vim/tags &amp;&amp; wget "http://www.vim.org/scripts/download_script.php?src_id=9178" -O - | tar jxvf -
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这样就将STL的源码下载到了~/.vim/tags/cpp_src目录下，我们在该目录下执行ctags命令</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这样就生成了~/.vim/tags/cpp_src/tags这个文件，然后打开~/.vimrc进行如下设置</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">set tags+=~/.vim/tags/cpp_src/tags
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">该命令是设置tags文件的搜索路径，默认只有vim工作目录的tags文件，这样设置之后就会同时加载指定目录的tags文件，你可以在后面添加更多其它第三方库的tags文件，现在对STL的补全效果如下</p>
+<div style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; color: #444444; line-height: 24px; border-width: 0px; padding: 0px;" align="center"><img style="max-width: 100%; vertical-align: baseline; border-width: 0px; padding: 0px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/160613152360125.png" alt=""></div>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">omnicppcomplete的补全设置虽然麻烦，但也让我们更加清楚了插件是怎样工作的，作为程序员，至少应该对某些东西的工作原理搞清楚，而不是像使用IDE一样不管任何东西，你想自定义一下东西也无从下手。</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">omnicppcomplete触发补全需要用到<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">ctr+x ctr+o</code>，显然这是不友好的，熟悉Linux命令行的人一定对shell命令的补全印象深刻，只需要按一下TAB键就可以进行补全，vim插件的强大之处在于，它可以实现你几乎所有的需求，想要用TAB键进行补全，就需要用到SuperTab</p>
+<h4 style="font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; color: #444444; clear: both; line-height: 1.8461; border-width: 0px; padding: 0px;">SuperTab</h4>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">项目地址</span><br><a style="vertical-align: baseline; color: #9f9f9f; outline-style: none; border-width: 0px; padding: 0px;" href="https://github.com/ervandew/supertab" target="_blank">https://github.com/ervandew/supertab</a></p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">安装</span><br>使用git进行安装是最方便的</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">cd ~/.vim/bundle &amp;&amp; git clone https://github.com/ervandew/supertab.git
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;"><span style="vertical-align: baseline; border-width: 0px; padding: 0px;">测试</span><br>无需任何配置即可使用，这时你想要补全变量名或函数名只需按一下TAB键即可，出现候选窗口之后也可以用TAB键进行选择，这样是不是方便了很多！</p>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">由于TAB键被映射成了补全快捷键，也就无法通过TAB键直接输入制表符，这时如果想要输入制表符可以通过<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">ctr+v TAB</code>即可，即先输入ctr+v再输入TAB键，在vim下通过ctl+v可以输入很多不可见字符，比如试试<code style="font-size: 12px; vertical-align: baseline; white-space: nowrap; padding-bottom: 0px; padding-top: 0px; padding-left: 5px; margin: 0px 2px; padding-right: 5px; background-color: #f8f8f8; border: #eaeaea 1px solid;">ctr+v ctr+w</code></p>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">最终的配置文件</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">装了这么多插件，在配置文件~/.vimrc里也增添了不少内容，最后你的配置文件至少应该包含以下内容</p>
+<pre style="font-size: 13px; overflow: auto; vertical-align: baseline; color: #444444; padding-bottom: 6px; padding-top: 6px; padding-left: 10px; line-height: 19px; padding-right: 10px; background-color: #f8f8f8; border: #cccccc 1px solid;"><code style="vertical-align: baseline; background: none transparent scroll repeat 0% 0%; margin: 0px; border-style: none; padding: 0px;">set tags+=~/.vim/tags/cpp_src/tags   " 设置tags搜索路径
+syntax on
+filetype plugin indent on
+
+map &lt;C-n&gt; :NERDTree&lt;CR&gt;
+
+" pathongen
+execute pathogen#infect()
+
+" taglist
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1
+let Tlist_Sort_Type="name"
+
+" omnicppcomplete
+set completeopt=longest,menu
+let OmniCpp_NamespaceSearch = 2     " search namespaces in the current buffer and in included files
+let OmniCpp_ShowPrototypeInAbbr = 1 " 显示函数参数列表
+let OmniCpp_MayCompleteScope = 1    " 输入 :: 后自动补全
+let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+</code></pre>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">这个配置文件全都是和插件相关的配置，你还可以在里面添加其它配置来灵活定制你的vim，由于本文主要介绍插件相关内容，就不展开介绍了</p>
+<h3 style="border-left-width: 0px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; border-right-width: 0px; vertical-align: baseline; border-bottom: #cccccc 1px solid; color: #444444; clear: both; line-height: 1.6; border-top-width: 0px; padding: 0px;">总结</h3>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">vim的C++开发环境到此就配好了，总的来说我们安装了这么几类插件</p>
+<ol style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; list-style-position: outside; color: #444444; line-height: 24px; border-width: 0px; padding: 0px;">
+<li style="vertical-align: baseline; border-width: 0px; padding: 0px;">管理插件的插件</li>
+<li style="vertical-align: baseline; border-width: 0px; padding: 0px;">管理窗口和buffer</li>
+<li style="vertical-align: baseline; border-width: 0px; padding: 0px;">语法增强</li>
+<li style="vertical-align: baseline; border-width: 0px; padding: 0px;">代码补全</li>
+</ol>
+<p style="font-size: 14px; font-family: &#39;Open Sans&#39;,Helvetica,Arial,sans-serif; vertical-align: baseline; margin-top: 0px; color: #444444; padding-bottom: 0px; padding-top: 0px; line-height: 24px; border-width: 0px;">通过这些插件我们可以将vim打造成一个好用的IDE，虽然经过了很多周折，但这些功夫都不会白费，一来我们可以通过这些插件了解IDE的一些工作原理，二来通过这些插件的安装我们也更加了解了vim插件的使用方法，有了这些基础，后续如果想满足一些个性化的需求，岂不易哉！</p>
+<p><span style="font-size: small;"><strong>更多<span style="color: #ff0000;">Vim</span>相关教程见以下内容</strong></span>：</p>
+<p>Vim学习指南 <a href="https://www.linuxidc.com/Linux/2013-08/89096.htm">http://www.linuxidc.com/Linux/2013-08/89096.htm</a></p>
+<p>快速学会 Vi编辑器 <a href="https://www.linuxidc.com/Linux/2013-08/88586.htm">http://www.linuxidc.com/Linux/2013-08/88586.htm</a></p>
+<p>强大的Vim 编辑器 <a href="https://www.linuxidc.com/Linux/2013-07/87544.htm">http://www.linuxidc.com/Linux/2013-07/87544.htm</a></p>
+<p>在CentOS 6.2上搭建Vim开发环境 <a href="https://www.linuxidc.com/Linux/2013-07/87363.htm">http://www.linuxidc.com/Linux/2013-07/87363.htm</a></p>
+<p>CentOS 5.4 安装高亮Vim编辑工具 <a href="https://www.linuxidc.com/Linux/2013-06/86508.htm">http://www.linuxidc.com/Linux/2013-06/86508.htm</a></p>
+<p>Vim技巧分享:C语言设置 <a href="https://www.linuxidc.com/Linux/2012-12/77124.htm">http://www.linuxidc.com/Linux/2012-12/77124.htm</a></p>
+<p>Ubuntu中设置Vim的行号 <a href="https://www.linuxidc.com/Linux/2012-12/75485.htm">http://www.linuxidc.com/Linux/2012-12/75485.htm</a></p>
+<p><span style="font-size: small;"><strong>本文永久更新链接地址</strong></span>：<a href="https://www.linuxidc.com/Linux/2016-06/132262.htm">http://www.linuxidc.com/Linux/2016-06/132262.htm</a></p><a href="http://www.linuxidc.com/" target="_blank"><img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/logo.gif" alt="linux" width="15" height="17"></a></div><a href="http://www.linuxidc.com/" target="_blank">
+<div class="linux3"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux3.js.下载"></script><script async="" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(10).txt"></script>
+<!-- 728x90, 创建于 09-12-17 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5195587195407606" data-ad-slot="6090386898" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:728px;height:90px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/saved_resource(5).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div class="linux302"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux302.js.下载"></script></div>		
+			
+			
+		</a></div><a href="http://www.linuxidc.com/" target="_blank">
+<div class="linuxfx"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/fx.js.下载"></script></div>	
+<div class="linux8"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux8.js.下载"></script><script async="" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(10).txt"></script>
+<!-- Google匹配内容 -->
+<ins class="adsbygoogle" style="display:inline-block;width:760px;height:410px" data-ad-client="ca-pub-5195587195407606" data-ad-slot="7446930524" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:410px;margin:0;padding:0;position:relative;visibility:visible;width:760px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:410px;margin:0;padding:0;position:relative;visibility:visible;width:760px;background-color:transparent;"><iframe width="760" height="410" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:760px;height:410px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/saved_resource(6).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</a><div class="linux801"><a href="http://www.linuxidc.com/" target="_blank"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux801.js.下载"></script></a><p style="text-align: center;"><a href="http://www.linuxidc.com/" target="_blank"></a><a href="https://www.linuxidc.com/Linux/2014-08/106019.htm" target="_blank"><span style="color: #ff0000; font-size: medium;"><strong>关注Linux公社（LinuxIDC.com）官方微信与QQ群，随机发放邀请码</strong></span></a></p>
+</div>
+		<div class="nearNews">
+			<div class="prevNews"><a href="https://www.linuxidc.com/Linux/2016-06/132238.htm">十招让Ubuntu 16.04用起来更得心应手</a></div>
+			<div class="nextNews"><a href="https://www.linuxidc.com/Linux/2016-06/132267.htm">CentOS无法启动的时候该怎么进入救援模式</a></div>
+		</div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+<div class="linux809"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux809.js.下载"></script></div>
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">相关资讯</span> &nbsp; &nbsp; &nbsp;
+		<a href="https://www.linuxidc.com/search.aspx?where=nkey&amp;keyword=1047" target="_blank">Vim</a>&nbsp; <a href="https://www.linuxidc.com/search.aspx?where=nkey&amp;keyword=43949" target="_blank">Vim打造成IDE</a>&nbsp; 
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<table width="100%"><tbody><tr><td width="50%" valign="top"><ul class="nl"><li><a href="https://www.linuxidc.com/Linux/2018-05/152571.htm" target="_blank" title="在Linux中使用Vi/Vim文本编辑器的10个理由">在Linux中使用Vi/Vim文本编辑器的</a>&nbsp; <span class="gray">(<span class="time">今 21:09</span>)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-03/151584.htm" target="_blank" title="Linux下使用vim命令编辑与修改文本内容">Linux下使用vim命令编辑与修改文本</a>&nbsp; <span class="gray">(03月27日)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-12/149878.htm" target="_blank" title="Ubuntu 16.04 IDE: 用Vim逐步打造一个IDE">Ubuntu 16.04 IDE: 用Vim逐步打造</a>&nbsp; <span class="gray">(12/27/2017 13:07:47)</span></li>
+</ul></td><td width="50%" valign="top"><ul class="nl"><li><a href="https://www.linuxidc.com/Linux/2018-05/152392.htm" target="_blank">如何在Vi/Vim文本编辑器中保存文件</a>&nbsp; <span class="gray">(05月15日)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-03/151378.htm" target="_blank" title="如何在使用 Vim 时访问/查看 Python 帮助">如何在使用 Vim 时访问/查看 </a>&nbsp; <span class="gray">(03月14日)</span></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-11/148845.htm" target="_blank" title="sed命令详解 Vim高级技巧 Shell编程上">sed命令详解 Vim高级技巧 Shell编</a>&nbsp; <span class="gray">(11/24/2017 12:08:05)</span></li>
+</ul></td></tr></tbody></table>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+<div class="linux808"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux808.js.下载"></script></div>
+	
+	<div class="mframe mR">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">本文评论</span>
+		 	　　<a href="https://www.linuxidc.com/remark.aspx?id=132262" target="_blank">查看全部评论</a> <span class="gray">(2)</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<table width="100%" style="margin:6px">		
+		<tbody><tr><td width="50%">
+			<form action="https://www.linuxidc.com/Linux/2016-06/132262.htm" name="fmRemarkSt" onsubmit="return remark.post(this);">
+			<input type="hidden" value="1" name="face" disabled="disabled">
+			表情： <img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" alt="表情" class="face1" style="cursor:pointer;vertical-align:middle" onclick="remark.dispFace(this)" onmouseout="remark.hideFace()">
+			姓名： <input type="text" name="username" value="" maxlength="15" style="width:60px" class="inputbg" disabled="disabled">
+			<input type="checkbox" id="rmAnonymitySt" onclick="remark.anony(this)" disabled="disabled"><label for="rmAnonymitySt">匿名</label>
+			字数 <input type="text" id="bodyLen" size="3" readonly="readonly" style="border-width:0;background:transparent;vertical-align:middle" value="0" disabled="disabled">
+			<br>
+			<textarea name="body" cols="40" rows="4" onkeydown="remark.dispLen(this)" onkeyup="remark.handle(event,this);remark.dispLen(this)" style="width:39em;height:100px;margin:3px 0;overflow-y:auto" disabled="disabled"></textarea>
+				<br>
+		　　　<input type="checkbox" checked="checked" id="rmAgreeSt" disabled="disabled"><label for="rmAgreeSt">同意评论声明</label>
+		　　　<button type="submit" style="width: 50px; padding: 0px;" disabled="disabled">请登录</button>
+			</form><br>
+			评论声明
+			<ul style="list-style-type:square;margin:5px 0 0 1em;padding:0">
+			<li>尊重网上道德，遵守中华人民共和国的各项有关法律法规</li>
+			<li>承担一切因您的行为而直接或间接导致的民事或刑事法律责任</li>
+			<li>本站管理人员有权保留或删除其管辖留言中的任意内容</li>
+			<li>本站有权在网站内转载或引用您的评论</li>
+			<li>参与本评论即表明您已经阅读并接受上述条款</li>
+			</ul>
+		</td>
+		<td width="50%"><div class="linux799"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux799.js.下载"></script><img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/weixin.png" alt="" width="291" height="250">
+</div></td></tr>
+		</tbody></table>
+		<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/remark.js.下载"></script>
+		<script type="text/javascript">
+			remark.maxSize=500;
+			remark.minSize=2;
+			remark.sourceEle=$(document.fmRemarkSt).find("button").get(0);
+			iwms.vCode="CC74440A";
+			iwms.user.name.length==0 ? $i("rmAnonymitySt").click() : $i("rmAnonymitySt").form.username.value=iwms.user.name;
+		</script>
+		<div class="reCont" id="reContainer"><div class="reHead"><div class="reLayer">第 2 楼</div><img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" class="face1" alt="*"> <span class="reName">匿名</span> 发表于 <span class="reDate">2017/12/22 11:20:02</span></div><div class="reBody">root  下配置的，一般用户不能用？<br></div><div class="reFun"><a href="https://www.linuxidc.com/Linux/2016-06/132262.htm###" onclick="remark.disp(this,11103)">回复</a> <a href="https://www.linuxidc.com/Linux/2016-06/132262.htm###" onclick="remark.vote(this,11103,1)">支持</a><span> (0)</span> <a href="https://www.linuxidc.com/Linux/2016-06/132262.htm###" onclick="remark.vote(this,11103,0)">反对</a><span> (0)</span></div><div class="reHead"><div class="reLayer">第 1 楼</div><img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/b.gif" class="face1" alt="*"> <span class="reName">匿名</span> 发表于 <span class="reDate">2017/9/1 10:19:54</span></div><div class="reBody">学习了 谢谢</div><div class="reFun"><a href="https://www.linuxidc.com/Linux/2016-06/132262.htm###" onclick="remark.disp(this,10667)">回复</a> <a href="https://www.linuxidc.com/Linux/2016-06/132262.htm###" onclick="remark.vote(this,10667,1)">支持</a><span> (0)</span> <a href="https://www.linuxidc.com/Linux/2016-06/132262.htm###" onclick="remark.vote(this,10667,0)">反对</a><span> (0)</span></div></div>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	
+</td><td width="300" valign="top">
+<div class="linux901"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux901.js.下载"></script></div>
+<div class="linux902"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux902.js.下载"></script><a href="https://www.linuxprobe.com/chapter-00.html" rel="nofollow" target="_blank"><img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/lws.jpg" alt="" width="300" height="300"></a>
+</div>
+<div class="linux903"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux903.js.下载"></script></div>
+<div class="linux905"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux905.js.下载"></script></div>
+	
+	<div class="lframe">
+	<div class="tl"></div>
+	<div class="tr"></div>
+	<div class="tm">
+		<span class="tt">最新资讯</span>
+	</div>
+	<div class="wrapper">
+	<div class="ml"></div>
+	<div class="mr"></div>
+	<div class="mm">
+		<ul class="nl">
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152571.htm" target="_blank">在Linux中使用Vi/Vim文本编辑器的10个理由</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152570.htm" target="_blank">spf13-vim - Vim编辑器的终极版本</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152569.htm" target="_blank" title="Spotify 的音乐授权官司以 1.12 亿美元和解作结">Spotify 的音乐授权官司以 1.12 亿美元和解</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152568.htm" target="_blank" title="Google 和 LG Display 做出了目前分辨率最高的 VR 屏幕">Google 和 LG Display 做出了目前分辨率最</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152567.htm" target="_blank">Oracle表空间和数据文件管理</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152566.htm" target="_blank">Oracle创建表及管理表</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152565.htm" target="_blank">如何在 Ubuntu 上安装和优化 Apache</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152564.htm" target="_blank">Ubuntu 16.04下JDK+Hadoop+Spark环境搭建</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152563.htm" target="_blank">Java实现小型图书管理系统.docx</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2018-05/152562.htm" target="_blank" title="Hadoop数据分析平台II 实验指导 实验二 Spark编程实践.doc">Hadoop数据分析平台II 实验指导 实验二 </a></li>
+</ul>
+	</div>
+	</div>
+	<div class="bl"></div>
+	<div class="br"></div>
+	<div class="bm"></div>
+	</div>
+	<div class="u70"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/u70.js.下载"></script></div>
+	<div class="u80"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/u80.js.下载"></script></div>
+	<div class="u90"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/u90.js.下载"></script></div>
+	<div class="space"></div>
+	<div id="pin" style="position: fixed; top: 0px;">
+	<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/pin.js.下载"></script><script async="" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/f(10).txt"></script>
+<!-- 右侧粘性自适应 -->
+<ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-client="ca-pub-5195587195407606" data-ad-slot="7669622914" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_4_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;width:300px;height:600px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/saved_resource(7).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+	</div>
+</td></tr>
+</tbody></table>
+<div class="linux906"><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linux906.js.下载"></script></div>
+<div id="footer">
+<a href="http://www.linuxidc.com/aboutus.htm">Linux公社简介</a> - <a href="http://www.linuxidc.com/adsense.htm">广告服务</a> - <a href="http://www.linuxidc.com/sitemap.aspx">网站地图</a> - <a href="http://www.linuxidc.com/help.htm">帮助信息</a> - <a href="http://www.linuxidc.com/contactus.htm">联系我们</a><br>本站（LinuxIDC）所刊载文章不代表同意其说法或描述，仅为提供更多信息，也不构成任何建议。<br><script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/qq.js.下载"></script>主编：漏网的鱼 联系邮箱:<img src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/email.png" alt="" width="138" height="20"> (如有合作请联系)
+<br>
+<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/foot.js.下载"></script>本站带宽由[<font color="red">808.Ai</font>]友情提供<br>关注Linux，关注LinuxIDC.com，<font color="red">请向您的QQ好友宣传LinuxIDC.com</font>，多谢支持！
+<br>Copyright © 2006-2017　<a href="http://www.linuxidc.com/">Linux公社</a>　All rights reserved 浙ICP备07014134号-8
+	<script type="text/javascript">iwms.aId=132262;$(function(){iwms.imgCont=$i('content');iwms.imgResize();InitContStyle();iwms.getVars();})</script>
+	
+</div>
+</div>
+<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linuxren1.js.下载"></script><script type="text/javascript">
+document.body.oncopy = function () { setTimeout( function () { var text = clipboardData.getData("text"); if (text) { text = text + "\r\n本篇文章来源于 Linux公社网站(www.linuxidc.com)  原文链接："+location.href; clipboardData.setData("text", text); } }, 100 ) }
+</script>
+
+<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linuxren2.js.下载"></script>
+<script type="text/javascript" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/linuxren3.js.下载"></script><script src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/h.js.下载" type="text/javascript"></script>
+
+<iframe id="google_osd_static_frame_5570089055020" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/saved_resource(8).html"></iframe><div id="hm_t_undefined" class="hm-t-container"><div class="hm-t-go-top" style="display: block;"></div></div></body><iframe id="google_esf" name="google_esf" src="./把Vim打造成优秀的C++ IDE_Linux教程_Linux公社-Linux系统门户网站_files/zrt_lookup.html" style="display:none" data-ad-client="ca-pub-5195587195407606"></iframe></html>

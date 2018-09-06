@@ -1,0 +1,27 @@
+
+digraph startgame {
+    node [fontname="SimHei"];  // 设置节点属性，这里设置字体为黑体
+    n1[label="TCP Socket" shape=box];
+    n2[label="Data" shape=diamond];
+    n3[label="h2\nParse Data" shape=ellipse];
+    n4[label="h2\nEvents" shape=diamond];
+    n5[label="gethy\nUpdate\nBuffers" shape=ellipse];
+    n6[label="gethy\nUParse\nBuffers" shape=ellipse];
+    n7[label="gethy\nEvents" shape=diamond];
+    n8[label="External\nHandlers" shape=box];
+
+    rankdir=TB;    
+    {
+        rank=same;
+        n1 -> n2 [arrowhead="none"];
+        n2 -> n3;
+        n3 -> n4 [arrowhead="none"];
+    }
+    {        
+        rank=same;
+        n8 -> n7[dir="back"];
+        n7 -> n6[arrowhead="none"];
+        n6 -> n5[dir="back"];
+    }    
+    n4 -> n5;
+}

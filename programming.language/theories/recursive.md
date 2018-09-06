@@ -3,15 +3,15 @@
 ***
 
 # 转载于云栖社区
-* [递归函数（一）：开篇](https://yq.aliyun.com/articles/72770?spm=a2c4e.11153940.blogcont72768.7.1ad39fc7Fyq0sf)
-* [递归函数（二）：编写递归函数的思路和技巧](https://yq.aliyun.com/articles/72769?spm=a2c4e.11153940.blogcont72770.9.5e48b9ffUrhVeC)
-* [递归函数（三）：归纳原理](https://yq.aliyun.com/articles/72768?spm=a2c4e.11153940.blogcont72770.10.5e48b9ffUrhVeC)
-* [递归函数（四）：全函数与计算的可终止性](https://yq.aliyun.com/articles/72783?spm=a2c4e.11153940.blogcont72770.11.5e48b9ffUrhVeC)
-* [递归函数（五）：递归集与递归可枚举集](https://yq.aliyun.com/articles/72757?spm=a2c4e.11153940.blogcont72770.12.5e48b9ffUrhVeC)
-* [递归函数（六）：最多有多少个程序](https://yq.aliyun.com/articles/72782?spm=a2c4e.11153940.blogcont72770.13.5e48b9ffUrhVeC)
-* [递归函数（七）：不动点算子](https://yq.aliyun.com/articles/72781?spm=a2c4e.11153940.blogcont72770.14.5e48b9ffUrhVeC)
-* [递归函数（八）：偏序结构](https://yq.aliyun.com/articles/72767?spm=a2c4e.11153940.blogcont72770.15.5e48b9ffUrhVeC)
-* [递归函数（九）：最小不动点定理](https://yq.aliyun.com/articles/72771?spm=a2c4e.11153940.blogcont72770.16.5e48b9ffUrhVeC)
+* [递归函数(一): 开篇](https://yq.aliyun.com/articles/72770?spm=a2c4e.11153940.blogcont72768.7.1ad39fc7Fyq0sf)
+* [递归函数(二): 编写递归函数的思路和技巧](https://yq.aliyun.com/articles/72769?spm=a2c4e.11153940.blogcont72770.9.5e48b9ffUrhVeC)
+* [递归函数(三): 归纳原理](https://yq.aliyun.com/articles/72768?spm=a2c4e.11153940.blogcont72770.10.5e48b9ffUrhVeC)
+* [递归函数(四): 全函数与计算的可终止性](https://yq.aliyun.com/articles/72783?spm=a2c4e.11153940.blogcont72770.11.5e48b9ffUrhVeC)
+* [递归函数(五): 递归集与递归可枚举集](https://yq.aliyun.com/articles/72757?spm=a2c4e.11153940.blogcont72770.12.5e48b9ffUrhVeC)
+* [递归函数(六): 最多有多少个程序](https://yq.aliyun.com/articles/72782?spm=a2c4e.11153940.blogcont72770.13.5e48b9ffUrhVeC)
+* [递归函数(七): 不动点算子](https://yq.aliyun.com/articles/72781?spm=a2c4e.11153940.blogcont72770.14.5e48b9ffUrhVeC)
+* [递归函数(八): 偏序结构](https://yq.aliyun.com/articles/72767?spm=a2c4e.11153940.blogcont72770.15.5e48b9ffUrhVeC)
+* [递归函数(九): 最小不动点定理](https://yq.aliyun.com/articles/72771?spm=a2c4e.11153940.blogcont72770.16.5e48b9ffUrhVeC)
 
 # 归纳原理
 
@@ -77,8 +77,8 @@
 
 &emsp;还是用反证法:  
 &emsp;我们期望证明,
-&emsp;前提：如果$P(b)$对于所有的$b≺a$成立, 必然有$P(a)$成立,
-&emsp;结论：那么对于所有的$a\in A$, $P(a)$都成立.
+&emsp;前提: 如果$P(b)$对于所有的$b≺a$成立, 必然有$P(a)$成立,
+&emsp;结论: 那么对于所有的$a\in A$, $P(a)$都成立.
 
 &emsp;如若不然, 假设存在 $x\in A$, 使得 $P(x)$ 不成立,
 &emsp;则集合 $B=\{ a\in A | \neg P(a)\}$ 非空, 因此根据良基关系的等价定义, 集合 $B$ 必有最小元 $m\prec B\subseteq A$, 而且,  $\neg P(m)$ 成立.  
@@ -104,7 +104,7 @@
 
 如果$\forall a\in A$都有$f(a)\downarrow$，则称$f$是$A$上的全函数，此时，可以记为$f:A\rightarrow B$。
 
->可见，我们熟悉的函数，指是全函数. 值得注意的是，部分函数的定义已经包含了我们学过的“函数”的定义, 后文中，我们提到的“函数”如果不强调它的完全性的话，都泛指部分函数。
+>可见，我们熟悉的函数，是指全函数. 值得注意的是，部分函数的定义已经包含了我们学过的“函数”的定义, 后文中，我们提到的“函数”如果不强调它的完全性的话，都泛指部分函数。
 
 
 
