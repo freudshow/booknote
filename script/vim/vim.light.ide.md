@@ -127,6 +127,7 @@ cp -r vim-pathogen/autoload/ ~/.vim/
 cp -r syntastic/ ~/.vim/bundle/
 cp -r auto-pairs/ ~/.vim/bundle/
 cp -r nerdcommenter/ ~/.vim/bundle/
+cp -r nerdtree/ ~/.vim/bundle/
 cp -r vim-snipmate/ ~/.vim/bundle/snipMate
 cp -r taglist/ ~/.vim/bundle/
 mkdir -p ~/.vim/tags
