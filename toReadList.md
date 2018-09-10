@@ -1,0 +1,20 @@
+# <center>计划的读书单</center>
+
+## 计算机
+- Compilers: Principles, Techniques, and Tools
+- Engineering a Compiler
+- Modern Compiler Implementation in C
+- APUE.3e
+- CSAPP.3e
+- Computer Networks.5e - Andrew S.Tanenbaum
+- The Practice of Programming
+- Operating System Concepts.9e
+
+## 数学
+- 陶哲轩实分析.2e
+- Discrete Mathematics and Its Applications.7e
+- Probability-I.3e
+- Linear Algebra done rigtht.3e
+- 初等数论及其应用
+- 图论导引
+- 数学分析原理
