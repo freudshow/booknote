@@ -29,6 +29,9 @@
 | `\iota`    | $\iota$      |                |              |               |                 |
 | `o`        | $o$          |                |              |               |                 |
 
+> There is no uppercase of some of the letters like `\Alpha`, `\Beta` and so on,
+because they look the same as normal roman letters: $A, B\cdots$
+
 ## 常用特殊字符表
 
 | Name         | Display        | Name         | Display        | Name     | Display    | Name      | Display     |
@@ -88,6 +91,17 @@
 
 - 公式中插入空格`\,  \;  \quad  \qquad`间隔依次变宽：
     $$ ab $$ $$ a\,b $$ $$ a\;b $$ $$ a\quad b $$ $$ a\qquad b $$
+
+说明|代码|效果| 宽度
+:--:|:--:|:--:|:--:
+两个quad空格 | `a \qquad b` | $a \qquad b$ | 两个m的宽度
+quad空格 | `a \quad b` | $a \quad b$ | 一个m的宽度
+大空格 | `a\ b` | $a\ b$ | 1/3m宽度
+中等空格 | `a\;b` | $a\;b$ | 2/7m宽度
+小空格 | `a\,b` | $a\,b$ | 1/6m宽度
+没有空格 | `ab` | $ab\,$ |  
+紧贴 | `a\!b` | $a\!b$ | 缩进1/6m宽度
+
 
 - 字母上方横线`\overline{}, \bar{}`：
     $$ \overline{xyz} \boxed{ 或 } \bar{x} $$
