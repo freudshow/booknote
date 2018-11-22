@@ -5,8 +5,16 @@
 
 ### **字母表**
  $Alphabet$: A finite set of symbols  
- 字母表即是一个有限的符号的集合  
-例如: $\{0,\,1\}$, $\{a,\,b,\,c,\cdots,z\}$, ASCII 码的全体符号集, Unicode 码的全体符号集合, 等等.
+ 字母表即是一个非空有穷集合 字母表中的元素被称为该字母表的一个字母($letter$), 也可叫做符号($symbol$)或字符($character$)  
+例如: $\{0,\,1\}$, $\{a,\,b,\,c,\cdots,z\}$, ASCII 码的全体符号集, Unicode 码的全体符号集合, 等等.  
+字母表的性质:
+- 整体性($monolith$), 也叫不可拆分性. 如 $\Sigma \,=\,\{aa, bb, a, ba\}$, 其中的aa, ba等字符是不能再拆分成a, b等符号的, 必须以整体同时出现.
+- 可辨认性($distinguishable$), 也叫可区分性. 字母表中的任意两个字符是不相同的, 可以区分的. 如$\Sigma \,=\,\{a, bb, a, ba\}$, 这就不叫一个字母表, 因为其中出现了不可区分的元素$a$和$a$, 其实它也不是一个集合.
+
+### **字母表的乘积**
+设$\Sigma_1$和$\Sigma_2$是两个字母表, $\Sigma_1$与$\Sigma_2$的乘积($product$):  
+$\Sigma_1 \Sigma_1\,=\,\{ab\,|\,a\in \Sigma_1,\,b\in \Sigma_2 \}$  
+例如: $\{0,\,1\}\{a,\,b\}\,=\,\{0a,\,0b,\,1a,\,1b \}$
 
 ### **字符串**
 $String$: A finite sequence of symbols from an alphabet  
