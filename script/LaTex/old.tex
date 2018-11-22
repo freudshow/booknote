@@ -1,0 +1,25 @@
+\documentclass{article}
+%
+% 设置中文字体
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[SlantFont,BoldFont,CJKchecksingle,CJKnumber]{xeCJK}
+\newcommand\fontnamehei{SimHei}% 黑体
+\newcommand\fontnamesong{SimSun}% 宋体
+\newcommand\fontnamekai{KaiTi_GB2312}% 楷体
+\newcommand\fontnameyahei{Yahei Mono}% 雅黑
+\defaultfontfeatures{Mapping=tex-text}
+\setCJKmainfont[BoldFont=\fontnamehei,ItalicFont=\fontnamekai]{\fontnamesong}
+\setCJKmonofont{\fontnameyahei}
+\setCJKsansfont[BoldFont=\fontnamehei]{\fontnameyahei}
+\XeTeXlinebreaklocale "zh"          % 使用中文的换行风格
+\XeTeXlinebreakskip = 0pt plus 1pt  % 调整换行逻辑的弹性大小
+%
+% 设置标题、作者、日期
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{你好，world!}
+\author{Liam}
+\date{\today}
+\begin{document}
+\maketitle
+你好，world!
+\end{document}

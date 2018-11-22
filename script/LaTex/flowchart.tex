@@ -1,0 +1,59 @@
+\documentclass{standalone}
+\usepackage{newtxmath}
+\usepackage{palatino}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\begin{document}
+\thispagestyle{empty}
+% 流程图定义基本形状
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width = 2cm, minimum height=1cm,text centered, draw = black, fill = red!40]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill = blue!40]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill = yellow!50]
+\tikzstyle{decision} = [diamond, aspect = 3, text centered, draw=black, fill = green!30]
+% 箭头形式
+\tikzstyle{arrow} = [->,>=stealth]
+\begin{tikzpicture}[node distance=2cm]
+%定义流程图具体形状
+\node (start) [startstop]
+{Start};
+\node (in1) [io, below of = start]
+{Initial $x_0=(x_{01},x_{02},\cdots)$};
+\node (pro1) [process, right of = in1, xshift = 5cm]
+{Calculation $u_0=f(x_0)$};
+\node (pro4) [process, below of = in1]
+{New result $u^*=f(x_0^*)$};
+\node (pro3) [process, below of=pro1]
+{New solution $x_0^*=(\cdots,x_{0i},\cdots$)};
+\node (pro2) [process, right of=pro3, xshift = 4cm]
+{Randomly change $x_0$ into $x_0^*$};
+\node (dec1) [decision, below of=pro4]
+{Optimized?};
+\node (pro5) [process, below of=pro3]
+{Accept new solution probobly};
+\node (pro6) [process, below of=dec1]
+{Accept new solution};
+\node (dec2) [decision, below of=pro5]
+{Enough iterations?};
+\node (pro7) [process, below of=dec2]
+{Accept new solution as optimized solution};
+\node (out1) [io, below of=pro6]
+{Output $x_0^*$};
+\node (stop) [startstop, below of=out1]
+{stop};
+%连接具体形状
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1) -- (pro1);
+\draw [arrow] (pro1) -| (pro2);
+\draw [arrow] (pro2) -- (pro3);
+\draw [arrow] (pro3) -- (pro4);
+\draw [arrow] (pro4) -- (dec1);
+\draw [arrow] (dec1) --node [above] {N} (pro5);
+\draw [arrow] (dec1) --node [right] {Y} (pro6);
+\draw [arrow] (pro6) -- (dec2);
+\draw [arrow] (pro5) -- (dec2);
+\draw [arrow] (dec2) -|node [right] {N} (pro2);
+\draw [arrow] (dec2) --node [right] {Y} (pro7);
+\draw [arrow] (pro7) -- (out1);
+\draw [arrow] (out1) -- (stop);
+\end{tikzpicture}

@@ -24,7 +24,7 @@ A set of strings over an alphabet
 - 连接($Concatenation$)运算: 一个字符串紧接着另一个字符串. 例如: $LM = \{man, men, woman, women\}$.
 - 并($Union$)运算: 将两个语言的所有字符串做并运算. 例如: $L \cup M = \{\epsilon,\,wo,\,man,\,men\}$.
 - 克林闭包(Kleene Closure)运算: $M^∗ = \{\epsilon,\,M,\,MM,\,MMM,\,\cdots\} =\{\epsilon,\,man,\,men,\,manman,\,manmen,\,menman,\,menmen,\,manmanman,\,manmanmen,\,manmenman,\,\cdots\}$
-
+- 正闭包运算: $M^+\,=\,MM^*$, 即$M$至少出现一次
 ### **有限状态自动机**
 
 以下内容摘抄自 《Engineering a compiler》  
@@ -89,7 +89,42 @@ digraph finite_state_machine {
 - 由于 $(b|c)$ 是 $RE$, 那么根据规则5, 他的闭包 $(b|c)^*$ 也是 $RE$;
 - 由于 $a$ 和 $(b|c)^*$ 都是$RE$, 那么根据规则3, 他们的连接 $a(b|c)^*$ 也是 $RE$.  
 
-由此可见, 递归的使用规则1~5, 可以判断一个表达式是否是正则表达式.
+由此可见, 递归的使用规则1~5, 可以判断一个表达式是否是正则表达式.  
+
+>注: 为了方便, 通常对于一个字母表中的连续且有序的字符, 用中括号+开始字符+"..."+结束字符+中括号做为选择运算的简记: 比如$[0\dots 9]$, 与正则表达式 $(0|1|2|3|4|5|6|7|8|9)$等同; $[a\dots z]$, 与正则表达式$(a\,|\, b\,|\, c\,|\, d\,|\, e\,|\, f\,|\, g\,|\, h\,|\, i\,|\, j\,|\, k\,|\, l\,|\, m\,|\, n\,|\, o\,|\, p\,|\, q\,|\, r\,|\, s\,|\, t\,|\, u\,|\, v\,|\, w\,|\, x\,|\, y\,|\, z\,|\, )$等同.  
+
+> 补集记号: 设$\Sigma$是一个字母表, 字符$c\in \Sigma$, 那么字符$c$的补集($Complement$)就记为^$c$. 例如:$\Sigma\,=\,\{a,\,b,\,c \}$, 那么^$c\,=\,\{ a,\,b \}$
+
+一些常用的正则表达式:  
+- C语言的标识符: $([A\dots Z]\,|\,[a\dots z]\,|\, \_)\,([A\dots Z]\,|\,[a\dots z]\,|\,[0\dots 9])^∗$
+- 无符号整数: $0\,|\,[1\dots9]\,[0\dots9]^∗$
+- 无符号小数: $(0\,|\, [1\dots 9] [0\dots 9]^∗) (\epsilon\,|\,  .[0\dots 9]^+)$
+- 科学计数法: $(0\,|\, [1\dots 9] [0\dots 9]^∗) (\epsilon\,|\,  .[0\dots 9]^+)E(\epsilon\,|\,+\,|\,-)(0\,|\,[1\dots9]\,[0\dots9]^∗)$
+- C语言的字符串:  $"($^$(" |\backslash n) )^∗"$, 即双引号(")之内不允许出现另一个双引号(")或者换行符(用\n表示), 其他的字符均可出现.
+- C语言的注释: 1. 双斜杠形式的注释,  $//($ˆ$\backslash n)^∗$; 2. `/**/` 形式的注释, $/*($^$*|*^+$^$/)^**/$  
+这个RE用如下的FA表示:
+
+```graphviz
+digraph finite_state_machine {
+  rankdir = LR;
+  size = "8,5"
+
+  node [shape = doublecircle, color = red]
+  S_0 S_4;
+
+  node [shape = circle, color = green];
+
+  S_1 S_2 S_3;
+
+  S_0 -> S_1 [ label = "/" ];
+  S_1 -> S_2 [ label = "*" ];
+  S_2 -> S_3 [ label = "*" ];
+  S_3 -> S_4 [ label = "/" ];
+  S_2 -> S_2 [ label = "^*" ];
+  S_3 -> S_3 [ label = "*" ];
+  S_3 -> S_2 [ label = "^(*|/)" ];
+}
+```
 
 ### **DFA**
 确定性有限状态自动机, Deterministic Finite Automaton 
