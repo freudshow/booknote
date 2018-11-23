@@ -36,7 +36,7 @@ A set of strings over an alphabet
 ### **有限状态自动机**
 
 以下内容摘抄自 《Engineering a compiler》  
-有限状态自动机 $(finite\,automata)$ 是一个五元组:  $(S, \Sigma, \delta, s_0, S_A)$, 其中:  
+有限状态自动机 $(Finite\,Automata)$ 是一个五元组:  $(S, \Sigma, \delta, s_0, S_A)$, 其中:  
 - $S$: 有限的状态的集合, 包括一个错误状态 $s_e$.
 - $\Sigma$: 字母表, 也就是做状态转移时读入的字符集.
 - $\delta(s, c)$, $\delta :S\times \Sigma \rightarrow S$: 状态转移函数, 它将 $\forall s \in S$ 和 $\forall c \in \Sigma$ 映射为 $S$ 中的一个状态. 对于状态 $s_i$ 的输入 $c$, 有限状态自动机 $FA$ 做状态转移: $s_i \stackrel{c}{\rightarrow} \delta(s_i,c)$.
@@ -135,10 +135,15 @@ digraph finite_state_machine {
 ```
 
 ### **DFA**
-确定性有限状态自动机, Deterministic Finite Automaton 
+确定性有限状态自动机, Deterministic Finite Automaton  
+A DFA is an FA where the transition function is single-valued. DFAs do not allow $\epsilon$-transitions.  
+即, 确定性有限状态机, 不允许出现$\epsilon$转移, 或者对于同一状态和同一字符, 有唯一的状态转移.
 
 ### **NFA**
-非确定性有限状态自动机, Nondeterministic Finite Automaton
+非确定性有限状态自动机, Nondeterministic Finite Automaton  
+An FA that allows transitions on the empty string,
+$\epsilon$,and states that have multiple transitions on the same character  
+即, 允许空字符串($\epsilon$)做状态转移, 或者允许同一个状态对于同一个字符, 做不同的状态转移的有限状态自动机, 称为非确定性有限状态自动机.
 
 ### **正则表达式转化为NFA - Thompson 算法**
 
