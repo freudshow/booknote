@@ -19,4 +19,37 @@ fdupes -d /to_directory/
 fdupes -f /to_directory/
 ```
 
+# Linux系统备份与还原
 
+## 备份系统
+- 首先成为root用户：
+
+```bash
+    $sudo su
+```
+- 然后进入文件系统的根目录
+
+```bash
+    # cd /
+```
+
+- 备份系统
+
+```bash
+    # tar cvpjf backup.tar.bz2 –exclude=/proc –exclude=/lost+found –exclude=/backup.tar.bz2 –exclude=/mnt –exclude=/sys /
+```
+
+## 恢复系统
+
+- 将backup.tar.bz2放到根目录, 使用下面的命令来恢复系统
+```bash
+    #tar xvpfj backup.tar.bz2 -C /
+```
+
+- 恢复命令结束时, 别忘了重新创建那些在备份时被排除在外的目录：
+```bash
+    # mkdir proc
+    # mkdir lost+found
+    # mkdir mnt
+    # mkdir sys
+```
