@@ -53,3 +53,29 @@
     # mkdir mnt
     # mkdir sys
 ```
+
+# debian 安装 nodejs
+参考[Debian9安装最新版Nodejs和NPM](https://www.5yun.org/15395.html) 
+- 添加Node.js PPA  
+最新版安装命令:
+```bash
+    curl -sL https://deb.nodesource.com/setup_9.x | sudo bash -
+```
+
+  安装LTS长期维护版:  
+```bash
+    curl -sL https://deb.nodesource.com/setup_8.x |  sudo bash -
+```
+
+- 安装Node.js和NPM
+
+```bash
+    apt-get install nodejs
+```
+
+- To install the Yarn package manager, run:  
+``` bash
+     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+```
