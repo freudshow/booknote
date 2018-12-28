@@ -36,14 +36,14 @@
 - 备份系统
 
 ```bash
-    # tar cvpjf backup.tar.bz2 –exclude=/proc –exclude=/lost+found –exclude=/backup.tar.bz2 –exclude=/mnt –exclude=/sys /
+    # tar cvPjf backup.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/backup.tar.bz2 --exclude=/mnt --exclude=/media --exclude=/boot --exclude=/etc/fstab --exclude=/var --exclude=/dev --exclude=/tmp --exclude=/sys /
 ```
 
 ## 恢复系统
 
 - 将backup.tar.bz2放到根目录, 使用下面的命令来恢复系统
 ```bash
-    #tar xvpfj backup.tar.bz2 -C /
+    #tar xvPjf backup.tar.bz2 -C /
 ```
 
 - 恢复命令结束时, 别忘了重新创建那些在备份时被排除在外的目录：
