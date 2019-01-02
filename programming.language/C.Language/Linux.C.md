@@ -304,3 +304,13 @@ int main(int argc, char *argv[])
 }
 
 ```
+
+#### implementation of ***epoll()***
+
+In Linux Kernel 4.19, ***epoll*** locates in "linux-4.19/fs/eventpoll.c".  
+***epoll*** uses Red-Black Tree to store ***fd_list***
+
+- [Red-Black Tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+- [Red-Black Tree | Set 1](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/)
+- [Red-Black Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
+- [自己动手实现Epoll](http://blog.51cto.com/wangbojing/2090885)
