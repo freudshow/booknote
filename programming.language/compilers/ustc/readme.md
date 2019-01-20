@@ -149,6 +149,29 @@ $\epsilon$,and states that have multiple transitions on the same character
 
 ### **正则表达式转化为NFA - Thompson 算法**
 
+$Thompson$ 算法的思想很简单：
+递归定义：
+
+1. 对于$\epsilon$, 在开始状态和终结状态(可接受状态)之间, 添加一条$\epsilon$边即可.
+   ```graphviz
+    digraph epsilon {
+  rankdir = LR;
+  size = "8,5"
+
+  node [shape = doublecircle, color = red]
+  S_0 S_1;
+
+  node [shape = circle, color = green];
+
+  S_1 S_2 S_3;
+
+  S_0 -> S_1 [ label = "epsilon" ];
+}
+   ```
+2. 对于单独的字符$c$, 在开始状态和终结状态(可接受状态)之间, 添加一条$c$边即可
+
+
+
 ### **NFA转化为DFA - 子集构造算法(Powerset Construction Algorithm)**
 
 ### **DFA的最小化-Hopcroft算法**
