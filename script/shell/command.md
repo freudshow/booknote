@@ -108,7 +108,7 @@ sudo apt-get install -y apt-transport-https
 
     yourname	ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 
-##　查看debian的版本号
+## 查看debian的版本号
 cat /etc/debian_version
 
 ## 安装常用软件
