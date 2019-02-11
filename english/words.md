@@ -7,3 +7,4 @@
 ## "Status" vs. "state"
 
 [“Status” vs. “state”](https://english.stackexchange.com/questions/12958/status-vs-state)
+
