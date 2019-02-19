@@ -5,6 +5,9 @@
 - 虚拟机安装及设置(包括外设的自动接管和手动接管)
 - sam-ba刷机软件
 - dhcp-server
+  ```bash
+    apt-get install -y isc-dhcp-server
+  ```
 - setmac服务端
 - nfs服务
 - tftp服务
@@ -54,6 +57,6 @@
         ```
 
         当看到`at91sam SAMBA bootloader`字样后, 表明 9260 芯片处于编程模式, 可以开始刷机了.
-  3. 以test用户运行 `/opt/tools/sam-ba_cdc_cdc_linux/write-II-all.sh`, 或者直接点击桌面的 `9260-II` 图标, 即开始刷机
+  1. 以test用户运行 `/opt/tools/sam-ba_cdc_cdc_linux/write-II-all.sh`, 或者直接点击桌面的 `9260-II` 图标, 即开始刷机
 - 已运行操作系统的终端刷机过程
   已运行正常的操作系统的终端, 可以用`telnet`或者`ssh`登陆, 运行`flash_eraseall /dev/mtd0`命令, 将mtd0数据全部擦除, 然后运行`reboot`重启, 即可刷机
