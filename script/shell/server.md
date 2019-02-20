@@ -3,13 +3,34 @@
 ## 安装的软件
 
 - 虚拟机安装及设置(包括外设的自动接管和手动接管)
+  虚拟机在vmware官方网站下载vmplayer, 如果是在ubuntu/debian类系统中安装, 则需要额外安装内核头文件, 编译工具等: 
+
+```bash
+    sudo apt-get install -y linux-headers-$(uname -r) dkms git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp 
+```
+
+安装好上述软件后, 则根据提示一步步安装即可. 
+windows安装按照平时安装其他软件步骤, 不再赘述. 其他Linux或类Unix系统的安装方法没有测试, 请到网上自行搜索安装方法, 或到vmware官方网站查看.
 - sam-ba刷机软件
 - dhcp-server
+  安装命令: 
+
   ```bash
     apt-get install -y isc-dhcp-server
   ```
+  
 - setmac服务端
 - nfs服务
+  要安装的软件已经包含在<虚拟机安装及设置>章节安装好了, 下面是具体配置: 
+  - 切换至root用户, 新建`/nfs/linux/jzq_II_2014`目录, 配置`/etc/exports`文件: 
+  ```bash
+    mkdir -p /nfs/linux/jzq_II_2014 #集中器刷完boot镜像后要挂载的nfs文件系统
+
+    chmod 777 -R
+    echo "/nfs/linux/jzq_II_2014    *(rw,sync,no_root_squash)" >> /etc/exports #配置 "/nfs/linux/jzq_II_2014" 这个目录的权限, 不限制来源IP和用户权限
+
+
+  ```
 - tftp服务
   
 ## 系统设置
