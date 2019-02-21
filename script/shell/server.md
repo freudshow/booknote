@@ -40,7 +40,9 @@
       send_file {NandFlash} "/nfs/linux/image_sam_II.bin" 0x20000 0
     ```
 
-- dhcp-server 
+- dhcp-server  
+  安装好`dhcp`服务端软件后, 需要设置`/etc/default/isc-dhcp-server`, 在最后加上`INTERFACES="ens33"`, 即把虚拟机中的网卡名字`ens33`配置好. 
+  > 注意: 虚拟机的网络模式必须选择桥接模式(`Briged`), 否则外部设备无法通过交换机发现虚拟机的`dhcp`服务.
 
 - setmac服务端 
 
@@ -51,15 +53,15 @@
     mkdir -p /nfs/linux/jzq_II_2014 #集中器刷完boot镜像后要挂载的nfs文件系统
 
     chmod 777 -R
-    echo "/nfs/linux/jzq_II_2014    *(rw,sync,no_root_squash)" >> /etc/exports #配置 "/nfs/linux/jzq_II_2014" 这个目录的权限, 不限制来源IP和用户权限
-
+    echo "/nfs/linux/jzq_II_2014    *(rw,sync,no_root_squash)" >> /etc/exports #II型集中器的nfs根文件. 配置 "/nfs/linux/jzq_II_2014" 这个目录的权限, 不限制来源IP和用户权限
+    echo "/nfs/linux/gw_jzq    *(rw,sync,no_root_squash)" >> /etc/exports #II型集中器的nfs根文件. 配置 "/nfs/linux/jzq_II_2014" 这个目录的权限, 不限制来源IP和用户权限
 
   ```
 
 - tftp服务
 
 - cutecom 
-
+  cutecom安装好后, 在`device`里写上用于监控核心板的串口名, 一般是`/dev/ttyUSB0`, 选择波特率9600, 数据位8, 停止位1, 无校验.
 
 ## 系统设置
 
@@ -72,7 +74,7 @@
   ```
   设置用户密码后, 使用默认设置即可. test用户密码是1
 - 添加桌面快捷方式  
-  [语法标准](https://specifications.freedesktop.org/desktop-entry-spec/latest/)  
+  [Desktop Entry 语法标准](https://specifications.freedesktop.org/desktop-entry-spec/latest/)  
     以下是虚拟机中快捷方式的设置: 
  
     ```Desktop Entry
@@ -80,8 +82,8 @@
       Version=1.0
       Type=Application
       Terminal=false
-      StartNotify=true
-      Exec=gnome-terminal -x -c "sh cd /opt/tools/sam-ba_cdc_cdc_linux;./write-II-all.sh;echo \"write finished!!!\"; sleep 2"
+      StartupNotify=true
+      Exec=gnome-terminal -x sh -c "cd /opt/tools/sam-ba_cdc_cdc_linux;./write-II-all.sh;echo \"write finished!!!\"; sleep 2"
       Name=9260-II
       Icon=/usr/share/icons/hicolor/48x48/status/application-running.png
 
@@ -105,15 +107,15 @@
 ## 终端的刷机启动过程
 
 1. boot阶段
-1. 挂载服务器的nfs为根文件
-1. 复制服务器根文件的内核镜像到nand
-1. 重启
+2. 挂载服务器的nfs为根文件
+3. 复制服务器根文件的内核镜像到nand
+4. 重启
 
 ## 刷机过程
 
 - 裸机刷机过程
-    1. 先将核心板断电, 再短接9260的3和4引脚, 然后上电
-    1. 上电后, 在虚拟机中运行 `lsusb` 命令: 
+    1. 先将核心板断电, 再短接`SDRAM`的3和4引脚, 然后上电. 短接3和4引脚的具体原因请参照 Atmel 9260 的数据手册, 里面的第11章讲解了芯片的启动过程, 至于为何短接的是`SDRAM`段引脚, 我猜想是因为9260的封装方式是`LFBGA`, 芯片焊接好以后, 只能在其引出到`SDRAM`线路上进行短接.
+    2. 上电后, 在虚拟机中运行 `lsusb` 命令: 
 
         ```bash
             root@ubuntu:/home/test/Desktop# lsusb 
@@ -128,6 +130,6 @@
         ```
 
         当看到`at91sam SAMBA bootloader`字样后, 表明 9260 芯片处于编程模式, 可以开始刷机了.
-    1. 以test用户运行 `/opt/tools/sam-ba_cdc_cdc_linux/write-II-all.sh`, 或者直接点击桌面的 `9260-II` 图标, 即开始刷机
+    3. 以test用户运行 `/opt/tools/sam-ba_cdc_cdc_linux/write-II-all.sh`, 或者直接点击桌面的 `9260-II` 图标, 即开始刷机
 - 已运行操作系统的终端刷机过程
   已运行正常的操作系统的终端, 可以用`telnet`或者`ssh`登陆, 运行`flash_eraseall /dev/mtd0`命令, 将mtd0数据全部擦除, 然后运行`reboot`重启, 即可刷机
