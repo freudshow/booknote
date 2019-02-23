@@ -23,7 +23,7 @@
 - 虚拟机中需要安装的软件: 
 
 ```bash
-    sudo apt-get install -y rpcbind nfs-kernel-server nfs-common tftpd-hpa tftp isc-dhcp-server cutecom minicom
+    sudo apt-get install -y rpcbind nfs-kernel-server nfs-common tftpd-hpa tftp xinetd isc-dhcp-server cutecom minicom
 ```
 
 - sam-ba刷机软件 
@@ -94,8 +94,16 @@
 - setmac服务端 
   用管理员用户执行: 
   ```bash
+    echo "#!/bin/sh">/etc/rc.local
     echo "/nfs/linux/setmac &" >>/etc/rc.local
     chmod +x /etc/rc.local
+    ln -s /lib/systemd/system/rc.local.service /etc/systemd/system/
+    echo "[Install]">>/lib/systemd/system/rc.local.service
+    echo "WantedBy=multi-user.target">>/lib/systemd/system/rc.local.service
+
+    systemctl start rc.local.service#启动rc.local服务
+    systemctl status rc-local.service#关闭rc.local服务
+    systemctl list-units --type=service#查看当前所有服务状态
   ```
   即可在系统启动时自动启动mac地址分配的服务端, 以供终端使用.
 
@@ -112,6 +120,23 @@
   ```
 
 - tftp服务  
+    安装好tftp服务器后, 执行以下命令:  
+    ```bash
+      mkdir /tftpboot
+      chmod –R 777 /tftpboot
+    ```
+
+    修改`/etc/default/tftpd-hpa`:  
+
+    ```bash
+      # /etc/default/tftpd-hpa
+
+      TFTP_USERNAME="tftp"
+      TFTP_DIRECTORY="/tftpboot"
+      TFTP_ADDRESS=":69"
+      TFTP_OPTIONS="-l -c -s"
+      #TFTP_OPTIONS="--secure"
+    ```
 
 - cutecom  
   cutecom安装好后, 在`device`里写上用于监控核心板的串口名, 一般是`/dev/ttyUSB0`, 选择波特率9600, 数据位8, 停止位1, 无校验.
@@ -236,9 +261,9 @@
 ## 终端的启动过程
 
 1. boot阶段, 启动小内核, 通过`dhcp`请求一个IP地址, 获取IP地址后请求一个`MAC`地址.
-1. 挂载服务器的对应`nfs`目录为根文件, 初始化Nand, 复制服务器根文件的内核镜像到nand.
-1. 复制服务器的应用程序相关文件到nand和nor
-1. 重启正常运行
+2. 挂载服务器的对应`nfs`目录为根文件, 初始化Nand, 复制服务器根文件的内核镜像到nand.
+3. 复制服务器的应用程序相关文件到nand和nor
+4. 重启正常运行
 
 ## 终端的刷机过程
 
