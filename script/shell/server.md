@@ -142,7 +142,10 @@
   cutecom安装好后, 在`device`里写上用于监控核心板的串口名, 一般是`/dev/ttyUSB0`, 选择波特率9600, 数据位8, 停止位1, 无校验.
 > 注: 普通用户可能没有打开串口`/dev/ttyUSB0`的权限, 这时用管理员用户执行下面的命令, 并重启系统即可:  
     ```bash
-        sudo echo "KERNEL==\"ttyUSB[0-9]*\", MODE=\"0666\"">/etc/udev/rules.d/70-ttyusb.rules
+        sudo gpasswd --add floyd dialout
+        sudo echo "KERNEL==\"ttyUSB[0-9]*\", GROUP=\"dialout\", MODE=\"0666\"">/etc/udev/rules.d/50-usb-serial.rules
+        sudo echo "KERNEL==\"ttyACM[0-9]*\", GROUP=\"dialout\", MODE=\"0666\"">/etc/udev/rules.d/40-atmel-samba.rules
+        sudo /etc/init.d/udev restart # or reboot system
     ```
 
 ## 系统设置

@@ -186,18 +186,13 @@ cat /etc/debian_version
     echo "sudo route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.0.1 dev enp7s0">>/etc/NetworkManager/dispatcher.d/02myroutes
 ```
 
-## Unable to open serial port /dev/ttyUSB0
-
-```bash
-    sudo echo "KERNEL==\"ttyUSB[0-9]*\", MODE=\"0666\"">/etc/udev/rules.d/70-ttyusb.rules
-```
-
-## ttyUSB0 permission
+## ttyUSB0 permission or Unable to open serial port /dev/ttyUSB0
 
 ```bash
     sudo chmod 666 /dev/ttyUSB0
     sudo gpasswd --add floyd dialout
-    sudo echo "KERNEL==\"ttyUSB[0-9]*\", GROUP="username", MODE="0666"">/etc/udev/rules.d/50-usb-serial.rules
+    sudo echo "KERNEL==\"ttyUSB[0-9]*\", GROUP=\"dialout\", MODE=\"0666\"">/etc/udev/rules.d/50-usb-serial.rules
+    sudo echo "KERNEL==\"ttyACM[0-9]*\", GROUP=\"dialout\", MODE=\"0666\"">/etc/udev/rules.d/40-atmel-samba.rules
     sudo /etc/init.d/udev restart # or reboot system
 ```
 
