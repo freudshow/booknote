@@ -8,13 +8,18 @@
 - CSAPP.3e
 - Computer Networks.5e - Andrew S.Tanenbaum
 - The Practice of Programming
-- Operating System Concepts.9e
+- Operating System Concepts.10e
+- Modern Operating Systems 4e
+- Design and Implementation of FreeBSD
+- Digital Design and Computer Architecture Arm Edition
 
 ## 数学
-- 陶哲轩实分析.2e
+- 陶哲轩实分析.3e
 - Discrete Mathematics and Its Applications.7e
 - Probability-I.3e
 - Linear Algebra done rigtht.3e
 - 初等数论及其应用
 - 图论导引
 - 数学分析原理
+- 高等近世代数
+- 图论导引
