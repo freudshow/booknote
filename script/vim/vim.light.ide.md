@@ -81,7 +81,7 @@ doc/taglist.txt    - documentation (help) file
     directory, start Vim and run the ":helptags ." command o process the 
     taglist help file. Without this step, you cannot jump o the taglist help 
     topics. 
-1. If the exuberant ctags utility is not present in your ATH, then set the 
+1. If the exuberant ctags utility is not present in your PATH, then set the 
     Tlist_Ctags_Cmd variable to point to the location of he exuberant ctags 
     utility (not to the directory) in the .vimrc file. 
 1. If you are running a terminal/console version of Vim and he terminal 
@@ -89,7 +89,7 @@ doc/taglist.txt    - documentation (help) file
     'Tlist_Inc_Winwidth' variable to 0 in the .vimrc file. 
 1. Restart Vim. 
 1. You can now use the ":TlistToggle" command to open/close he taglist 
-    window. You can use the ":help taglist" command to get ore information 
+    window. You can use the ":help taglist" command to get more information 
     about using the taglist plugin.
 
 ## **install omnicppcomplete**
@@ -104,6 +104,7 @@ unzip -d omnicppcomplete omnicppcomplete.zip
 ```shell
 wget https://www.vim.org/scripts/download_script.php?src_id=9178 -O cpp_src.tar.bz2
 ```
+
 ### install details
 1. extact and build tags
    ```shell
@@ -136,7 +137,7 @@ cp cpp_src/tags ~/.vim/tags/
 
 ## **vimrc**
 
-```vimrc
+```vim
 "设置 cpp_src/tags 文件的路径
 set tags+=~/.vim/tags/cpp_src/tags
 set modelines=0
