@@ -114,7 +114,15 @@ cat /etc/debian_version
 ## 安装常用软件
 
 ```bash
-    sudo apt-get install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs common-lisp-controller slime curlftpfs pppoe pppoeconf 
+    sudo apt-get install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs common-lisp-controller slime curl curlftpfs pppoe pppoeconf 
+```
+
+## Ubuntu安装Mate desktop
+
+```bash
+	sudo apt install -y ubuntu-mate-core
+	sudo apt install -y ubuntu-mate-desktop
+	sudo apt install -y ubuntu-mate*
 ```
 
 ## git 常用设置
@@ -161,12 +169,12 @@ cat /etc/debian_version
     sudo make install
 ```
 
-## Linux自字体渲染
+## Linux字体渲染
 
 ```bash
-    sudo apt install -y dirmngr
-    echo "deb http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu xenial main" | sudo tee /etc/apt/sources.list.d/infinality.list
-    echo "deb-src http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu xenial main" | sudo tee -a /etc/apt/sources.list.d/infinality.list
+    sudo apt install -y dirmngr gnome-tweaks
+    echo "deb http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/infinality.list
+    echo "deb-src http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list.d/infinality.list
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E985B27B
 ```
 
@@ -176,6 +184,7 @@ cat /etc/debian_version
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install -y fontconfig-infinality
+	sudo apt install -y libfreetype6 libfreetype6-dev freetype2-demos
 ```
 
 ## 以太网和wifi同时上网

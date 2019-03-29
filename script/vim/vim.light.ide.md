@@ -135,7 +135,7 @@ mkdir -p ~/.vim/tags
 cp cpp_src/tags ~/.vim/tags/
 ```
 
-## **vimrc**
+## **~/.vimrc**
 
 ```vim
 "设置 cpp_src/tags 文件的路径
