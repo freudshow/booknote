@@ -23,7 +23,15 @@
 - 虚拟机中需要安装的软件:  
 
 ```bash
-    sudo apt-get install -y rpcbind nfs-kernel-server nfs-common tftpd-hpa tftp xinetd isc-dhcp-server cutecom minicom
+    sudo apt-get install -y rpcbind nfs-kernel-server nfs-common tftpd-hpa tftp xinetd isc-dhcp-server cutecom minicom open-vm-tools
+```
+
+如果你安装的是64位系统, 那么需要安装32位兼容包, 否则无法运行32位的setmac程序:  
+
+```bash
+    sudo dpkg --add-architecture i386
+    sudo apt update
+    sudo apt install  -y lib32z1 lib32ncurses5 gcc-multilib
 ```
 
 - sam-ba刷机软件  
