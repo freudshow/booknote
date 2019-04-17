@@ -257,7 +257,31 @@ cat /etc/debian_version
 ### install LaTex
 
 ```bash
-    sudo apt-get -y install texlive-full texmaker
+    sudo apt-get -y install texlive-full texmaker texstudio
+```
+
+### install typra
+
+```bash
+    wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+    # add Typora's repository
+    sudo add-apt-repository 'deb https://typora.io/linux ./'
+    sudo apt-get update
+    # install typora
+    sudo apt-get install typora
+```
+
+### install notepadqq
+
+```bash
+    # trusty 14.04
+    # xenial 16.04
+    # bionic 18.04
+    sudo echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main">>/etc/apt/sources.list
+    sudo echo "deb-src http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main">>/etc/apt/sources.list
+    sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
+    sudo apt-get update
+    sudo apt-get install notepadqq
 ```
 
 ### test tex

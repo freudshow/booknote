@@ -45,7 +45,8 @@ nodejs安装完成, 可以通过命令查看当前的nodejs版本:
 
 ## 建立blog
 
-### 初始化
+
+### 本地blog
 
 新建一个目录用于存放博客, 叫 `blog` 好了:
 
@@ -55,4 +56,63 @@ nodejs安装完成, 可以通过命令查看当前的nodejs版本:
     cd ~/blog
     # 用hexo初始化
     hexo init
+    # 查看样板blog
+    hexo s
+    # 新建blog
+    hexo new "blog test"
+    # 编辑好 位于 source/_posts/blog-test.md的文件后, 清理并生成
+    hexo clean
+    hexo g
+```
+
+### 推送到github
+
+为方便起见, 以下用 `$blog` 指代博客的根目录
+
+- 远端仓库建立, 参考github新建blog的相关文档, 或搜索引擎搜索, 很多这类的文章.
+- 安装hexo git插件
+
+```bash
+    cnpm install --save hexo-deployer-git
+```
+
+- 修改blog配置, 在文件 `$blog/_config.yml` 中搜索 `# Deployment` 字段, 修改为
+
+```hexo
+    # Deployment
+    ## Docs: https://hexo.io/docs/deployment.html
+    deploy:
+    type: git
+    repo: git@github.com:eomerc/eomerc.github.io.git
+    branch: master
+```
+
+- 推送到 `github`
+
+```bash
+    hexo d
+```
+
+### 安装 `yilia` 主题
+
+```bash
+    cd $blog
+    git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+```
+
+修改blog配置, 在文件 `$blog/_config.yml` 中搜索 `# theme` 字段, 修改为
+
+```hexo
+    # Extensions
+    ## Plugins: https://hexo.io/plugins/
+    ## Themes: https://hexo.io/themes/
+    theme: yilia
+```
+
+```bash
+    # 清理, 重新生成, 本地服务启动, 部署到远端
+    hexo clean
+    hexo g
+    hexo s
+    hexo d
 ```
