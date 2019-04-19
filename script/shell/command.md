@@ -107,13 +107,13 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
 
     deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
-
+    
     deb https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
-
+    
     deb https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
-
+    
     deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
 
@@ -260,7 +260,7 @@ cat /etc/debian_version
     sudo apt-get -y install texlive-full texmaker texstudio
 ```
 
-### install typra
+### install Typora
 
 ```bash
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -360,3 +360,10 @@ cat /etc/debian_version
 ### Linux 中安装虚拟机, 并在虚拟机中识别USB设备的方法
 
 - 如果安装的是Virtual Box, 需要到vbox的[官网](https://www.virtualbox.org/wiki/Linux_Downloads)下载vbox的扩展包, [VirtualBox 6.0.4 Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads), 下载后, 在`管理`->`全局设定`->`扩展`->`+`浏览到刚才下载的扩展包, 等待自动安装好. 然后运行命令`sudo usermod -a -G vboxusers $(whoami)`, `cat /etc/group | grep vbox`, 看一下已经把当前用户添加进vboxusers了, 然后重启. 重启后, 在对应的虚拟机设置里找到USB设置, 点击`启用USB控制器`, 然后再打开这个虚拟机即可在`设备`->`USB`中找到你想运行在虚拟机中的USB设备了.
+
+### understand 5 修改快捷键
+
+`Tools->Options->Key Bindings` 打开快捷键设置窗口
+- 查看符号的定义及声明: `Edit Source`, 改成 `F3`
+- 定位到下一个编辑器视图: `Edit History Next`, 改成 `Alt+Right`
+- 定位到上一个编辑器视图: `Edit History Previous`, 改成 `Alt+Left`
