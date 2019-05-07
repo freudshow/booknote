@@ -367,3 +367,7 @@ cat /etc/debian_version
 - 查看符号的定义及声明: `Edit Source`, 改成 `F3`
 - 定位到下一个编辑器视图: `Edit History Next`, 改成 `Alt+Right`
 - 定位到上一个编辑器视图: `Edit History Previous`, 改成 `Alt+Left`
+
+### vmplayer
+
+vmplayer默认的安装位置是`/usr/lib/vmware`, 下载的`vmware tools`位置是`/usr/lib/vmware/isoimages`
