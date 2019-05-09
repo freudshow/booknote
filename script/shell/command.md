@@ -371,3 +371,33 @@ cat /etc/debian_version
 ### vmplayer
 
 vmplayer默认的安装位置是`/usr/lib/vmware`, 下载的`vmware tools`位置是`/usr/lib/vmware/isoimages`
+
+### 修改 `fstab` 自动挂载 `windows` 分区
+
+```bash
+    # /etc/fstab: static file system information.
+    #
+    # Use 'blkid' to print the universally unique identifier for a
+    # device; this may be used with UUID= as a more robust way to name devices
+    # that works even if disks are added and removed. See fstab(5).
+    #
+    # <file system> <mount point>   <type>  <options>       <dump>  <pass>
+    # / was on /dev/sda2 during installation
+    UUID=080c3642-0f86-461b-95bc-4686b79e5629 /               ext4    errors=remount-ro 0       	1
+    # /home was on /dev/sda3 during installation
+    UUID=0cb479d2-87eb-4619-8079-e3aee1e93f60 /home           ext4    defaults        0       	2
+    /dev/sda1			/win/c			  ntfs    defaults,user,rw	0	0
+    /swapfile			none			  swap	  sw		  0		0
+```
+
+### 创建 `swapfile` 作为交换分区
+
+```bash
+    # count=1024*1024*4, 4G, 可根据需要调整大小
+    sudo dd if=/dev/zero of=/opt/swapfile bs=1024 count=4121440
+    mkswap /opt/swapfile
+    swapon /opt/swapfile #挂载swap分区
+    free -m #验证是否正确挂载
+    swapon -s #查看交换分区的使用情况
+    swapoff /opt/swapfile #停用swap分区
+```
