@@ -117,6 +117,18 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
     deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
 
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
+
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
+
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
+
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
+
 ### 让apt-get支持https开头的软件源
 
 sudo apt-get install -y apt-transport-https
