@@ -413,3 +413,32 @@ vmplayer默认的安装位置是`/usr/lib/vmware`, 下载的`vmware tools`位置
     swapon -s #查看交换分区的使用情况
     swapoff /opt/swapfile #停用swap分区
 ```
+
+### github 速度慢
+
+    经常要clone github中的一些项目，无奈如果不爬梯子的话速度实在是龟速，经常1k/s，于是搜了下解决方法，改HOSTS大法。
+Windows下在C:/Windows/system32/drivers/etc/hosts
+Ubuntu等linux系一般在/etc/hosts
+在hosts中添加如下内容：
+
+``` Hosts
+    151.101.44.249 github.global.ssl.fastly.net
+    192.30.253.113 github.com
+    103.245.222.133 assets-cdn.github.com
+    23.235.47.133 assets-cdn.github.com
+    203.208.39.104 assets-cdn.github.com
+    204.232.175.78 documentcloud.github.com
+    204.232.175.94 gist.github.com
+    107.21.116.220 help.github.com
+    207.97.227.252 nodeload.github.com
+    199.27.76.130 raw.github.com
+    107.22.3.110 status.github.com
+    204.232.175.78 training.github.com
+    207.97.227.243 www.github.com
+    185.31.16.184 github.global.ssl.fastly.net
+    185.31.18.133 avatars0.githubusercontent.com
+    185.31.19.133 avatars1.githubusercontent.com
+```
+改完之后立刻刷新，
+Windows：ipconfig /flushdns
+Ubuntu：sudo systemctl restart nscd
