@@ -210,6 +210,9 @@ cat /etc/debian_version
     echo "deb http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/infinality.list
     echo "deb-src http://ppa.launchpad.net/no1wantdthisname/ppa/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list.d/infinality.list
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E985B27B
+
+    # 或者直接在Ubuntu系统中运行
+    sudo add-apt-repository ppa:no1wantdthisname/ppa
 ```
 
 执行以下命令来升级你的系统并安装 Infinality 包：
