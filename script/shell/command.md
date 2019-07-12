@@ -445,3 +445,10 @@ Ubuntu等linux系一般在/etc/hosts
 改完之后立刻刷新，
 Windows：ipconfig /flushdns
 Ubuntu：sudo systemctl restart nscd
+
+
+### 虚拟Linux挂在VMware共享文件夹
+
+1. 可以用命令 `vmhgfs-fuse -h` 查看挂载方法
+2. 也可以用命令 `sudo mount  -t  vmhgfs  .host:/     /mnt/hgfs`挂载
+3. 在 `/etc/fstab` 文件中添加 `./host:/　　/mnt/hgfs　　vmhgfs　　default　　0　　0` 即可自动挂载
