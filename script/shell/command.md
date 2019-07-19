@@ -116,16 +116,16 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
     
     deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
-
+    
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
-
+    
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
-
+    
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
-
+    
     deb https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
 
@@ -452,3 +452,43 @@ Ubuntu：sudo systemctl restart nscd
 1. 可以用命令 `vmhgfs-fuse -h` 查看挂载方法
 2. 也可以用命令 `sudo mount  -t  vmhgfs  .host:/     /mnt/hgfs`挂载
 3. 在 `/etc/fstab` 文件中添加 `./host:/　　/mnt/hgfs　　vmhgfs　　default　　0　　0` 即可自动挂载
+
+
+
+### 在 `ubuntu` 中搭建 `samba` 文件共享服务
+
+
+```bash
+# 1. 安装 samba
+sudo apt-get update
+sudo apt-get install samba samba-common smb-client
+# 2. 创建需要共享的目录
+sudo mkdir /home/share
+sudo chmod 777 /home/share
+# 3. 修改基础配置
+sudo gedit /etc/samba/smb.conf 
+	# 在 'max log size = 1000' 下面增加
+	security = user
+	# 在文末增加
+	[testshare]
+        path = /home/floyd/samba
+        browseable = yes
+        writable = yes
+ # 4. 新建访问共享资源的用户和设置密码
+ sudo useradd smbuser # 新建用户
+ sudo smbpasswd -a smbuser # 设置密码
+ sudo service smbd restart # 重启 samba 服务
+
+```
+
+至此 `samba` 服务搭建完毕,  可以在 `Windows` 中测试
+
+> 参考 [Android ubuntu-samba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
+
+
+
+### Windows 10 自动登录
+
+
+
+运行 `netplwiz` , 去掉"要使用本计算机, 用户必须输入用户名和密码"的对号, 接下来会让你输入登录密码, 输入完成即可.
