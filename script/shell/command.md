@@ -492,3 +492,15 @@ sudo gedit /etc/samba/smb.conf
 
 
 运行 `netplwiz` , 去掉"要使用本计算机, 用户必须输入用户名和密码"的对号, 接下来会让你输入登录密码, 输入完成即可.
+
+
+
+### Windows 将 `cmder` 添加到右键
+
+
+
+1. 将 `cmder` 的运行目录添加到 `path` 环境变量
+2. 在任意命令行终端运行 `cmder.exe /REGISTER ALL` 即可在右键添加`cmder`的启动菜单
+
+也可以参考[Adding Cmder to the Windows Explorer Context Menu](https://www.awmoore.com/2015/10/02/adding-cmder-to-the-windows-explorer-context-menu/)
+
