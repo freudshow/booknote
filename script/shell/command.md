@@ -483,7 +483,49 @@ sudo gedit /etc/samba/smb.conf
 
 至此 `samba` 服务搭建完毕,  可以在 `Windows` 中测试
 
-> 参考 [Android ubuntu-samba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
+> 参考 [Android ubuntu-s
+> amba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
+
+
+### `Ubuntu` 安装 `Nvidia` 驱动
+
+```bash
+    # 禁用nouveau 
+    sudo vim /etc/modprobe.d/blacklist-nouveau.conf
+        blacklist nouveau
+        options nouveau modeset=0
+
+    # 执行以下命令使禁用生效并且重启
+    sudo update-initramfs -u
+    sudo reboot
+
+    # 重启后可以验证是否生效：
+    lsmod | grep nouveau # 若没有输出，则禁用生效。
+    # 禁用X-Window服务
+    sudo service lightdm stop # 这会关闭图形界面
+    sudo service lightdm start # 然后按Ctrl-Alt+F7即可恢复到图形界面
+
+    # 如果以前是通过ppa源安装的，可以通过下面命令卸载：
+    sudo apt-get remove --purge nvidia*
+    # 如果以前是通过runfile安装的，可以通过下面命令卸载：
+    sudo ./NVIDIA-Linux-x86_64-384.59.run --uninstall
+
+    # 安装Nvidia驱动
+    sudo add-apt-repository ppa:graphics-drivers/ppa 
+    sudo apt-get update 
+    sudo apt-get install nvidia-driver-430 # 根据具体情况而定, 安装最新版
+    sudo apt-get install mesa-common-dev
+    sudo reboot
+    # 终端验证是否安装成功：
+     nvidia-smi
+    # 最好安装 apt-fast 加速下载速度, 不然下载时间很长
+    sudo add-apt-repository ppa:apt-fast/stable
+    sudo apt-get install apt-fast
+    #安装后就跟apt-get用法一样了
+    sudo apt-fast update
+    sudo apt-fast upgrade -y
+```
+
 
 
 
