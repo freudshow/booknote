@@ -99,6 +99,20 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
      sudo apt-get update && sudo apt-get install yarn
 ```
 
+
+
+### `Linux`一次性复制同一目录下的多个文件
+
+
+
+```bash
+cp /home/usr/dir/{file1,file2,file3,file4}       /home/usr/destination/#注意文件之间的‘，’不要有空格
+#具有共同前缀
+cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名的同一前
+```
+
+
+
 ## debian/Ubuntu系统安装后要做的事情
 
 ### 配置软件源为中科大软件源
@@ -487,6 +501,7 @@ sudo gedit /etc/samba/smb.conf
 > amba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
 
 
+
 ### `Ubuntu` 安装 `Nvidia` 驱动
 
 ```bash
@@ -524,6 +539,36 @@ sudo gedit /etc/samba/smb.conf
     #安装后就跟apt-get用法一样了
     sudo apt-fast update
     sudo apt-fast upgrade -y
+```
+
+
+
+### `Ubuntu` 安装 `rclone` 并挂载为本地硬盘
+
+
+
+```bash
+# 安装rclone
+curl https://rclone.org/install.sh | sudo bash
+
+# 初始化配置
+rclone config # 根据提示进行相应的配置
+
+# 手动挂载网络硬盘
+rclone mount repo:/ /mnt/onedrive/repo --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000
+fusermount -qzu /mnt/onedrive/repo
+
+# 将启动脚本注册为系统服务, 每次重启系统即自动挂载网络硬盘
+wget https://www.moerats.com/usr/shell/rcloned && nano rcloned
+    # 修改内容：
+        NAME=""  #rclone name名，及配置时输入的Name
+        REMOTE=''  #远程文件夹，OneDrive网盘里的挂载的一个文件夹
+        LOCAL=''  #挂载地址，VPS本地挂载目录
+
+cp rcloned /etc/init.d/rcloned
+chmod +x /etc/init.d/rcloned
+update-rc.d -f rcloned defaults
+bash /etc/init.d/rcloned start
 ```
 
 
