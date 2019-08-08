@@ -461,7 +461,7 @@ Windows：ipconfig /flushdns
 Ubuntu：sudo systemctl restart nscd
 
 
-### 虚拟Linux挂在VMware共享文件夹
+### 虚拟Linux挂载VMware共享文件夹
 
 1. 可以用命令 `vmhgfs-fuse -h` 查看挂载方法
 2. 也可以用命令 `sudo mount  -t  vmhgfs  .host:/     /mnt/hgfs`挂载
@@ -571,6 +571,19 @@ update-rc.d -f rcloned defaults
 bash /etc/init.d/rcloned start
 ```
 
+
+
+### `debian`使用物理硬盘(`windows`)
+
+
+
+1. 运行`cmd`, `cd`进入你的`VirtualBox`目录
+
+2. 运行`VBoxManage.exe`, 如：`VBoxManage internalcommands createrawvmdk -filename  d:\localdisk.vmdk -rawdisk \\.\PhysicalDrive1`
+
+   **\\.\PhysicalDrive1**  表示第二块硬盘，\\.\PhysicalDrive0 是第一块，\\.\PhysicalDrive2 是第三块, 以此类推。
+
+3. 在`virtualbox`中找到`d:\localdisk.vmdk`, 添加到虚拟机中即可
 
 
 
