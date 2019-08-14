@@ -106,9 +106,9 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
 
 
 ```bash
-cp /home/usr/dir/{file1,file2,file3,file4}       /home/usr/destination/#注意文件之间的‘，’不要有空格
+cp /home/usr/dir/{file1,file2,file3,file4}       /home/usr/destination/#注意文件之间的‘,’不要有空格
 #具有共同前缀
-cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名的同一前
+cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名的同一前缀
 ```
 
 
@@ -119,18 +119,8 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 
 用root账号在/etc/apt/sources.list中把软件源修改为：
 
-    deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
-    deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
-    
-    deb https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
-    deb-src https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
-    
-    deb https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
-    deb-src https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
-    
-    deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
-    deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
-    
+- `debian 9`:
+```bash
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
     
@@ -142,10 +132,38 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
     
     deb https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
+```
 
-### 让apt-get支持https开头的软件源
+- `debian 10`:
+```bash
 
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+```
+
+- `ubuntu 18.04`:
+```bash
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+```
+
+### 让`apt-get`支持`https`开头的软件源
+
+```bash
 sudo apt-get install -y apt-transport-https
+```
 
 ### 普通用户使用sudo命令, 不再需要输入密码
 
