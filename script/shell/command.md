@@ -485,7 +485,12 @@ Ubuntu：sudo systemctl restart nscd
 2. 也可以用命令 `sudo mount  -t  vmhgfs  .host:/     /mnt/hgfs`挂载
 3. 在 `/etc/fstab` 文件中添加 `./host:/　　/mnt/hgfs　　vmhgfs　　default　　0　　0` 即可自动挂载
 
+### vbox 的共享文件夹没有权限
 
+```bash
+    sudo usermod -aG vboxsf $(whoami)
+    sudo reboot
+```
 
 ### 在 `ubuntu` 中搭建 `samba` 文件共享服务
 
