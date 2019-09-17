@@ -478,7 +478,6 @@ Ubuntu等linux系一般在/etc/hosts
 Windows：ipconfig /flushdns
 Ubuntu：sudo systemctl restart nscd
 
-
 ### 虚拟Linux挂载VMware共享文件夹
 
 1. 可以用命令 `vmhgfs-fuse -h` 查看挂载方法
@@ -493,7 +492,6 @@ Ubuntu：sudo systemctl restart nscd
 ```
 
 ### 在 `ubuntu` 中搭建 `samba` 文件共享服务
-
 
 ```bash
 # 1. 安装 samba
@@ -522,8 +520,6 @@ sudo gedit /etc/samba/smb.conf
 
 > 参考 [Android ubuntu-s
 > amba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
-
-
 
 ### `Ubuntu` 安装 `Nvidia` 驱动
 
@@ -564,11 +560,7 @@ sudo gedit /etc/samba/smb.conf
     sudo apt-fast upgrade -y
 ```
 
-
-
 ### `Ubuntu` 安装 `rclone` 并挂载为本地硬盘
-
-
 
 ```bash
 # 安装rclone
@@ -594,11 +586,7 @@ update-rc.d -f rcloned defaults
 bash /etc/init.d/rcloned start
 ```
 
-
-
 ### `debian`使用物理硬盘(`windows`)
-
-
 
 1. 运行`cmd`, `cd`进入你的`VirtualBox`目录
 
@@ -608,22 +596,32 @@ bash /etc/init.d/rcloned start
 
 3. 在`virtualbox`中找到`d:\localdisk.vmdk`, 添加到虚拟机中即可
 
-
-
 ### Windows 10 自动登录
-
-
 
 运行 `netplwiz` , 去掉"要使用本计算机, 用户必须输入用户名和密码"的对号, 接下来会让你输入登录密码, 输入完成即可.
 
-
-
 ### Windows 将 `cmder` 添加到右键
-
-
 
 1. 将 `cmder` 的运行目录添加到 `path` 环境变量
 2. 在任意命令行终端运行 `cmder.exe /REGISTER ALL` 即可在右键添加`cmder`的启动菜单
 
 也可以参考[Adding Cmder to the Windows Explorer Context Menu](https://www.awmoore.com/2015/10/02/adding-cmder-to-the-windows-explorer-context-menu/)
 
+## `FreeBSD` 安装后设置
+
+### 设置域名解析服务器
+``` bash
+    ee  /etc/rc.conf   #编辑
+    ifconfig_em0="inet 192.168.21.173  netmask 255.255.255.0"  #设置IP地址，子网掩码
+    defaultrouter="192.168.21.2"   #设置网关
+    hostname="FreeBSD"   #设置主机名字
+
+    ee /etc/resolv.conf  #编辑
+    nameserver 192.168.31.1 
+    reboot #重启系统使之生效
+
+```
+
+### `sysinstall`
+
+`sysinstall`换成了`bsdinstall`
