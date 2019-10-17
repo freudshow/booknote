@@ -60,14 +60,14 @@
     # mkdir sys
 ```
 
-## sqlite3 导出数据到csv
+## `sqlite3` 导出数据到 `csv`
 
 ```bash
 #每次导出50行, limit后是行偏移量
 sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offset 4300;">4301.csv
 ```
 
-## debian 安装 nodejs
+## `debian` 安装 `nodejs`
 
 参考[Debian9安装最新版Nodejs和NPM](https://www.5yun.org/15395.html)
 
@@ -113,7 +113,7 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 
 
 
-## debian/Ubuntu系统安装后要做的事情
+## `debian/Ubuntu`系统安装后要做的事情
 
 ### 配置软件源为中科大软件源
 
@@ -165,7 +165,7 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 sudo apt-get install -y apt-transport-https
 ```
 
-### 普通用户使用sudo命令, 不再需要输入密码
+### 普通用户使用`sudo`命令, 不再需要输入密码
 
 把下面的配置写入到 /etc/sudoers, yourname替换为自己的用户名, 下同
 
@@ -173,7 +173,7 @@ sudo apt-get install -y apt-transport-https
     yourname    ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ```
 
-### 查看debian的版本号
+### 查看`debian`的版本号
 
 cat /etc/debian_version
 
@@ -183,7 +183,7 @@ cat /etc/debian_version
     sudo apt-get install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils
 ```
 
-### Ubuntu安装Mate desktop
+### `Ubuntu`安装`Mate desktop`
 
 ```bash
     sudo apt install -y ubuntu-mate-core
@@ -191,7 +191,7 @@ cat /etc/debian_version
     sudo apt install -y ubuntu-mate*
 ```
 
-### git 常用设置
+### `git` 常用设置
 
 ```bash
     git config --global user.name "s_baoshan"
@@ -206,7 +206,7 @@ cat /etc/debian_version
     git config --global core.longpaths true
 ```
 
-### NFS服务器设置
+### `NFS`服务器设置
 
 ```bash
     echo "/nfsroot    *(rw,sync,no_root_squash)" >> /etc/exports
@@ -217,7 +217,7 @@ cat /etc/debian_version
     mount -t nfs -o nolock localhost:/nfsroot /mnt
 ```
 
-### add i386 support
+### `add i386 support`
 
 ```bash
     sudo apt install -y firmware-realtek
@@ -235,7 +235,7 @@ cat /etc/debian_version
     sudo make install
 ```
 
-### Linux字体渲染
+### `Linux`字体渲染
 
 ```bash
     sudo apt install -y dirmngr gnome-tweaks
@@ -256,7 +256,7 @@ cat /etc/debian_version
     sudo apt install -y libfreetype6 libfreetype6-dev freetype2-demos
 ```
 
-### 以太网和wifi同时上网
+### 以太网和`wifi`同时上网
 
 ```bash
     echo "#!/bin/bash">/etc/NetworkManager/dispatcher.d/02myroutes
@@ -264,7 +264,7 @@ cat /etc/debian_version
     echo "sudo route add -net 192.168.0.0 netmask 255.255.0.0 gw 192.168.0.1 dev enp7s0">>/etc/NetworkManager/dispatcher.d/02myroutes
 ```
 
-### ttyUSB0 permission or Unable to open serial port /dev/ttyUSB0
+### `ttyUSB0 permission or Unable to open serial port /dev/ttyUSB0`
 
 ```bash
     sudo chmod 666 /dev/ttyUSB0
@@ -274,7 +274,7 @@ cat /etc/debian_version
     sudo /etc/init.d/udev restart # or reboot system
 ```
 
-### delete by inode
+### `delete by inode`
 
 ```bash
     ls -il
@@ -282,7 +282,7 @@ cat /etc/debian_version
     find ./ -inum 277191 -exec rm -i {} \;
 ```
 
-### tftp Sever
+### `tftp Sever`
 
 ```bash
     just use Sample configuration
@@ -295,19 +295,19 @@ cat /etc/debian_version
     sudo chmod 777 /srv/tftp -R
 ```
 
-### get tftp files in arm board
+### `get tftp files in arm board`
 
 ```bash
     tftp tftp-server-ip -g -r remotefile
 ```
 
-### install LaTex
+### `install LaTex`
 
 ```bash
     sudo apt-get -y install texlive-full texmaker texstudio
 ```
 
-### install Typora
+### `install Typora`
 
 ```bash
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -318,7 +318,7 @@ cat /etc/debian_version
     sudo apt-get install typora
 ```
 
-### install notepadqq
+### `install notepadqq`
 
 ```bash
     # trusty 14.04
@@ -331,7 +331,7 @@ cat /etc/debian_version
     sudo apt-get install notepadqq
 ```
 
-### test tex
+### `test tex`
 
 ```LaTeX
     \documentclass{article}
@@ -340,7 +340,7 @@ cat /etc/debian_version
     \end{document}
 ```
 
-### graphviz command
+### `graphviz command`
 
 ```bash
     dot -version  #查看graphviz版本
@@ -348,20 +348,20 @@ cat /etc/debian_version
     dot -Tsvg sample.dot -o sample.png  #编译成png图
 ```
 
-### install CGAL for Debian or Linux Mint
+### `install CGAL for Debian or Linux Mint`
 
 ```bash
     sudo apt-get install  -y libcgal-dev  -y# install the CGAL library
     sudo apt-get install  -y libcgal-demo  -y# install the CGAL demos
 ```
 
-### install chrome
+### `install chrome`
 
 ```bash
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
-### Ubuntu下配置Common Lisp开发环境
+### `Ubuntu` 下配置 `Common Lisp` 开发环境
 
 ```bash
 #修改 Emacs 配置文件, 以支持 Common Lisp
@@ -374,14 +374,14 @@ cat /etc/debian_version
     (slime-setup '(slime-fancy))'
 ```
 
-### mount ftpfs
+### `mount ftpfs`
 
 ```bash
     mkdir -p ~/ftpfs
     curlftpfs ftp://root:1@192.168.0.4 /home/floyd/ftpfs/
 ```
 
-### pppoe server
+### `pppoe server`
 
 ```bash
     sudo echo "\"user\" * \"123\" *">/etc/pap-secrets
@@ -396,7 +396,7 @@ cat /etc/debian_version
 
 ```
 
-### Linux中error while loading shared libraries错误解决办法
+### `Linux` 中 `error while loading shared libraries` 错误解决办法
 
 默认情况下, 编译器只会使用/lib和/usr/lib这两个目录下的库文件, 通常通过源码包进行安装时, 如果不指定--prefix, 会将库安装在/usr/local/lib目录下; 当运行程序需要链接动态库时, 提示找不到相关的.so库, 会报错. 也就是说, /usr/local/lib目录不在系统默认的库搜索目录中, 需要将目录加进去.
 
@@ -404,18 +404,18 @@ cat /etc/debian_version
 2. 加入动态库文件所在的目录：执行vi /etc/ld.so.conf, 在"include ld.so.conf.d/*.conf"下方增加"/usr/local/lib".
 3. 保存后, 在命令行终端执行：/sbin/ldconfig -v; 其作用是将文件/etc/ld.so.conf列出的路径下的库文件缓存到/etc/ld.so.cache以供使用, 因此当安装完一些库文件, 或者修改/etc/ld.so.conf增加了库的新搜索路径, 需要运行一下ldconfig, 使所有的库文件都被缓存到文件/etc/ld.so.cache中, 如果没做, 可能会找不到刚安装的库.
 
-### Linux 中安装虚拟机, 并在虚拟机中识别USB设备的方法
+### `Linux` 中安装虚拟机, 并在虚拟机中识别USB设备的方法
 
 - 如果安装的是Virtual Box, 需要到vbox的[官网](https://www.virtualbox.org/wiki/Linux_Downloads)下载vbox的扩展包, [VirtualBox 6.0.4 Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads), 下载后, 在`管理`->`全局设定`->`扩展`->`+`浏览到刚才下载的扩展包, 等待自动安装好. 然后运行命令`sudo usermod -a -G vboxusers $(whoami)`, `cat /etc/group | grep vbox`, 看一下已经把当前用户添加进vboxusers了, 然后重启. 重启后, 在对应的虚拟机设置里找到USB设置, 点击`启用USB控制器`, 然后再打开这个虚拟机即可在`设备`->`USB`中找到你想运行在虚拟机中的USB设备了.
 
-### understand 5 修改快捷键
+### `understand` 5 修改快捷键
 
 `Tools->Options->Key Bindings` 打开快捷键设置窗口
 - 查看符号的定义及声明: `Edit Source`, 改成 `F3`
 - 定位到下一个编辑器视图: `Edit History Next`, 改成 `Alt+Right`
 - 定位到上一个编辑器视图: `Edit History Previous`, 改成 `Alt+Left`
 
-### vmplayer
+### `vmplayer`
 
 vmplayer默认的安装位置是`/usr/lib/vmware`, 下载的`vmware tools`位置是`/usr/lib/vmware/isoimages`
 
@@ -449,7 +449,7 @@ vmplayer默认的安装位置是`/usr/lib/vmware`, 下载的`vmware tools`位置
     swapoff /opt/swapfile #停用swap分区
 ```
 
-### github 速度慢
+### `github` 速度慢
 
     经常要clone github中的一些项目，无奈如果不爬梯子的话速度实在是龟速，经常1k/s，于是搜了下解决方法，改HOSTS大法。
 Windows下在C:/Windows/system32/drivers/etc/hosts
@@ -478,13 +478,13 @@ Ubuntu等linux系一般在/etc/hosts
 Windows：ipconfig /flushdns
 Ubuntu：sudo systemctl restart nscd
 
-### 虚拟Linux挂载VMware共享文件夹
+### 虚拟`Linux`挂载`VMware`共享文件夹
 
 1. 可以用命令 `vmhgfs-fuse -h` 查看挂载方法
 2. 也可以用命令 `sudo mount  -t  vmhgfs  .host:/     /mnt/hgfs`挂载
 3. 在 `/etc/fstab` 文件中添加 `./host:/　　/mnt/hgfs　　vmhgfs　　default　　0　　0` 即可自动挂载
 
-### vbox 的共享文件夹没有权限
+### `vbox` 的共享文件夹没有权限
 
 ```bash
     sudo usermod -aG vboxsf $(whoami)
@@ -586,7 +586,7 @@ update-rc.d -f rcloned defaults
 bash /etc/init.d/rcloned start
 ```
 
-### `debian`使用物理硬盘(`windows`)
+### VirtualBox 中 `debian` 使用物理硬盘(`windows`)
 
 1. 运行`cmd`, `cd`进入你的`VirtualBox`目录
 
@@ -596,11 +596,11 @@ bash /etc/init.d/rcloned start
 
 3. 在`virtualbox`中找到`d:\localdisk.vmdk`, 添加到虚拟机中即可
 
-### Windows 10 自动登录
+### `Windows` 10 自动登录
 
 运行 `netplwiz` , 去掉"要使用本计算机, 用户必须输入用户名和密码"的对号, 接下来会让你输入登录密码, 输入完成即可.
 
-### Windows 将 `cmder` 添加到右键
+### `Windows` 将 `cmder` 添加到右键
 
 1. 将 `cmder` 的运行目录添加到 `path` 环境变量
 2. 在任意命令行终端运行 `cmder.exe /REGISTER ALL` 即可在右键添加`cmder`的启动菜单
