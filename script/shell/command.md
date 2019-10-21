@@ -607,6 +607,13 @@ bash /etc/init.d/rcloned start
 
 也可以参考[Adding Cmder to the Windows Explorer Context Menu](https://www.awmoore.com/2015/10/02/adding-cmder-to-the-windows-explorer-context-menu/)
 
+### `Windows` 挂载 `NFS`
+
+1. 打开 `Windows 10` 的 "程序和功能", 打开 "启用或关闭 `Windows` 功能", 找到 `NFS`, 打开 `NFS` 客户端, 等待安装完毕并重启.
+2. 假设 `Linux` 端, `NFS` 的共享目录是 `192.168.0.2:/nfs/share`, 且打开了读写权限, 那么在 `Windows` 端打开 `cmd`, 运行命令 `mount -o anon \\192.168.0.2\nfs\share Z:`, 这句命令以匿名身份挂载 `NFS` 到 `Y` 盘下, 但是没有读写权限, 中文也乱码
+3. 解决中文乱码. 大多数 `Linux` 端的中文都以 `UTF-8` 编码, 而 `Windows` 则以 `GB-2312` 编码, 两套编码系统不兼容, 所以中文会出现乱码. 在 `Windows 10` 中, 打开 `Windows 设置`, 选择 "时间和语言", 再打开"语言", 在右上角找到"管理语言设置", 再选择第2个页签中的"更改系统区域设置", 勾选"Beta版: 使用 `Unicode UTF-8` 提供全区语言支持", 然后重启 `Windows`, 再次挂载 `NFS` 后, 中文就可以正常显示了.
+4. 添加可写权限给匿名用户. 打开注册表编辑器 `regedit`, 定位到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`, 在右侧窗口中新建 `DWORD (32位)` 项 `AnonymousUid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的用户 `id` 值, 再新建 `DWORD (32位)` 项  `AnonymousGid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的组 `id` 值, 重启 `Windows`, 就可以读写所挂载的目录了.
+
 ## `FreeBSD` 安装后设置
 
 ### 设置域名解析服务器
