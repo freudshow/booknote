@@ -610,9 +610,26 @@ bash /etc/init.d/rcloned start
 ### `Windows` 挂载 `NFS`
 
 1. 打开 `Windows 10` 的 "程序和功能", 打开 "启用或关闭 `Windows` 功能", 找到 `NFS`, 打开 `NFS` 客户端, 等待安装完毕并重启.
-2. 假设 `Linux` 端, `NFS` 的共享目录是 `192.168.0.2:/nfs/share`, 且打开了读写权限, 那么在 `Windows` 端打开 `cmd`, 运行命令 `mount -o anon \\192.168.0.2\nfs\share Z:`, 这句命令以匿名身份挂载 `NFS` 到 `Y` 盘下, 但是没有读写权限, 中文也乱码
+2. 假设 `Linux` 端, `NFS` 的共享目录是 `192.168.0.2:/nfs/share`, 且打开了读写权限, 那么在 `Windows` 端打开 `cmd`, 运行命令 `mount -o anon nolock \\192.168.0.2\nfs\share Z:`, 这句命令以匿名身份挂载 `NFS` 到 `Y` 盘下, 但是没有读写权限, 中文也乱码
 3. 解决中文乱码. 大多数 `Linux` 端的中文都以 `UTF-8` 编码, 而 `Windows` 则以 `GB-2312` 编码, 两套编码系统不兼容, 所以中文会出现乱码. 在 `Windows 10` 中, 打开 `Windows 设置`, 选择 "时间和语言", 再打开"语言", 在右上角找到"管理语言设置", 再选择第2个页签中的"更改系统区域设置", 勾选"Beta版: 使用 `Unicode UTF-8` 提供全区语言支持", 然后重启 `Windows`, 再次挂载 `NFS` 后, 中文就可以正常显示了.
-4. 添加可写权限给匿名用户. 打开注册表编辑器 `regedit`, 定位到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`, 在右侧窗口中新建 `DWORD (32位)` 项 `AnonymousUid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的用户 `id` 值, 再新建 `DWORD (32位)` 项  `AnonymousGid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的组 `id` 值, 重启 `Windows`, 就可以读写所挂载的目录了.
+4. 添加可写权限给匿名用户. 打开注册表编辑器 `regedit`, 定位到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`, 在右侧窗口中新建 `DWORD (32位)` 项 `AnonymousUid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的用户 `id` 值, 再新建 `DWORD (32位)` 项  `AnonymousGid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的组 `id` 值, 重启 `Windows`, 就可以读写所挂载的目录了. 
+   >注: 也可以在 `Windows Power Shell` 中运行命令 `New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUID -Value 1000 -PropertyType "DWord"
+New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGID -Value 1000  -PropertyType "DWord"` 来添加注册表项.
+   运行命令 `mount` 后, 显示如下:
+
+   ```bash
+    Local    Remote                                 Properties
+	-------------------------------------------------------------------------------
+	Y:       \\192.168.0.2\home\floyd               UID=1000, GID=1000
+													rsize=1048576, wsize=1048576
+													mount=soft, timeout=0.8
+													retry=1, locking=no
+													fileaccess=755, lang=GB2312-80
+													casesensitive=no
+													sec=sys
+   ```
+
+5. 自动挂载 `NFS`. 每次输入挂载命令很麻烦, 在 `Windows` 资源管理器中点击"此电脑"->"计算机"->"映射网络驱动器", 输入 `NFS` 共享的网络和主机路径, 并分配一个盘符, 则下次开机后, `Windows` 就自动挂载 `NFS` 共享目录了.
 
 ## `FreeBSD` 安装后设置
 
