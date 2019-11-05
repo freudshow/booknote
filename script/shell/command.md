@@ -361,6 +361,23 @@ cat /etc/debian_version
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
+### `Linux` 下转换文件编码
+
+```bash
+    # convert file name encoding
+    sudo apt install convmv
+    convmv -f GBK -t UTF-8 -r --nosmart --notest <target directory>
+    
+    -f from
+    -t to
+    --nosmart ignore utf-8 encoded name
+    -r recursive
+    --notest force converting
+
+    # convert file encoding
+    iconv -f gbk -t utf-8 source-file -o target-file
+```
+
 ### `Ubuntu` 下配置 `Common Lisp` 开发环境
 
 ```bash
