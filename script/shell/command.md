@@ -99,19 +99,13 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
      sudo apt-get update && sudo apt-get install yarn
 ```
 
-
-
 ### `Linux`一次性复制同一目录下的多个文件
-
-
 
 ```bash
 cp /home/usr/dir/{file1,file2,file3,file4}       /home/usr/destination/#注意文件之间的‘,’不要有空格
 #具有共同前缀
 cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名的同一前缀
 ```
-
-
 
 ## `debian/Ubuntu`系统安装后要做的事情
 
@@ -602,6 +596,12 @@ chmod +x /etc/init.d/rcloned
 update-rc.d -f rcloned defaults
 bash /etc/init.d/rcloned start
 ```
+
+### SecureCRT 不让标签页显示当前目录名
+
+用 SecureCRT 连接 Linux主机后, 标签页标题会随着当前目录的变更而改变, 当进入目录层级较深时, 看着非常头大. 下面的方法禁用这个功能: 
+
+'Options -> Edit default session -> Terminal -> Emulation -> Advanced -> Other -> Ignore window title change request' 把这一项勾选即可.
 
 ### VirtualBox 中 `debian` 使用物理硬盘(`windows`)
 
