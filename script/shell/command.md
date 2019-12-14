@@ -11,7 +11,7 @@
 `fdupes`:
 
 ```bash
-    $sudo apt-get install fdupes
+    $sudo apt install fdupes
     $fdupes -r + directory #递归搜索重复文件
     #使用-S选项来查看某个文件夹内找到的重复文件的大小
     $fdupes -Sr /to_directory/
@@ -88,7 +88,7 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
 - 安装Node.js和NPM
 
 ```bash
-    apt-get install nodejs
+    apt install nodejs
 ```
 
 - To install the Yarn package manager, run:
@@ -96,7 +96,7 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
 ``` bash
      curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
      echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-     sudo apt-get update && sudo apt-get install yarn
+     sudo apt update && sudo apt install yarn
 ```
 
 ### `Linux`一次性复制同一目录下的多个文件
@@ -156,7 +156,7 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 ### 让`apt-get`支持`https`开头的软件源
 
 ```bash
-sudo apt-get install -y apt-transport-https
+sudo apt install -y apt-transport-https
 ```
 
 ### 普通用户使用`sudo`命令, 不再需要输入密码
@@ -174,7 +174,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt-get install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison 
 ```
 
 ### `Ubuntu`安装`Mate desktop`
@@ -244,9 +244,9 @@ cat /etc/debian_version
 执行以下命令来升级你的系统并安装 Infinality 包：
 
 ```bash
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install -y fontconfig-infinality
+    sudo apt update
+    sudo apt upgrade
+    sudo apt install -y fontconfig-infinality
     sudo apt install -y libfreetype6 libfreetype6-dev freetype2-demos
 ```
 
@@ -298,7 +298,7 @@ cat /etc/debian_version
 ### `install LaTex`
 
 ```bash
-    sudo apt-get -y install texlive-full texmaker texstudio
+    sudo apt -y install texlive-full texmaker texstudio
 ```
 
 ### `install Typora`
@@ -307,9 +307,9 @@ cat /etc/debian_version
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
     # add Typora's repository
     sudo add-apt-repository 'deb https://typora.io/linux ./'
-    sudo apt-get update
+    sudo apt update
     # install typora
-    sudo apt-get install typora
+    sudo apt install typora
 ```
 
 ### `install notepadqq`
@@ -321,8 +321,8 @@ cat /etc/debian_version
     sudo echo "deb http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main">>/etc/apt/sources.list
     sudo echo "deb-src http://ppa.launchpad.net/notepadqq-team/notepadqq/ubuntu trusty main">>/etc/apt/sources.list
     sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
-    sudo apt-get update
-    sudo apt-get install notepadqq
+    sudo apt update
+    sudo apt install notepadqq
 ```
 
 ### `test tex`
@@ -345,8 +345,8 @@ cat /etc/debian_version
 ### `install CGAL for Debian or Linux Mint`
 
 ```bash
-    sudo apt-get install  -y libcgal-dev  -y# install the CGAL library
-    sudo apt-get install  -y libcgal-demo  -y# install the CGAL demos
+    sudo apt install  -y libcgal-dev  -y# install the CGAL library
+    sudo apt install  -y libcgal-demo  -y# install the CGAL demos
 ```
 
 ### `install chrome`
@@ -506,8 +506,8 @@ Ubuntu：sudo systemctl restart nscd
 
 ```bash
 # 1. 安装 samba
-sudo apt-get update
-sudo apt-get install samba samba-common smb-client
+sudo apt update
+sudo apt install samba samba-common smb-client
 # 2. 创建需要共享的目录
 sudo mkdir /home/share
 sudo chmod 777 /home/share
@@ -551,21 +551,21 @@ sudo gedit /etc/samba/smb.conf
     sudo service lightdm start # 然后按Ctrl-Alt+F7即可恢复到图形界面
 
     # 如果以前是通过ppa源安装的，可以通过下面命令卸载：
-    sudo apt-get remove --purge nvidia*
+    sudo apt remove --purge nvidia*
     # 如果以前是通过runfile安装的，可以通过下面命令卸载：
     sudo ./NVIDIA-Linux-x86_64-384.59.run --uninstall
 
     # 安装Nvidia驱动
     sudo add-apt-repository ppa:graphics-drivers/ppa 
-    sudo apt-get update 
-    sudo apt-get install nvidia-driver-430 # 根据具体情况而定, 安装最新版
-    sudo apt-get install mesa-common-dev
+    sudo apt update 
+    sudo apt install nvidia-driver-430 # 根据具体情况而定, 安装最新版
+    sudo apt install mesa-common-dev
     sudo reboot
     # 终端验证是否安装成功：
      nvidia-smi
     # 最好安装 apt-fast 加速下载速度, 不然下载时间很长
     sudo add-apt-repository ppa:apt-fast/stable
-    sudo apt-get install apt-fast
+    sudo apt install apt-fast
     #安装后就跟apt-get用法一样了
     sudo apt-fast update
     sudo apt-fast upgrade -y
