@@ -1,0 +1,8 @@
+# 嵌入式基础知识
+
+## 关于 SRAM, DRAM, SDRAM
+
+- RAM: Random Access Memory, 随机访问存储器. is a kind of memory which needs constant power to retain the data in it, once the power supply is disrupted the data will be lost, that’s why it is known as volatile memory. Reading and writing in RAM is easy and rapid and accomplished through electrical signals.
+- SRAM: Static Random Access Memory, 静态随机访问存储器. is made up of CMOS technology and uses six transistors. Its construction is comprised of two cross-coupled inverters to store data (binary) similar to flip-flops and extra two transistors for access control. It is relatively faster than other RAM types such as DRAM. It consumes less power. SRAM can hold the data as long as power is supplied to it.
+- DRAM: Dynamic Random Access Memory, 动态随机访问存储器. is also a type of RAM which is constructed using capacitors and few transistors. The capacitor is used for storing the data where bit value 1 signifies that the capacitor is charged and a bit value 0 means that capacitor is discharged. Capacitor tends to discharge, which result in leaking of charges.
+- SDRAM: Synchronous Dynamic Random Access Memory, 同步动态随机访问存储器. is a type of memory that synchronizes itself with the computer's system clock. Being synchronized allows the memory to run at higher speeds than previous memory types and asynchronous DRAM and also supports up to 133 MHz system bus cycling. Since 1993, this is the prevalent type of memory used in computers around the world. In the picture below is an example of a SDRAM DIMM. The original type, named SDRAM, up to the current type, DDR3, are all derivatives of the SDRAM memory type.
