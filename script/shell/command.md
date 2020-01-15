@@ -114,21 +114,23 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 用root账号在/etc/apt/sources.list中把软件源修改为：
 
 - `debian 9`:
+
 ```bash
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
-    
+
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
-    
+
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
-    
+
     deb https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
 ```
 
 - `debian 10`:
+
 ```bash
 
     deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
@@ -142,6 +144,7 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 ```
 
 - `ubuntu 18.04`:
+
 ```bash
     deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
     deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
@@ -161,7 +164,7 @@ sudo apt install -y apt-transport-https
 
 ### 普通用户使用`sudo`命令, 不再需要输入密码
 
-把下面的配置写入到 /etc/sudoers, yourname替换为自己的用户名, 下同
+把下面的配置写入到 `/etc/sudoers`, yourname替换为自己的用户名, 下同
 
 ```bash
     yourname    ALL=(ALL) NOPASSWD: NOPASSWD: ALL
@@ -218,15 +221,20 @@ cat /etc/debian_version
     sudo dpkg --print-architecture
     sudo dpkg --add-architecture i386
     sudo apt install  -y lib32z1 lib32ncurses5 gcc-multilib
+    # in debian 10
+    sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib
 ```
 
 ### 安装6.828开发环境
 
 ```bash
-    git clone http://web.mit.edu/ccutler/www/qemu.git
+    sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
+    git clone git://github.com/mit-pdos/xv6-riscv.git
     ./configure --disable-kvm --prefix=/opt/qemu --target-list="i386-softmmu x86_64-softmmu"
     make
     sudo make install
+
+    git clone git://github.com/mit-pdos/xv6-riscv-book.git
 ```
 
 ### `Linux`字体渲染
@@ -361,7 +369,7 @@ cat /etc/debian_version
     # convert file name encoding
     sudo apt install convmv
     convmv -f GBK -t UTF-8 -r --nosmart --notest <target directory>
-    
+
     -f from
     -t to
     --nosmart ignore utf-8 encoded name
@@ -422,6 +430,7 @@ cat /etc/debian_version
 ### `understand` 5 修改快捷键
 
 `Tools->Options->Key Bindings` 打开快捷键设置窗口
+
 - 查看符号的定义及声明: `Edit Source`, 改成 `F3`
 - 定位到下一个编辑器视图: `Edit History Next`, 改成 `Alt+Right`
 - 定位到上一个编辑器视图: `Edit History Previous`, 改成 `Alt+Left`
@@ -462,7 +471,7 @@ vmplayer默认的安装位置是`/usr/lib/vmware`, 下载的`vmware tools`位置
 
 ### `github` 速度慢
 
-    经常要clone github中的一些项目，无奈如果不爬梯子的话速度实在是龟速，经常1k/s，于是搜了下解决方法，改HOSTS大法。
+经常要clone github中的一些项目，无奈如果不爬梯子的话速度实在是龟速，经常1k/s，于是搜了下解决方法，改HOSTS大法。
 Windows下在C:/Windows/system32/drivers/etc/hosts
 Ubuntu等linux系一般在/etc/hosts
 在hosts中添加如下内容：
@@ -485,6 +494,7 @@ Ubuntu等linux系一般在/etc/hosts
     185.31.18.133 avatars0.githubusercontent.com
     185.31.19.133 avatars1.githubusercontent.com
 ```
+
 改完之后立刻刷新，
 Windows：ipconfig /flushdns
 Ubuntu：sudo systemctl restart nscd
@@ -513,14 +523,14 @@ sudo mkdir /home/share
 sudo chmod 777 /home/share
 # 3. 修改基础配置
 sudo gedit /etc/samba/smb.conf 
-	# 在 'max log size = 1000' 下面增加
-	security = user
-	# 在文末增加
-	[testshare]
-        path = /home/floyd/samba
-        browseable = yes
-        writable = yes
- # 4. 新建访问共享资源的用户和设置密码
+# 在 'max log size = 1000' 下面增加
+security = user
+# 在文末增加
+[testshare]
+    path = /home/floyd/samba
+    browseable = yes
+    writable = yes
+# 4. 新建访问共享资源的用户和设置密码
  sudo useradd smbuser # 新建用户
  sudo smbpasswd -a smbuser # 设置密码
  sudo service smbd restart # 重启 samba 服务
@@ -535,7 +545,7 @@ sudo gedit /etc/samba/smb.conf
 ### `Ubuntu` 安装 `Nvidia` 驱动
 
 ```bash
-    # 禁用nouveau 
+    # 禁用nouveau
     sudo vim /etc/modprobe.d/blacklist-nouveau.conf
         blacklist nouveau
         options nouveau modeset=0
@@ -556,8 +566,8 @@ sudo gedit /etc/samba/smb.conf
     sudo ./NVIDIA-Linux-x86_64-384.59.run --uninstall
 
     # 安装Nvidia驱动
-    sudo add-apt-repository ppa:graphics-drivers/ppa 
-    sudo apt update 
+    sudo add-apt-repository ppa:graphics-drivers/ppa
+    sudo apt update
     sudo apt install nvidia-driver-430 # 根据具体情况而定, 安装最新版
     sudo apt install mesa-common-dev
     sudo reboot
@@ -599,7 +609,7 @@ bash /etc/init.d/rcloned start
 
 ### SecureCRT 不让标签页显示当前目录名
 
-用 SecureCRT 连接 Linux主机后, 标签页标题会随着当前目录的变更而改变, 当进入目录层级较深时, 看着非常头大. 下面的方法禁用这个功能: 
+用 SecureCRT 连接 Linux主机后, 标签页标题会随着当前目录的变更而改变, 当进入目录层级较深时, 看着非常头大. 下面的方法禁用这个功能:
 
 'Options -> Edit default session -> Terminal -> Emulation -> Advanced -> Other -> Ignore window title change request' 把这一项勾选即可.
 
@@ -629,7 +639,7 @@ bash /etc/init.d/rcloned start
 1. 打开 `Windows 10` 的 "程序和功能", 打开 "启用或关闭 `Windows` 功能", 找到 `NFS`, 打开 `NFS` 客户端, 等待安装完毕并重启.
 2. 假设 `Linux` 端, `NFS` 的共享目录是 `192.168.0.2:/nfs/share`, 且打开了读写权限, 那么在 `Windows` 端打开 `cmd`, 运行命令 `mount -o anon nolock \\192.168.0.2\nfs\share Z:`, 这句命令以匿名身份挂载 `NFS` 到 `Y` 盘下, 但是没有读写权限, 中文也乱码
 3. 解决中文乱码. 大多数 `Linux` 端的中文都以 `UTF-8` 编码, 而 `Windows` 则以 `GB-2312` 编码, 两套编码系统不兼容, 所以中文会出现乱码. 在 `Windows 10` 中, 打开 `Windows 设置`, 选择 "时间和语言", 再打开"语言", 在右上角找到"管理语言设置", 再选择第2个页签中的"更改系统区域设置", 勾选"Beta版: 使用 `Unicode UTF-8` 提供全区语言支持", 然后重启 `Windows`, 再次挂载 `NFS` 后, 中文就可以正常显示了.
-4. 添加可写权限给匿名用户. 打开注册表编辑器 `regedit`, 定位到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`, 在右侧窗口中新建 `DWORD (32位)` 项 `AnonymousUid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的用户 `id` 值, 再新建 `DWORD (32位)` 项  `AnonymousGid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的组 `id` 值, 重启 `Windows`, 就可以读写所挂载的目录了. 
+4. 添加可写权限给匿名用户. 打开注册表编辑器 `regedit`, 定位到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`, 在右侧窗口中新建 `DWORD (32位)` 项 `AnonymousUid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的用户 `id` 值, 再新建 `DWORD (32位)` 项  `AnonymousGid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的组 `id` 值, 重启 `Windows`, 就可以读写所挂载的目录了.
    >注: 也可以在 `Windows Power Shell` 中运行命令 `New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUID -Value 1000 -PropertyType "DWord"
 New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGID -Value 1000  -PropertyType "DWord"` 来添加注册表项.
    运行命令 `mount` 后, 显示如下:
@@ -651,6 +661,7 @@ New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -N
 ## `FreeBSD` 安装后设置
 
 ### 设置域名解析服务器
+
 ``` bash
     ee  /etc/rc.conf   #编辑
     ifconfig_em0="inet 192.168.21.173  netmask 255.255.255.0"  #设置IP地址，子网掩码
@@ -658,7 +669,7 @@ New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -N
     hostname="FreeBSD"   #设置主机名字
 
     ee /etc/resolv.conf  #编辑
-    nameserver 192.168.31.1 
+    nameserver 192.168.31.1
     reboot #重启系统使之生效
 
 ```
