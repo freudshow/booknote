@@ -50,3 +50,31 @@ max of a, c: 1814155280
 d: 8.900000
 
 更复杂的用法见[GCC使用手册](https://gcc.gnu.org/onlinedocs/gcc-5.3.0/gcc/Typeof.html)
+
+## 数组的越界访问 BUG
+
+1. 场景描述:  在 1376.2-2013 报文中, 有一个1字节的序列号, 用来使异步传输过程中的上下帧保持一个一一对应关系. 由于是1个字节, 无符号整型, 所以这个序列号的取值范围在 0~255 之间, 共256个元素.
+      我在程序中设定了一个数组, 用来记录每一帧报文中的重要信息, 代码如下:
+      ``` C
+            #include <limits.h>
+
+            typedef struct {
+                uint8   taskid;
+                uint16  items;
+                .
+                .
+                .
+            }  info3762_s;
+
+            static info3762_s  info3762_table[UCHAR_MAX];//全局表, 用来记录发送报文中的重要信息, 以便对应答的报文进行拆解和存储
+
+      ```
+
+2. BUG描述: 当程序在运行时, 总是发现当报文在序列号 255 时, 信息表 info3762_table 中的元素都是0!  后来查出来,  是因为信息表 info3762_table[255]  这个元素根本不存在!
+3. 问题解决:
+    ```C
+        static info3762_s  info3762_table[UCHAR_MAX];//UCHAR_MAX在arm-none-linux-gnueabi-gcc中的定义为 255, 所以数组info3762_table只有255个合法的元素, 根本不是期望的 256个元素
+
+        info3762_table[256];//当把 info3762_table 定义为255个元素时,  info3762_table[256]是可以正确访问的,  不论是在上位机还是下位机, 这不得不说是一个陷阱.   之前我一直以为C语言有越界访问的控制, 现在看来就算有, 也并不完全可靠!
+        static info3762_s  info3762_table[UCHAR_MAX+1];//重新把信息表定义为256个!!!
+    ```

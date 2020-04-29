@@ -23,8 +23,16 @@
 \draw[->] (start) -- (getdata);
 \draw[->] (getdata) -- (decide);
 \draw[->] (decide) -| node[above]{是} (process);
-\draw[->] (decide) -- node[above]{否}(storage);
+\draw[->] (decide) -- node[left]{否}(storage);
 \draw[->] (process) |- (point1);
 \draw[->] (storage) -- (point1) -- (end);
 \end{tikzpicture}
+
+\begin{tikzpicture}
+\draw[gray, thick] (-1,2) -- (2,-4);
+\draw[gray, thick] (-1,-1) -- (2,2);
+\filldraw[black] (0,0) circle (2pt) node[anchor=west] {Intersection point};
+
+\end{tikzpicture}
+
 \end{document}
