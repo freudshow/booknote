@@ -3,6 +3,7 @@
 ## Version 0.01
 
 ## 虚拟机安装
+> 当然也可以直接在裸机上安装`ubuntu/debian`系统, 需要安装的软件和进行的设置相同
 
 在windows或Linux中首先安装虚拟机软件.  
 虚拟机在[vmware官方网站](https://www.vmware.com/cn/products/workstation-player.html)下载`vmplayer`, 如果是在ubuntu/debian类系统中安装, 则需要额外安装内核头文件, 编译工具等:
@@ -31,7 +32,7 @@
 ```bash
     sudo dpkg --add-architecture i386
     sudo apt update
-    sudo apt install  -y lib32z1 lib32ncurses5 gcc-multilib
+    sudo apt install  -y lib32z1 lib32ncurses5 gcc-multilib #如果你使用debian 10/ubuntu 18.04及比他们更新的系统, 会报错 lib32ncurses5 不存在,  换成lib32ncurses6即可
 ```
 
 - sam-ba刷机软件  
@@ -282,8 +283,8 @@
 ## 终端的启动过程
 
 1. boot阶段, 启动小内核, 通过`dhcp`请求一个IP地址, 获取IP地址后请求一个`MAC`地址.
-2. 挂载服务器的对应`nfs`目录为根文件, 初始化Nand, 复制服务器根文件的内核镜像到nand.
-3. 复制服务器的应用程序相关文件到nand和nor
+2. 挂载服务器的对应`nfs`目录为根文件, 初始化`Nand`, 复制服务器根文件的内核镜像到`nand`.
+3. 复制服务器的应用程序相关文件到`nand`和`nor`
 4. 重启正常运行
 
 ## 终端的刷机过程
