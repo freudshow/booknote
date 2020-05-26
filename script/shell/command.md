@@ -21,6 +21,20 @@
     $fdupes -f /to_directory/
 ```
 
+## Linux下制作ext4文件系统镜像
+
+```bash
+    #生成一个空的2GiB文件
+    dd if=/dev/zero of=rootfs.ext4 bs=1024 count=20480000
+
+    #对生成的文件进行格式化
+    mkfs.ext4 rootfs.ext4
+
+    #挂载此空镜像
+    sudo mount -o loop rootfs.ext4 /mnt
+
+```
+
 ## Linux系统备份与还原
 
 ### 备份系统
