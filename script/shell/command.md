@@ -81,6 +81,14 @@
 sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offset 4300;">4301.csv
 ```
 
+## `Qt` 静态编译
+
+```bash
+    ./configure -static -prefix ../qt.5.14.1.static
+
+    qt.qpa.plugin: Could not find the Qt platform plugin "xcb" in ""
+```
+
 ## `debian` 安装 `nodejs`
 
 参考[Debian9安装最新版Nodejs和NPM](https://www.5yun.org/15395.html)
