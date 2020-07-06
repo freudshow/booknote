@@ -371,3 +371,14 @@ The `semflg` argument is a bit mask specifying the permissions to be placed on a
     IPC_EXCL
         If IPC_CREAT was also specified, and a semaphore set with the specified key already exists, fail with the error EEXIST.
 ```
+
+### `shared memory`
+
+In order to use a shared memory segment, we typically perform the following steps:
+
+- Call shmget() to create a new shared memory segment or obtain the identifier of an existing segment (i.e., one created by another process). This call returns a shared memory identifier for use in later calls.
+- Use shmat() to attach the shared memory segment; that is, make the segment part of the virtual memory of the calling process.
+- At this point, the shared memory segment can be treated just like any other memory available to the program. In order to refer to the shared memory, the program uses the addr value returned by the shmat() call, which is a pointer to the start of the shared memory segment in the process’s virtual address space.
+- Call shmdt() to detach the shared memory segment. After this call, the process can no longer refer to the shared memory. This step is optional, and happens automatically on process termination.
+- Call shmctl() to delete the shared memory segment. The segment will be
+destroyed only after all currently attached processes have detached it. Only one process needs to perform this step.
