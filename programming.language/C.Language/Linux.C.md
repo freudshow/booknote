@@ -3,13 +3,16 @@
 [TOC]
 
 ## ALTERNATIVE I/O MODELS
-**《the Linux Programming Interface》Chapter 63**
+
+`《the Linux Programming Interface》 Chapter 63`
 
 ### Level-Triggered and Edge-Triggered Notification
-- 电平触发([Level-Triggered](https://en.wikipedia.org/wiki/Interrupt#Level-triggered)): 是在高或低电平保持的时间内触发, 
+
+- 电平触发([Level-Triggered](https://en.wikipedia.org/wiki/Interrupt#Level-triggered)): 是在高或低电平保持的时间内触发,
 - 边沿触发([Edge-triggered](https://en.wikipedia.org/wiki/Interrupt#Edge-triggered)): 是由高到低或由低到高这一瞬间触发
 
 ### The ***select()*** System Call
+
 The ***select()*** system call blocks until one or more of a set of file descriptors becomes
 ready.  
 
@@ -23,10 +26,12 @@ ready.
     Returns number of ready file descriptors, 0 on timeout, or –1 on error
 
 ```
+
 #### **arguments**
+
 The ***nfds***, ***readfds***, ***writefds***, and ***exceptfds*** arguments specify the file descriptors that
 ***select()*** is to monitor. The timeout argument can be used to set an upper limit on the
-time for which ***select()*** will block. 
+time for which ***select()*** will block.
 
 - ***readfds*** is the set of file descriptors to be tested to see if input is possible;
 - ***writefds*** is the set of file descriptors to be tested to see if output is possible; and
@@ -39,14 +44,14 @@ time for which ***select()*** will block.
 typedef long int __fd_mask;
 
 /* Number of descriptors that can fit in an `fd_set'.  */
-#define __FD_SETSIZE		1024
+#define __FD_SETSIZE        1024
 
 /* Some versions of <linux/posix_types.h> define this macros.  */
-#undef	__NFDBITS
+#undef    __NFDBITS
 /* It's easier to assume 8-bit bytes than to get CHAR_BIT.  */
-#define __NFDBITS	(8 * (int) sizeof (__fd_mask))
-#define	__FD_ELT(d)	((d) / __NFDBITS)
-#define	__FD_MASK(d)	((__fd_mask) (1UL << ((d) % __NFDBITS)))
+#define __NFDBITS    (8 * (int) sizeof (__fd_mask))
+#define    __FD_ELT(d)    ((d) / __NFDBITS)
+#define    __FD_MASK(d)    ((__fd_mask) (1UL << ((d) % __NFDBITS)))
 
 /* fd_set for select and pselect.  */
 typedef struct
@@ -58,7 +63,7 @@ typedef struct
   } fd_set;
 ```
 
-four macros to manipulate fd_set: 
+four macros to manipulate fd_set:
 
 ```C
 #include <sys/select.h>
@@ -76,15 +81,18 @@ int FD_ISSET(int fd, fd_set *fdset);
 by fdset.
 
 ### The ***epoll()*** API
+
 The epoll API is Linux-specific, and is new in Linux 2.6.
 The central data structure of the ***epoll*** API is an ***epoll*** instance, which is referred
 to via an open file descriptor. This file descriptor is not used for I/O. Instead, it is a
 handle for kernel data structures that serve two purposes:  
+
 - recording a list of file descriptors that this process has declared an interest in
 monitoring—the interest list; and
 - maintaining a list of file descriptors that are ready for I/O—the ready list.
 
 The ***epoll*** API consists of three system calls:  
+
 - The ***epoll_create()*** system call creates an epoll instance and returns a file descriptor
 referring to the instance.
 1356 Chapter 63
@@ -107,7 +115,7 @@ epoll instance.
  ***epoll_create()*** creats an ***epoll*** Instance, and returns a file descriptor referring to the new
 ***epoll*** instance. This file descriptor is used to refer to the ***epoll*** instance in other ***epoll***
 system calls. When the file descriptor is no longer required, it should be closed in
-the usual way, using ***close()*** . 
+the usual way, using ***close()*** .
 
 #### ***epoll_ctl()***
 
@@ -144,6 +152,7 @@ Closing a file descriptor automatically removes it from all of the epoll interes
 lists of which it is a member.
 
 #### ***epoll_wait()***
+
  Waiting for Events: epoll_wait()
 The epoll_wait() system call returns information about ready file descriptors from
 the epoll instance referred to by the file descriptor epfd. A single epoll_wait() call can
@@ -156,6 +165,7 @@ return information about multiple ready file descriptors.
         Returns number of ready file descriptors, 0 on timeout, or –1 on error
 
 ```
+
 The information about ready file descriptors is returned in the array of ***epoll_event***
 structures pointed to by ***evlist*** . The ***evlist*** array is allocated by the caller, and the number of elements
 it contains is specified in ***maxevents*** .
@@ -220,87 +230,87 @@ points about this loop:
 
 int main(int argc, char *argv[])
 {
-	int epfd, ready, fd, s, j, numOpenFds;
-	struct epoll_event ev;
-	struct epoll_event evlist[MAX_EVENTS];
-	char buf[MAX_BUF];
+    int epfd, ready, fd, s, j, numOpenFds;
+    struct epoll_event ev;
+    struct epoll_event evlist[MAX_EVENTS];
+    char buf[MAX_BUF];
 
-	fprintf(stderr, "sizeof __fd_mask: %ld, sizeof fd_set: %ld, __NFDBITS: %d, __FD_SETSIZE: %d\n",
-			sizeof(__fd_mask), sizeof(fd_set), __NFDBITS, __FD_SETSIZE);
+    fprintf(stderr, "sizeof __fd_mask: %ld, sizeof fd_set: %ld, __NFDBITS: %d, __FD_SETSIZE: %d\n",
+        sizeof(__fd_mask), sizeof(fd_set), __NFDBITS, __FD_SETSIZE);
 
-	if (argc < 2 || strcmp(argv[1], "--help") == 0)
-		usageErr("%s file...\n", argv[0]);
+    if (argc < 2 || strcmp(argv[1], "--help") == 0)
+        usageErr("%s file...\n", argv[0]);
 
-	epfd = epoll_create(argc - 1);
-	if (epfd == -1)
-		errExit("epoll_create");
+    epfd = epoll_create(argc - 1);
+    if (epfd == -1)
+        errExit("epoll_create");
 
-	/* Open each file on command line, and add it to the "interest
-	 list" for the epoll instance */
+    /* Open each file on command line, and add it to the "interest
+     list" for the epoll instance */
 
-	for (j = 1; j < argc; j++) {
-		fd = open(argv[j], O_RDONLY);
-		if (fd == -1)
-			errExit("open");
-		printf("Opened \"%s\" on fd %d\n", argv[j], fd);
+    for (j = 1; j < argc; j++) {
+        fd = open(argv[j], O_RDONLY);
+        if (fd == -1)
+            errExit("open");
+        printf("Opened \"%s\" on fd %d\n", argv[j], fd);
 
-		ev.events = EPOLLIN; /* Only interested in input events */
-		ev.data.fd = fd;
-		if (epoll_ctl(epfd, EPOLL_CTL_ADD, fd, &ev) == -1)
-			errExit("[%s][%d]epoll_ctl", __FILE__,__LINE__);
-	}
+        ev.events = EPOLLIN; /* Only interested in input events */
+        ev.data.fd = fd;
+        if (epoll_ctl(epfd, EPOLL_CTL_ADD, fd, &ev) == -1)
+            errExit("[%s][%d]epoll_ctl", __FILE__,__LINE__);
+    }
 
-	numOpenFds = argc - 1;
+    numOpenFds = argc - 1;
 
-	while (numOpenFds > 0) {
+    while (numOpenFds > 0) {
 
-		/* Fetch up to MAX_EVENTS items from the ready list of the
-		 epoll instance */
+        /* Fetch up to MAX_EVENTS items from the ready list of the
+         epoll instance */
 
-		printf("About to epoll_wait()\n");
-		ready = epoll_wait(epfd, evlist, MAX_EVENTS, -1);
-		if (ready == -1) {
-			if (errno == EINTR)
-				continue; /* Restart if interrupted by signal */
-			else
-				errExit("epoll_wait");
-		}
+        printf("About to epoll_wait()\n");
+        ready = epoll_wait(epfd, evlist, MAX_EVENTS, -1);
+        if (ready == -1) {
+            if (errno == EINTR)
+                continue; /* Restart if interrupted by signal */
+            else
+                errExit("epoll_wait");
+        }
 
-		printf("Ready: %d\n", ready);
+        printf("Ready: %d\n", ready);
 
-		/* Deal with returned list of events */
+        /* Deal with returned list of events */
 
-		for (j = 0; j < ready; j++) {
-			printf("  fd=%d; events: %s%s%s\n", evlist[j].data.fd,
-					(evlist[j].events & EPOLLIN) ? "EPOLLIN " : "",
-					(evlist[j].events & EPOLLHUP) ? "EPOLLHUP " : "",
-					(evlist[j].events & EPOLLERR) ? "EPOLLERR " : "");
+        for (j = 0; j < ready; j++) {
+            printf("  fd=%d; events: %s%s%s\n", evlist[j].data.fd,
+                    (evlist[j].events & EPOLLIN) ? "EPOLLIN " : "",
+                    (evlist[j].events & EPOLLHUP) ? "EPOLLHUP " : "",
+                    (evlist[j].events & EPOLLERR) ? "EPOLLERR " : "");
 
-			if (evlist[j].events & EPOLLIN) {
-				s = read(evlist[j].data.fd, buf, MAX_BUF);
-				if (s == -1)
-					errExit("read");
-				printf("    read %d bytes: %.*s\n", s, s, buf);
+            if (evlist[j].events & EPOLLIN) {
+                s = read(evlist[j].data.fd, buf, MAX_BUF);
+                if (s == -1)
+                    errExit("read");
+                printf("    read %d bytes: %.*s\n", s, s, buf);
 
-			} else if (evlist[j].events & (EPOLLHUP | EPOLLERR)) {
+            } else if (evlist[j].events & (EPOLLHUP | EPOLLERR)) {
 
-				/* After the epoll_wait(), EPOLLIN and EPOLLHUP may both have
-				 been set. But we'll only get here, and thus close the file
-				 descriptor, if EPOLLIN was not set. This ensures that all
-				 outstanding input (possibly more than MAX_BUF bytes) is
-				 consumed (by further loop iterations) before the file
-				 descriptor is closed. */
+                /* After the epoll_wait(), EPOLLIN and EPOLLHUP may both have
+                 been set. But we'll only get here, and thus close the file
+                 descriptor, if EPOLLIN was not set. This ensures that all
+                 outstanding input (possibly more than MAX_BUF bytes) is
+                 consumed (by further loop iterations) before the file
+                 descriptor is closed. */
 
-				printf("    closing fd %d\n", evlist[j].data.fd);
-				if (close(evlist[j].data.fd) == -1)
-					errExit("close");
-				numOpenFds--;
-			}
-		}
-	}
+                printf("    closing fd %d\n", evlist[j].data.fd);
+                if (close(evlist[j].data.fd) == -1)
+                    errExit("close");
+                numOpenFds--;
+            }
+        }
+    }
 
-	printf("All file descriptors closed; bye\n");
-	exit(EXIT_SUCCESS);
+    printf("All file descriptors closed; bye\n");
+    exit(EXIT_SUCCESS);
 }
 
 ```
@@ -314,3 +324,50 @@ In Linux Kernel 4.19, ***epoll*** locates in "linux-4.19/fs/eventpoll.c".
 - [Red-Black Tree | Set 1](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/)
 - [Red-Black Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
 - [自己动手实现Epoll](http://blog.51cto.com/wangbojing/2090885)
+
+## FILE IO
+
+### `read()`
+
+by default, a read() from a terminal reads characters only
+up to the next newline (\n) character.
+
+## `SYSTEM V` IPC
+
+### `semaphore`
+
+System V semaphores are rendered unusually complex by the fact that they are allocated in groups called semaphore sets. The number of semaphores in a set is specified when the set is created using the semget() system call. While it is common to operate on a single semaphore at a time, the semop() system call allows us to atomically perform a group of operations on multiple semaphores in the same set.
+
+The general steps for using a System V semaphore are the following:
+
+- Create or open a semaphore set using semget().
+- Initialize the semaphores in the set using the semctl() SETVAL or SETALL operation. (Only one process should do this.)
+- Perform operations on semaphore values using semop(). The processes using the semaphore typically use these operations to indicate acquisition and release of a shared resource.
+- When all processes have finished using the semaphore set, remove the set using the semctl() IPC_RMID operation. (Only one process should do this.)
+
+#### `semget()`
+
+The semget() system call creates a new semaphore set or obtains the identifier of an existing set.
+
+```c
+#include <sys/types.h> /* For portability */
+#include <sys/sem.h>
+
+int semget(key_t key, int nsems, int semflg);
+            Returns semaphore set identifier on success, or –1 on error
+
+```
+
+The `key` argument is a key generated using one of the methods described in Section 45.2 (i.e., usually the value IPC_PRIVATE or a key returned by ftok()).
+
+If we are using semget() to create a new semaphore set, then `nsems` specifies the number of semaphores in that set, and must be greater than 0. If we are using semget() to obtain the identifier of an existing set, then `nsems` must be less than or equal to the size of the set (or the error EINVAL results). It is not possible to change the number of semaphores in an existing set.
+
+The `semflg` argument is a bit mask specifying the permissions to be placed on a new semaphore set or checked against an existing set. These permissions are specified in the same manner as for files (Table 15-4, on page 295). In addition, zero or more of the following flags can be ORed (|) in semflg to control the operation of semget():
+
+```C
+    IPC_CREAT
+        If no semaphore set with the specified key exists, create a new set.
+
+    IPC_EXCL
+        If IPC_CREAT was also specified, and a semaphore set with the specified key already exists, fail with the error EEXIST.
+```
