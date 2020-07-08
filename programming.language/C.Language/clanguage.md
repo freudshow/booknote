@@ -1,6 +1,7 @@
 # C language related
 
 ## typeof keyword
+
 $typeof$ 关键字是 GCC 为C语言扩展的, 用于推导一个表达式的数据类型.  
 如:
 
@@ -25,12 +26,12 @@ float foo(float a)
 {
     return a;
 }
-                        
+
 int main(void)
 {
     int a = 5, b = 8;
     float c = 9.4;
-    
+
     printf("max of a, b: %d\n", MAX(a,b));
     printf("max of a, c: %d\n", MAX(a,c));
     printf("max of a, c: %d\n", auto_max(a,c));
@@ -55,6 +56,7 @@ d: 8.900000
 
 1. 场景描述:  在 1376.2-2013 报文中, 有一个1字节的序列号, 用来使异步传输过程中的上下帧保持一个一一对应关系. 由于是1个字节, 无符号整型, 所以这个序列号的取值范围在 0~255 之间, 共256个元素.
       我在程序中设定了一个数组, 用来记录每一帧报文中的重要信息, 代码如下:
+
       ``` C
             #include <limits.h>
 
@@ -72,9 +74,28 @@ d: 8.900000
 
 2. BUG描述: 当程序在运行时, 总是发现当报文在序列号 255 时, 信息表 info3762_table 中的元素都是0!  后来查出来,  是因为信息表 info3762_table[255]  这个元素根本不存在!
 3. 问题解决:
+
     ```C
         static info3762_s  info3762_table[UCHAR_MAX];//UCHAR_MAX在arm-none-linux-gnueabi-gcc中的定义为 255, 所以数组info3762_table只有255个合法的元素, 根本不是期望的 256个元素
 
         info3762_table[256];//当把 info3762_table 定义为255个元素时,  info3762_table[256]是可以正确访问的,  不论是在上位机还是下位机, 这不得不说是一个陷阱.   之前我一直以为C语言有越界访问的控制, 现在看来就算有, 也并不完全可靠!
         static info3762_s  info3762_table[UCHAR_MAX+1];//重新把信息表定义为256个!!!
     ```
+
+## `!` 运算符
+
+`!` 是单目逻辑运算符, 将非0数转换成0, 将0转换成1:
+
+```c
+printf("%d, %d, %d\n",!(1111), !(0), !(-1));
+```
+
+输出结果:
+
+```bash
+    0, 1, 0
+```
+
+## `sizeof` 运算符
+
+`sizeof` 运算符是编译时求值参考`K&R` C 的120页, `C provides a compile-time unary operator called sizeof that can be used to compute the size of any object`
