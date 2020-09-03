@@ -99,3 +99,39 @@ printf("%d, %d, %d\n",!(1111), !(0), !(-1));
 ## `sizeof` 运算符
 
 `sizeof` 运算符是编译时求值参考`K&R` C 的120页, `C provides a compile-time unary operator called sizeof that can be used to compute the size of any object`
+
+## `NaN`, `INFINITY`
+
+`math.h`中定义了`float`类型的几个特殊值:
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+#include <math.h>
+
+int main()
+{
+    unsigned char *p = NULL;
+    float f = 0.0;
+
+    p = (unsigned char *)&f;
+    f=INFINITY;
+    printf("%f, 0x%02X%02X%02X%02X\n", f, p[3],p[2],p[1],p[0]);
+
+    f=NAN;
+    printf("%f, 0x%02X%02X%02X%02X\n", f, p[3],p[2],p[1],p[0]);
+
+    return 0;
+}
+
+```
+
+>输出:
+
+```bash
+inf, 0x7F800000 //0111 1111 1000 0000 0000 0000 0000 0000
+nan, 0x7FC00000 //0111 1111 1100 0000 0000 0000 0000 0000
+```
+
+与`IEEE 754`规定的特殊值格式一致, 所以程序在启动时, 为了将`float`类型的数据标记为无效, 可以用到`NaN`, `INFINITY`这两个宏定义
