@@ -217,7 +217,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-14-jdk openjdk-11-jdk
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-14-jdk openjdk-11-jdk openssh-server
 ```
 
 ### `Ubuntu`安装`Mate desktop`
@@ -252,6 +252,19 @@ cat /etc/debian_version
     /etc/init.d/rpcbind restart
     /etc/init.d/nfs-kernel-server restart
     mount -t nfs -o nolock localhost:/nfsroot /mnt
+```
+
+### `ssh`服务器设置
+
+```bash
+	sudo apt install -y openssh-server
+	ps -e |grep ssh
+	sudo /etc/init.d/ssh restart
+	sudo /etc/init.d/ssh start
+	netstat -tlp
+	sudo service ssh status
+	sudo service ssh stop
+	sudo service ssh restart
 ```
 
 ### `add i386 support`
