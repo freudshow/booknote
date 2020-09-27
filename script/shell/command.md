@@ -265,6 +265,15 @@ cat /etc/debian_version
 	sudo service ssh status
 	sudo service ssh stop
 	sudo service ssh restart
+	
+	#ssh免密码登录
+	sudo vi /etc/ssh/sshd_config : #把加入或修改成下面的设置
+	RSAAuthentication yes
+	PubkeyAuthentication yes
+	AuthorizedKeysFile      %h/.ssh/authorized_keys
+	ssh-copy-id -i ~/.ssh/id_rsa.pub -p 8888 sysadm@192.168.1.101(端口不是22的情况)
+	#测试复制文件
+	scp -P 8888  1376.2App sysadm@192.168.1.101:/home/sysadm/bin/
 ```
 
 ### `add i386 support`
