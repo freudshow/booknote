@@ -288,6 +288,8 @@ sudo timedatectl set-local-rtc 1
 
 	#卸载sshfs文件系统
 	umount /home/floyd/sshfs
+	#或者
+	fusermount -u /home/floyd/sshfs
 ```
 
 ### `add i386 support`
