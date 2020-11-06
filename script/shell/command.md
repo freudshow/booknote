@@ -220,6 +220,12 @@ cat /etc/debian_version
     sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-14-jdk openjdk-11-jdk openssh-server
 ```
 
+### `Ubuntu`/`Debian`系统时间相差8小时解决方法
+
+```bash
+sudo timedatectl set-local-rtc 1
+```
+
 ### `Ubuntu`安装`Mate desktop`
 
 ```bash
