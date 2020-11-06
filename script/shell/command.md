@@ -297,6 +297,7 @@ cat /etc/debian_version
     sudo make install
 
     git clone git://github.com/mit-pdos/xv6-riscv-book.git
+    退出qemu: Ctrl - A X 按下Ctrl 键和A键, 然后释放这两个键,再按X
 ```
 
 ### `Linux`字体渲染
