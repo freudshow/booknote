@@ -337,6 +337,13 @@ sudo timedatectl set-local-rtc 1
     sudo apt install -y libfreetype6 libfreetype6-dev freetype2-demos
 ```
 
+### `debian`设置默认语言
+
+```bash
+sudo apt-get install -y locales
+sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设置默认语言集
+```
+
 ### 以太网和`wifi`同时上网
 
 ```bash
@@ -696,7 +703,7 @@ bash /etc/init.d/rcloned start
 
 'Options -> Edit default session -> Terminal -> Emulation -> Advanced -> Other -> Ignore window title change request' 把这一项勾选即可.
 
-### VirtualBox 中 `debian` 使用物理硬盘(`windows`)
+### #VirtualBox 中 `debian` 使用物理硬盘(`windows`)
 
 1. 运行`cmd`, `cd`进入你的`VirtualBox`目录
 
