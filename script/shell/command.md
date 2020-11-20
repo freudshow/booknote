@@ -35,6 +35,12 @@
 
 ```
 
+## 给每个语句加上前缀, 后缀
+
+```bash
+sed '/./{s/^/"&/;s/$/&"/}' 698-645-map.sql > char.c
+```
+
 ## Linux系统备份与还原
 
 ### 备份系统
@@ -624,13 +630,15 @@ security = user
  sudo useradd smbuser # 新建用户
  sudo smbpasswd -a smbuser # 设置密码
  sudo service smbd restart # 重启 samba 服务
-
+# 5. 访问windows共享
+apt-get install smbclient smbfs
+# 安装完成后，执行一下命令：
+mount -t cifs -o username=lwp //192.168.5.100/tmp /mnt/tmp
 ```
 
 至此 `samba` 服务搭建完毕,  可以在 `Windows` 中测试
 
-> 参考 [Android ubuntu-s
-> amba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
+> 参考 [Android ubuntu-samba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
 
 ### `Ubuntu` 安装 `Nvidia` 驱动
 
