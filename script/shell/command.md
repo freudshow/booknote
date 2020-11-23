@@ -291,6 +291,7 @@ sudo timedatectl set-local-rtc 1
 	sudo apt install -y sshfs
 	mkdir -p ~/sshfs
 	sshfs -p 8888 sysadm@192.168.1.101:/home/sysadm /home/floyd/sshfs
+	sshfs -p 8888 sysadm@192.168.1.101:/data/app /home/floyd/sshdata
 
 	#卸载sshfs文件系统
 	umount /home/floyd/sshfs
@@ -589,11 +590,14 @@ Ubuntu等linux系一般在/etc/hosts
     185.31.16.184 github.global.ssl.fastly.net
     185.31.18.133 avatars0.githubusercontent.com
     185.31.19.133 avatars1.githubusercontent.com
+	
+	140.82.113.3 github.com
+	199.232.69.194 github.global.ssl.fastly.net
 ```
 
 改完之后立刻刷新，
-Windows：ipconfig /flushdns
-Ubuntu：sudo systemctl restart nscd
+Windows：`ipconfig /flushdns`
+Ubuntu：`sudo systemctl restart nscd`, 或者 `sudo /etc/init.d/networking restart`
 
 ### 虚拟`Linux`挂载`VMware`共享文件夹
 
