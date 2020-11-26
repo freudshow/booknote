@@ -35,6 +35,12 @@
 
 ```
 
+## 给每个语句加上前缀, 后缀
+
+```bash
+sed '/./{s/^/"&/;s/$/&"/}' 698-645-map.sql > char.c
+```
+
 ## Linux系统备份与还原
 
 ### 备份系统
@@ -285,6 +291,7 @@ sudo timedatectl set-local-rtc 1
 	sudo apt install -y sshfs
 	mkdir -p ~/sshfs
 	sshfs -p 8888 sysadm@192.168.1.101:/home/sysadm /home/floyd/sshfs
+	sshfs -p 8888 sysadm@192.168.1.101:/data/app /home/floyd/sshdata
 
 	#卸载sshfs文件系统
 	umount /home/floyd/sshfs
@@ -335,6 +342,13 @@ sudo timedatectl set-local-rtc 1
     sudo apt upgrade
     sudo apt install -y fontconfig-infinality
     sudo apt install -y libfreetype6 libfreetype6-dev freetype2-demos
+```
+
+### `debian`设置默认语言
+
+```bash
+sudo apt-get install -y locales
+sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设置默认语言集
 ```
 
 ### 以太网和`wifi`同时上网
@@ -576,11 +590,14 @@ Ubuntu等linux系一般在/etc/hosts
     185.31.16.184 github.global.ssl.fastly.net
     185.31.18.133 avatars0.githubusercontent.com
     185.31.19.133 avatars1.githubusercontent.com
+	
+	140.82.113.3 github.com
+	199.232.69.194 github.global.ssl.fastly.net
 ```
 
 改完之后立刻刷新，
-Windows：ipconfig /flushdns
-Ubuntu：sudo systemctl restart nscd
+Windows：`ipconfig /flushdns`
+Ubuntu：`sudo systemctl restart nscd`, 或者 `sudo /etc/init.d/networking restart`
 
 ### 虚拟`Linux`挂载`VMware`共享文件夹
 
@@ -617,13 +634,15 @@ security = user
  sudo useradd smbuser # 新建用户
  sudo smbpasswd -a smbuser # 设置密码
  sudo service smbd restart # 重启 samba 服务
-
+# 5. 访问windows共享
+apt-get install smbclient smbfs
+# 安装完成后，执行一下命令：
+mount -t cifs -o username=lwp //192.168.5.100/tmp /mnt/tmp
 ```
 
 至此 `samba` 服务搭建完毕,  可以在 `Windows` 中测试
 
-> 参考 [Android ubuntu-s
-> amba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
+> 参考 [Android ubuntu-samba 文件共享](https://blog.csdn.net/chenxiaoping1993/article/details/82422990)
 
 ### `Ubuntu` 安装 `Nvidia` 驱动
 
@@ -696,7 +715,7 @@ bash /etc/init.d/rcloned start
 
 'Options -> Edit default session -> Terminal -> Emulation -> Advanced -> Other -> Ignore window title change request' 把这一项勾选即可.
 
-### VirtualBox 中 `debian` 使用物理硬盘(`windows`)
+### #VirtualBox 中 `debian` 使用物理硬盘(`windows`)
 
 1. 运行`cmd`, `cd`进入你的`VirtualBox`目录
 

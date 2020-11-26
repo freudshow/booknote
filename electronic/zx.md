@@ -97,3 +97,23 @@ sudo cp ./* / -R
 这样就将`dpkg`安装到了智芯终端上了.
 
 10. 重新运行`sudo apt install -y build-essential`, 就将`gcc`安装到智芯终端上了. 如果你想安装其他软件, 比如`git`, `sqlite3`等, 也可以用`apt`命令安装了.
+
+### 智芯`libsqlite3`版本号
+
+将智芯终端里的`/usr/lib/libsqlite3.so`复制出来, 作为链接库使用.
+
+```C
+	#include <stdio.h>
+	#include <sqlite3.h>
+	
+	int main()
+	{
+  		printf("%s\n", sqlite3_libversion());
+	}
+```
+
+然后编译
+
+```bash
+	arm-linux-gnueabihf-gcc -o sqlite3 sqlite3.c -I"./" -L"./" -lsqlite3 -lpthread -ldl
+```
