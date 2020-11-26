@@ -90,7 +90,11 @@ because they look the same as normal roman letters: $A, B\cdots$
     $$y = x^2\; \boxed{(二次函数)}$$  
 
 - 公式中插入空格`\,  \;  \quad  \qquad`间隔依次变宽：
-    $$ ab $$ $$ a\,b $$ $$ a\;b $$ $$ a\quad b $$ $$ a\qquad b $$
+    $$ ab $$
+    $$ a\,b $$
+    $$ a\;b $$
+    $$ a\quad b $$
+    $$ a\qquad b $$
 
 说明|代码|效果| 宽度
 :--:|:--:|:--:|:--:
@@ -101,7 +105,6 @@ quad空格 | `a \quad b` | $a \quad b$ | 一个m的宽度
 小空格 | `a\,b` | $a\,b$ | 1/6m宽度
 没有空格 | `ab` | $ab\,$ |  
 紧贴 | `a\!b` | $a\!b$ | 缩进1/6m宽度
-
 
 - 字母上方横线`\overline{}, \bar{}`：
     $$ \overline{xyz} \boxed{ 或 } \bar{x} $$
