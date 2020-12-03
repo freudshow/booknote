@@ -347,7 +347,7 @@ sudo timedatectl set-local-rtc 1
 ### `debian`设置默认语言
 
 ```bash
-sudo apt-get install -y locales
+sudo apt install -y locales
 sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设置默认语言集
 ```
 
@@ -635,9 +635,9 @@ security = user
  sudo smbpasswd -a smbuser # 设置密码
  sudo service smbd restart # 重启 samba 服务
 # 5. 访问windows共享
-sudo apt install -y smbclient smbfs
-# 安装完成后，执行一下命令：
-mount -t cifs -o username=floyd //192.168.1.121/dpan ~/wind
+sudo apt install -y smbclient cifs
+# 安装完成后，执行一下命令:
+sudo mount -t cifs //192.168.1.121/dpan ~/wind -o username=floyd,password=a,gid=1000,uid=1000
 ```
 
 至此 `samba` 服务搭建完毕,  可以在 `Windows` 中测试
