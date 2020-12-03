@@ -223,7 +223,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-14-jdk openjdk-11-jdk openssh-server
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-14-jdk openjdk-11-jdk openssh-server net-tools
 ```
 
 ### `Ubuntu`/`Debian`系统时间相差8小时解决方法
@@ -313,7 +313,7 @@ sudo timedatectl set-local-rtc 1
 ### 安装6.828开发环境
 
 ```bash
-    sudo apt-get install git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
+    sudo apt install -y git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
     git clone git://github.com/mit-pdos/xv6-riscv.git
     ./configure --disable-kvm --prefix=/opt/qemu --target-list="i386-softmmu x86_64-softmmu"
     make
@@ -426,8 +426,8 @@ sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设
     sudo apt install notepadqq
     
     sudo add-apt-repository ppa:notepadqq-team/notepadqq
-    sudo apt-get update
-    sudo apt install notepadqq
+    sudo apt update
+    sudo apt install -y notepadqq
 ```
 
 ### `test tex`
@@ -617,12 +617,12 @@ Ubuntu：`sudo systemctl restart nscd`, 或者 `sudo /etc/init.d/networking rest
 ```bash
 # 1. 安装 samba
 sudo apt update
-sudo apt install samba samba-common smb-client
+sudo apt install -y samba samba-common smbclient cifs-utils
 # 2. 创建需要共享的目录
 sudo mkdir /home/share
 sudo chmod 777 /home/share
 # 3. 修改基础配置
-sudo gedit /etc/samba/smb.conf 
+sudo gedit /etc/samba/smb.conf
 # 在 'max log size = 1000' 下面增加
 security = user
 # 在文末增加
@@ -635,9 +635,9 @@ security = user
  sudo smbpasswd -a smbuser # 设置密码
  sudo service smbd restart # 重启 samba 服务
 # 5. 访问windows共享
-apt-get install smbclient smbfs
+sudo apt install -y smbclient smbfs
 # 安装完成后，执行一下命令：
-mount -t cifs -o username=lwp //192.168.5.100/tmp /mnt/tmp
+mount -t cifs -o username=floyd //192.168.1.121/dpan ~/wind
 ```
 
 至此 `samba` 服务搭建完毕,  可以在 `Windows` 中测试
