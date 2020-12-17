@@ -1,0 +1,30 @@
+192.168.195.116
+
+http://library.lol/main/56D046B9A484A182ED5F57AFC171CA7B
+http://library.lol/main/535B00773305C1ABA4CD895268021D00
+http://library.lol/main/F621F0B6B8F9ED0A4BE355AA0835B56E
+http://library.lol/main/7857D817682D4B3EC390EDFE64E3AC01
+
+
+raw.githubusercontent.com服务器iP：
+当前解析：
+日本 东京151.101.108.133
+
+日本 大阪151.101.88.133
+
+日本 东京151.101.228.133
+
+美国151.101.0.133
+
+保留地址0.0.0.0
+
+中国 香港 151.101.76.133
+
+https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Ubuntu20/ubuntu20.sh
+https://raw.githubusercontent.com/halium-gemini/Ubuntu-touch/master/anbox.sh
+
+
+https://151.101.76.133/AndronixApp/AndronixOrigin/master/Installer/Ubuntu20/ubuntu20.sh
+https://151.101.76.133/halium-gemini/Ubuntu-touch/master/anbox.sh
+
+curl https://151.101.76.133/AndronixApp/AndronixOrigin/master/Installer/Ubuntu20/ubuntu20.sh | bash

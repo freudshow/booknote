@@ -1,0 +1,25 @@
+adb shell pm uninstall -k --user 0 com.miui.voiceassist
+adb shell pm uninstall -k --user 0 com.miui.player
+adb shell pm uninstall -k --user 0 com.miui.video
+adb shell pm uninstall -k --user 0 com.miui.bugreport
+adb shell pm uninstall -k --user 0 com.xiaomi.gamecenter
+adb shell pm uninstall -k --user 0 com.miui.yellowpage
+adb shell pm uninstall -k --user 0 com.xiaomi.payment
+adb shell pm uninstall -k --user 0 com.mipay.wallet
+adb shell pm uninstall -k --user 0 com.miui.cloudservice
+adb shell pm uninstall -k --user 0 com.miui.virtualsim
+adb shell pm uninstall -k --user 0 com.android.email
+adb shell pm uninstall -k --user 0 com.android.quicksearchbox
+adb shell pm uninstall -k --user 0 com.miui.cloudbackup
+adb shell pm uninstall -k --user 0 com.miui.touchassistant
+adb shell pm uninstall -k --user 0 com.xiaomi.gamecenter.sdk.service
+adb shell pm uninstall -k --user 0 com.android.midrive
+adb shell pm uninstall -k --user 0 com.android.browser
+
+
+
+
+
+
+
+
