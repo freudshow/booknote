@@ -202,7 +202,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 ```
 
-### 让`apt-get`支持`https`开头的软件源
+### 让`apt`支持`https`开头的软件源
 
 ```bash
 sudo apt install -y apt-transport-https
@@ -678,7 +678,7 @@ sudo mount -t cifs //192.168.1.121/dpan ~/wind -o username=floyd,password=a,gid=
     # 最好安装 apt-fast 加速下载速度, 不然下载时间很长
     sudo add-apt-repository ppa:apt-fast/stable
     sudo apt install apt-fast
-    #安装后就跟apt-get用法一样了
+    #安装后就跟apt用法一样了
     sudo apt-fast update
     sudo apt-fast upgrade -y
 ```
@@ -779,3 +779,13 @@ New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -N
 ### `sysinstall`
 
 `sysinstall`换成了`bsdinstall`
+
+## ARM 64位系统下编译32位程序
+
+```bash
+dpkg --add-architecture armhf
+apt update
+apt install -y libc6:armhf libstdc++6:armhf libc6-dev:armhf gcc-multilib-arm-linux-gnueabihf binutils-arm-linux-gnueabihf g++-multilib-arm-linux-gnueabihf doxygen:armhf transfig:armhf transfig imagemagick:armhf gdb:armhf
+
+```
+
