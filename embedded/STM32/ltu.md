@@ -31,12 +31,19 @@ BootLoader跳转程序时有这样的判断`if(((*(uint32_t *)app_addr)&0x2FFE00
 
 - 假如是 64 Kbytes 的 RAM，地址Region为 0x2000 0000 -- 0x2000 FFFF，那么此时应该这样写  SP & 0x2FFF 0000 == 0x2000 0000。当然，写成 SP & 0x2FFE 0000 也能执行，只是会带来隐患，这种Bug很讨厌的，因为不好发现。
 
-#### 内部flash
+#### 内部flash操作
 
 #### boot mode
+
+- `stm32f103zet6`有2个boot引脚, `boot0`和`boot1`, 见数据手册
 
 #### spi操作
 
 #### fatfs配置
 
-#### 
+- 需要配置 `ffconfig.h`, $#define _VOLUMES 2$, 配置有几个卷, 这里配置成2, 一个是内部flash, 一个是外部`W25Q64BV`.
+- 需要实现`diskio.c`, 其中有5个函数: `disk_initialize()`-初始化外设, `disk_status()`-获取设备状态, `disk_read()`-读取数据, `disk_write()`-写入数据, `disk_ioctl()`-获取分区大小, 扇区大小等信息
+- `diskio.c`, 用宏定义规定每种外设的索引号, $#define Stm_flash 0$, $#define SPI_FLASH  1$
+- `disk_read()`与`disk_write()`, 都会将外部`W25Q64BV`的最开始的2M区域留出来, 作为备用区域
+
+#### iap程序要点

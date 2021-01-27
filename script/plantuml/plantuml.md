@@ -1,7 +1,7 @@
 # plantuml syntax
 
 ```plantuml
-"plantuml.jar": "D:\mydoc\soft\plantuml.jar"
+"plantuml.jar": "D:\\mydoc\\soft\\plantuml.jar"
 
 @startmindmap
 * Debian
