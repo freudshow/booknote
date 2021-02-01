@@ -6,7 +6,7 @@
 
    1. 空间大小: 内部flash空间512K, 划分为256页, 每页大小2K
    2. 地址映射: 内部flash起始地址`0x0800 0000`, 结束地址`0x0807 FFFF`
-   3. 划分给bootloader的大小为32K, 即`0x8000`, 所以其起始地址应设置为 `0x0807 FFFF- 0x8000 = 0x0807 7FFF`
+   3. 划分给bootloader的大小为32K, 即`0x8000`, 所以其起始地址应设置为 `0x0808 0000- 0x8000 = 0x0807 8000`
    4. 划分给app的大小为 `512K - 32K = 480K = 0x7 8000`, 起始地址为 `0x0800 0000`
 
 2. 片外flash划分
@@ -48,7 +48,7 @@
     改为
 
     ```C
-    #define  UpdateProgramAppAddr      0x08077FFF
+    #define  UpdateProgramAppAddr      0x08078000
     ```
 
 3. `jump_iap()`中的栈顶指针判断语句
