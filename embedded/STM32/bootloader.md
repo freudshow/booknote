@@ -17,27 +17,7 @@
 
 ## 简易ttu软件
 
-1. 去掉片内flash的文件系统, 在`ffconfig.h`中, 修改宏定义`_VOLUMES`为`1`:
-
-    ```C
-    #define _VOLUMES 1
-    ```
-
-    在`diskio.c`中将宏定义`SPI_FLASH`与`Stm_flash`互换:
-
-   ```C
-      #define Stm_flash 0
-      #define SPI_FLASH 1 // 外部SPI Flash
-   ```
-
-   改为:
-
-   ```C
-      #define SPI_FLASH 0 // 外部SPI Flash
-      #define Stm_flash 1
-   ```
-
-    这样, 在文件`file.c`定义的`FATFS fs[_VOLUMES];`就只有1个外部`SPI Flash`文件系统了.
+1. 去掉片内flash的文件系统, 在`ffconfig.h`中, 保留宏定义`_VOLUMES` 为`2`, 但是在文件`file.c`中的文件系统初始化函数`FileSetup(void)`中, 去掉片内文件系统初始化的语句, 这样在文件`file.c`定义的`FATFS fs[2];`也保留原来的定义即可, 其他的宏定义, 如`Stm_flash`和`SPI_FLASH`也就不用改了.
 
 2. bootloader程序的起始地址的宏定义
 
@@ -71,9 +51,9 @@
 
     比较值也为true, 所以就有出现bug的风险. 经查证, 值`0x2FFE0000`是针对片内`SRAM`为128K(地址范围`0x20000000~0x2001FFFF`)的产品而言的.
 
-4. 升级包`ltudev.bin`下装完毕后, 将文件系统中的升级包复制到 `W25Q64BV` 的起始部分, 同时跳转到地址`UpdateProgramAppAddr`
-5. 应用app将升级包`ltudev.bin`向`RAW`区复制时, 最好要关闭`RTX`操作系统的调度(此时应闪烁运行灯, 提示用户正在升级), 一次性将升级包复制完成, 尽力保证升级包的完整性, 避免一帧一帧(因为进行`SPI`)的复制, 出现问题
-6. 复制到$W25Q64BV$的`RAW`区时, 先使用函数`SPI_FLASH_SectorErase()`擦除目标区域, 再用函数`SPI_FLASH_BufferWrite()`写入数据
+4. 升级包`ltudev.bin`下装完毕后, 先使用函数`SPI_FLASH_SectorErase(u32 SectorAddr)`擦除`RAW`区域, 需要注意的是, 参数`u32 SectorAddr`是物理地址值, 而不是扇区编号; 再用函数`SPI_FLASH_BufferWrite()`写入数据
+
+>注意: 下装升级文件时, 文件名必须是`ltudev.bin`, 且文件目标目录必须是`root/para`, 因为代码里将升级文件的路径写死了. 后续如果有更好的方案, 再修改.
 
 ## bootloader软件
 
@@ -89,15 +69,15 @@
       ```C
       struct spi_dev_message
       {
-      	const void *send_buf;          //发送缓冲区
-      	void *recv_buf;                //接受缓冲区
-      	int length;                    //长度
-      	unsigned char cs_take    : 1;  //片选
-      	unsigned char cs_release : 1;  //片选
+       const void *send_buf;          //发送缓冲区
+       void *recv_buf;                //接受缓冲区
+       int length;                    //长度
+       unsigned char cs_take    : 1;  //片选
+       unsigned char cs_release : 1;  //片选
       };
       ```
 
-      2. `spi_bus_device`, 用于`SPI`总线相关操作
+      1. `spi_bus_device`, 用于`SPI`总线相关操作
 
       ```C
       struct spi_bus_device
@@ -109,7 +89,7 @@
       };
       ```
 
-      3. `spi_dev_device`, 用于`SPI`设备的抽象操作
+      1. `spi_dev_device`, 用于`SPI`设备的抽象操作
 
       ```C
       struct spi_dev_device
@@ -124,3 +104,10 @@
       1. `spi_core.h`, 定义了上述3各结构体; 定义了SPI的4种模式; `spi_core.c`中定义了数组`SpiModeSet`;`spi_core.c`, 定义了`spi_send()`, `spi_send_then_send()`, `spi_send_then_recv()`, 等, `spi_flash.c`中用到的函数, 这些都要移植, 移植时应去掉信号量操作
       2. `spi_hw.h`, 定义了SPI时钟, 引脚, 等宏; SPI发送/接受函数, 初始化函数等, 这些一并移植
       3. `spi_flash.h`, 定义了`W25Q64`相关的总线设置, 命令, 引脚, 操作函数等; `spi_flash.c`定义了flash读/写, 初始化等操作, 一并移植
+3. `bootloader`程序中的关键修改
+   1. 宏定义`IROMSTARTaddr`, 其值修改为`0x8078000`
+   2. `KeilRtxStartAddr`, 其值修改为`0x8000000`
+   3. `KeilRtxStopAddr`, 其值修改为`0x8077fff`
+   4. 函数`main()`开始时, 加上`SPI_FLASH_Init()`语句, 初始化`SPI flash`
+   5. 修改文件`startup_stm32f10x_hd.s`中的栈大小定义为`0x00002000`, 以便有充足的栈空间用于缓存一帧升级文件数据
+   6. 在函数`MoveStorageZoneDataToKeilRtxZone(void)`中, 使用`SPI_FLASH_BufferRead()`读取片外`flash`的数据, 使用`stmflash_write_buffer()`向片内`flash`写入升级文件数据
