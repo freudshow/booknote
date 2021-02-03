@@ -51,7 +51,8 @@
 
     比较值也为true, 所以就有出现bug的风险. 经查证, 值`0x2FFE0000`是针对片内`SRAM`为128K(地址范围`0x20000000~0x2001FFFF`)的产品而言的.
 
-4. 升级包`ltudev.bin`下装完毕后, 先使用函数`SPI_FLASH_SectorErase(u32 SectorAddr)`擦除`RAW`区域, 需要注意的是, 参数`u32 SectorAddr`是物理地址值, 而不是扇区编号; 再用函数`SPI_FLASH_BufferWrite()`写入数据
+4. 升级包`ltudev.bin`下装完毕后, 先在片外`flash`的`RAW`区域的第一页, 写入文件长度, 之所以文件信息占用一整页, 是因为现有的`SPI_FLASH_PageWrite()`函数在写入之前没有保存之前的数据, 当再次写入同一页的不同地址时, 就把之前的数据擦除了; 而之所以不将文件长度信息包括进第一帧数据中, 是因为这样在使用`ReadFileContentToRam()`函数读取文件数据时, 每一帧都需要处理读取偏移量, 处理起来比较复杂.
+5. 使用函数`SPI_FLASH_SectorErase(u32 SectorAddr)`擦除`RAW`区域, 需要注意的是, 参数`u32 SectorAddr`是物理地址值, 而不是扇区编号; 再用函数`SPI_FLASH_BufferWrite()`写入数据
 
 >注意: 下装升级文件时, 文件名必须是`ltudev.bin`, 且文件目标目录必须是`root/para`, 因为代码里将升级文件的路径写死了. 后续如果有更好的方案, 再修改.
 
