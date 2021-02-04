@@ -52,7 +52,9 @@
     比较值也为true, 所以就有出现bug的风险. 经查证, 值`0x2FFE0000`是针对片内`SRAM`为128K(地址范围`0x20000000~0x2001FFFF`)的产品而言的.
 
 4. 升级包`ltudev.bin`下装完毕后, 先在片外`flash`的`RAW`区域的第一页, 写入文件长度, 之所以文件信息占用一整页, 是因为现有的`SPI_FLASH_PageWrite()`函数在写入之前没有保存之前的数据, 当再次写入同一页的不同地址时, 就把之前的数据擦除了; 而之所以不将文件长度信息包括进第一帧数据中, 是因为这样在使用`ReadFileContentToRam()`函数读取文件数据时, 每一帧都需要处理读取偏移量, 处理起来比较复杂.
-5. 使用函数`SPI_FLASH_SectorErase(u32 SectorAddr)`擦除`RAW`区域, 需要注意的是, 参数`u32 SectorAddr`是物理地址值, 而不是扇区编号; 再用函数`SPI_FLASH_BufferWrite()`写入数据
+5. 使用函数`SPI_FLASH_SectorErase(u32 SectorAddr)`擦除`RAW`区域, 需要注意的是, 参数`u32 SectorAddr`是物理地址值, 而不是扇区编号; 再用函数`SPI_FLASH_BufferWrite()`写入数据.
+6. 向`RAW`区域复制升级文件时, 使用待验证的写入, 即写入一帧数据, 就要再读出这一帧数据, 验证两帧数据是否一致, 不一致的重新写入; 若其中任何一帧, 出现重写`3`次不成功, 重新擦除`RAW`区, 从头开始带验证的写入.
+7. 写完升级文件后, 计算升级文件的`CRC16`校验值, 并写入文件信息区.
 
 >注意: 下装升级文件时, 文件名必须是`ltudev.bin`, 且文件目标目录必须是`root/para`, 因为代码里将升级文件的路径写死了. 后续如果有更好的方案, 再修改.
 
@@ -112,3 +114,9 @@
    4. 函数`main()`开始时, 加上`SPI_FLASH_Init()`语句, 初始化`SPI flash`
    5. 修改文件`startup_stm32f10x_hd.s`中的栈大小定义为`0x00002000`, 以便有充足的栈空间用于缓存一帧升级文件数据
    6. 在函数`MoveStorageZoneDataToKeilRtxZone(void)`中, 使用`SPI_FLASH_BufferRead()`读取片外`flash`的数据, 使用`stmflash_write_buffer()`向片内`flash`写入升级文件数据
+4. `bootloader`程序升级程序时的稳定性设计
+   1. 首先读出升级文件信息区的文件长度和`CRC16`, 验证文件的校验值是否正确, 如果校验不正确, 则拒绝升级.
+   2. 读/写, `STM flash`或者`W25Q flash`是, 都要用待验证的`读/写`操作, 保证读/写数据的准确性
+   3. 如果`W25Q flash`中的升级文件校验通过, 擦除`STM flash`中的程序区
+   4. 用带有验证的读/写函数, 将`W25Q flash`中的一帧数据读出, 写入`STM flash`.
+   5. 写入完成后, 计算`STM flash`程序区中的升级文件的校验值, 校验通过, 重启; 校验失败, 重新上述升级过程
