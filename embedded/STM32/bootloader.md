@@ -116,7 +116,7 @@
    6. 在函数`MoveStorageZoneDataToKeilRtxZone(void)`中, 使用`SPI_FLASH_BufferRead()`读取片外`flash`的数据, 使用`stmflash_write_buffer()`向片内`flash`写入升级文件数据
 4. `bootloader`程序升级程序时的稳定性设计
    1. 首先读出升级文件信息区的文件长度和`CRC16`, 验证文件的校验值是否正确, 如果校验不正确, 则拒绝升级.
-   2. 读/写, `STM flash`或者`W25Q flash`是, 都要用待验证的`读/写`操作, 保证读/写数据的准确性
+   2. 读/写, `STM flash`或者`W25Q flash`时, 都要用带验证的`读/写`操作, 保证读/写数据的准确性
    3. 如果`W25Q flash`中的升级文件校验通过, 擦除`STM flash`中的程序区
    4. 用带有验证的读/写函数, 将`W25Q flash`中的一帧数据读出, 写入`STM flash`.
    5. 写入完成后, 计算`STM flash`程序区中的升级文件的校验值, 校验通过, 重启; 校验失败, 重新上述升级过程
