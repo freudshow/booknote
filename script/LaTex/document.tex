@@ -1,0 +1,299 @@
+\documentclass[a4paper,11pt]{book}
+% define the title
+\author{H. Partl}
+\title{Minimalism}
+\usepackage{textcomp}
+\usepackage{amsfonts}
+\usepackage[official]{eurosym}
+\begin{document}
+	% generates the title
+	\maketitle
+	% insert the table of contents
+	\tableofcontents
+	\section{Some Interesting Words}
+	Well, and here begins my lovely article.
+	\section{Good Bye World}
+	\ldots{} and here it ends.
+	
+	\ldots when Einstein introduced his formula
+	\begin{equation}
+		e = m \cdot c^2 \; ,
+	\end{equation}
+	which is at the same time the most widely known
+	and the least well understood physical formula.
+	\\
+	\\
+	\ldots from which follows Kirchhoff’s current law:
+	\begin{equation}
+		\sum_{k=1}^{n} I_k = 0 \; .
+	\end{equation}
+	Kirchhoff’s voltage law can be derived \ldots
+	\\
+	\\
+	% Example 3
+	\ldots which has several advantages.
+	\begin{equation}
+	I_D = I_F - I_R
+	\end{equation}
+	is the core of a very different transistor model. \ldots
+	
+	\today 
+	
+	\TeX
+	
+	\LaTeX
+	
+	\LaTeXe
+	
+	``Please press the `x' key.''
+	
+	daughter-in-law, X-rated\\
+	
+	pages 13--67\\
+	
+	yes---or no? \\
+	
+	$0$, $1$ and $-1$
+	
+	http://www.rich.edu/\~{}bush \\
+	http://www.clever.edu/$\sim$demo
+	
+	It’s $-30\,^{\circ}\mathrm{C}$.
+	I will soon start to
+	super-conduct.
+	
+	\texteuro
+	
+	LM+textcomp \texteuro
+	
+	\euro
+	
+	Not like this ... but like
+	this:\\ New York, Tokyo,
+	Budapest, \ldots
+	
+	Not shelfful\\
+	but shelf\mbox{}ful
+	
+	H\^otel, na\"\i ve, \'el\`eve,\\
+	sm\o rrebr\o d, !‘Se\ norita!,\\
+	Sch\"onbrunner Schlo\ss{}
+	Stra\ss e
+	
+	Mr. Smith was happy to see her\\
+	cf. Fig. 5\\\frenchspacing
+	I like BASIC\@. \frenchspacing What about you?
+	
+	\section{...}
+	\subsection{...}
+	\subsubsection{...}
+	\paragraph{...}
+	\subparagraph{...}
+	
+	\part{...}
+	
+	\chapter{introduction}
+	
+	\emph{If you use
+		emphasizing inside a piece
+		of emphasized text, then
+		\LaTeX{} uses the
+		\emph{normal} font for
+		emphasizing.}
+	
+	
+	\textit{You can also
+		\emph{emphasize} text if
+		it is set in italics,}
+	\textsf{in a
+		\emph{sans-serif} font,}
+	\texttt{or in
+		\emph{typewriter} style.}
+	
+	
+
+	\begin{enumerate}
+		\item You can mix the list
+		environments to your taste:
+		\begin{itemize}
+			\item But it might start to
+			look silly.
+			\item[-] With a dash.
+		\end{itemize}
+		\item Therefore remember:
+		\begin{description}
+			\item[Stupid] things will not
+			become smart because they are
+			in a list.
+			\item[Smart] things, though,
+			can be presented beautifully
+			in a list.
+		\end{description}
+	\end{enumerate}
+	
+	
+	\begin{flushright}
+		This text is\\ left-aligned.
+		\LaTeX{} is not trying to make
+		each line the same length.
+	\end{flushright}	
+
+	\begin{flushleft}
+	This text is\\ left-aligned.
+	\LaTeX{} is not trying to make
+	each line the same length.
+	\end{flushleft}
+	
+	
+	\begin{center}
+		At the centre\\of the earth
+	\end{center}
+	
+	
+	\begin{tabular}{|r|l|}
+		\hline
+		7C0 & hexadecimal \\
+		3700 & octal \\ \cline{2-2}
+		11111000000 & binary \\
+		\hline \hline
+		1984 & decimal \\
+		\hline
+	\end{tabular}
+	
+	
+	\begin{tabular}{|p{4.7cm}|}
+		\hline
+		Welcome to Boxy’s paragraph.
+		We sincerely hope you’ll
+		all enjoy the show.\\
+		\hline
+	\end{tabular}
+	
+	
+	\begin{tabular}{@{} l @{}}
+		\hline
+		no leading space\\
+		\hline
+	\end{tabular}
+	
+	
+	\begin{tabular}{l}
+		\hline
+		leading space left and right\\
+		\hline
+	\end{tabular}
+	
+	
+	\begin{tabular}{c r @{.} l}
+		Pi expression
+		&
+		\multicolumn{2}{c}{Value} \\
+		\hline
+		$\pi$
+		& 3&1416 \\
+		$\pi^{\pi}$
+		& 36&46
+		\\
+		$(\pi^{\pi})^{\pi}$ & 80662&7 \\
+	\end{tabular}
+	
+	
+	\begin{tabular}{|c|c|}
+		\hline
+		\multicolumn{2}{|c|}{Ene} \\
+		\hline
+		Mene & Muh! \\
+		\hline
+	\end{tabular}
+	
+	Add $a$ squared and $b$ squared
+	to get $c$ squared. Or, using
+	a more mathematical approach:
+	$c^{2}=a^{2}+b^{2}$
+
+	\TeX{} is pronounced as
+	\(\tau\epsilon\chi\).\\[6pt]
+	$100 m^{3}$ of water\\[6pt]
+	This comes from my
+	\begin{math}\heartsuit\end{math}
+	
+	
+	Add $a$ squared and $b$ squared
+	to get $c$ squared. Or, using
+	a more mathematical approach:
+	\begin{displaymath}
+	c^{2}=a^{2}+b^{2}
+	\end{displaymath}
+	or you can type less with:
+	\[a+b=c\]
+	
+	
+	\begin{equation} \label{eq:eps}
+	\epsilon > 0
+	\end{equation}
+	
+
+	
+	$\lim_{n \to \infty}
+	\sum_{k=1}^n \frac{1}{k^2}
+	= \frac{\pi^2}{6}$
+	
+	
+	\begin{displaymath}
+	\lim_{n \to \infty}
+	\sum_{k=1}^n \frac{1}{k^2}
+	= \frac{\pi^2}{6}
+	\end{displaymath}
+	
+	
+	\begin{equation}
+	\forall x \in \mathbf{R}:
+	\qquad x^{2} \geq 0
+	\end{equation}
+	
+	\begin{equation}
+	x^{2} \geq 0\qquad
+	\textrm{for all }x\in\mathbf{R}
+	\end{equation}
+	
+	\begin{displaymath}
+	x^{2} \geq 0\qquad
+	\textrm{for all }x\in\mathbb{R}
+	\end{displaymath}
+	
+	$\lambda,\xi,\pi,\mu,\Phi,\Omega$
+	
+	
+	\begin{equation}
+	a^x+y \neq a^{x+y}
+	\end{equation}
+	
+	$\alpha \beta \gamma$...
+	
+	$a_{1}$ \qquad $x^{2}$ \qquad
+	$e^{-\alpha t}$ \qquad
+	$a^{3}_{ij}$\\
+	$e^{x^2} \neq {e^x}^2$
+	
+	$\sqrt{x}$ \qquad
+	$\sqrt{ x^{2}+\sqrt{y} }$
+	\qquad $\sqrt[3]{2}$\\[3pt]
+	$\surd[x^2 + y^2]$
+	
+	$\overline{m+n}$
+	
+	$\underbrace{a+b+\cdots+z}_{26}$
+	
+	
+	\begin{displaymath}
+	y=x^{2}\qquad y'=2x\qquad y''=2
+	\end{displaymath}
+	
+	
+	\begin{displaymath}
+	\vec a\quad\overrightarrow{AB}
+	\end{displaymath}
+	
+	
+	
+\end{document}
