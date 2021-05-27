@@ -117,7 +117,7 @@ quad空格 | `a \quad b` | $a \quad b$ | 一个m的宽度
 - 字母上方箭头`\vec{}, \overleftarrow{}, \overrightarrow{}`：
     $$ \vec{ab} \boxed{ 或 } \overleftarrow{ab} \boxed{ 或 } \overrightarrow{ab} $$
 - 字母上方花括号`\overbrace{}`，或下方花括号`\underbrace{}`：
-    $$ \overbrace{1+2+3} \boxed{ 或 } \underbrace{1+2+3} $$
+    $$ \overbrace{1+2+3}^{3个\text{数}} \boxed{ 或 } \underbrace{1+2+3}_{3个\text{数}} $$
 - 字母上方点号`\dot{}, \ddot{}`：
     $$\dot{a} \boxed{或}\ddot{a}$$
 - 省略号`\dots, \cdots`
