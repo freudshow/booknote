@@ -178,7 +178,7 @@ quad空格 | `a \quad b` | $a \quad b$ | 一个m的宽度
     \right.
     \end{equation}
     % \end{equation*}   加'*'去掉公式编号
-
+    
     % 注意：在 markdown 环境下，某些特殊字符，如'\', '*'等，会首先被 markdown 语法转义，然后再被 Latex 转义。
     % 因此有时候 '\{'需要写作'\\{'，'*'需要写作'\*'，'\\'需要写作'\\\\'等，视不同的解释环境而定
     ```
@@ -216,7 +216,7 @@ quad空格 | `a \quad b` | $a \quad b$ | 一个m的宽度
 
 ## 连分式
 
-$$\newcommand{\FS}[2]{\displaystyle\frac{#1}{#2}}x0+\FS{1}{X_1+\FS{1}{X_2+\FS{1}{X_3+\FS{1}{X_4}}}}$$
+$$\newcommand{\FS}[2]{\displaystyle\frac{#1}{#2}}x_0+\FS{1}{X_1+\FS{1}{X_2+\FS{1}{X_3+\FS{1}{X_4}}}}$$
 
 ## 连根式
 $$\sqrt{1+\sqrt[p]{1+\sqrt[q]{1+a}}}$$
@@ -235,9 +235,9 @@ x_1 & x_2 & \dots \\
 x_3 & x_ 4& \dots \\
 \vdots & \vdots & \ddots
 \end{array}$$
-  
+
 ***
-  
+
 $$\begin{pmatrix} a & b\\ c & d \\ \end{pmatrix} \quad
 \begin{bmatrix} a & b \\ c & d \\ \end{bmatrix}\quad
 \begin{Bmatrix} a & b \\ c & d\\ \end{Bmatrix}\quad
