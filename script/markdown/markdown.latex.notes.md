@@ -34,28 +34,31 @@ because they look the same as normal roman letters: $A, B\cdots$
 
 ## 常用特殊字符表
 
-| Name         | Display        | Name         | Display        | Name     | Display    | Name      | Display     |
-| -----------  | :------------: | -----------  | :------------: | -------  | :--------: | --------  | :---------: |
-| `\times`     | $\times$       | `\div`       | $\div$         | `\pm`    | $\pm$      | `\mp`     | $\mp$       |
-| `\otimes`    | $\otimes$      | `\ominus`    | $\ominus$      | `\oplus` | $\oplus$   | `\odot`   | $\odot$     |
-| `\oslash`    | $\oslash$      | `\triangleq` | $\triangleq$   | `\ne`    | $\ne$      | `\equiv`  | $\equiv$    |
-| `\lt`        | $\lt$          | `\gt`        | $\gt$          | `\le`    | $\le$      | `\ge`     | $\ge$       |
-| `\cup`       | $\cup$         | `\cap`       | $\cap$         | `\Cup`   | $\Cup$     | `\Cap`    | $\Cap$      |
-| `\bigcup`    | $\bigcup$      | `\bigcap`    | $\bigcap$      | `\ast`   | $\ast$     | `\star`   | $\star$     |
-| `\bigotimes` | $\bigotimes$   | `\bigoplus`  | $\bigoplus$    | `\circ`  | $\circ$    | `\bullet` | $\bullet$   |
-| `\bigcirc`   | $\bigcirc$     | `\amalg`     | $\amalg$       | `\to`    | $\to$      | `\infty`  | $\infty$    |
-| `\vee`       | $\vee$         | `\wedge`     | $\wedge$       | `\lhd`   | $\lhd$     | `\rhd`    | $\rhd$      |
-| `\bigvee`    | $\bigvee$      | `\bigwedge`  | $\bigwedge$    | `\unlhd` | $\unlhd$   | `\unrhd`  | $\unrhd$    |
-| `\sqcap`     | $\sqcap$       | `\sqcup`     | $\sqcup$       | `\prec`  | $\prec$    | `\succ`   | $\succ$     |
-| `\subset`    | $\subset$      | `\supset`    | $\supset$      | `\sim`   | $\sim$     | `\approx` | $\approx$   |
-| `\subseteq`  | $\subseteq$    | `\supseteq`  | $\supseteq$    | `\cong`  | $\cong$    | `\doteq`  | $\doteq$    |
-| `\setminus`  | $\setminus$    | `\mid`       | $\mid$         | `\ll`    | $\ll$      | `\gg`     | $\gg$       |
-| `\parallel`  | $\parallel$    | `\Join`      | $\Join$        | `\in`    | $\in$      | `\notin`  | $\notin$    |
-| `\propto`    | $\propto$      | `\neg`       | $\neg$         | `\ldots` | $\ldots$   | `\cdots`  | $\cdots$    |
-| `\forall`    | $\forall$      | `\exists`    | $\exists$      | `\vdots` | $\vdots$   | `\ddots`  | $\ddots$    |
-| `\aleph`     | $\aleph$       | `\nabla`     | $\nabla$       | `\imath` | $\imath$   | `\jmath`  | $\jmath$    |
-| `\ell`       | $\ell$         | `\partial`   | $\partial$     | `\int`   | $\int$     | `\oint`   | $\oint$     |
-| `\uplus`     | $\uplus$       | `\biguplus`  | $\biguplus$    |          |            |           |             |
+所有的二元关系符都可以加 \not 前缀得到相反意义的关系符，例如 `\not=` 就得到不等号($\not=$)（同 `\ne`）
+
+| Name          |    Display    | Name         |   Display    | Name        |   Display   | Name        |   Display   |
+| ------------- | :-----------: | ------------ | :----------: | ----------- | :---------: | ----------- | :---------: |
+| `\times`      |   $\times$    | `\div`       |    $\div$    | `\pm`       |    $\pm$    | `\mp`       |    $\mp$    |
+| `\otimes`     |   $\otimes$   | `\ominus`    |  $\ominus$   | `\oplus`    |  $\oplus$   | `\odot`     |   $\odot$   |
+| `\oslash`     |   $\oslash$   | `\triangleq` | $\triangleq$ | `\ne`       |    $\ne$    | `\equiv`    |  $\equiv$   |
+| `\lt`         |     $\lt$     | `\gt`        |    $\gt$     | `\le`       |    $\le$    | `\ge`       |    $\ge$    |
+| `\cup`        |    $\cup$     | `\cap`       |    $\cap$    | `\Cup`      |   $\Cup$    | `\Cap`      |   $\Cap$    |
+| `\bigcup`     |   $\bigcup$   | `\bigcap`    |  $\bigcap$   | `\ast`      |   $\ast$    | `\star`     |   $\star$   |
+| `\bigotimes`  | $\bigotimes$  | `\bigoplus`  | $\bigoplus$  | `\circ`     |   $\circ$   | `\bullet`   |  $\bullet$  |
+| `\bigcirc`    |  $\bigcirc$   | `\amalg`     |   $\amalg$   | `\to`       |    $\to$    | `\infty`    |  $\infty$   |
+| `\vee`        |    $\vee$     | `\wedge`     |   $\wedge$   | `\lhd`      |   $\lhd$    | `\rhd`      |   $\rhd$    |
+| `\bigvee`     |   $\bigvee$   | `\bigwedge`  | $\bigwedge$  | `\unlhd`    |  $\unlhd$   | `\unrhd`    |  $\unrhd$   |
+| `\sqcap`      |   $\sqcap$    | `\sqcup`     |   $\sqcup$   | `\prec`     |   $\prec$   | `\succ`     |   $\succ$   |
+| `\subset`     |   $\subset$   | `\supset`    |  $\supset$   | `\sim`      |   $\sim$    | `\approx`   |  $\approx$  |
+| `\subseteq`   |  $\subseteq$  | `\supseteq`  | $\supseteq$  | `\cong`     |   $\cong$   | `\doteq`    |  $\doteq$   |
+| `\setminus`   |  $\setminus$  | `\mid`       |    $\mid$    | `\ll`       |    $\ll$    | `\gg`       |    $\gg$    |
+| `\parallel`   |  $\parallel$  | `\Join`      |   $\Join$    | `\in`       |    $\in$    | `\notin`    |  $\notin$   |
+| `\propto`     |   $\propto$   | `\neg`       |    $\neg$    | `\ldots`    |  $\ldots$   | `\cdots`    |  $\cdots$   |
+| `\forall`     |   $\forall$   | `\exists`    |  $\exists$   | `\vdots`    |  $\vdots$   | `\ddots`    |  $\ddots$   |
+| `\aleph`      |   $\aleph$    | `\nabla`     |   $\nabla$   | `\imath`    |  $\imath$   | `\jmath`    |  $\jmath$   |
+| `\ell`        |    $\ell$     | `\partial`   |  $\partial$  | `\int`      |   $\int$    | `\oint`     |   $\oint$   |
+| `\uplus`      |   $\uplus$    | `\biguplus`  | $\biguplus$  | `\leqslant` | $\leqslant$ | `\geqslant` | $\geqslant$ |
+| `\not \equiv` | $\not \equiv$ | `\nmid`      |   $\nmid$    | `\notin`    |  $\notin $  |             |             |
 
 ### 其他
 
