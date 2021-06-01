@@ -170,8 +170,8 @@ quad空格 | `a \quad b` | $a \quad b$ | 一个m的宽度
 
 - 左侧花括号
 
-    ```latex
-    \begin{equation}
+$$
+\begin{equation}
     % \begin{equation*} 加'*'去掉公式编号
     \left\{
     \begin{aligned}     %请使用'aligned'或'align*'
@@ -184,17 +184,20 @@ quad空格 | `a \quad b` | $a \quad b$ | 一个m的宽度
     
     % 注意：在 markdown 环境下，某些特殊字符，如'\', '*'等，会首先被 markdown 语法转义，然后再被 Latex 转义。
     % 因此有时候 '\{'需要写作'\\{'，'*'需要写作'\*'，'\\'需要写作'\\\\'等，视不同的解释环境而定
-    ```
+$$
 
-    $$\begin{equation} \left\\{
-    \begin{aligned}
-    2x + y &= 1 \\\\
-    2x + 2y &= 2
-    \end{aligned}
-    \right.
-    \end{equation}$$
+$$
+\begin{equation} 
+\left\{
+\begin{aligned}
+2x + y &= 1 \\\\
+2x + 2y &= 2
+\end{aligned}
+\right.
+\end{equation}
+$$
 
-    **注**：如果各个方程需要在某个字符处对齐（如等号对齐），只需在所有要对齐的字符前加上 `&` 符号。如果不需要公式编号，只需在宏包名称后加上 `*` 号。
+**注**：如果各个方程需要在某个字符处对齐（如等号对齐），只需在所有要对齐的字符前加上 `&` 符号。如果不需要公式编号，只需在宏包名称后加上 `*` 号。
 
 
 - 分情况讨论方程式
@@ -241,15 +244,18 @@ x_3 & x_ 4& \dots \\
 
 ***
 
-$$\begin{pmatrix} a & b\\ c & d \\ \end{pmatrix} \quad
+$$
+\begin{pmatrix} a & b\\ c & d \\ \end{pmatrix} \quad
 \begin{bmatrix} a & b \\ c & d \\ \end{bmatrix}\quad
 \begin{Bmatrix} a & b \\ c & d\\ \end{Bmatrix}\quad
 \begin{vmatrix} a & b \\ c & d \\ \end{vmatrix}\quad
-\begin{Vmatrix} a & b\\ c & d \\ \end{Vmatrix}$$
+\begin{Vmatrix} a & b\\ c & d \\ \end{Vmatrix}
+$$
 
 ## 嵌套符号
 
-$$\Bigg(\bigg(\Big(\big((x)\big)\Big)\bigg)\Bigg)\quad
+$$
+\Bigg(\bigg(\Big(\big((x)\big)\Big)\bigg)\Bigg)\quad
 \Bigg[\bigg[\Big[\big[[x]\big]\Big]\bigg]\Bigg]\quad
 \Bigg\{\bigg\{\Big\{\big\{\{x\}\big\}\Big\}\bigg\}\Bigg\}
 $$
@@ -274,33 +280,29 @@ $\ddot{x}$
 $\check{x}$
 $\breve{x}$
 
+## 解题过程
 
-```graphviz
+$$
+\begin{align*}
+y = y(x,t) &= A e^{i\theta} \\
+&= A (\cos \theta + i \sin \theta) \\
+&= A (\cos(kx - \omega t) + i \sin(kx - \omega t)) \\
+&= A\cos(kx - \omega t) + i A\sin(kx - \omega t)  \\
+&= A\cos \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big) + i A\sin \Big(\frac{2\pi}{\lambda}x - \frac{2\pi v}{\lambda} t \Big)  \\
+&= A\cos \frac{2\pi}{\lambda} (x - v t) + i A\sin \frac{2\pi}{\lambda} (x - v t)
+\end{align*}
+$$
 
-digraph finite_state_machine {
-  rankdir = LR;
-  size = "8,5"
-  
-  node [shape = doublecircle];
-  
-  LR_0 LR_3 LR_4 LR_8;
-  
-  node [shape = circle];
-  
-  LR_0 -> LR_2 [ label = "SS(B)" ];
-  LR_0 -> LR_1 [ label = "SS(S)" ];
-  LR_1 -> LR_3 [ label = "S($end)" ];
-  LR_2 -> LR_6 [ label = "SS(b)" ];
-  LR_2 -> LR_5 [ label = "SS(a)" ];
-  LR_2 -> LR_4 [ label = "S(A)" ];
-  LR_5 -> LR_7 [ label = "S(b)" ];
-  LR_5 -> LR_5 [ label = "S(a)" ];
-  LR_6 -> LR_6 [ label = "S(b)" ];
-  LR_6 -> LR_5 [ label = "S(a)" ];
-  LR_7 -> LR_8 [ label = "S(b)" ];
-  LR_7 -> LR_5 [ label = "S(a)" ];
-  LR_8 -> LR_6 [ label = "S(b)" ];
-  LR_8 -> LR_5 [ label = "S(a)" ];
-}
 
-```
+
+## 分子式
+
+$\ce{CH4 + 2 $\left( \ce{O2 + 79/21 N2} \right)$}$
+
+## 式子引用
+
+$$
+x+1\over\sqrt{1-x^2}\label{ref1}\tag{1}
+$$
+
+This is a reference : $\ref{ref1}$
