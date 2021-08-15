@@ -710,6 +710,40 @@ update-rc.d -f rcloned defaults
 bash /etc/init.d/rcloned start
 ```
 
+### `Ubuntu`息屏后无法唤醒
+
+- 检查是否安装了grep laptop-mode-tools 工具包
+
+    ```shell
+     dpkg -l | grep laptop-mode-tools
+    ```
+
+    
+
+- 安装laptop-mode
+
+    ```shell
+    sudo apt-get install laptop-mode-tools
+    ```
+
+- 判断Laptop是否启用了laptop_mode模式
+
+    ```shell
+    cat /proc/sys/vm/laptop_mode
+    ```
+
+    如果结果为0, 则表示未启动, 如果为非0, 则表示启动了
+
+- 启动`laptop_mode`, 修改配置文件`/etc/default/acpi-support`, 更改 `ENABLE_LAPTOP_MODE=true`, 直接在终端中输入 `sudo laptop_mode start` 启动了`laptop_mode`之后，在`ubuntu`挂起后, 基本上就不会遇到无法唤醒的情况了. 如果在`acpi-support`中并未找到 `ENABLE_LAPTOP_MODE=true` 被注释的项. 在/etc/laptop-mode/laptop-mode.conf 中进行配置,查找 ENABLE_LAPTOP_MODE_ON_BATTERY, ENABLE_LAPTOP_MODE_ON_AC, ENABLE_LAPTOP_MODE_WHEN_LID_CLOSED, 全部设置为1即可. 
+
+- 启动`laptop_mode`
+
+    ```shell
+    sudo laptop_mode start
+    ```
+
+    
+
 ### SecureCRT 不让标签页显示当前目录名
 
 用 SecureCRT 连接 Linux主机后, 标签页标题会随着当前目录的变更而改变, 当进入目录层级较深时, 看着非常头大. 下面的方法禁用这个功能:
@@ -744,7 +778,7 @@ bash /etc/init.d/rcloned start
 3. 解决中文乱码. 大多数 `Linux` 端的中文都以 `UTF-8` 编码, 而 `Windows` 则以 `GB-2312` 编码, 两套编码系统不兼容, 所以中文会出现乱码. 在 `Windows 10` 中, 打开 `Windows 设置`, 选择 "时间和语言", 再打开"语言", 在右上角找到"管理语言设置", 再选择第2个页签中的"更改系统区域设置", 勾选"Beta版: 使用 `Unicode UTF-8` 提供全区语言支持", 然后重启 `Windows`, 再次挂载 `NFS` 后, 中文就可以正常显示了.
 4. 添加可写权限给匿名用户. 打开注册表编辑器 `regedit`, 定位到 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default`, 在右侧窗口中新建 `DWORD (32位)` 项 `AnonymousUid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的用户 `id` 值, 再新建 `DWORD (32位)` 项  `AnonymousGid`, 把它的值设置为 `Linux` 中有对 `NFS` 目录有读写权限的用户的组 `id` 值, 重启 `Windows`, 就可以读写所挂载的目录了.
    >注: 也可以在 `Windows Power Shell` 中运行命令 `New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUID -Value 1000 -PropertyType "DWord"
-New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGID -Value 1000  -PropertyType "DWord"` 来添加注册表项.
+   New-ItemProperty HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGID -Value 1000  -PropertyType "DWord"` 来添加注册表项.
    运行命令 `mount` 后, 显示如下:
 
    ```bash
