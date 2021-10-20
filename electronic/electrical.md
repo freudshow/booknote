@@ -21,3 +21,8 @@
     三相总计: $46.431+25.179+22.638=94.248$
 
     负载率: $\frac{94.248}{315}\times 100\%=29.92\%$
+
+### PT CT
+
+- PT: 电压互感器. Potential transformer, 简称PT, Voltage transformer也简称VT
+- CT: 电流互感器. current transformer
