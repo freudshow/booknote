@@ -73,8 +73,8 @@
 1. Download the taglist.zip file and unzip the files to the HOME/.vim or the 
     `$HOME/vimfiles` or the `$VIM/vimfiles` directory. After his step, you should 
     have the following two files (the directory structure hould be preserved):  
-plugin/taglist.vim - main taglist plugin file
-doc/taglist.txt    - documentation (help) file 
+   plugin/taglist.vim - main taglist plugin file
+   doc/taglist.txt    - documentation (help) file 
    Refer to the |add-plugin|, |add-global-plugin| and |untimepath| Vim 
    help pages for more details about installing Vim lugins. 
 1. Change to the $HOME/.vim/doc or $HOME/vimfiles/doc or VIM/vimfiles/doc 
@@ -112,7 +112,7 @@ wget https://www.vim.org/scripts/download_script.php?src_id=9178 -O cpp_src.tar.
    cd cpp_src
    ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ 
     mv tags cpp #or whatever 
-    ```
+   ```
 1. In Vim: 
 set tags+=/my/path/to/tags/cpp 
 
@@ -137,7 +137,7 @@ cp cpp_src/tags ~/.vim/tags/
 
 ## **~/.vimrc**
 
-```vim
+```Vim
 "设置 cpp_src/tags 文件的路径
 set tags+=~/.vim/tags/cpp_src/tags
 set modelines=0
@@ -183,6 +183,7 @@ filetype on "打开文件类型检测功能
 set background=dark
 set t_Co=256   "256色
 set mouse=v  "允许鼠标
+set number "显示行号
 "===============================
 execute pathogen#infect()
 syntax on
