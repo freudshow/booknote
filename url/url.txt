@@ -1,0 +1,31 @@
+https://blog.csdn.net/qq_31967569/article/details/117487086  手把手教你构建 C 语言编译器（8）- 表达式
+https://zhuanlan.zhihu.com/p/164700404  λ演算 - 函数式语言的起源
+https://zhuanlan.zhihu.com/p/356842725 一文入门深度学习OCR：数据集和算法
+https://www.zhihu.com/column/c_1208094810999066624 数字芯片设计那些不小的事儿
+https://blog.csdn.net/woshiheweigui/article/details/116299183 OCR文字检测主要算法
+https://blog.csdn.net/qidailiming1994/article/details/102944345 多个优秀的OCR算法解读
+http://www.lua.org/download.html   Lua Download
+https://www.itransition.com/blog/ocr-algorithm   Open-source OCR
+https://pdos.csail.mit.edu/6.828/2021/labs/util.html  Lab: Xv6 and Unix utilities
+https://jos.jd.com/  京东宙斯开发平台
+https://blog.csdn.net/weixin_43727437/article/details/107159672?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-1-107159672.pc_agg_new_rank&utm_term=%E4%BB%B2%E8%A3%81%E5%99%A8%E7%AE%97%E6%B3%95&spm=1000.2123.3001.4430  仲裁器
+https://blog.csdn.net/weixin_45909672/article/details/118101802 表达式求值(顺序栈)
+https://blog.csdn.net/qq_41317652/article/details/82958188   表达式求值
+https://account.aliyun.com/login/login.htm?from_type=codealiyun&&oauth_callback=http%3A%2F%2Fcode.aliyun.com%2F  阿里云开发者平台
+https://www.cs.cornell.edu/courses/cs3110/2008fa/recitations/rec26.html  The Lambda Calculus
+https://brilliant.org/wiki/lambda-calculus/   Lambda Calculus
+https://plato.stanford.edu/entries/lambda-calculus/   The Lambda Calculus
+https://segmentfault.com/a/1190000022062597  垃圾回收算法之标记-清除算法
+http://www.51hei.com/bbs/dpj-40953-1.html   STM32 USB Device应用中的包缓冲话题
+https://blog.csdn.net/canyou0707/article/details/73693117?spm=1035.2023.3001.6557&utm_medium=distribute.pc_relevant_bbs_down.none-task-blog-2~default~OPENSEARCH~default-2.nonecase&depth_1-utm_source=distribute.pc_relevant_bbs_down.none-task-blog-2~default~OPENSEARCH~default-2.nonecase  红外收发基本原理
+https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-1.html  Structure and Interpretation of Computer Programs
+https://refactoringguru.cn/design-patterns/factory-method   工厂方法模式
+https://www.cnblogs.com/qcblog/p/8998045.html 有趣的椭圆曲线加密算法
+
+http://elm-chan.org/docs/fat_e.html  FAT Filesystem 
+
+https://www.json-xls.com/convert/json  Convert JSON as text, external resource or file(s)
+https://www.bejson.com/convert/json2csharp/  JSON转C#实体类
+https://wtools.io/convert-json-to-sql-queries  Convert JSON to SQL
+https://www.binaryconvert.com/result_float.html?hexadecimal=3C75C28F  Float (IEEE754 Single precision 32-bit)
+
