@@ -21,6 +21,7 @@ https://blog.csdn.net/canyou0707/article/details/73693117?spm=1035.2023.3001.655
 https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-1.html  Structure and Interpretation of Computer Programs
 https://refactoringguru.cn/design-patterns/factory-method   工厂方法模式
 https://www.cnblogs.com/qcblog/p/8998045.html 有趣的椭圆曲线加密算法
+https://www.nhooo.com/postgresql/postgresql-syntax.html  PostgreSQL 基础教程
 
 http://elm-chan.org/docs/fat_e.html  FAT Filesystem 
 
