@@ -298,6 +298,15 @@ sudo timedatectl set-local-rtc 1
 	umount /home/floyd/sshfs
 	#或者
 	fusermount -u /home/floyd/sshfs
+	
+	#在 /etc/ssh/sshd_config 文件的末尾添加如下2个参数
+	ClientAliveInterval 60
+	ClientAliveCountMax 5
+	
+	#设置超时时间, 防止shell无操作自动断开
+	echo $TMOUT #查看当前设置的超时时间, 单位秒(s)
+	sudo vi /etc/profile
+	export TMOUT=60000 #修改为60000秒, 约为16.67小时
 ```
 
 ### `add i386 support`
