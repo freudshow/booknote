@@ -19,7 +19,7 @@ sudo vi /etc/sudoers.d/sysadm #然后将光标定位到文档的最后一行, �
 
 ## 开启`root`用户登录
 
-1. `vi /etc/passwd`, 第一行就是`root`用户的配置: `root:x:0:0:root:/root:/usr/sbin/nologin`, 把这句话改成  `root:x:0:0:root:/root:/bin/bash`. 保存并关闭这个文档.
+1. `sudo vi /etc/passwd`, 第一行就是`root`用户的配置: `root:x:0:0:root:/root:/usr/sbin/nologin`, 把这句话改成  `root:x:0:0:root:/root:/bin/bash`. 保存并关闭这个文档.
 2. `sudo passwd root`, 设置一个复杂的密码. 如果遇到`passwd: Authentication token manipulation error`这样的错误, 运行`sudo chattr -i /etc/shadow`和`sudo chattr -i /etc/passwd`命令去掉修改密码的限制.
 3. `sudo vi /etc/ssh/sshd_config`, 找到`PermitRootLogin no`, 改为`PermitRootLogin yes`, 允许`root`用户用`ssh`服务远程登录, 然后运行`sudo service ssh restart` 以重启`ssh`服务.
 3. 使用`xshell`, 用`root`用户登录即可.
