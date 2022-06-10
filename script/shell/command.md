@@ -141,22 +141,6 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 
 用root账号在/etc/apt/sources.list中把软件源修改为：
 
-- `debian 9`:
-
-```bash
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch main contrib non-free
-
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-updates main contrib non-free
-
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ stretch-backports main contrib non-free
-
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security stretch/updates main contrib non-free
-```
-
 - `debian 10`:
 
 ```bash
@@ -171,20 +155,7 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
     deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
 ```
 
-- `ubuntu 18.04`:
-
-```bash
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
-    deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
-```
-
--`ubuntu 20.04`
+- `ubuntu 20.04`
 
 ```bash
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
@@ -200,6 +171,24 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # 预发布软件源，不建议启用
 # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+```
+
+- `ubuntu 22.04`
+
+```bash
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
 ```
 
 ### 让`apt`支持`https`开头的软件源
@@ -223,14 +212,20 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-14-jdk openjdk-11-jdk openssh-server net-tools
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-18-jdk openjdk-11-jdk openssh-server net-tools
     sudo apt autoremove --purge snapd #卸载ubuntu自带的包管理软件, 否则它总是在后台运行, 不断读取磁盘
+```
+
+### Install VMware tools on Ubuntu 22.04 Jammy Jellyfish Linux
+
+```bash
+    sudo apt install open-vm-tools-desktop open-vm-tools
 ```
 
 ### `Ubuntu`/`Debian`系统时间相差8小时解决方法
 
 ```bash
-sudo timedatectl set-local-rtc 1
+    sudo timedatectl set-local-rtc 1
 ```
 
 ### `Ubuntu`安装`Mate desktop`
@@ -324,7 +319,7 @@ sudo timedatectl set-local-rtc 1
 
 ```bash
     sudo apt install -y git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu
-    git clone git://github.com/mit-pdos/xv6-riscv.git
+    git clone https://github.com/mit-pdos/xv6-riscv.git
     ./configure --disable-kvm --prefix=/opt/qemu --target-list="i386-softmmu x86_64-softmmu"
     make
     sudo make install
