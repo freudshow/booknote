@@ -140,9 +140,10 @@ nan, 0x7FC00000 //0111 1111 1100 0000 0000 0000 0000 0000
 
 参考:　[利用正则表达式匹配C语言函数名](https://www.cnblogs.com/Summerio/p/13940959.html)
 
-```
+```C
 (static\s*){0,1}\w{1,}\s{1,}\w{1,}\s*\([\s\w\*,]*\)[^;]
 ```
 
+## undefined reference to `dlopen`, `dlerror`, `dlsym`, `dlsym`, `dlsym`, `dlclose`
 
-
+添加头文件`#include <dlfcn.h>`, 链接器添加链接库文件`-ldl`即可
