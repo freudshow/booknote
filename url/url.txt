@@ -30,3 +30,21 @@ https://www.bejson.com/convert/json2csharp/  JSON转C#实体类
 https://wtools.io/convert-json-to-sql-queries  Convert JSON to SQL
 https://www.binaryconvert.com/result_float.html?hexadecimal=3C75C28F  Float (IEEE754 Single precision 32-bit)
 
+https://blog.csdn.net/qq_41248872/article/details/83987670     实现ARM-Linux远程交叉调试---arm-linux-gdb(gdbclient)+gdbserver
+https://www.cnblogs.com/pengdonglin137/p/11565115.html    交叉编译用于生成aarch64指令的GCC （9.2）
+https://blog.csdn.net/ZLK1214/article/details/120262773    【教程】制作能在ARM板上直接运行的gcc本地编译器
+https://blog.csdn.net/ggggyj/article/details/124164136      /lib/aarch64-linux-gnu/libm.so.6: version `GLIBC_2.29‘ not found
+https://blog.csdn.net/csbmww/article/details/124481911      深度：一文看懂Linux内核，Linux内核架构和工作原理详解
+
+
+
+
+
+
+
+
+
+
+
+
+
