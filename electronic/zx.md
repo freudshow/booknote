@@ -13,6 +13,8 @@ sudo vi /etc/sudoers.d/sysadm #然后将光标定位到文档的最后一行, �
 	 
 ```
 
+如果提示打开`/etc/sudoers`失败, 运行`visudo`即可打开此文件
+
 然后每次使用`sysadm`用户运行`sudo`命令, 就不需要输入密码了
 
 
