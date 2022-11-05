@@ -356,6 +356,27 @@ sudo apt install -y locales
 sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设置默认语言集
 ```
 
+### ubuntu主目录下的文件夹改回英文
+
+编辑配置文件`~/.config/user-dirs.dirs `, 把文件夹指向改掉，例如：
+
+```Shell
+
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Desktop"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_VIDEOS_DIR="$HOME/Videos"
+
+```
+
+使用`xdg-user-dirs-gtk-update`点击了`不再问我`这个问题后，再次执行这个命令就会没有反应, 解决方法:
+
+执行一下命令`echo zh_CN > ~/.config/user-dirs.locale`，然后就可以在次执行`xdg-user-dirs-gtk-update`或者`xdg-user-dirs-update`了。
+
 ### 以太网和`wifi`同时上网
 
 ```bash
