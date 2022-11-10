@@ -212,7 +212,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-18-jdk openjdk-11-jdk openssh-server net-tools
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-18-jdk openjdk-11-jdk openssh-server net-tools
     sudo apt autoremove --purge snapd #卸载ubuntu自带的包管理软件, 否则它总是在后台运行, 不断读取磁盘
 ```
 
@@ -310,9 +310,7 @@ cat /etc/debian_version
     sudo apt install -y firmware-realtek
     sudo dpkg --print-architecture
     sudo dpkg --add-architecture i386
-    sudo apt install  -y lib32z1 lib32ncurses5 gcc-multilib
-    # in debian 10
-    sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib
+    sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib libncurses5:i386 libncurses5-dev libncurses5 libncursesw5
 ```
 
 ### 安装6.828开发环境
