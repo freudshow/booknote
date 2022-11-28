@@ -382,3 +382,80 @@ In order to use a shared memory segment, we typically perform the following step
 - Call shmdt() to detach the shared memory segment. After this call, the process can no longer refer to the shared memory. This step is optional, and happens automatically on process termination.
 - Call shmctl() to delete the shared memory segment. The segment will be
 destroyed only after all currently attached processes have detached it. Only one process needs to perform this step.
+
+## Shared Libraries
+
+### summary
+
+- standard locations: `/lib`, `/usr/lib`, `/usr/local/lib`
+- **`ldconfig`** is used to refresh shared library `/etc/ld.so.cache`.
+- `/etc/ld.so.conf` indicates where shared library locate.
+- Non Standard Library Locations: Add the path to `/etc/ld.so.conf` file; or add `include /etc/ld.so.conf.d/*.conf` at the end of `/etc/ld.so.conf`, then create a `.conf` file in directory `/etc/ld.so.conf.d`, then run `ldconfig` command to refresh cache
+
+### how to create a shared library
+
+write two files `shared.c` and `shared.h`:
+
+```c
+// shared.c
+#include "shared.h"
+unsigned int add(unsigned int a, unsigned int b)
+{
+    printf("\n Inside add()\n");
+    return (a+b);
+}
+
+//shared.h
+#include<stdio.h>
+extern unsigned int add(unsigned int a, unsigned int b);
+```
+
+Run the following two commands to create a shared library:
+
+```bash
+
+#compiles the code shared.c into position independent code which is required for a shared library.
+gcc -c -Wall -Werror -fPIC shared.c
+
+#creates a shared library with name "libshared.so"
+gcc -shared -o libshared.so shared.o
+```
+
+Here is the code of the program that uses the shared library function "add()":
+
+```c
+//add.c
+#include<stdio.h>
+#include"shared.h"
+int main(void)
+{
+    unsigned int a = 1;
+    unsigned int b = 2;
+    unsigned int result = 0;
+
+    result = add(a,b);
+
+    printf("\n The result is [%u]\n",result);
+    return 0;
+}
+```
+
+run the following command:
+
+```bash
+# compiles the add.c code and tells gcc to link the code 
+# with shared library libshared.so (by using flag -l) 
+# and also tells the location of shared file(by using flag -L).
+gcc -L/pathtolib/ -Wall add.c -o add -lshared
+
+# export the path where the newly created shared library is kept
+export LD_LIBRARY_PATH=/home/himanshu/practice:$LD_LIBRARY_PATH
+```
+
+run the executable
+
+```shell
+$ ./add
+Inside add()
+The result is [3]
+```
