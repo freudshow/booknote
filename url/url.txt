@@ -37,14 +37,14 @@ https://blog.csdn.net/ggggyj/article/details/124164136      /lib/aarch64-linux-g
 https://blog.csdn.net/csbmww/article/details/124481911      深度：一文看懂Linux内核，Linux内核架构和工作原理详解
 
 
+https://gpt.chatapi.art/ chatGPT
+https://github.com/google/sanitizers/wiki/AddressSanitizer 内存错误诊断
 
+https://about.gitlab.com/install/#ubuntu gitlab install
 
+https://www.cnblogs.com/xuanyuanchen/p/5761315.html valgrind arm
 
+https://developer.arm.com/documentation arm documentation
 
-
-
-
-
-
-
+https://bruceou.blog.csdn.net/article/details/117897496 arm assembly
 
