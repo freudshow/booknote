@@ -48,3 +48,25 @@ https://developer.arm.com/documentation arm documentation
 
 https://bruceou.blog.csdn.net/article/details/117897496 arm assembly
 
+https://www.bilibili.com/read/cv13875860?spm_id_from=333.999.0.0 [深入剖析STM32]STM32 启动流程详解
+https://bruceou.blog.csdn.net/article/details/117897496 ARM汇编入门
+https://blog.csdn.net/bruceoxl/category_11795330.html GD32开发实战指南
+https://bruceou.blog.csdn.net/article/details/124678141 GD32启动流程详解
+https://alisdair.mcdiarmid.org/arm-immediate-value-encoding/ ARM immediate value encoding
+
+
+
+https://blog.csdn.net/qq582880551/article/details/127277269  TTF字库文件格式详解
+https://developer.apple.com/fonts/TrueType-Reference-Manual/  TrueType Reference Manual
+https://zhuanlan.zhihu.com/p/539808761   B-spline简介
+
+https://github.com/jart/cosmopolitan   build-once run-anywhere c library
+
+
+
+
+https://book.douban.com/subject/5290339/   Pearls of Functional Algorithm Design
+https://book.douban.com/subject/1822197/   Elements of Information Theory
+
+
+
