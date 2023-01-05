@@ -61,7 +61,7 @@ https://developer.apple.com/fonts/TrueType-Reference-Manual/  TrueType Reference
 https://zhuanlan.zhihu.com/p/539808761   B-spline简介
 
 https://github.com/jart/cosmopolitan   build-once run-anywhere c library
-
+https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/   Understanding glibc malloc
 
 
 
@@ -69,4 +69,4 @@ https://book.douban.com/subject/5290339/   Pearls of Functional Algorithm Design
 https://book.douban.com/subject/1822197/   Elements of Information Theory
 
 
-
+https://docs.google.com/forms/d/e/1FAIpQLSccr5k3er2PnFngK4aRTTg7qANWR6Vayutm8UY592PH8FagUw/viewform   Rui Ueyama
