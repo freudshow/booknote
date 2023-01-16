@@ -741,8 +741,6 @@ bash /etc/init.d/rcloned start
      dpkg -l | grep laptop-mode-tools
     ```
 
-    
-
 - 安装laptop-mode
 
     ```shell
@@ -765,7 +763,31 @@ bash /etc/init.d/rcloned start
     sudo laptop_mode start
     ```
 
-    
+### 为`Bash shell`定义`Home, Del, Insert`热键
+
+```bash
+# vi /etc/profile
+
+增加一行：
+export INPUTRC=/usr/local/etc/inputrc
+
+# vi /usr/local/etc/inputrc
+set meta-flag on
+set input-meta on
+set convert-meta off
+set output-meta on
+
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+"\e[5C": forward-word
+"\e[5D": backward-word
+
+logout、login一下再试试
+```
 
 ### SecureCRT 不让标签页显示当前目录名
 
@@ -867,7 +889,7 @@ deb-src http://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-security main multiverse
 deb-src http://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main multiverse restricted universe
 ```
 
-### CSDN 保存网页自动跳转到首页
+## CSDN 保存网页自动跳转到首页
 
 ```html
 <--右键用文本编辑器打开离线保存的网页，搜索关键词onerror，找到下面这段：-->
