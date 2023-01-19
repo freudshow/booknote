@@ -202,7 +202,7 @@ sudo apt install -y apt-transport-https
 把下面的配置写入到 `/etc/sudoers`, yourname替换为自己的用户名, 下同
 
 ```bash
-    yourname    ALL=(ALL) NOPASSWD: NOPASSWD: ALL
+    floyd    ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ```
 
 ### 查看`debian`的版本号
