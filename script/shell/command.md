@@ -202,7 +202,7 @@ sudo apt install -y apt-transport-https
 把下面的配置写入到 `/etc/sudoers`, yourname替换为自己的用户名, 下同
 
 ```bash
-    yourname    ALL=(ALL) NOPASSWD: NOPASSWD: ALL
+    floyd    ALL=(ALL) NOPASSWD: NOPASSWD: ALL
 ```
 
 ### 查看`debian`的版本号
@@ -265,52 +265,52 @@ cat /etc/debian_version
 ### `ssh`服务器设置
 
 ```bash
-	sudo apt install -y openssh-server
-	ps -e |grep ssh
-	sudo /etc/init.d/ssh restart
-	sudo /etc/init.d/ssh start
-	netstat -tlp
-	sudo service ssh status
-	sudo service ssh stop
-	sudo service ssh restart
+sudo apt install -y openssh-server
+ps -e |grep ssh
+sudo /etc/init.d/ssh restart
+sudo /etc/init.d/ssh start
+netstat -tlp
+sudo service ssh status
+sudo service ssh stop
+sudo service ssh restart
 
-	#ssh免密码登录
-	sudo vi /etc/ssh/sshd_config : #把加入或修改成下面的设置
-	RSAAuthentication yes
-	PubkeyAuthentication yes
-	AuthorizedKeysFile      %h/.ssh/authorized_keys
-	ssh-copy-id -i ~/.ssh/id_rsa.pub -p 8888 sysadm@192.168.1.101(端口不是22的情况)
-	#测试复制文件
-	scp -P 8888  1376.2App sysadm@192.168.1.101:/home/sysadm/bin/
+#ssh免密码登录
+sudo vi /etc/ssh/sshd_config : #把加入或修改成下面的设置
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile      %h/.ssh/authorized_keys
+ssh-copy-id -i ~/.ssh/id_rsa.pub -p 8888 sysadm@192.168.1.101(端口不是22的情况)
+#测试复制文件
+scp -P 8888  1376.2App sysadm@192.168.1.101:/home/sysadm/bin/
 
-	#挂载sshfs
-	sudo apt install -y sshfs
-	mkdir -p ~/sshfs
-	sshfs -p 8888 sysadm@192.168.1.101:/home/sysadm /home/floyd/sshfs
-	sshfs -p 8888 sysadm@192.168.1.101:/data/app /home/floyd/sshdata
+#挂载sshfs
+sudo apt install -y sshfs
+mkdir -p ~/sshfs
+sshfs -p 8888 sysadm@192.168.1.101:/home/sysadm /home/floyd/sshfs
+sshfs -p 8888 sysadm@192.168.1.101:/data/app /home/floyd/sshdata
 
-	#卸载sshfs文件系统
-	umount /home/floyd/sshfs
-	#或者
-	fusermount -u /home/floyd/sshfs
-	
-	#在 /etc/ssh/sshd_config 文件的末尾添加如下2个参数
-	ClientAliveInterval 60
-	ClientAliveCountMax 5
-	
-	#设置超时时间, 防止shell无操作自动断开
-	echo $TMOUT #查看当前设置的超时时间, 单位秒(s)
-	sudo vi /etc/profile
-	export TMOUT=60000 #修改为60000秒, 约为16.67小时
+#卸载sshfs文件系统
+umount /home/floyd/sshfs
+#或者
+fusermount -u /home/floyd/sshfs
+
+#在 /etc/ssh/sshd_config 文件的末尾添加如下2个参数
+ClientAliveInterval 60
+ClientAliveCountMax 5
+
+#设置超时时间, 防止shell无操作自动断开
+echo $TMOUT #查看当前设置的超时时间, 单位秒(s)
+sudo vi /etc/profile
+export TMOUT=60000 #修改为60000秒, 约为16.67小时
 ```
 
 ### `add i386 support`
 
 ```bash
-    sudo apt install -y firmware-realtek
-    sudo dpkg --print-architecture
-    sudo dpkg --add-architecture i386
-    sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib libncurses5:i386 libncurses5-dev libncurses5 libncursesw5
+sudo apt install -y firmware-realtek
+sudo dpkg --print-architecture
+sudo dpkg --add-architecture i386
+sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib libncurses5:i386 libncurses5-dev libncurses5 libncursesw5
 ```
 
 ### 安装6.828开发环境
@@ -356,7 +356,7 @@ sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设
 
 ### ubuntu主目录下的文件夹改回英文
 
-编辑配置文件`~/.config/user-dirs.dirs `, 把文件夹指向改掉，例如：
+编辑配置文件`~/.config/user-dirs.dirs`, 把文件夹指向改掉，例如：
 
 ```Shell
 
@@ -571,11 +571,11 @@ vmplayer默认的安装位置是`/usr/lib/vmware`, 下载的`vmware tools`位置
     #
     # <file system> <mount point>   <type>  <options>       <dump>  <pass>
     # / was on /dev/sda2 during installation
-    UUID=080c3642-0f86-461b-95bc-4686b79e5629 /               ext4    errors=remount-ro 0       	1
+    UUID=080c3642-0f86-461b-95bc-4686b79e5629 /               ext4    errors=remount-ro 0    1
     # /home was on /dev/sda3 during installation
-    UUID=0cb479d2-87eb-4619-8079-e3aee1e93f60 /home           ext4    defaults        0       	2
-    /dev/sda1			/win/c			  ntfs    defaults,user,rw	0	0
-    /swapfile			none			  swap	  sw		  0		0
+    UUID=0cb479d2-87eb-4619-8079-e3aee1e93f60 /home           ext4    defaults        0    2
+    /dev/sda1    /win/c    ntfs    defaults,user,rw 0 0
+    /swapfile    none    swap    sw    0 0
 ```
 
 ### 创建 `swapfile` 作为交换分区
@@ -614,9 +614,9 @@ Ubuntu等linux系一般在/etc/hosts
     185.31.16.184 github.global.ssl.fastly.net
     185.31.18.133 avatars0.githubusercontent.com
     185.31.19.133 avatars1.githubusercontent.com
-	
-	140.82.113.3 github.com
-	199.232.69.194 github.global.ssl.fastly.net
+
+    140.82.113.3 github.com
+    199.232.69.194 github.global.ssl.fastly.net
 ```
 
 改完之后立刻刷新，
@@ -755,7 +755,7 @@ bash /etc/init.d/rcloned start
 
     如果结果为0, 则表示未启动, 如果为非0, 则表示启动了
 
-- 启动`laptop_mode`, 修改配置文件`/etc/default/acpi-support`, 更改 `ENABLE_LAPTOP_MODE=true`, 直接在终端中输入 `sudo laptop_mode start` 启动了`laptop_mode`之后，在`ubuntu`挂起后, 基本上就不会遇到无法唤醒的情况了. 如果在`acpi-support`中并未找到 `ENABLE_LAPTOP_MODE=true` 被注释的项. 在/etc/laptop-mode/laptop-mode.conf 中进行配置,查找 ENABLE_LAPTOP_MODE_ON_BATTERY, ENABLE_LAPTOP_MODE_ON_AC, ENABLE_LAPTOP_MODE_WHEN_LID_CLOSED, 全部设置为1即可. 
+- 启动`laptop_mode`, 修改配置文件`/etc/default/acpi-support`, 更改 `ENABLE_LAPTOP_MODE=true`, 直接在终端中输入 `sudo laptop_mode start` 启动了`laptop_mode`之后，在`ubuntu`挂起后, 基本上就不会遇到无法唤醒的情况了. 如果在`acpi-support`中并未找到 `ENABLE_LAPTOP_MODE=true` 被注释的项. 在/etc/laptop-mode/laptop-mode.conf 中进行配置,查找 ENABLE_LAPTOP_MODE_ON_BATTERY, ENABLE_LAPTOP_MODE_ON_AC, ENABLE_LAPTOP_MODE_WHEN_LID_CLOSED, 全部设置为1即可.
 
 - 启动`laptop_mode`
 
@@ -828,14 +828,14 @@ logout、login一下再试试
 
    ```bash
     Local    Remote                                 Properties
-	-------------------------------------------------------------------------------
-	Y:       \\192.168.0.2\home\floyd               UID=1000, GID=1000
-													rsize=1048576, wsize=1048576
-													mount=soft, timeout=0.8
-													retry=1, locking=no
-													fileaccess=755, lang=GB2312-80
-													casesensitive=no
-													sec=sys
+    -------------------------------------------------------------------------------
+    Y:       \\192.168.0.2\home\floyd               UID=1000, GID=1000
+    rsize=1048576, wsize=1048576
+    mount=soft, timeout=0.8
+    retry=1, locking=no
+    fileaccess=755, lang=GB2312-80
+    casesensitive=no
+    sec=sys
    ```
 
 5. 自动挂载 `NFS`. 每次输入挂载命令很麻烦, 在 `Windows` 资源管理器中点击"此电脑"->"计算机"->"映射网络驱动器", 输入 `NFS` 共享的网络和主机路径, 并分配一个盘符, 则下次开机后, `Windows` 就自动挂载 `NFS` 共享目录了.
@@ -897,4 +897,3 @@ deb-src http://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main multiverse 
 onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
 <--不要心慈手软，直接删除后保存即可。-->
 ```
-
