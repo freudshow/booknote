@@ -11,9 +11,9 @@
 - 电平触发([Level-Triggered](https://en.wikipedia.org/wiki/Interrupt#Level-triggered)): 是在高或低电平保持的时间内触发,
 - 边沿触发([Edge-triggered](https://en.wikipedia.org/wiki/Interrupt#Edge-triggered)): 是由高到低或由低到高这一瞬间触发
 
-### The ***select()*** System Call
+### The **_select()_** System Call
 
-The ***select()*** system call blocks until one or more of a set of file descriptors becomes
+The **_select()_** system call blocks until one or more of a set of file descriptors becomes
 ready.
 
 ```C
@@ -28,15 +28,15 @@ ready.
 
 #### **arguments**
 
-The ***nfds***, ***readfds***, ***writefds***, and ***exceptfds*** arguments specify the file descriptors that
-***select()*** is to monitor. The timeout argument can be used to set an upper limit on the
-time for which ***select()*** will block.
+The **_nfds_**, **_readfds_**, **_writefds_**, and **_exceptfds_** arguments specify the file descriptors that
+**_select()_** is to monitor. The timeout argument can be used to set an upper limit on the
+time for which **_select()_** will block.
 
-- ***readfds*** is the set of file descriptors to be tested to see if input is possible;
-- ***writefds*** is the set of file descriptors to be tested to see if output is possible; and
-- ***exceptfds*** is the set of file descriptors to be tested to see if an exceptional condition has occurred.
+- **_readfds_** is the set of file descriptors to be tested to see if input is possible;
+- **_writefds_** is the set of file descriptors to be tested to see if output is possible; and
+- **_exceptfds_** is the set of file descriptors to be tested to see if an exceptional condition has occurred.
 
-#### ***fd_set***
+#### **_fd_set_**
 
 ```C
 /* The fd_set member is required to be an array of longs.  */
@@ -73,16 +73,16 @@ int FD_ISSET(int fd, fd_set *fdset);
     Returns true (1) if fd is in fdset, or false (0) otherwise
 ```
 
-- ***FD_ZERO()*** : initializes the set pointed to by fdset to be empty.
-- ***FD_SET()*** : adds the file descriptor fd to the set pointed to by fdset.
-- ***FD_CLR()*** : removes the file descriptor fd from the set pointed to by fdset.
-- ***FD_ISSET()*** :  returns true if the file descriptor fd is a member of the set pointed to
+- **_FD_ZERO()_** : initializes the set pointed to by fdset to be empty.
+- **_FD_SET()_** : adds the file descriptor fd to the set pointed to by fdset.
+- **_FD_CLR()_** : removes the file descriptor fd from the set pointed to by fdset.
+- **_FD_ISSET()_** : returns true if the file descriptor fd is a member of the set pointed to
   by fdset.
 
-### The ***epoll()*** API
+### The **_epoll()_** API
 
 The epoll API is Linux-specific, and is new in Linux 2.6.
-The central data structure of the ***epoll*** API is an ***epoll*** instance, which is referred
+The central data structure of the **_epoll_** API is an **_epoll_** instance, which is referred
 to via an open file descriptor. This file descriptor is not used for I/O. Instead, it is a
 handle for kernel data structures that serve two purposes:
 
@@ -90,19 +90,19 @@ handle for kernel data structures that serve two purposes:
   monitoring—the interest list; and
 - maintaining a list of file descriptors that are ready for I/O—the ready list.
 
-The ***epoll*** API consists of three system calls:
+The **_epoll_** API consists of three system calls:
 
-- The ***epoll_create()*** system call creates an epoll instance and returns a file descriptor
+- The **_epoll_create()_** system call creates an epoll instance and returns a file descriptor
   referring to the instance.
   1356 Chapter 63
-- The ***epoll_ctl()*** system call manipulates the interest list associated with an epoll
+- The **_epoll_ctl()_** system call manipulates the interest list associated with an epoll
   instance. Using epoll_ctl(), we can add a new file descriptor to the list, remove
   an existing descriptor from the list, and modify the mask that determines
   which events are to be monitored for a descriptor.
-- The ***epoll_wait()*** system call returns items from the ready list associated with an
+- The **_epoll_wait()_** system call returns items from the ready list associated with an
   epoll instance.
 
-#### ***epoll_create()***
+#### **_epoll_create()_**
 
 ```C
     #include <sys/epoll.h>
@@ -111,12 +111,12 @@ The ***epoll*** API consists of three system calls:
         Returns file descriptor on success, or –1 on error
 ```
 
- ***epoll_create()*** creats an ***epoll*** Instance, and returns a file descriptor referring to the new
-***epoll*** instance. This file descriptor is used to refer to the ***epoll*** instance in other ***epoll***
+**_epoll_create()_** creats an **_epoll_** Instance, and returns a file descriptor referring to the new
+**_epoll_** instance. This file descriptor is used to refer to the **_epoll_** instance in other **_epoll_**
 system calls. When the file descriptor is no longer required, it should be closed in
-the usual way, using ***close()*** .
+the usual way, using **_close()_** .
 
-#### ***epoll_ctl()***
+#### **_epoll_ctl()_**
 
 ```C
     #include <sys/epoll.h>
@@ -125,32 +125,32 @@ the usual way, using ***close()*** .
         Returns 0 on success, or –1 on error
 ```
 
- ***epoll_ctl()*** modifying the ***epoll*** Interest List.
- The ***fd*** argument identifies which of the file descriptors in the interest list is to have
-its settings modified. This argument can be a file descriptor for a ***pipe***, ***FIFO***,
-***socket***, ***POSIX message queue***, ***inotify instance***, ***terminal***, ***device***, or even another ***epoll***
+**_epoll_ctl()_** modifying the **_epoll_** Interest List.
+The **_fd_** argument identifies which of the file descriptors in the interest list is to have
+its settings modified. This argument can be a file descriptor for a **_pipe_**, **_FIFO_**,
+**_socket_**, **_POSIX message queue_**, **_inotify instance_**, **_terminal_**, **_device_**, or even another **_epoll_**
 descriptor (i.e., we can build a kind of hierarchy of monitored descriptors). However,
-`<u>` ***fd*** **can’t** be a file descriptor for a **regular file** or a **directory** `</u>` (the error ***EPERM*** results `<u>`means operation not permitted `</u>`).
+`<u>` **_fd_** **can’t** be a file descriptor for a **regular file** or a **directory** `</u>` (the error **_EPERM_** results `<u>`means operation not permitted `</u>`).
 
-The ***op*** argument specifies the operation to be performed, and has one of the
+The **_op_** argument specifies the operation to be performed, and has one of the
 following values:
 
-- ***EPOLL_CTL_ADD***Add the file descriptor fd to the interest list for epfd. The set of events that
+- **_EPOLL_CTL_ADD_**Add the file descriptor fd to the interest list for epfd. The set of events that
   we are interested in monitoring for fd is specified in the buffer pointed to
   by ev, as described below. If we attempt to add a file descriptor that is
   already in the interest list, epoll_ctl() fails with the error EEXIST.
-- ***EPOLL_CTL_MOD***Modify the events setting for the file descriptor fd, using the information
+- **_EPOLL_CTL_MOD_**Modify the events setting for the file descriptor fd, using the information
   specified in the buffer pointed to by ev. If we attempt to modify the settings of a file descriptor that is not in the interest list for epfd, epoll_ctl() fails
   with the error ENOENT.
-- ***EPOLL_CTL_DEL***
+- **_EPOLL_CTL_DEL_**
   Remove the file descriptor fd from the interest list for epfd. The ev argument is ignored for this operation. If we attempt to remove a file descriptor
   that is not in the interest list for epfd, epoll_ctl() fails with the error ENOENT.
   Closing a file descriptor automatically removes it from all of the epoll interest
   lists of which it is a member.
 
-#### ***epoll_wait()***
+#### **_epoll_wait()_**
 
- Waiting for Events: epoll_wait()
+Waiting for Events: epoll_wait()
 The epoll_wait() system call returns information about ready file descriptors from
 the epoll instance referred to by the file descriptor epfd. A single epoll_wait() call can
 return information about multiple ready file descriptors.
@@ -162,11 +162,11 @@ return information about multiple ready file descriptors.
         Returns number of ready file descriptors, 0 on timeout, or –1 on error
 ```
 
-The information about ready file descriptors is returned in the array of ***epoll_event***
-structures pointed to by ***evlist*** . The ***evlist*** array is allocated by the caller, and the number of elements
-it contains is specified in ***maxevents*** .
+The information about ready file descriptors is returned in the array of **_epoll_event_**
+structures pointed to by **_evlist_** . The **_evlist_** array is allocated by the caller, and the number of elements
+it contains is specified in **_maxevents_** .
 
-#### steps to use ***epoll()***
+#### steps to use **_epoll()_**
 
 1. Create an epoll instance q.
 
@@ -313,14 +313,14 @@ int main(int argc, char *argv[])
 }
 ```
 
-#### implementation of ***epoll()***
+#### implementation of **_epoll()_**
 
-In Linux Kernel 4.19, ***epoll*** locates in "linux-4.19/fs/eventpoll.c".***epoll*** uses Red-Black Tree to store ***fd_list***
+In Linux Kernel 4.19, **_epoll_** locates in "linux-4.19/fs/eventpoll.c".**_epoll_** uses Red-Black Tree to store **_fd_list_**
 
 - [Red-Black Tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
 - [Red-Black Tree | Set 1](https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/)
 - [Red-Black Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/RedBlack.html)
-- [自己动手实现Epoll](http://blog.51cto.com/wangbojing/2090885)
+- [自己动手实现 Epoll](http://blog.51cto.com/wangbojing/2090885)
 
 ## FILE IO
 
@@ -498,13 +498,13 @@ The result is [3]
   #pragma pack(pop)
   ```
 
-- 而程序中定义了一个缓冲区数组 `VNet g_Net[4]`, 在使用缓冲区的信号量时, `pthread_mutex_trylock(&g_Net[0].rx_buf.m)`第0个互斥锁可以正常使用; 但是当使用第1个互斥锁时 `pthread_mutex_trylock(&g_Net[1].rx_buf.m)`, 程序立即报错 `Bus error`, 出错提示 `AddressSanitizer: SEGV on unknown address 0xb22048a1`
+- 而程序中定义了一个缓冲区数组 `VNet g_Net[4]`, 在使用缓冲区的信号量时, `pthread_mutex_trylock(&g_Net[0].rx_buf.m)`第 0 个互斥锁可以正常使用; 但是当使用第 1 个互斥锁时 `pthread_mutex_trylock(&g_Net[1].rx_buf.m)`, 程序立即报错 `Bus error`, 出错提示 `AddressSanitizer: SEGV on unknown address 0xb22048a1`
 
 ### 问题分析
 
-刚开始自己怀疑: 1. 信号量未初始化; 2. 传递的信号量地址有错. 但是经过仿真调试, 仔细对比和检查后, 排除了这两种错误.
+刚开始怀疑出错原因: 1. 信号量未初始化; 2. 传递的信号量地址有错. 但是经过仔细对比缓冲区的地址和检查代码后, 排除了这两种错误.
 
-到网上查询 `Bus error`, 才知道还有种可能是地址未对齐导致的. 再一次仿真调试, 查看互斥锁的地址 `&g_Net[1].rx_buf.m = 0xb22048a1`这是一个奇数, 而错误提示的信息, 就是这个地址上出错了.
+到网上查询 `Bus error`, 才知道还有可能是地址未对齐导致的. 再一次仿真调试, 查看互斥锁的地址 `&g_Net[1].rx_buf.m = 0xb22048a1`这是一个奇数, 而错误提示信息, 就是这个地址上出错了.
 
 互斥锁的结构体定义如下
 
@@ -529,19 +529,19 @@ typedef union
 } pthread_mutex_t;
 ```
 
-从上述结构体的定义可以看出, 互斥锁内部的变量全部为 `int`类型(`int`类型的长度为4字节), 总共占据24字节, 所以互斥锁的地址以及其内部的变量的起始地址, 必须被放置在4的整数倍的地址上.
+从上述结构体的定义可以看出, 互斥锁内部的变量全部为 `int`类型(`int`类型的长度为 4 字节), 总共占据 24 字节, 所以互斥锁的地址以及其内部的变量的起始地址, 必须被放置在 4 的整数倍的地址上.
 
-事实上, 如果不强制对结构体使用1字节对齐, 编译器会自动完成字节对齐, 保证每个原子变量的起始地址都被放置在其类型长度的整数倍的地址上.
+事实上, 如果不强制对结构体使用 1 字节对齐, 编译器会自动完成字节对齐, 保证每个原子变量的起始地址都被放置在其类型长度的整数倍的地址上.
 
-> 注意: 如果在`x86`体系的个人电脑中运行1字节对齐的上述代码, 默认不会抛出`Bus erro`. 只有在`arm`体系的开发板上运行时才会抛出`Bus erro`. 原因是`x86`体系使用`CISC`指令集, 默认不会进行地址总线检查; `arm`体系使用的是`RISC`精简指令集, 原子数据不能跨越一个地址总线宽度.
+> 注意: 如果在`x86`体系的个人电脑中运行 1 字节对齐的上述代码, 默认不会抛出`Bus error`. 只有在`arm`体系的开发板上运行时才会抛出`Bus error`. 原因是`x86`体系使用`CISC`复杂指令集, 默认不会进行地址总线检查; `arm`体系使用的是`RISC`精简指令集, 原子数据不能跨越一个地址总线宽度.
 
 ### 问题解决
 
-1. 去掉`pragma pack(1)`等强制1字节对齐的相关语句, 经测试程序不再出现`Bus error`
+1. 方法 1: 去掉`pragma pack(1)`等强制 1 字节对齐的相关语句, 经测试程序不再出现`Bus error`
 
-2. 由于1字节对齐时, `sizeof(VNetBuf)=4124=1031*4, sizeof(VNet)=8305=2076*4+1`, 干脆在`VNet`结构体后面加3个字节的保留区(`unsigned char rsv[3];`)即可, 经测试程序不再出现`Bus error`
+2. 方法 2: 由于 1 字节对齐时, `sizeof(VNetBuf)=4124=1031*4, sizeof(VNet)=8305=2076*4+1`, 干脆在`VNet`结构体后面加 3 个字节的保留区(`unsigned char rsv[3];`)即可, 经测试程序不再出现`Bus error`
 
-### 什么是 `Bus Error`
+### 什么是 `Bus error`
 
 维基百科给出的解释是:
 
@@ -549,11 +549,11 @@ typedef union
 
 翻译过来就是: 硬件抛给操作系统的错误, 软件试图访问物理上不存在的内存区域或者访问不正确的内存区域.
 
-维基百科给出的导致`Bus error`的3个原因:
+维基百科给出的导致`Bus error`的 3 个原因:
 
-1. 不存在的地址: CPU发现当前要访问的物理地址在整个计算机系统中没有对应的物理硬件, 此时CPU抛出异常
+1. 不存在的地址: CPU 发现当前要访问的物理地址在整个计算机系统中没有对应的物理硬件, 此时 CPU 抛出异常
 
-2. 地址不对齐: 访问原子数据时, 地址未与其类型的整数倍对应. 如`short s;`, 当`s`的起始地址被放置在`0, 2, 4, 6`等时, 不会发生`Bus error`; 但是当`s`的起始地址被放置在`1, 3, 5`等时, 就会发生`Bus error`, 原因就是`short`类型占据2字节, 其起始地址必须为2的整数倍. 再比如`int i`, 它的起始地址必须是4的整数倍. 而对于`char`类型, 则无所谓地址对齐.
+2. 地址不对齐: 访问原子数据时, 地址未与其类型的整数倍对应. 如`short s;`, 当`s`的起始地址被放置在`0, 2, 4, 6`等时, 不会发生`Bus error`; 但是当`s`的起始地址被放置在`1, 3, 5`等时, 就会发生`Bus error`, 原因就是`short`类型占据 2 字节, 其起始地址必须为 2 的整数倍. 再比如`int i`, 它的起始地址必须是 4 的整数倍. 而对于`char`类型, 则无所谓地址对齐.
 
 3. 页错误: 虚拟内存页映射失败. 比如虚拟内存页丢失; 或用于分配虚拟内存的磁盘已满等.
 
@@ -615,223 +615,229 @@ $ ./sigbus
 Bus error
 ```
 
-上述代码使用汇编指令打开CPU的对齐检查, 程序在执行`iptr = (int *) ++cptr;`时, 将整数类型指针`iptr`指向了1个奇数地址(奇数肯定不是4的倍数), 所以在执行`*iptr = 42;`时, 就抛出`Bus error`
+上述代码使用汇编指令打开 CPU 的对齐检查, 程序在执行`iptr = (int *) ++cptr;`时, 将整数类型指针`iptr`指向了 1 个奇数地址(奇数肯定不是 4 的倍数), 所以在执行`*iptr = 42;`时, 就抛出`Bus error`
 
 ### 字节对齐
 
 下面关于字节对齐的叙述引用自[字节对齐讲解](https://blog.csdn.net/Demondai999/article/details/121640212), 这里只是部分摘抄, 完整叙述请看原文.
 
-1. 快速理解
+1.  快速理解
 
-	1. 内存对齐原则：
-	- 第一个成员的首地址为0.
-	- 每个成员的首地址是自身大小的整数倍
-	- 结构体的总大小，为其成员中所含最大类型的整数倍。
-	2. 什么是字节对齐？
-	- 在C语言中，结构是一种复合数据类型，其构成元素既可以是基本数据类型（如int、long、float等）的变量，也可以是一些复合数据类型（如数组、结构、联合等）的数据单元。在结构中，编译器为结构的每个成员按其自然边界（alignment）分配空间。各个成员按照它们被声明的顺序在内存中顺序存储，第一个成员的地址和整个结构的地址相同。
+    1. 内存对齐原则：
 
-	- 为了使CPU能够对变量进行快速的访问,变量的起始地址应该具有某些特性,即所谓的”对齐”. 比如4字节的int型,其起始地址应该位于4字节的边界上,即起始地址能够被4整除.
-	3. 字节对齐有什么作用？
-	- 字节对齐的作用不仅是便于cpu快速访问。
-	- 同时合理的利用字节对齐可以有效地节省存储空间。
-	- 对于32位机来说，4字节对齐能够使cpu访问速度提高，比如说一个long类型的变量，如果跨越了4字节边界存储，那么cpu要读取两次，这样效率就低了。
-	- 但是在32位机中使用1字节或者2字节对齐，反而会使变量访问速度降低。所以这要考虑处理器类型，另外还得考虑编译器的类型。在vc中默认是4字节对齐的，GNU gcc 是默认4字节对齐。
-	4、 更改C编译器的缺省字节对齐方式
+    - 第一个成员的首地址为 0.
+    - 每个成员的首地址是自身大小的整数倍
+    - 结构体的总大小，为其成员中所含最大类型的整数倍。
 
-	在缺省情况下，C编译器为每一个变量或是数据单元按其自然对界条件分配空间。一般地，可以通过下面的方法来改变缺省的对界条件：
+    2. 什么是字节对齐？
 
-	使用伪指令#pragma pack (n)，C编译器将按照n个字节对齐。
-	使用伪指令#pragma pack()，取消自定义字节对齐方式。
-	另外，还有如下的一种方式：
+    - 在 C 语言中，结构是一种复合数据类型，其构成元素既可以是基本数据类型（如 int、long、float 等）的变量，也可以是一些复合数据类型（如数组、结构、联合等）的数据单元。在结构中，编译器为结构的每个成员按其自然边界（alignment）分配空间。各个成员按照它们被声明的顺序在内存中顺序存储，第一个成员的地址和整个结构的地址相同。
 
-	__attribute((aligned (n)))，让所作用的结构成员对齐在n字节自然边界上。如果结构中有成员的长度大于n，则按照最大成员的长度来对齐。 ·
-	attribute ((packed))，取消结构在编译过程中的优化对齐，按照实际占用字节数进行对齐。
-	5、 举例说明
-		例1
+    - 为了使 CPU 能够对变量进行快速的访问,变量的起始地址应该具有某些特性,即所谓的”对齐”. 比如 4 字节的 int 型,其起始地址应该位于 4 字节的边界上,即起始地址能够被 4 整除.
 
-		```c
-		struct test
-		{
-		char x1;
-		short x2;
-		float x3;
-		char x4;
-		};
-		```
+    3. 字节对齐有什么作用？
 
-		由于编译器默认情况下会对这个struct作自然边界（有人说“自然对界”我觉得边界更顺口）对齐，结构的第一个成员x1，其偏移地址为0，占据了第1个字节。第二个成员x2为short类型，其起始地址必须2字节对界。
-		因此，编译器在x2和x1之间填充了一个空字节。结构的第三个成员x3和第四个成员x4恰好落在其自然边界地址上，在它们前面不需要额外的填充字节。
-		在test结构中，成员x3要求4字节对界，是该结构所有成员中要求的最大边界单元，因而test结构的自然对界条件为4字节，编译器在成员x4后面填充了3个空字节。整个结构所占据空间为12字节。
+    - 字节对齐的作用不仅是便于 cpu 快速访问。
+    - 同时合理的利用字节对齐可以有效地节省存储空间。
+    - 对于 32 位机来说，4 字节对齐能够使 cpu 访问速度提高，比如说一个 long 类型的变量，如果跨越了 4 字节边界存储，那么 cpu 要读取两次，这样效率就低了。
+    - 但是在 32 位机中使用 1 字节或者 2 字节对齐，反而会使变量访问速度降低。所以这要考虑处理器类型，另外还得考虑编译器的类型。在 vc 中默认是 4 字节对齐的，GNU gcc 是默认 4 字节对齐。
+      4、 更改 C 编译器的缺省字节对齐方式
 
-		例2
+    在缺省情况下，C 编译器为每一个变量或是数据单元按其自然对界条件分配空间。一般地，可以通过下面的方法来改变缺省的对界条件：
 
-		```c
-		#pragma pack(1) //让编译器对这个结构作1字节对齐
-		struct test
-		{
-		char x1;
-		short x2;
-		float x3;
-		char x4;
-		};
-		#pragma pack() //取消1字节对齐，恢复为默认4字节对齐
-		```
+    使用伪指令#pragma pack (n)，C 编译器将按照 n 个字节对齐。
+    使用伪指令#pragma pack()，取消自定义字节对齐方式。
+    另外，还有如下的一种方式：
 
-		这时候sizeof(struct test)的值为8。
+    \_\_attribute((aligned (n)))，让所作用的结构成员对齐在 n 字节自然边界上。如果结构中有成员的长度大于 n，则按照最大成员的长度来对齐。 ·
+    attribute ((packed))，取消结构在编译过程中的优化对齐，按照实际占用字节数进行对齐。
+    5、 举例说明
+    例 1
 
-		例3
+        ```c
+        struct test
+        {
+        char x1;
+        short x2;
+        float x3;
+        char x4;
+        };
+        ```
 
-		```c
-		#define GNUC_PACKED __attribute__((packed))
-		struct PACKED test
-		{
-		char x1;
-		short x2;
-		float x3;
-		char x4;
-		}GNUC_PACKED;
-		```
+        由于编译器默认情况下会对这个struct作自然边界（有人说“自然对界”我觉得边界更顺口）对齐，结构的第一个成员x1，其偏移地址为0，占据了第1个字节。第二个成员x2为short类型，其起始地址必须2字节对界。
+        因此，编译器在x2和x1之间填充了一个空字节。结构的第三个成员x3和第四个成员x4恰好落在其自然边界地址上，在它们前面不需要额外的填充字节。
+        在test结构中，成员x3要求4字节对界，是该结构所有成员中要求的最大边界单元，因而test结构的自然对界条件为4字节，编译器在成员x4后面填充了3个空字节。整个结构所占据空间为12字节。
 
-		这时候sizeof(struct test)的值仍为8。
+        例2
 
-	2. 深入理解
+        ```c
+        #pragma pack(1) //让编译器对这个结构作1字节对齐
+        struct test
+        {
+        char x1;
+        short x2;
+        float x3;
+        char x4;
+        };
+        #pragma pack() //取消1字节对齐，恢复为默认4字节对齐
+        ```
 
-		1. 什么是字节对齐,为什么要对齐?
-		现代计算机中内存空间都是按照byte划分的，从理论上讲似乎对任何类型的变量的访问可以从任何地址开始。
-		但实际情况是在访问特定类型变量的时候经常在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就是对齐。
+        这时候sizeof(struct test)的值为8。
 
-		对齐的作用和原因：各个硬件平台对存储空间的处理上有很大的不同。一些平台对某些特定类型的数据只能从某些特定地址开始存取。比如有些架构的CPU在访问一个没有进行对齐的变量的时候会发生错误,那么在这种架构下编程必须保证字节对齐.其他平台可能没有这种情况，但是最常见的是如果不按照适合其平台要求对数据存放进行对齐，会在存取效率上带来损失。比如有些平台每次读都是从偶地址开始，如果一个int型（假设为32位系统）如果存放在偶地址开始的地方，那么一个读周期就可以读出这32bit，而如果存放在奇地址开始的地方，就需要2个读周期，并对两次读出的结果的高低字节进行拼凑才能得到该32bit数据。显然在读取效率上下降很多。
-		2. 字节对齐对程序的影响:
+        例3
 
-		先让我们看几个例子吧(32bit,x86环境,gcc编译器):
+        ```c
+        #define GNUC_PACKED __attribute__((packed))
+        struct PACKED test
+        {
+        char x1;
+        short x2;
+        float x3;
+        char x4;
+        }GNUC_PACKED;
+        ```
 
-		设结构体如下定义：
-		```c
-		struct A
-		{
-				int a;
-				char b;
-				short c;
-		};
-		struct B
-		{
-				char b;
-				int a;
-				short c;
-		};
-		```
+        这时候sizeof(struct test)的值仍为8。
 
-		现在已知32位机器上各种数据类型的长度如下:
-		char:1(有符号无符号同)
-		short:2(有符号无符号同)
-		int:4(有符号无符号同)
-		long:4(有符号无符号同)
-		float:4 double:8
-		那么上面两个结构大小如何呢?
-		结果是:
-		sizeof(strcut A)值为8
-		sizeof(struct B)的值却是12
+    2. 深入理解
 
-		结构体A中包含了4字节长度的int一个，1字节长度的char一个和2字节长度的short型数据一个,B也一样;按理说A,B大小应该都是7字节。
-		之所以出现上面的结果是因为编译器要对数据成员在空间上进行对齐。上面是按照编译器的默认设置进行对齐的结果,那么我们是不是可以改变编译器的这种默认对齐设置呢,当然可以.例如:
-		```c
-		#pragma pack (2) /*指定按2字节对齐*/
-		struct C
-		{
-				char b;
-				int a;
-				short c;
-		};
-		#pragma pack () /*取消指定对齐，恢复缺省对齐*/
-		```
+       1. 什么是字节对齐,为什么要对齐?
+          现代计算机中内存空间都是按照 byte 划分的，从理论上讲似乎对任何类型的变量的访问可以从任何地址开始。
+          但实际情况是在访问特定类型变量的时候经常在特定的内存地址访问，这就需要各种类型数据按照一定的规则在空间上排列，而不是顺序的一个接一个的排放，这就是对齐。
 
-		sizeof(struct C)值是8。
+       对齐的作用和原因：各个硬件平台对存储空间的处理上有很大的不同。一些平台对某些特定类型的数据只能从某些特定地址开始存取。比如有些架构的 CPU 在访问一个没有进行对齐的变量的时候会发生错误,那么在这种架构下编程必须保证字节对齐.其他平台可能没有这种情况，但是最常见的是如果不按照适合其平台要求对数据存放进行对齐，会在存取效率上带来损失。比如有些平台每次读都是从偶地址开始，如果一个 int 型（假设为 32 位系统）如果存放在偶地址开始的地方，那么一个读周期就可以读出这 32bit，而如果存放在奇地址开始的地方，就需要 2 个读周期，并对两次读出的结果的高低字节进行拼凑才能得到该 32bit 数据。显然在读取效率上下降很多。 2. 字节对齐对程序的影响:
 
-		修改对齐值为1：
+       先让我们看几个例子吧(32bit,x86 环境,gcc 编译器):
 
-		```c
-		#pragma pack (1) /*指定按1字节对齐*/
-		struct D
-		{
-				char b;
-				int a;
-				short c;
-		};
-		#pragma pack () /*取消指定对齐，恢复缺省对齐*/
-		```
+       设结构体如下定义：
 
-		sizeof(struct D)值为7。
-		后面我们再讲解#pragma pack()的作用.
+       ```c
+       struct A
+       {
+       		int a;
+       		char b;
+       		short c;
+       };
+       struct B
+       {
+       		char b;
+       		int a;
+       		short c;
+       };
+       ```
+
+       现在已知 32 位机器上各种数据类型的长度如下:
+       char:1(有符号无符号同)
+       short:2(有符号无符号同)
+       int:4(有符号无符号同)
+       long:4(有符号无符号同)
+       float:4 double:8
+       那么上面两个结构大小如何呢?
+       结果是:
+       sizeof(strcut A)值为 8
+       sizeof(struct B)的值却是 12
+
+       结构体 A 中包含了 4 字节长度的 int 一个，1 字节长度的 char 一个和 2 字节长度的 short 型数据一个,B 也一样;按理说 A,B 大小应该都是 7 字节。
+       之所以出现上面的结果是因为编译器要对数据成员在空间上进行对齐。上面是按照编译器的默认设置进行对齐的结果,那么我们是不是可以改变编译器的这种默认对齐设置呢,当然可以.例如:
+
+       ```c
+       #pragma pack (2) /*指定按2字节对齐*/
+       struct C
+       {
+       		char b;
+       		int a;
+       		short c;
+       };
+       #pragma pack () /*取消指定对齐，恢复缺省对齐*/
+       ```
+
+       sizeof(struct C)值是 8。
+
+       修改对齐值为 1：
+
+       ```c
+       #pragma pack (1) /*指定按1字节对齐*/
+       struct D
+       {
+          char b;
+          int a;
+          short c;
+       };
+       #pragma pack () /*取消指定对齐，恢复缺省对齐*/
+       ```
+
+       sizeof(struct D)值为 7。
+       后面我们再讲解#pragma pack()的作用.
 
 ### 规约解析
 
-1. 问题分析: 在规约解析代码中, 常常使用预定义的结构体, 这个结构体往往是强制1字节对齐的. 这样做, 往往会给报文的解析带来便利. 比如:
-	假设在某个规约中, 定义报文头部的结构如下:
-	
-	|68H   | 地址| 地址| 地址| 地址| 地址| 地址|68H  |CTL  |数据域长度 |
-	|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-	|1字节 |1字节|1字节|1字节|1字节|1字节|1字节|1字节|1字节|4字节      |
+1. 问题分析: 在规约解析代码中, 常常使用预定义的结构体, 这个结构体往往是强制 1 字节对齐的, 以方便解析报文. 比如:
+   假设在某个规约中, 定义报文头部的结构如下:
 
+   |  68H   |  地址  |  地址  |  地址  |  地址  |  地址  |  地址  |  68H   |  CTL   | 数据域长度 |
+   | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :--------: |
+   | 1 字节 | 1 字节 | 1 字节 | 1 字节 | 1 字节 | 1 字节 | 1 字节 | 1 字节 | 1 字节 |   4 字节   |
 
-	定义的头部结构体如下:
+   定义的头部结构体如下:
 
-	```c
-	typedef struct {
-		u8 start1;   //第一个开始字
-		u8 addr[6];  //逻辑地址, 小端
-		u8 start2;   //第二个开始字
-		u8 ctl;      //控制字
-		u32 len;     //数据域的字节数, 小端
-	} head645_s;
-	```
+   ```c
+   typedef struct {
+   	u8 start1;   //第一个开始字
+   	u8 addr[6];  //逻辑地址, 小端
+   	u8 start2;   //第二个开始字
+   	u8 ctl;      //控制字
+   	u32 len;     //数据域的字节数, 小端
+   } head645_s;
+   ```
 
-	 如果此时不强制1字节对齐, 就必须手动对上述结构体的每个成员变量进行报文解析, 非常繁琐且易出错:
+   如果此时不强制 1 字节对齐, 就必须手动对上述结构体的每个成员变量进行报文解析, 非常繁琐且易出错:
 
-	```c
-	buff[128];
-	int len = read(fd, buff, sizeof(buff));
-	head645_s head;
-	int pos = 0;
-	head.start1 = buff[pos++];
+   ```c
+   buff[128];
+   int len = read(fd, buff, sizeof(buff));
+   head645_s head;
+   int pos = 0;
+   head.start1 = buff[pos++];
 
-	memcpy(head.addr, &buff[pos], sizeof(head.addr));
-	pos+=sizeof(head.addr);
+   memcpy(head.addr, &buff[pos], sizeof(head.addr));
+   pos+=sizeof(head.addr);
 
-	head.start2 = buff[pos++];
+   head.start2 = buff[pos++];
 
-	//如果报文中的数值是小端排列,
-	//且当前平台为小端, 则可以直接memcpy;
-	//否则要挨个字节解析
-	memcpy(&head.len, &buff[pos], sizeof(head.len));
-	pos+=sizeof(head.len);
-	```
+   //如果报文中的数值是小端排列,
+   //且当前平台为小端, 则可以直接memcpy;
+   //否则要挨个字节解析
+   memcpy(&head.len, &buff[pos], sizeof(head.len));
+   pos+=sizeof(head.len);
+   ```
 
-	上面的代码中要维护一个位置变量`pos`, 记录当前解析到报文的哪个位置, 还要对每个成员变量一个个的赋值.
+   上面的代码中要维护一个位置变量`pos`, 记录当前解析到报文的哪个位置, 还要对每个成员变量一个个的赋值.
 
-	而当对这个结构体强制1字节对齐后, 只需要1条语句即可:
+   而当对这个结构体强制 1 字节对齐后, 只需要 1 条语句即可:
 
-	```c
-	#pragma pack(push)
-	#pragma pack(1)
-	typedef struct {
-		u8 start1;   //第一个开始字
-		u8 addr[6];  //逻辑地址, 小端
-		u8 start2;   //第二个开始字
-		u8 ctl;      //控制字
-		u32 len;     //数据域的字节数, 小端
-	} head645_s;
-	#pragma pack(pop)
+   ```c
+   #pragma pack(push)
+   #pragma pack(1)
+   typedef struct {
+   	u8 start1;   //第一个开始字
+   	u8 addr[6];  //逻辑地址, 小端
+   	u8 start2;   //第二个开始字
+   	u8 ctl;      //控制字
+   	u32 len;     //数据域的字节数, 小端
+   } head645_s;
+   #pragma pack(pop)
 
-	buff[128];
-	int len = read(fd, buff, sizeof(buff));
-	head645_s head;
-	int pos = 0;
+   buff[128];
+   int len = read(fd, buff, sizeof(buff));
+   head645_s head;
+   int pos = 0;
 
-	memcpy(&head.start1, &buff[pos], sizeof(head));
-	pos+=sizeof(head);
-	```
-	可以看出, 强制1字节对齐后, 报文的解析变得非常便利, 还不容易出错.
+   memcpy(&head.start1, &buff[pos], sizeof(head));
+   pos+=sizeof(head);
+   ```
+
+   可以看出, 强制 1 字节对齐后, 报文的解析变得非常便利, 还不容易出错.
 
 2. 总结:
-	1. 不使用强制1字节对齐时, 解析规约的报文, 必须要对每个成员单独赋值, 且要保证报文缓冲区的位置指针的正确移动.
-	2. 使用强制1字节对齐时, 不要对结构体内成员进行取地址操作, 以避免出现`Bus error`.
+   1. 不使用强制 1 字节对齐时, 解析规约的报文, 必须要对每个成员单独赋值, 且要保证报文缓冲区的位置指针的正确移动.
+   2. 使用强制 1 字节对齐时, 不要对结构体内成员进行取地址操作, 以避免出现`Bus error`.
