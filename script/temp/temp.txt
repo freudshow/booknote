@@ -1,0 +1,4269 @@
+202104291644
+0 11
+
+FE FE FE FE 68 17 00 43 05 66 55 44 33 22 11 00 1B 6E 05 01 04 40 00 02 00 00 FA 0F 16
+
+FE FE FE FE 68 17 00 43 45 aa aa aa aa aa aa 00 5b 4f 05 01 01 40 01 02 00 00 c6 07 16
+
+F8 FE FE FE FE 68 99 99 99 99 99 99 68 1F 02 E2 35 9E 16
+FE FE FE FE 68 44 16 29 04 21 20 68 9F 08 E2 35 53 54 37 5C 49 77 50 16
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr][683]: FE FE FE FE 68 44 16 29 04 21 20 68 9F 08 E2 35 77 49 5C 37 54 53 50 16
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][780]recv: FE FE FE FE 68 44 16 29 04 21 20 68 9F 00 37 16
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][780]recv: FE FE FE FE 68 44 16 29 04 21 20 68 11 04 33 34 34 35 7D 16
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][780]recv: FE FE FE FE 68 44 16 29 04 21 20 68 11 04 33 34 34 35 7D 16
+
+地址域由 6 个字节构成, 每字节 2 位 BCD 码, 地址长度可达12位十进制数. 每块表具有唯一的通信地址, 且与物理层信道无关. 当使用的地址码长度不足 6 字节时, 高位用“0”补足. 通信地址999999999999H为广播地址, 只针对特殊命令有效, 如广播校时和广播冻结等. 广播命令不要求从站应答. 地址域支持缩位寻址, 即从若干低位起, 剩余高位补AAH作为通配符进行读表操作, 从站应答帧的地址域返回实际通信地址.
+
+
+
++CCID: 89860119801651724213\r\n
+
+0x68083F9C "\r\n+CCID: 89860119801651724213\r\n\r..."
+
+
+
+
+OK
+
++SIM READY
+AT
+ATE0
+AT+CGMM
+AT
+
+OK
+ATE0
+
+OK
+
+L610-CN-02-00
+
+OK
+AT+CPIN?
+AT+CGDCONT=1,"IP","cmnet"
+
++CPIN: READY
+
+OK
+
+OK
+AT+CSQ
+
++CSQ: 13,99
+
+OK
+AT+CCID?
+
++CCID: 89860119801651724213
+
+OK
+AT+CIMI?
+
++CIMI: 460016018117225
+
+OK
+AT+CEREG?
+AT+MIPCALL?
+
++CEREG: 0,1
+
+OK
+
++MIPCALL: 0
+
+OK
+AT+MIPCALL=1
+
+OK
+
++MIPCALL: 10.32.170.10
+AT+MIPODM?
+AT+MIPODM=1,,"218.56.32.4",9021,0
+
++MIPODM: 1,2,3,4,5,6
+
+OK
+
+OK
+
++MIPODM: 1,1
+I
+0> 10 40 01 00 41 16
+00> RecvFrame_0x10-1314 : byCtrl:40
+00>
+00> 134257669/104/71 00:08:00.011--Send comm0:
+00>
+00> 10 80 01 00 81 16
+00>
+00> 134257669/104/71 00:08:00.011--Send comm0:
+00>
+00> 10 C9 01 00 CA 16
+00> serial recv:10 0B 01 00 0C 16
+00>
+00> 0064/01/00 00:00:02.000--Recv comm0:
+00>
+00> 10 0B 01 00 0C 16
+00> RecvFrame_0x10-1314 : byCtrl:0B
+00>
+00> 134257669/104/71 00:08:00.011--Send comm0:
+00>
+00> 10 C0 01 00 C1 16
+00> serial recv:0D 0A 2B 4D 49 50 53 54 41 54 3A 20 31 2C 32 0D 0A  +MIPSTAT: 1,2
+00>
+00> 0064/01/00 00:00:02.000--Recv comm0:
+00>
+00> 0D 0A 2B 4D 49 50 53 54 41 54 3A 20 31 2C 32 0D 0A
+
+ftp://192.168.137.254:2121
+
+Sgc1161DecryptData
+
+103.85.232.146:1080	SOCKS5	HIA	Bangladesh (Dhaka) !!!	103.85.232.146 (House 1Katasur Ground Floor)	1.016
+50% (181) -	26-may-2021 08:51 (6 mins ago)
+184.178.172.14:4145	SOCKS5	HIA	United States	wsip-184-178-172-14.rn.hr.cox.net (ASN-CXA-ALL-CCI-22773-RDC)	1.17
+96% (223) -	26-may-2021 08:50 (7 mins ago)
+98.178.72.8:4145	SOCKS5	HIA	United States	98.178.72.8 (ASN-CXA-ALL-CCI-22773-RDC)	12.56
+87% (506) -	26-may-2021 08:50 (7 mins ago)
+210.16.73.85:1080	SOCKS5	HIA	Hong Kong !!!	210.16.73.85 (HONG KONG EVERGRANDE ENTERPRISE GROUP CO., LIMITED)	1.348
+20% (24) -	26-may-2021 08:49 (8 mins ago)
+66.135.227.181:4145	SOCKS5	HIA	United States (Honolulu)	66.135.227.181 (SYSTEMMETRICS-1)	1.61
+89% (474) -	26-may-2021 08:49 (8 mins ago)
+72.206.181.103:4145	SOCKS5	HIA	United States	72.206.181.103 (ASN-CXA-ALL-CCI-22773-RDC)	3.277
+86% (367) -	26-may-2021 08:48 (9 mins ago)
+184.185.2.103:4145	SOCKS5	HIA	United States	184.185.2.103 (ASN-CXA-ALL-CCI-22773-RDC)	2.363
+79% (308) -	26-may-2021 08:48 (10 mins ago)
+72.212.63.101:4145	SOCKS5	HIA	United States	ip72-212-63-101.ph.ph.cox.net (ASN-CXA-ALL-CCI-22773-RDC)	3.988
+80% (1353) -	26-may-2021 08:48 (10 mins ago)
+192.111.135.21:4145	SOCKS5	HIA	United States (Los Angeles)	192.111.135.21 (PERFORMIVE)	2.492
+81% (1138) -	26-may-2021 08:46 (12 mins ago)
+184.181.217.204:4145	SOCKS5	HIA	United States	184.181.217.204 (ASN-CXA-ALL-CCI-22773-RDC)	1.998
+95% (484) -	26-may-2021 08:46 (12 mins ago)
+139.162.78.109:1080	SOCKS5	HIA	Japan (Tokyo)	li1558-109.members.linode.com (Linode, LLC)	3.85
+94% (1219) -	26-may-2021 05:50 (3 hours ago)
+192.111.130.2:4145	SOCKS5	HIA	Canada (Toronto)	192.111.130.2 (PERFORMIVE)	1.428
+86% (1304) -	26-may-2021 05:50 (3 hours ago)
+184.181.217.210:4145	SOCKS5	HIA	United States	184.181.217.210 (ASN-CXA-ALL-CCI-22773-RDC)	1.071
+94% (478) -	26-may-2021 05:49 (3 hours ago)
+193.29.187.226:9050	SOCKS5	HIA	Romania !!!	mail.btcmining.uk (THC Projects SRL)	0.567
+7% (31) +	26-may-2021 05:48 (3 hours ago)
+181.5.216.159:1080	SOCKS5	HIA	Argentina (Buenos Aires) !!!	host159.181-5-216.telecom.net.ar (Telecom Argentina S.A.)	9.941
+50% (3) -	26-may-2021 05:48 (3 hours ago)
+72.221.172.203:4145	SOCKS5	HIA	United States	72.221.172.203 (ASN-CXA-ALL-CCI-22773-RDC)	1.921
+82% (503) -	26-may-2021 05:47 (3 hours ago)
+161.35.70.249:1080	SOCKS5	HIA	Germany (Frankfurt am Main)	161.35.70.249 (DIGITALOCEAN-ASN)	1.818
+99% (1183) -	26-may-2021 05:47 (3 hours ago)
+128.199.202.122:1080	SOCKS5	HIA	Singapore (Singapore)	128.199.202.122 (DIGITALOCEAN-ASN)	5.692
+91% (1937) -	26-may-2021 05:42 (3 hours ago)
+88.198.50.103:1080	SOCKS5	HIA	Germany (Munich)	static.88-198-50-103.clients.your-server.de (Hetzner Online GmbH)	0.061
+99% (2092) -	26-may-2021 05:42 (3 hours ago)
+104.238.151.123:1080	SOCKS5	HIA	Japan (Heiwajima)	104.238.151.123.vultr.com (AS-CHOOPA)	3.029
+75% (9) -	26-may-2021 05:41 (3 hours ago)
+159.203.61.169:1080	SOCKS5	HIA	Canada (Toronto)	159.203.61.169 (DIGITALOCEAN-ASN)	1.225
+97% (1320) -	26-may-2021 05:41 (3 hours ago)
+167.71.5.83:1080	SOCKS5	HIA	Netherlands (Amsterdam)	167.71.5.83 (DIGITALOCEAN-ASN)	1.363
+97% (1166) -	26-may-2021 05:41 (3 hours ago)
+181.129.7.202:6699	SOCKS5	HIA	Colombia (Medellín)	adsl-181-129-7-202.une.net.co (EPM Telecomunicaciones S.A. E.S.P.)	2.445
+43% (757) -	26-may-2021 05:40 (3 hours ago)
+176.9.75.42:1080	SOCKS5	HIA	Germany	static.42.75.9.176.clients.your-server.de (Hetzner Online GmbH)	0.053
+99% (2211) -	26-may-2021 05:40 (3 hours ago)
+113.160.188.21:1080	SOCKS5	HIA	VietNam (Hanoi)	static.vnpt.vn (VNPT Corp)	1.207
+44% (1098) -	26-may-2021 05:39 (3 hours ago)
+195.144.21.185:1080	SOCKS5	HIA	Austria (Vienna) !!!	black.host-185.21.144.195.in-addr.arpa (COGENT-174)	0.496
+93% (1532) -	26-may-2021 05:39 (3 hours ago)
+154.16.202.22:1080	SOCKS5	HIA	Germany (Frankfurt am Main)	154.16.202.22 (Digital Energy Technologies Ltd.)	1.073
+99% (1222) -	26-may-2021 05:39 (3 hours ago)
+103.240.161.109:6667	SOCKS5	HIA	India (Patan)	103.240.161.109 (Gujarat Telelink Pvt Ltd)	3.68
+32% (307) -	26-may-2021 05:38 (3 hours ago)
+88.198.24.108:1080	SOCKS5	HIA	Germany	static.88-198-24-108.clients.your-server.de (Hetzner Online GmbH)	0.054
+99% (2162) -	26-may-2021 05:36 (3 hours ago)
+98.184.33.205:4145	SOCKS5	HIA	United States	98.184.33.205 (ASN-CXA-ALL-CCI-22773-RDC)	6.52
+87% (487) -	26-may-2021 05:36 (3 hours ago)
+
+9000+Le+ CerID+Cer+Date+Scer+asKID
+
+AT+CGMM?
+命令作用:获取模组ID
+可能的应答: L610-CN-02-00
+AT+CPIN?
+
+AT+CGDCONT=1,"IP","cmnet"
+AT+CSQ
+AT+CCID?
+AT+CIMI?
+AT+CEREG?
+
+AT+MIPCALL?
+AT+MIPCALL=1
+
+AT+MIPODM?
+AT+MIPODM=1,,"218.56.32.4",9021,0
+
+Graduate Texts in Mathematics
+Undergraduate Texts in Mathematics
+
+
+
+
+
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(252)]:<<< EB 00 F6 EB 00 42 30 00 F1 07 04 01 30 82 02 B6 30 82 02 59 A0 03 02 01 02 02 10 D1 C4 A7 3E 65 1F FD 9E 6A 43 FA B1 E5 E9 05 E5 30 0C 06 08 2A 81 1C CF 55 01 83 75 05 00 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 1E 17 0D 31 36 31 32 30 35 31 32 31 32 31 32 5A 17 0D 33 36 31 32 30 35 31 32 31 32 31 32 5A 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 59 30 13 06 07 2A 86 48 CE 3D 02 01 06 08 2A 81 1C CF 55 01 82 2D 03 42 00 04 AF 63 1F DC 78 67 F9 B9 53 41 4D 00 00 00 00 66 3E D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 00 17 D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(252)]:<<< EB 00 F6 EB 00 42 30 00 F1 07 04 02 89 F9 C5 16 9F EF 1F 0C 11 76 63 3F 6B 3D 21 9D 6B E4 F7 91 B2 9F C1 9A 57 09 CD 88 9E 98 E6 28 3D 03 A3 61 98 67 10 9F 12 4D B5 6B 24 D6 FD DD AB 3E 51 4D 96 34 EC CD A3 82 01 3F 30 82 01 3B 30 0F 06 03 55 1D 13 04 08 30 06 01 01 FF 02 01 03 30 70 06 03 55 1D 23 04 69 30 67 80 14 4A 9D 1A 5E 29 07 18 22 65 6A 8E 63 AD 81 4F 41 5A 53 EA 74 A1 3D A4 3B 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 53 47 43 43 31 0D 30 0B 06 03 55 04 0B 0C 04 53 47 43 43 31 19 30 17 06 03 55 04 03 0C 10 53 47 43 43 20 43 41 20 53 4D 32 20 43 45 52 54 82 10 4A 63 F4 99 A4 C4 2D 60 6A 19 7F 20 C0 E9 52 4B 30 1D 06 03 55 1D 0E 04 16 04 14 4A 9D 1A 5E 29 07 18 22 65 6A 8E 63 AD 81 4F 41 5A 53 EA 74 30 0B 06 03 53 41 4D 00 00 00 00 66 E6 D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 00 17 D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(252)]:<<< EB 00 F6 EB 00 42 30 00 F1 07 04 03 55 1D 0F 04 04 03 02 01 FE 30 81 89 06 03 55 1D 1F 04 81 81 30 7F 30 3D A0 3B A0 39 86 37 68 74 74 70 3A 2F 2F 32 31 31 2E 38 38 2E 32 35 2E 37 37 3A 39 30 30 30 2F 67 66 61 2F 63 72 6C 2F 67 66 61 61 70 70 2E 63 72 6C 2F 53 4D 32 2F 63 72 6C 2E 63 72 6C 30 3E A0 3C A0 3A 86 38 68 74 74 70 3A 2F 2F 32 31 31 2E 38 38 2E 32 35 2E 37 37 3A 39 30 30 30 2F 67 66 61 2F 63 72 6C 2F 67 66 61 61 70 70 2E 63 72 6C 2F 53 4D 32 2F 63 72 6C 30 2E 63 72 6C 30 0C 06 08 2A 81 1C CF 55 01 83 75 05 00 03 49 00 30 46 02 21 00 E9 04 9A CF 7B B0 B8 9D 01 ED 3E 57 FA F2 61 77 C6 AC 1B 4E 4F 37 63 68 9F 49 44 82 F4 32 24 5E 02 21 00 EB DF CE 14 64 37 8A 84 51 D7 F8 8B BE A8 CC 2C 66 17 63 26 EA E8 38 7C 53 41 4D 00 00 00 00 66 72 D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 00 17 D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(30)]:<<< EB 00 18 EB 00 42 30 00 13 07 04 04 8A 51 3D 51 9F 4D FB BB 53 41 4D 00 00 00 00 66 E6 D7
+00> [send(19)]:>>> EB 00 0D EB 00 40 31 00 08 49 82 48 69 3B 5C 2D AD 66 D7
+00> len: 30, consume: 30, m_ebBuf's size: 30
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(75)]:<<< EB 00 45 EB 00 42 32 00 40 FE 13 2B 40 9A D4 C4 69 C0 EB 64 19 53 81 6B 04 D7 09 D0 19 E2 8C 6F 64 13 C0 BF 46 1C 0C D4 13 7B 97 7B 8E A6 77 A0 35 E2 26 39 69 A1 F1 C1 87 D6 8B 61 3C 45 8D 88 7A 70 3B 7E E4 EF E6 D2 E2 20 D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 33 00 02 90 00 05 D7
+00> len: 75, consume: 75, m_ebBuf's size: 75
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+
+
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(252)]:<<< EB 00 F6 EB 00 42 30 00 F1 07 04 01 30 82 02 B6 30 82 02 59 A0 03 02 01 02 02 10 D1 C4 A7 3E 65 1F FD 9E 6A 43 FA B1 E5 E9 05 E5 30 0C 06 08 2A 81 1C CF 55 01 83 75 05 00 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 1E 17 0D 31 36 31 32 30 35 31 32 31 32 31 32 5A 17 0D 33 36 31 32 30 35 31 32 31 32 31 32 5A 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 59 30 13 06 07 2A 86 48 CE 3D 02 01 06 08 2A 81 1C CF 55 01 82 2D 03 42 00 04 AF 63 1F DC 78 67 F9 B9 53 41 4D 00 00 00 00 66 3E D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 00 17 D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(252)]:<<< EB 00 F6 EB 00 42 30 00 F1 07 04 01 30 82 02 B6 30 82 02 59 A0 03 02 01 02 02 10 D1 C4 A7 3E 65 1F FD 9E 6A 43 FA B1 E5 E9 05 E5 30 0C 06 08 2A 81 1C CF 55 01 83 75 05 00 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 1E 17 0D 31 36 31 32 30 35 31 32 31 32 31 32 5A 17 0D 33 36 31 32 30 35 31 32 31 32 31 32 5A 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 59 30 13 06 07 2A 86 48 CE 3D 02 01 06 08 2A 81 1C CF 55 01 82 2D 03 42 00 04 AF 63 1F DC 78 67 F9 B9 53 41 4D 00 00 00 00 66 3E D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 96 AD D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(7)]:<<< EB 00 F6 EB 00 42 30
+00> [recv(18)]:<<< 00 F1 07 04 01 30 82 02 B6 30 82 02 59 A0 03 02 01 02
+00> [recv(20)]:<<< 02 10 D1 C4 A7 3E 65 1F FD 9E 6A 43 FA B1 E5 E9 05 E5 30 0C
+00> [recv(20)]:<<< 06 08 2A 81 1C CF 55 01 83 75 05 00 30 39 31 0D 30 0B 06 03
+00> [recv(21)]:<<< 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45
+00> len: 86, consume: 0, m_ebBuf's size: 86
+00> [recv(166)]:<<< 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 1E 17 0D 31 36 31 32 30 35 31 32 31 32 31 32 5A 17 0D 33 36 31 32 30 35 31 32 31 32 31 32 5A 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 45 50 52 49 31 0D 30 0B 06 03 55 04 0B 0C 04 45 50 52 49 31 19 30 17 06 03 55 04 03 0C 10 E6 B5 8B E8 AF 95 E7 A0 94 E7 A9 B6 E6 89 80 20 30 59 30 13 06 07 2A 86 48 CE 3D 02 01 06 08 2A 81 1C CF 55 01 82 2D 03 42 00 04 AF 63 1F DC 78 67 F9 B9 53 41 4D 00 00 00 00 66 3E D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 00 17 D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(252)]:<<< EB 00 F6 EB 00 42 30 00 F1 07 04 02 89 F9 C5 16 9F EF 1F 0C 11 76 63 3F 6B 3D 21 9D 6B E4 F7 91 B2 9F C1 9A 57 09 CD 88 9E 98 E6 28 3D 03 A3 61 98 67 10 9F 12 4D B5 6B 24 D6 FD DD AB 3E 51 4D 96 34 EC CD A3 82 01 3F 30 82 01 3B 30 0F 06 03 55 1D 13 04 08 30 06 01 01 FF 02 01 03 30 70 06 03 55 1D 23 04 69 30 67 80 14 4A 9D 1A 5E 29 07 18 22 65 6A 8E 63 AD 81 4F 41 5A 53 EA 74 A1 3D A4 3B 30 39 31 0D 30 0B 06 03 55 04 0A 0C 04 53 47 43 43 31 0D 30 0B 06 03 55 04 0B 0C 04 53 47 43 43 31 19 30 17 06 03 55 04 03 0C 10 53 47 43 43 20 43 41 20 53 4D 32 20 43 45 52 54 82 10 4A 63 F4 99 A4 C4 2D 60 6A 19 7F 20 C0 E9 52 4B 30 1D 06 03 55 1D 0E 04 16 04 14 4A 9D 1A 5E 29 07 18 22 65 6A 8E 63 AD 81 4F 41 5A 53 EA 74 30 0B 06 03 53 41 4D 00 00 00 00 66 E6 D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 00 17 D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(252)]:<<< EB 00 F6 EB 00 42 30 00 F1 07 04 03 55 1D 0F 04 04 03 02 01 FE 30 81 89 06 03 55 1D 1F 04 81 81 30 7F 30 3D A0 3B A0 39 86 37 68 74 74 70 3A 2F 2F 32 31 31 2E 38 38 2E 32 35 2E 37 37 3A 39 30 30 30 2F 67 66 61 2F 63 72 6C 2F 67 66 61 61 70 70 2E 63 72 6C 2F 53 4D 32 2F 63 72 6C 2E 63 72 6C 30 3E A0 3C A0 3A 86 38 68 74 74 70 3A 2F 2F 32 31 31 2E 38 38 2E 32 35 2E 37 37 3A 39 30 30 30 2F 67 66 61 2F 63 72 6C 2F 67 66 61 61 70 70 2E 63 72 6C 2F 53 4D 32 2F 63 72 6C 30 2E 63 72 6C 30 0C 06 08 2A 81 1C CF 55 01 83 75 05 00 03 49 00 30 46 02 21 00 E9 04 9A CF 7B B0 B8 9D 01 ED 3E 57 FA F2 61 77 C6 AC 1B 4E 4F 37 63 68 9F 49 44 82 F4 32 24 5E 02 21 00 EB DF CE 14 64 37 8A 84 51 D7 F8 8B BE A8 CC 2C 66 17 63 26 EA E8 38 7C 53 41 4D 00 00 00 00 66 72 D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 45 00 02 90 00 17 D7
+00> len: 252, consume: 252, m_ebBuf's size: 252
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(30)]:<<< EB 00 18 EB 00 42 30 00 13 07 04 04 8A 51 3D 51 9F 4D FB BB 53 41 4D 00 00 00 00 66 E6 D7
+00> [send(19)]:>>> EB 00 0D EB 00 40 31 00 08 5C B7 C9 A5 D3 99 96 74 70 D7
+00> len: 30, consume: 30, m_ebBuf's size: 30
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(4)]:<<< EB 00 45 EB
+00> [recv(18)]:<<< 00 42 32 00 40 BD E0 B3 D2 49 2D 0B 0D 85 D6 DA D5 78
+00> [recv(20)]:<<< 7D E7 C0 8C 9B 06 E3 A5 0B 22 B0 10 A8 F1 33 6C 96 4D EC FC
+00> [recv(20)]:<<< AF 9E A2 E1 8B 50 C9 A6 42 52 67 05 AA 9F 8F 84 6C E4 44 67
+00> [recv(13)]:<<< D9 83 63 AC 72 4E B4 8A 18 B6 C9 20 D7
+00> [send(13)]:>>> EB 00 07 EB 00 40 33 00 02 90 00 05 D7
+00> len: 75, consume: 75, m_ebBuf's size: 75
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(11)]:<<< EB 00 05 EB 00 42 36 00 00 78 D7
+00> [send(35)]:>>> EB 00 1D EB 00 40 37 00 18 31 32 30 31 30 32 30 35 31 30 39 32 30 36 30 38 39 32 30 36 30 38 36 38 5B D7
+00> len: 11, consume: 11, m_ebBuf's size: 11
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(11)]:<<< EB 00 05 EB 00 42 38 00 00 7A D7
+00> [send(19)]:>>> EB 00 0D EB 00 40 39 00 08 01 13 33 00 00 01 1B 4F 33 D7
+00> len: 11, consume: 11, m_ebBuf's size: 11
+00> len: 0, consume: 0, m_ebBuf's size: 0
+00> [recv(11)]:<<< EB 00 05 EB 00 42 3A 00 00 7C D7
+00> [PbKeybuf]:<<< 00 00 40 DB 7A 37 4C 33 63 C8 43 8A FA FC B5 99 74 F2 B8 9F 4F C1 F8 EF 58 90 66 71 7B 6B 03 13 FA 8C 37 22 1D 98 78 89 65 C9 05 F7 11 36 FF B9 06 B8 8C 49 82 99 67 F0 C8 28 61 A3 50 69 E6 93 D0 1A 95 1A 95 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00> [send(92)]:>>> EB 00 56 EB 00 48 5A 21 95 A1 5A 21 EB B8 D9 FF EA 5A 2F 9E D1 BA 38 B9 D1 BA 38 B9 BC 49 6D DB 1F 0A D9 06 4C 5C 3C E8 4C 5C 3C E8 C3 E3 51 04 5D 37 BA 2C 01 AD 45 E9 01 AD 45 E9 FD AF 83 51 16 86 8A FE 7E 8B 11 5D 7E 8B 11 5D E3 A3 E3 FA ED A8 4D 22 72 DA 32 1D 72 DA F2 D7
+00> len: 11, consume: 11, m_ebBuf's size: 11
+
+
+
+当前软件版本:
+4.19.56 Build 120704 Rel.39260n
+当前硬件版本：
+WR740N 5.0/6.0/7.0 00000000
+
+
+term_auth_bin_0023.cer
+term_auth_bin_0024.cer
+
+前端机界面-主-SCADA态
+加密机地址:  172.20.51.49:6666
+连接超时: 5000毫秒
+出错切换计数: 3
+
+104测试, 自己的IP设置为
+172.20.43.184:2404
+
+杜春艳
+
+
+
+终端ID T230E0192165202103160038
+终端ESN 1201020510920608
+
+git.exe clone --progress -v "https://github.com/stepancheg/rust-protobuf" "D:\mydoc\repo\github\rust-protobuf"
+
+
+--host=HOST       cross-compile to build programs to run on HOST [BUILD]
+--target=TARGET   configure for building compilers for TARGET [HOST]
+
+
+/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/snapshots/gcc-linaro-4.9-2016.02/configure SHELL=/bin/bash
+--with-bugurl=https://bugs.linaro.org
+--with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
+--with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
+--with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
+--with-gnu-as
+--with-gnu-ld
+--disable-libstdcxx-pch
+--disable-libmudflap
+--with-cloog=no
+--with-ppl=no --with-isl=no --disable-nls --enable-c99 --with-tune=cortex-a9 --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-multilib
+--enable-multiarch
+--with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/sysroots/arm-linux-gnueabihf
+--enable-lto
+--enable-linker-build-id
+--enable-long-long --enable-shared --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc
+--enable-languages=c,c++,fortran,lto --enable-checking=release --disable-bootstrap --with-bugurl=https://bugs.linaro.org --build=x86_64-unknown-linux-gnu
+--host=x86_64-unknown-linux-gnu
+--target=arm-linux-gnueabihf
+--prefix=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
+
+
+../gcc-linaro-4.9-2016.02/configure --host=arm-linux-gnueabihf --target=arm-linux-gnueabihf
+
+
+0xb6d1420a
+CheckRealtimeData
+Thread #2 [linuxttu] 1967 [core: 2] (Suspended : Signal : SIGBUS:Bus error)
+0xb6d296fe
+0xb6d1420a
+./configure --target=arm-none-linux-gnueabi --program-prefix=arm-none-linux-gnueabi-  --prefix=/home/enzo
+
+./configure --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf-  --prefix=/opt/gdb-12.1
+
+--host=arm-linux-gnueabihf --target=arm-linux-gnueabihf
+
+./configure  --host=arm-linux-gnueabihf --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf-  --prefix=/opt/gdb-12.1
+
+
+scp -P 8888  tele sysadm@192.168.10.43:/home/sysadm/bin/
+
+
+————————————————————————————————————————————————————————————————————————————————————————————————
+docker运行arm ubuntu镜像
+
+参考：
+1. https://www.latelee.org/docker/armdocker-run-arm-docker-on-x86.html
+2. https://hub.docker.com/r/arm32v7/ubuntu
+
+armdocker：在x86上模拟运行arm容器
+dockerhub-arm32v7/ubuntu
+$ docker pull arm32v7/ubuntu:18.04
+$ docker run -it --rm arm32v7/ubuntu:18.04
+1
+2
+不行就参考1那样：
+
+$ sudo apt install -y qemu-user-static binfmt-support
+1
+docker命令：
+Docker 容器使用
+
+————————————————————————————————————————————————————————————————————————————————————————————————
+https://zhuanlan.zhihu.com/p/200947117
+
+docker pull arm64v8/ubuntu:18.04
+sudo apt-get install -y --no-install-recommends qemu-user-static binfmt-support
+docker run -itd -v /usr/bin/qemu-aarch64-static:/usr/bin/qemu-aarch64-static arm64v8/ubuntu:18.04
+docker run -it --rm  --name armhfbusybox -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static armhf/busybox
+
+docker run -it --rm -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static arm32v7/ubuntu:16.04
+docker run -itd -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static -v /opt:/opt arm32v7/ubuntu:16.04
+
+docker exec -it recursing_joliot /bin/bash
+
+apt install -y apt-transport-https
+
+docker export mystifying_satoshi > ubuntu1604armhf.tar
+
+cat ubuntu1604armhf.tar | docker import - test/ubuntu1604armhf:v1
+docker run -itd -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static -v /opt:/opt test/ubuntu1604armhf:v1 /bin/bash
+
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ xenial main restricted universe multiverse">etc/apt/sources.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ xenial-updates main restricted universe multiverse">>etc/apt/sources.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ xenial-backports main restricted universe multiverse">>etc/apt/sources.list
+echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ xenial-security main restricted universe multiverse">>etc/apt/sources.list
+
+
+tar --numeric-owner --exclude=/proc --exclude=/sys --exclude=/data/app --exclude=/home --exclude=/var -cvf  zx.tar  /
+
+cat zx.tar | docker import - zx/zx
+docker run -itd -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static -v /opt:/opt zx/zx /bin/bash
+docker exec -it lucid_tu /bin/bash
+
+./configure CC=arm-linux-gnueabihf-gcc CPP=arm-linux-gnueabihf-cpp CXX=arm-linux-gnueabihf-g++  --host=arm-linux --prefix=/opt/valgrind/lib
+
+
+
+
+
+68 06 05 04 03 02 01 68 11 04 35 33 33 39 CE 16
+
+FE FE FE FE 68 01 02 03 04 05 06 68 91 6B 35 33 33 39 D3 D3 95 6B 44 54 43 55 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 CC 7C DD 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 DD 33 33 33 33 33 33 33 33 DD 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 DD 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 DD 32 32 32 32 32 32 DD 49 18 4B 16
+
+
+
+华为云公开的学习资料:
+https://bbs.huaweicloud.com/forum/thread-21746-1-1.html
+https://bbs.huaweicloud.com/videos/100957   华为容器创建相关的视频
+https://bbs.huaweicloud.com/forum/thread-37308-1-1.html  融合终端送检专题
+http://ec.devcloud.huaweicloud.com/tool
+https://bbs.huaweicloud.com/devcloud
+https://www.huaweicloud.com/product/iot.html
+
+
+华为云网址
+https://iot-dev.huaweicloud.com/#/developer-overview
+https://iot-dev.huaweicloud.com:8843
+用户名  sddky001     密码  1234qwer
+华为公有云---东方电子
+用户名 dfe-df8003d      密码 ytdf000.
+
+docker info --format '{{.LoggingDriver}}'
+docker logs -f --tail 200 c_iot
+docker inspect -f '{{.HostConfig.LogConfig.Type}}' c_iot
+/etc/docker/daemon.json
+
+echo "vmware_guest_vmblock_enable=YES" >> /etc/rc.conf
+echo "vmware_guest_vmhgfs_enable=YES" >> /etc/rc.conf
+echo "vmware_guest_vmmemctl_enable=YES" >> /etc/rc.conf
+echo "vmware_guest_vmxnet_enable=YES" >> /etc/rc.conf
+echo "vmware_guestd_enable=YES" >> /etc/rc.conf
+
+
+vmware_guest_vmblock_enable="YES"
+vmware_guest_vmhgfs_enable="YES"
+vmware_guest_vmmemctl_enable="YES"
+vmware_guest_vmxnet_enable="YES"
+vmware_guestd_enable="YES"
+
+gdm_enable="YES"
+
+db2 ibase mysql oci odbc psql sqlite
+
+./configure -static -sql-mysql -sql-sqlite -nomake examples -xcb-xlib -xcb -prefix /opt/Qt6_static
+
+apt install -y  build-essential libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr  vim-addon-mw-utils flex bison gawk openssh-server net-tools
+
+run update_emmc
+
+mkdir -p /home/sysadm/src
+
+chmod +x /home/sysadm/src/gdbserver /usr/libexec/sftp-server
+
+
+docker run -it /bin/bash --restart=always --privileged=true -p 22:22 -v /home/floyd/dockermap:/map arm32v7/ubuntu:22.04
+
+docker exec -it cc2ad26c0b0c /bin/bash
+
+docker exec -it 24e589bcc793 /bin/bash
+
+docker run -it /bin/bash -v /home/floyd/dockermap:/map arm32v7/ubuntu:20.04
+
+docker run -it -v /home/floyd/dockermap:/map arm32v7/ubuntu:16.04
+
+
+"1、规约增加对E9361-C0配置的判断
+2、将log信息进行分类, 规约报文存放在历史信息中。告警、启机、故障、异常等放到系统日志、系统信息中。"
+
+
+gt_SysInfo[100] <----> 系统信息监测
+/root/para/debug.dat <----> 历史信息监测
+/root/syslog/log.txt <----> 系统历史信息监测
+
+m
+rt
+stdc++
+jansson
+json-c
+pthread
+
+"${workspace_loc:/${ProjName}/src/lib/libjson}"
+"${workspace_loc:/${ProjName}/src/lib}"
+
+-fsanitize=address -fno-omit-frame-pointer
+
+/home/sysadm/src/plcproxy
+
+INSERT INTO test (bbb) VALUES (x'37e79f00010203');
+
+
+
+
+
+{"token":"3","timestamp":"2022-12-9 8:2:25","prio":"0","proType":"02","acqAddr":"010203040506","data":"aAYFBAMCAWgRBDQ20zduFg=="}
+{"token":"3","timestamp":"2022-12-5 5:33:18","prio":"0","proType":"02","acqAddr":"010203040506","data":"aAYFBAMCAWgRBDUzszVKFg=="}
+
+
+DEBUG_TO_SYS_LOG_FILE_WITH_CHK("tcsetattr error: %s", strerror(errno));
+
+LedFaultOn;
+
+#include "tca955.h"
+
+MATHEMATICS FOR MACHINE LEARNING
+#ifdef DevTypeC0
+
+#endif
+
+SOCK_ESTABLISHED
+SOCK_CLOSE_WAIT
+SOCK_CLOSED
+SOCK_INIT
+SOCK_LISTEN
+
+
+
+2022-12-22 15:39: 2-3Tcp_Server connected
+
+
+#应用启动
+appm -s -c lxc01 -n lrZXBranchSwitch
+
+#应用停止
+appm -S -c lxc01 -n lrZXBranchSwitch
+
+#应用查询
+appm -I -c lxc01 -l
+
+#应用安装
+appm -i -c lxc01 -n lrZXBranchSwitch -f /usr/local/default/apps/lrZXBranchSwitch.tar
+
+#应用删除
+appm -u -c lxc01 -n lrZXBranchSwitch
+
+rm /data/app/ZaiboServer/root/para/*
+
+cat /data/app/ZaiboServer/root/para/hplc_cco.json
+
+
+topic: dfdz/set/request/ccoRouter/acqFiles
+message: {"token":"1324","timestamp":"2023-1-3 16:9:15","prio":"0","body":[{"acqAddr":"112233445566","proType":"02"}]}
+
+topic: dfdz/get/request/ccoRouter/concurrent
+message: {"token":"109","timestamp":"2023-1-3 17:3:38","prio":"0","proType":"02","acqAddr":"202203263663","macAddr":"202203268051","data":"aFGAJgMiIGgRBDMyNDr0Fg=="}
+
+send: 68 0F 00 43 00 00 5F 00 00 02 10 80 17 4B 16
+
+buff
+0到2是主程序软件版本, 
+3到5是fplc软件版本, 
+6到8是cco程序软件版本, 
+9到10是fplc硬件版本, 
+11到12是hplc硬件版本, 
+13到14是尾端硬件版本
+
+/usr/bin/ffmpeg -protocol_whitelist "file,crypto,data,http,https,tls,httpproxy,tcp" -i 2e4dcabbc1361a113d3650776b5dc6fe.m3u8  -c:v libx264 -preset ultrafast -crf 10 t2.mp4
+
+
+
+
+
+
+sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+
+
+
+#deb http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse
+#deb-src http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse
+
+# 默认注释了源码镜像以提高 apt update 速度, 如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-security main restricted universe multiverse
+
+# 预发布软件源, 不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse
+root@localhost:~#
+
+
+
+C:\Windows\System32\SppExtComObjHook.dll
+
+./i2cdetect -y 1
+
+
+
+
+
+vncserver -localhost no -geometry 1920x1080 -depth 24 -name remote-desktop :1
+
+vncserver -geometry 1920x1080 -depth 24 -name remote-desktop :1
+
+
+
+
+
+pandoc --pdf-engine=xelatex -V CJKmainfont="Noto Sans Mono CJK SC:style=Regular" --highlight-style zenburn  -V colorlinks -V urlcolor=NavyBlue -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm" BusError.md -o BusError.pdf
+
+sudo apt install -y ubuntu-mate* sshfs git build-essential gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu  dirmngr gnome-tweaks libfreetype6 libfreetype6-dev freetype2-demos locales texlive-full texmaker texstudio libcgal-dev libcgal-demo convmv samba samba-common smbclient cifs-utils  smbclient pandoc
+
+召测A相电压: 68 20 03 19 04 22 20 68 11 04 33 34 34 35 37 16
+
+
+
+
+报文类型0-透明传输:
+
+[2023-02-21 15:43:44.858]# SEND HEX TO 192.168.0.231 :5000>
+AA FF FF 1F 00 12 01 00 20 03 19 04 22 20 10 00 68 20 03 19 04 22 20 68 11 04 33 34 34 35 37 16 B6 84 00 00 1C
+
+[2023-02-21 15:43:50.883]# RECV HEX FROM 192.168.0.231 :5000>
+AA FF FF 21 00 12 01 00 16 00 FE FE FE FE 68 20 03 19 04 22 20 68 91 06 33 34 34 35 5A 55 68 16 95 F0 00 00 00 00 9D
+
+
+报文类型1-3762传输:
+
+[2023-02-21 15:55:38.504]# SEND HEX TO 192.168.0.231 :5000>
+AA FF FF 3E 00 12 01 01 00 00 00 00 00 00 2F 00 68 2F 00 41 04 00 5F 00 00 00 66 55 44 33 22 11 20 03 19 04 22 20 13 01 00 00 00 00 10 68 20 03 19 04 22 20 68 11 04 33 34 34 35 37 16 33 16 1C 76 00 00 56
+
+[2023-02-21 15:55:44.529]# RECV HEX FROM 192.168.0.231 :5000>
+AA FF FF 40 00 12 01 01 35 00 68 35 00 83 14 00 01 00 00 00 20 03 19 04 22 20 66 55 44 33 22 11 13 01 00 00 00 00 16 FE FE FE FE 68 20 03 19 04 22 20 68 91 06 33 34 34 35 53 55 61 16 79 16 63 DB 00 00 00 00 E8
+
+
+查询CCO版本信息AFN10-F192, 东软的CCO不支持, 鲁软的马工说友讯达的CCO支持
+发送: AA FF FF 2A 00 12 01 01 20 03 19 04 22 20 1b 00 68 1b 00 41 04 00 5f 00 00 00 66 55 44 33 22 11 20 03 19 04 22 20 10 80 17 32 16 01 EC 00 00 73
+
+CCO应答: 信息类不存在
+接收: 68 10 00 83 00 00 00 00 00 00 00 02 00 04 89 16
+
+
+查询CCO版本信息AFN03-F10
+发送: AA FF FF 2A 00 12 01 01 20 03 19 04 22 20 1b 00 68 1b 00 41 04 00 5f 00 00 00 66 55 44 33 22 11 20 03 19 04 22 20 03 02 01 91 16 35 63 00 00 EC
+
+接收: AA FF FF 43 00 12 01 01 38 00 68 38 00 83 00 00 00 00 00 00 03 02 01 F2 3F 00 01 00 00 3C B0 04 00 01 E6 00 14 66 55 44 33 22 11 DC 05 01 00 21 03 13 21 03 13 53 45 31 41 25 10 19 01 68 96 80 32 16 65 67 00 00 00 00 B1
+
+376.2用13-F1发送维护规约报文共943字节
+68 AF 03 41 04 00 5F 00 00 00 66 55 44 33 22 11 20 03 19 04 22 20 13 01 00 00 00 00 90 AA FF FF 8A 03 01 06 00 00 7B 0D 0A 20 20 22 44 65 76 53 65 6C 66 44 61 74 61 63 6C 61 73 73 52 6F 6F 74 22 3A 20 5B 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 31 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 31 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 31 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 32 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 32 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 32 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E9 A2 84 E7 BD AE E7 BB A7 E7 94 B5 E5 99 A8 E8 BF 94 E6 A0 A1 E5 80 BC 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 33 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 33 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 77 35 35 30 30 E4 B8 AD E6 96 AD E4 BF A1 E5 8F B7 2D 4E 65 74 33 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 34 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B E6 7A 6C 1D 16
+
+CCO应答长度错误
+68 10 00 83 00 00 00 00 00 00 00 02 00 02 87 16
+
+
+CCO用F1-F1发送维护规约报文共912字节
+维护规约发送: AA FF FF 9F 03 12 01 03 20 03 19 04 22 20 90 03 AA FF FF 8A 03 01 06 00 00 7B 0D 0A 20 20 22 44 65 76 53 65 6C 66 44 61 74 61 63 6C 61 73 73 52 6F 6F 74 22 3A 20 5B 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 31 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 31 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 31 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 32 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 32 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 32 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E9 A2 84 E7 BD AE E7 BB A7 E7 94 B5 E5 99 A8 E8 BF 94 E6 A0 A1 E5 80 BC 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 33 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 33 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 77 35 35 30 30 E4 B8 AD E6 96 AD E4 BF A1 E5 8F B7 2D 4E 65 74 33 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 34 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B E6 7A 6C AF BE 00 00 98
+
+376.2发送: 68 AF 03 43 04 00 5F 00 00 00 66 55 44 33 22 11 20 03 19 04 22 20 F1 01 00 00 00 90 03 AA FF FF 8A 03 01 06 00 00 7B 0D 0A 20 20 22 44 65 76 53 65 6C 66 44 61 74 61 63 6C 61 73 73 52 6F 6F 74 22 3A 20 5B 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 31 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 31 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 31 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 32 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 32 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 32 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E9 A2 84 E7 BD AE E7 BB A7 E7 94 B5 E5 99 A8 E8 BF 94 E6 A0 A1 E5 80 BC 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 33 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 33 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 77 35 35 30 30 E4 B8 AD E6 96 AD E4 BF A1 E5 8F B7 2D 4E 65 74 33 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 34 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B E6 7A 6C 00 16
+
+B0接收: AA FF FF 8A 03 01 06 00 00 7B 0D 0A 20 20 22 44 65 76 53 65 6C 66 44 61 74 61 63 6C 61 73 73 52 6F 6F 74 22 3A 20 5B 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 31 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 31 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 31 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 32 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 32 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 32 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E9 A2 84 E7 BD AE E7 BB A7 E7 94 B5 E5 99 A8 E8 BF 94 E6 A0 A1 E5 80 BC 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 33 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 33 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 77 35 35 30 30 E4 B8 AD E6 96 AD E4 BF A1 E5 8F B7 2D 4E 65 74 33 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 22 3A 20 34 0D 0A 20 20 20 20 7D 2C 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B E6 7A 6C
+
+
+376.2通过13-F1发送维护规约报文共255字节时, B0可以接收到全部的报文; 发送256字节时, CCO回长度错误, 所以判断东软的CCO的最大透明传输报文是255
+AA FF FF 0E 01 12 01 00 20 03 19 04 22 20 FF 00 AA FF FF 8A 03 01 06 00 00 7B 0D 0A 20 20 22 44 65 76 53 65 6C 66 44 61 74 61 63 6C 61 73 73 52 6F 6F 74 22 3A 20 5B 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 31 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 EB 82 BC 89 B1 66 B1 C0 74 00 00 BC
+
+发送: 68 1E 01 41 04 00 5F 00 00 00 66 55 44 33 22 11 20 03 19 04 22 20 13 01 00 00 00 00 FF AA FF FF 8A 03 01 06 00 00 7B 0D 0A 20 20 22 44 65 76 53 65 6C 66 44 61 74 61 63 6C 61 73 73 52 6F 6F 74 22 3A 20 5B 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 31 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 EB 82 BC 89 B1 66 B1 6F 16
+
+
+B0 接收: AA FF FF 8A 03 01 06 00 00 7B 0D 0A 20 20 22 44 65 76 53 65 6C 66 44 61 74 61 63 6C 61 73 73 52 6F 6F 74 22 3A 20 5B 0D 0A 20 20 20 20 7B 0D 0A 20 20 20 20 20 20 22 6C 69 6E 6B 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 64 65 76 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 52 65 67 4E 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 74 79 70 65 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 4E 61 6D 65 22 3A 20 22 E8 AE A1 E9 87 8F E8 8A AF E7 89 87 E7 9A 84 E8 84 89 E5 86 B2 E8 BE 93 E5 85 A5 E4 BF A1 E5 8F B7 31 EF BC 88 E5 A4 87 E7 94 A8 EF BC 89 22 2C 0D 0A 20 20 20 20 20 20 22 55 6E 69 74 22 3A 20 6E 75 6C 6C 2C 0D 0A 20 20 20 20 20 20 22 52 61 74 69 6F 22 3A 20 30 2C 0D 0A 20 20 20 20 20 20 22 54 79 70 65 50 72 6F 70 65 72 74 79 EB 82 BC 89 B1 66 B1
+
+
+
+
+
+
+
+
+[2023-02-21 16:48:13.318]# SEND HEX TO 192.168.0.231 :5000>
+AA FF FF 10 00 12 02 00 00 00 00 26 00 00 12 42 00 68 00 00 00 1E
+
+[2023-02-21 16:48:50.328]# RECV HEX FROM 192.168.0.231 :5000>
+AA FF FF 0E 00 12 02 00 00 00 00 26 9A 99 19 40 00 68 00 0A
+
+
+
+202204190320
+202304030837
+
+维护规约发送重启终端命令: AA FF FF 03 00 06 01 00 04
+维护规约发送置默认参数运行的标志为1, 使用功能码03: AA FF FF 03 00 06 09 03 0F
+维护规约发送置默认参数运行的标志为0, 使用功能码04: AA FF FF 03 00 06 09 04 08
+
+维护规约发送读取时间命令: AA FF FF 03 00 0A 01 00 08
+                接收报文：AA FF FF 09 00 0A 01 74 1C 21 09 10 03 17 46
+
+维护规约发送升级跳转命令: AA FF FF 03 00 06 0A 00 0F
+
+维护规约发送读取md5sum报文：AA FF FF 10 00 01 07 0D 6C 74 75 64 65 76 6C 69 62 2E 64 61 74 39
+                  接收报文：AA FF FF 13 00 01 07 10 DC C0 9E 70 D5 17 70 87 D3 6F CD 74 C0 02 87 4E CC
+
+
+MODBUS发送置默认参数运行的标志为1: 01 71 6F 9C 00 01 61 3B
+							 应答: 01 71 02 00 01 62 FC
+MODBUS发送置默认参数运行的标志为0, 且crc校验错误: 01 71 6F 9C 00 00 61 3B
+							 应答: 01 F1 01 A4 50
+MODBUS发送置默认参数运行的标志为0: 01 71 6F 9C 00 00 A0 FB
+							 应答: 01 71 02 00 00 A3 3C
+
+
+DLT645发送置默认参数运行的标志为1: 68 20 03 19 04 22 20 68 1E 01 34 A5 16
+						     应答: FE FE FE FE 68 20 03 19 04 22 20 68 9E 01 34 25 16
+
+dfdz/set/request/ccoRouter/childUpdateStart
+{
+	"devList": [
+		{
+			"logicAddr": "202204190320",
+			"devProtocol": 1,
+			"filename": "ltudev.bin",
+			"modbusAddr" : 1
+		},
+		{
+			"logicAddr": "202204190321",
+			"devProtocol": 0,
+			"filename": "ltudev.bin",
+			"modbusAddr" : 2
+		},
+		{
+			"logicAddr": "202204190322",
+			"devProtocol": 1,
+			"filename": "ltudev.bin",
+			"modbusAddr" : 3
+		}
+	]
+}
+
+dfdz/set/request/ccoRouter/childUpdateStart
+{
+	"devList": [
+		{
+			"logicAddr": "202204190320",
+			"devProtocol": 1,
+			"filename": "ltudev.bin",
+			"modbusAddr" : 1,
+			"frameLen" : 900
+		}
+	]
+}
+
+
+
+启动广播
+发送: 68 2D 00 43 04 00 5F 00 00 00 66 55 44 33 22 11 99 99 99 99 99 99 05 04 00 00 10 68 20 03 19 04 22 20 68 11 04 33 34 34 35 37 16 3E 16
+接收: 68 15 00 83 00 00 00 00 00 00 00 01 00 fe ff ff ff 0a 00 89 16
+
+发送:
+AA FF FF 1F 00 12 01 02 20 03 19 04 22 20 10 00 68 20 03 19 04 22 20 68 11 04 33 34 34 35 37 16 B6 84 00 00 1E
+接收:
+AA FF FF 20 00 12 01 02 15 00 68 15 00 83 00 00 00 00 00 00 00 01 00 FE FF FF FF 0A 00 89 16 19 00 00 00 00 00 56
+
+启动广播-Modbus
+02 03 04 01 00 01 D4 C9
+发送: 68 25 00 43 04 00 5F 00 00 00 66 55 44 33 22 11 99 99 99 99 99 99 05 04 00 00 08 02 03 04 01 00 01 D4 C9 5A 16
+发送: 68 2D 00 43 04 00 5F 00 00 00 66 55 44 33 22 11 99 99 99 99 99 99 05 04 00 00 10 68 99 99 99 99 99 99 68 08 06 35 36 37 34 33 34 B1 16 32 16
+接收: 68 15 00 83 00 00 00 00 00 00 00 01 00 FE FF FF FF 0A 00 89 16
+
+
+AA FF FF 1F 00 12 01 02 20 03 19 04 22 20 08 00 02 03 04 01 00 01 D4 C9 00 00 00 00 22
+
+68 99 99 99 99 99 99 68 08 06 35 36 37 34 33 34 B1 16
+
+
+opengrok-indexer -J=-Djava.util.logging.config.file=/var/opengrok/logging.properties -a /opengrok/lib/opengrok.jar --  -s /opengrok/src -d /opengrok/data -H -P -S -G -W /opengrok/etc/configuration.xml -U http://localhost:8080/source
+
+opengrok-indexer \
+    -J=-Djava.util.logging.config.file=/opengrok/etc/logging.properties \
+    -a /opengrok/lib/opengrok.jar -- \
+    -c /usr/local/bin/ctags \
+    -s /opengrok/src -d /opengrok/data -H -P -S -G \
+    -W /opengrok/etc/configuration.xml -U http://localhost:8080/source
+
+git clone https://github.com/meetbill/Vim.git
+
+
+[root@iswbm ~]#sudo apt install -y gcc make ncurses ncurses-devel\
+    ctags git tcl-devel \
+    ruby ruby-devel \
+    lua lua-devel \
+    luajit luajit-devel \
+    python python-devel \
+    perl perl-devel \
+    perl-ExtUtils-ParseXS \
+    perl-ExtUtils-XSpp \
+    perl-ExtUtils-CBuilder \
+    perl-ExtUtils-Embed
+
+
+let fmt = get(g:, 'plug_url_format', 'https://git::@hub.fastgit.org/%s.git')
+
+
+
+Functions of Complex Variable and Integral Transforms
+
+
+
+https://hub.fastgit.org/JBakamovic/yavide.git
+
+
+ffmpeg "-hide_banner" "-nostdin" "-y" "-nostats" "-i" "M:/tutorials/清华大学/邓俊辉《数据结构》/第01章/30240184_01-A-1  计算.mp4" "-sws_flags" "spline+accurate_rnd+full_chroma_int" "-color_trc" "2" "-colorspace" "2" "-color_primaries" "2" "-filter_complex" "tvai_fi=model=chf-3:slowmo=1:fps=60:device=0:vram=1:instances=1,tvai_up=model=prob-3:scale=0:w=3840:h=2160:preblur=0:noise=0:details=0:halo=0:blur=0:compression=0:estimate=20:device=0:vram=1:instances=1,scale=w=3840:h=2160:flags=lanczos:threads=0" "-c:v" "prores_ks" "-profile:v" "1" "-vendor" "apl0" "-bits_per_mb" "8000" "-pix_fmt" "yuv422p10le" "-map_metadata" "0" "-movflags" "frag_keyframe+empty_moov+delay_moov+use_metadata_tags+write_colr " "-map_metadata:s:v" "0:s:v" "-map_metadata:s:a" "0:s:a" "-c:a" "copy" "-metadata" "videoai=Slowmo 100% and framerate changed to 60 using chf-3. Enhanced using prob-3 auto with recover details at 0, dehalo at 0, reduce noise at 0, sharpen at 0, revert compression at 0, and anti-alias/deblur at 0. Changed resolution to 3840x2160" "M:/tutorials/清华大学/邓俊辉《数据结构》/第01章/30240184_01-A-1  计算_chf3_prob3_temp.mov"
+
+
+
+
+
+第2版硬件与第1版硬件区别:
+1、第1片TCA9555的IO 信号---GZ_IO(告警指示灯)\ YX_IO(运行指示灯)\BT_RST(蓝牙复位信号)\PCTRL(4G接口) 由第一片TCA955 移动到  第2片TCA955上
+	1.1 GZ_IO(告警指示灯)		---->第2片TCA9555 的P14
+	1.2 YX_IO(运行指示灯)		---->第2片TCA9555的P13
+	1.3 BT_RST(蓝牙复位信号)	---->第2片TCA9555的P12上
+	1.4 PCTRL(4G接口)			---->第2片TCA9555的P17上
+
+2、原来由核心板IO Y1FX(遥控反校)  EX_YK_YZ(遥控预置)   EX_YK_ZX1(第1路遥控)  KEX_YK_ZX2 (第2路遥控) NB_YX3（第4路遥信输入）   NB_YX2（第3路遥信输入）    NB_YX1（第2路遥信输入）   NB_YX0（第1路遥信输入） 移到了第2片TCA9555芯片上。
+	2.1 核心板IO Y1FX(遥控反校)				---->第2片TCA9555的P00上。
+	2.2 核心板IO EX_YK_YZ(遥控预置) 		---->第2片TCA9555的P01上。
+	2.3 核心板IO EX_YK_ZX1(第1路遥控) 		---->第2片TCA9555的P02上。
+	2.4 核心板IO KEX_YK_ZX2 (第2路遥控) 	---->第2片TCA9555的P03上。
+	2.5 核心板IO  NB_YX3（第4路遥信输入）	---->第2片TCA9555的P04上。
+	2.6 核心板IO  NB_YX2（第3路遥信输入） 	---->第2片TCA9555的P05上。
+	2.7 核心板IO  NB_YX1（第2路遥信输入） 	---->第2片TCA9555的P06上。
+	2.8 核心板IO  NB_YX0（第1路遥信输入） 	---->第2片TCA9555的P07上。
+
+3、第2片TCA9555 增加WDI\WD_CTRL 看门狗控制信号引脚,之前没有。
+	3.1 WDI 喂狗信号			------>第2片TCA9555的P16上。
+	3.2 WD_CTRL 看门狗使能信号	------>第2片TCA9555的P15上。
+
+
+4、 AD_/RESET 核心板IO 移到了原核心板 Y1FX（遥控返校）的位置上
+
+
+
+
+
+
+-fsanitize=address -fno-omit-frame-pointer
+
+
+
+
+
+
+
+
+868 226 672
+u739x0
+
+ilspy
+
+
+
+
+(0-成功, 非0-失败)
+
+预置合01
+发送报文：AA FF FF 04 00 0B 01 01 51 5E
+接收报文：AA FF FF 04 00 0B 01 01 00 0F
+
+撤销预置03
+发送报文：AA FF FF 03 00 0B 03 01 0A
+接收报文：AA FF FF 04 00 0B 03 01 00 0D
+
+
+遥控1合
+发送报文：AA FF FF 04 00 0B 02 01 51 5D
+接收报文：AA FF FF 04 00 0B 02 01 00 0C
+
+遥控1分
+发送报文：AA FF FF 04 00 0B 02 01 91 9D
+接收报文：AA FF FF 04 00 0B 02 01 00 0C
+
+
+遥控2合
+发送报文：AA FF FF 04 00 0B 02 02 51 5E
+接收报文：AA FF FF 04 00 0B 02 02 00 0F
+
+遥控2分
+发送报文：AA FF FF 04 00 0B 02 02 91 9E
+接收报文：AA FF FF 04 00 0B 02 02 00 0F
+
+
+
+
+停止看门狗
+e9361app/set/request/e9361esdkapp/version
+{
+	"token": "200513",
+	"timestamp": "2019-05-29T19:05:51.641+0800",
+	"iHardVer": "V1.00.01",
+	"iSoftdVer": "V1.00.07",
+	"eHardVer": "SV01.01",
+	"eSoftdVer": "SV01.007",
+	"runtime_min": 4,
+	"upprogram": 0,
+	"watchdog": 1
+}
+
+
+
+
+
+
+echo "allow_anonymous true">/etc/mosquitto.conf
+echo "listener 1883">>/etc/mosquitto.conf
+echo "persistence true">>/etc/mosquitto.conf
+echo "persistence_location /mosquitto/data/">>/etc//etc/mosquitto.conf
+echo "log_dest file /mosquitto/log/mosquitto.log">>/etc//etc/mosquitto.conf
+
+
+
+
+{"token": "200513","timestamp": "2019-05-29T19:05:51.641+0800","iHardVer": "V1.00.01","iSoftdVer": "V1.00.07","eHardVer": "SV01.01","eSoftdVer": "SV01.007",
+"runtime_min": 4,"upprogram": 0,"watchdog": 1}
+
+
+sed -i.bak -r '/\/bin\/mosquitto/d' /etc/rc.local&&
+sed -i.bak "13a/bin/mosquitto -v -c /etc/mosquitto.conf&" /etc/rc.local
+sed -i.bak -r 's#/bin/mosquitto&#/bin/mosquitto -v -c /etc/mosquitto.conf&#g' /etc/rc.local
+
+
+锦浪 GCI-30K-5G
+
+
+D30XXXXXX001201608080001, 
+
+
+
+
+
+PortTypeEnum.PortType_Serial
+
+UartPortPara
+
+
+sudo container stop c_e9361app
+sudo container uninstall c_e9361app
+
+appSignTool -f /home/sysadm/src/e9361app/bin -b e9361app -l /home/sysadm/src/e9361app/lib -v SV01.007 -o c_e9361app
+
+container install c_e9361app  /home/sysadm/src/c_e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 5000:5000
+
+
+
+
+
+德源开关默认9600 偶校验
+德源分闸报文:
+DI: 06 01 01 01
+TX：68 41 20 60 10 22 11 68 1c 0e 34 34 34 39 33 33 33 33 33 33 33 33 33 35 d3 16
+RX：FE FE FE FE 68 41 20 60 10 22 11 68 9C 00 70 16 
+
+德源查询分合闸状态报文:
+DI: 04 00 05 01
+TX：68 41 20 60 10 22 11 68 11 04 34 38 33 37 BF 16
+RX：FE FE FE FE 68 41 20 60 10 22 11 68 91 05 34 38 33 37 53 93 16 
+应答的运行状态字1: 53, 减去33, 就是20, 即0010 0000, 合闸状态
+
+运行状态字1:bit7, 保留; bit5~bit6, 闸位状态, 00-分闸, 01-合闸; 
+bit0~bit4, 跳闸、告警原因:
+1	,	1	,	1	-	剩余电流预警, 
+10	,	2	,	2	-	剩余电流, 
+100	,	4	,	4	-	缺零, 
+101	,	5	,	5	-	过载
+110	,	6	,	6	-	短路短延时, 
+111	,	7	,	7	-	缺相, 
+1000,	8	,	8	-	欠压, 
+1001,	9	,	9	-	过压, 
+1010,	A	,	10	-	接地,
+1011,	B	,	11	-	停电,
+1101,	D	,	13	-	远程试验, 
+1110,	E	,	14	-	按键试验, 
+1111,	F	,	15	-	闭锁,
+10010,	12	,	18	-	手动, 
+10000,	10	,	16	-	互感器故障, 
+10001,	11	,	17	-	合闸失败, 
+10110,	16	,	22	-	短路瞬时, 
+10111,	17	,	23	-	跳闸失败, 
+10011,	13	,	19	-	设置更改, 
+11110,	1E	,	30	-	软遥控, 
+11101,	1D	,	29	-	硬遥控
+
+
+分闸后的状态: FE FE FE FE 68 41 20 60 10 22 11 68 91 05 34 38 33 37 51 91 16
+应答的运行状态字1: 51, 减去33, 就是1E, 即0 00 11110, 分闸状态, 且是通过软遥控合闸的
+
+阔宇并网柜开关
+立即合闸
+68 01 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 33 33 33 33 33 35 D1 16
+
+这个是立即跳闸
+68 01 00 00 00 00 00 68 1C 0E 34 34 34 39 33 33 33 33 33 33 33 33 33 35 D0 16 
+
+
+
+
+
+route add -host 162.168.100.37 dev usb0 
+route add -host 172.20.40.157 dev eth1 
+172.20.43.184
+
+
+tcpdump 和libcap 配置
+./configure --prefix=`pwd`/install --host=arm-linux CC=arm-linux-gnueabihf-gcc --enable-usb 
+
+
+
+tcpdump host 162.168.100.38 -i usb0 port 2404
+
+tcpdump tcp -i usb0  -s 0 -c 1000 and dst port 2404 -w ./target.cap
+
+
+tcpdump ip 162.168.100.38 -i usb0 port 2404 -w ./target.cap
+
+ping 162.168.100.38
+
+
+tcpdump tcp -i usb0  -s 0 port 2404 -w ./target.cap
+
+
+
+
+
+33 33 33 33 33 33 33 33 33 35
+33 33 33 33 33 33 33 33 33 35
+00 00 00 00 00 00 00 00
+EB 00 0C EB 00 01 00 06 68 04 07 00 00 00 00 00 7A D7
+
+68 04 07 00 00 00
+
+
+EB 00 0E EB 00 00 61 00 09 01 3D E2 DC 7A E7 A0 9C B4 B7 D7
+
+
+/************************************************************** 
+文 件 名: ***.h
+作    者: 杨国庆
+版 本 号: 1.0 
+生成日期: 2010.4.11
+概    述: 本文件主要定义了冒烟测试中用到的宏和数据结构的定义； 
+修改日志：为发送功能完善对 t_smktst_host 结构进行了扩充 2010.4.10 
+*************************************************************/
+
+作    者: 杨国庆
+作    者: 宋宝善
+作    者: 栾晓亮
+
+
+
+/*******************************************************
+* 函数名称: init
+* ---------------------------------------------------
+* 功能描述: 初始化函数
+* ---------------------------------------------------
+* 输入参数: tlink - 链路信息
+* ---------------------------------------------------
+* 输出参数: 无
+* ---------------------------------------------------
+* 返回值: 初始化成功 - 返回 0;
+*         初始化失败 - 返回其他值
+* ---------------------------------------------------
+* 补充信息: 无
+* 修改日志: 无
+*******************************************************/
+
+typedef struct _t_smktst_process
+{
+	char proc_name[MAX_PROC_NAME_LEN];	//进程名称 
+	int process_id;						//进程 ID
+	long lasttst_time;					//进程上次的测试时间 
+	int tst_time;						//巡检次数；
+	int change_flag;  //进程 ID 改变标志 0： ID 没有改变过，1：ID 改变过，2：没有获取过 ID
+}t_smktst_process;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
