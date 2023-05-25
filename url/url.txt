@@ -73,3 +73,21 @@ https://docs.google.com/forms/d/e/1FAIpQLSccr5k3er2PnFngK4aRTTg7qANWR6Vayutm8UY5
 
 https://godbolt.org/  -- Compiler Explorer
 https://github.com/compiler-explorer/compiler-explorer -- Compiler Explorer
+
+https://www.cnblogs.com/evilcat/p/7909578.html -- 开源纯C#工控网关+组态软件
+
+https://www.docin.com/p-1826720539.html -- 基于WPF构建组态软件系统的技术研究与实现
+
+https://blog.csdn.net/weixin_34059951/article/details/93554256 -- C#网络编程（一）基础篇
+https://blog.csdn.net/k346k346/article/details/48750417 -- TinyXML2 入门教程
+
+https://eecs390.github.io/notes/foundations.html -- programming language principles and paradigms
+
+
+
+
+
+
+
+
+
