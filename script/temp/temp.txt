@@ -951,12 +951,18 @@ sed -i.bak -r '/\/bin\/mosquitto/d' /etc/rc.local&&
 sed -i.bak "13a/bin/mosquitto -v -c /etc/mosquitto.conf&" /etc/rc.local
 sed -i.bak -r 's#/bin/mosquitto&#/bin/mosquitto -v -c /etc/mosquitto.conf&#g' /etc/rc.local
 
+以下扫码的内容并非微信提供，请谨慎辨别信息
+
+类型：L21，厂商：东方电子股份有限公司，型号：E9361-A1，ID：L210E0193033202203231120，硬件版本：HV01.01，,生产日期：2022年03月23日。
+
+如需使用，可通过复制获取内容
 
 锦浪 GCI-30K-5G
 
 
 D30XXXXXX001201608080001, 
-
+D300E0193033202305030001
+L210E0193033202203231120
 
 
 
@@ -1070,6 +1076,7 @@ tcpdump 和libcap 配置
 ./configure --prefix=`pwd`/install --host=arm-linux CC=arm-linux-gnueabihf-gcc --enable-usb 
 
 
+tcpdump -i FE0 port 2413
 
 tcpdump host 162.168.100.38 -i usb0 port 2404
 
@@ -1083,9 +1090,45 @@ ping 162.168.100.38
 
 tcpdump tcp -i usb0  -s 0 port 2404 -w ./target.cap
 
+tcpdump  -i usb0  -s 0 port 2404 -w ./target.cap
 
+跳闸
+/bin/serial -c "/dev/ttymxc5" -b 9600 -p 0 -f"68 01 00 00 00 00 00 68 1C 0E 34 34 34 39 33 33 33 33 33 33 33 33 33 35 D0 16" -t 1
 
+合闸
+./serial -c "/dev/ttymxc5" -b 9600 -p 0 -f"68 01 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 33 33 33 33 33 35 D1 16" -t 1
 
+/bin/serial -c "/dev/ttymxc2" -b 9600 -p 0 -f"68 AA AA AA AA AA AA 68 13 00 DF 16" -t 3
+
+/bin/serial -c "/dev/ttymxc2" -b 9600 -p 0 -f"68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16" -t 3
+FE FE FE FE 68 18 09 15 04 22 20 68 91 06 33 34 34 35 33 33 19 16
+root@fl-imx6ull:~# /bin/serial -c "/dev/ttymxc2" -b 9600 -p 0 -f"68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16" -t 3"
+option -c: /dev/ttymxc2
+option -b: 9600
+option -p: 0
+option -f: 68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16
+option -t: 3
+[2023-06-07 08:55:18][src/serial.c][main()][505]: port: /dev/ttymxc2, baud: 10, parity: 0, stop: 1, bits: 8
+
+listen: 0
+times: 3
+wait: 20
+inv: 50
+com: /dev/ttymxc2
+baud: 9600
+data: 8
+stop: 1
+par: 0
+frame: 68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16
+open fd-{3}  Successful 
+68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16
+[2023-06-07 08:55:18][src/serial.c][sendcom()][304]: [send]bufSize:16; 68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16
+[2023-06-07 08:55:18][src/serial.c][readcom()][318]: [read]bufSize: 22; FE FE FE FE 68 18 09 15 04 22 20 68 91 06 33 34 34 35 33 33 19 16
+[2023-06-07 08:55:19][src/serial.c][sendcom()][304]: [send]bufSize:16; 68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16
+[2023-06-07 08:55:19][src/serial.c][readcom()][318]: [read]bufSize: 22; FE FE FE FE 68 18 09 15 04 22 20 68 91 06 33 34 34 35 33 33 19 16
+[2023-06-07 08:55:20][src/serial.c][sendcom()][304]: [send]bufSize:16; 68 18 09 15 04 22 20 68 11 04 33 34 34 35 31 16
+[2023-06-07 08:55:20][src/serial.c][readcom()][318]: [read]bufSize: 22; FE FE FE FE 68 18 09 15 04 22 20 68 91 06 33 34 34 35 33 33 19 16
+FE FE FE FE 68 18 09 15 04 22 20 68 91 06 33 34 34 35 ([0-9a-fA-F]{2}\s){3}16
 
 33 33 33 33 33 33 33 33 33 35
 33 33 33 33 33 33 33 33 33 35
@@ -1155,94 +1198,185 @@ ffmpeg -i input.mp4 -vf scale=3840x2560 -y output.mp4
 
 
 
+小型化从载波问答报文:
+[user\bsp\plc_slave\plcslave.c][plcSlave_thread][1105]recv: FE FE FE FE 68 AA AA AA AA AA AA 68 13 00 DF 16 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr0x13][763][2019-6-24 0:21:35]: FE FE FE FE 68 37 08 03 04 23 20 68 93 06 6A 3B 36 37 56 53 AD 16 
 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][1105]recv: FE FE FE FE 68 99 99 99 99 99 99 68 1F 02 E2 35 9E 16 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr0x1F][719]: FE FE FE FE 68 37 08 03 04 23 20 68 9F 08 E2 35 6A 3B 36 37 56 53 D2 16 
 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][1105]recv: FE FE FE FE 68 AA AA AA AA AA AA 68 13 00 DF 16 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr0x13][763][2019-6-24 0:21:46]: FE FE FE FE 68 37 08 03 04 23 20 68 93 06 6A 3B 36 37 56 53 AD 16 
 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][1105]recv: FE FE FE FE 68 99 99 99 99 99 99 68 1F 02 E2 35 9E 16 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr0x1F][719]: FE FE FE FE 68 37 08 03 04 23 20 68 9F 08 E2 35 6A 3B 36 37 56 53 D2 16 
 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][1105]recv: FE FE FE FE 68 AA AA AA AA AA AA 68 13 00 DF 16 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr0x13][763][2019-6-24 0:22:57]: FE FE FE FE 68 37 08 03 04 23 20 68 93 06 6A 3B 36 37 56 53 AD 16 
 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][1105]recv: FE FE FE FE 68 99 99 99 99 99 99 68 1F 02 E2 35 9E 16 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr0x1F][719]: FE FE FE FE 68 37 08 03 04 23 20 68 9F 08 E2 35 6A 3B 36 37 56 53 D2 16 
 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_thread][1105]recv: FE FE FE FE 68 AA AA AA AA AA AA 68 13 00 DF 16 
+00> [user\bsp\plc_slave\plcslave.c][plcSlave_relpyDlt645Addr0x13][763][2019-6-24 0:23:9]: FE FE FE FE 68 37 08 03 04 23 20 68 93 06 6A 3B 36 37 56 53 AD 16 
 
+/bin/mosquitto_pub   -t "e9361app/set/request/e9361esdkapp/version"  -m  "{\"token\": \"200513\", \"timestamp\": \"2023-02-11T09:41:09.845+0800\", \"iHardVer\": \"V1.01.03\", \"iSoftdVer\": \"V1.00.04\", \"eHardVer\": \"SV01.03\", \"eSoftdVer\": \"SV01.004\", \"runtime_min\": 6, \"upprogram\": 0, \"watchdog\": 1 }" -h localhost
 
+mosquitto_sub -t "e9361app/set/request/e9361esdkapp/version" -h localhost
 
+mosquitto_sub -t "e9361esdkapp/set/response/e9361app/version" -h localhost
 
 
+$GNRMC,015936.099,V,,,,,0.00,0.00,060180,,,N*54
 
 
+电科智芯张海龙，手机号 18613839368
 
 
 
+03 03 03 FB 00 01 F4 5D 
+FF FF FE FE FF 03 03 02 01 4A 41 E3
 
 
+192.168.0.123
+192.168.1.237
+AA FF FF 03 00 06 05 00 00
 
+类型：L21，厂商：东方电子股份有限公司，型号：E5402，ID：L210E0193093201909260001，硬件版本：HV61%2E01，生产日期：2019年09月26日。
 
 
+类型：L21，厂商：东方电子股份有限公司，型号：E5402，ID：L210E0193093201909260002，硬件版本：HV61%2E01，生产日期：2019年09月26日。
 
 
+402??2IDL0E3093201909260001272???????????????HV 012???2??2??????????2019227092??26????62?
 
+L210E0193093201909260001
 
+/bin/boa&
+/bin/mosquitto -v -c /etc/mosquitto.conf&
+/home/sysadm/src/e9361app>/dev/null&
+/home/sysadm/src/e9361esdkapp>/dev/null&
+exit 0
 
+/bin/boa&
+/bin/mosquitto -v -c /etc/mosquitto.conf&
+/home/sysadm/src/e9361app>/dev/null&
+/home/sysadm/src/e9361esdkapp>/dev/null&
+exit 0
 
+/bin/boa&
+/bin/mosquitto&
+/home/sysadm/src/e9361app>/dev/null&
+/home/sysadm/src/e9361esdkapp>/dev/null&
+exit 0
 
 
 
+/bin/boa&
+/bin/mosquitto&
+/home/sysadm/src/e9361app>/dev/null&
+/home/sysadm/src/e9361esdkapp>/dev/null&
+/bin/mosquitto&
+exit 0
 
 
 
+/bin/echo -e "AT+CGDCONT=?\r\n" | /usr/bin/microcom -s 9600 /dev/ttyUSB0 -t 500
 
 
 
+姓名:大全吕峰
+手机:182 6002 9579
 
 
 
 
 
 
+sudo /home/sysadm/appSignTool -f /home/sysadm/src/ltu485/bin -b c_ltu485 -l /home/sysadm/src/ltu485/lib -v SV02.100 -o c_ltu485
+sudo container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3  -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 5000:5000
 
 
+container install c_ltu485  /home/sysadm/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2413:2413
 
 
 
+sudo docker exec -it c_ltu485 /bin/sh
 
 
+sudo route add -host 172.10.1.1 dev FE0
 
 
 
+container install c_peidian  /home/sysadm/SCIEC104.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 2413:2413
 
 
+if (serial == null)
+{
+	MessageBox.Show("请打开通信端口!");
+	return;
+}
 
 
 
+用户名: sysadm
+密码: Zgdky@guest123
 
+{ "ProductKey": "a1fgAK1wZUS", "DeviceName": "TTU01", "DeviceSecret": "e4f5052d429b32e14b7e2d68aa0c5603" }
 
 
 
 
+ping -I usb0 110.242.68.4
 
 
 
 
 
+68 04 0b 00 00 00 
 
 
 
+[23-06-21 17:03:40:521 ]  [SCIEC104] [NET Recv >>]: 68 04 07 00 00 00
+[23-06-21 17:03:40:528 ]  [SCIEC104] [Rx]: 68 04 07 00 00 00
+[23-06-21 17:03:40:528 ]  [SCIEC104] [Tx]: 68 04 0b 00 00 00
+[23-06-21 17:03:40:529 ]  [SCIEC104] [Tx]: 68 0e 00 00 00 00 46 01 04 00 01 00 00 00 00 02
+[23-06-21 17:03:40:796 ]  [SCIEC104] [NET Recv >>]: 68 0e 00 00 00 00 64 01 06 00 01 00 00 00 00 14
+[23-06-21 17:03:40:806 ]  [SCIEC104] [Rx]: 68 0e 00 00 00 00 64 01 06 00 01 00 00 00 00 14
+[23-06-21 17:03:40:816 ]  [SCIEC104] [Tx]: 68 0e 02 00 02 00 64 01 07 00 01 00 00 00 00 14
+[23-06-21 17:03:40:827 ]  [SCIEC104] [Tx]: 68 99 04 00 02 00 0d 9c 14 00 01 00 01 40 00 9a 99 66 43 00 cd cc 66 43 00 cd 4c 67 43 00 e3 a5 5b 3f 00 6d e7 5b 3f 00 7f 6a bc 3d 00 de 71 4a 3e 00 ba da 4a 3e 00 9f ab ad 3c 00 cf 66 d5 3e 00 34 80 b7 ba 00 e0 2d 90 ba 00 27 a0 09 bb 00 52 49 9d bb 00 e1 7a c0 41 00 33 33 c1 41 00 a4 70 2d 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 52 b8 4b 42 00 00 00 00 00 00 8f c2 4b 42 00 00 00 00 00 00 00 00 00 00 00
+[23-06-21 17:03:40:838 ]  [SCIEC104] [Tx]: 68 0e 06 00 02 00 64 01 0a 00 01 00 00 00 00 14
+[23-06-21 17:03:41:020 ]  [SCIEC104] [NET Recv >>]: 68 0e 02 00 02 00 65 01 06 00 01 00 00 00 00 45
+[23-06-21 17:03:41:023 ]  [SCIEC104] [Rx]: 68 0e 02 00 02 00 65 01 06 00 01 00 00 00 00 45
+[23-06-21 17:03:41:024 ]  [SCIEC104] [Tx]: 68 0e 08 00 04 00 65 01 07 00 01 00 00 00 00 45
+[23-06-21 17:03:41:035 ]  [SCIEC104] [Tx]: 68 0e 0a 00 04 00 65 01 0a 00 01 00 00 00 00 45
+[23-06-21 17:03:41:193 ]  [SCIEC104] [NET Recv >>]: 68 14 04 00 02 00 67 01 06 00 01 00 00 00 00 da a1 03 11 75 06 17 68 04 01 00 08 00
+[23-06-21 17:03:41:200 ]  [SCIEC104] [Rx]: 68 14 04 00 02 00 67 01 06 00 01 00 00 00 00 da a1 03 11 75 06 17
+[23-06-21 17:03:41:460 ]  [SCIEC104] [Rx]: 68 04 01 00 08 00
+[23-06-21 17:03:41:461 ]  [SCIEC104] [Tx]: 68 14 0c 00 06 00 67 01 07 00 01 00 00 00 00 da a1 03 11 75 06 17
+[23-06-21 17:03:44:122 ]  [SCIEC104] [NET Recv >>]: 68 04 01 00 0e 00
+[23-06-21 17:03:44:126 ]  [SCIEC104] [Rx]: 68 04 01 00 0e 00
+[23-06-21 17:03:44:224 ]  [SCIEC104] [Server Mode Link Ok]:
+[23-06-21 17:03:44:226 ]  [SCIEC104] [Server Mode You got a connection from client]:
+[23-06-21 17:03:44:227 ]  [SCIEC104] [socket_task_start...]:
+^C
 
 
 
 
 
 
+D30DFDZPD001202306071114
+D30DFDZPD001202306210001
+D30DFDZPD001202306211111
 
 
 
 
 
 
-
-
-
-
-
-
+flash_erase /dev/mtd4 0 0
+nandwrite -p /dev/mtd4 /mnt/kernel/kerner_221115/linux-4.1.15/arch/arm/boot/zImage
 
 
 
