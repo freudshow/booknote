@@ -1325,6 +1325,7 @@ if (serial == null)
 
 用户名: sysadm
 密码: Zgdky@guest123
+vi /usr/lib/systemd/network/10-network-eth0.network
 
 { "ProductKey": "a1fgAK1wZUS", "DeviceName": "TTU01", "DeviceSecret": "e4f5052d429b32e14b7e2d68aa0c5603" }
 
