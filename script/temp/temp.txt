@@ -1301,7 +1301,7 @@ sudo /home/sysadm/appSignTool -f /home/sysadm/src/ltu485/bin -b c_ltu485 -l /hom
 sudo container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3  -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 5000:5000
 
 
-container install c_ltu485  /home/sysadm/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2413:2413
+container install c_ltu485  /home/sysadm/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2404:2404
 
 
 
@@ -1385,24 +1385,44 @@ nandwrite -p /dev/mtd4 /mnt/kernel/kerner_221115/linux-4.1.15/arch/arm/boot/zIma
 
 
 
+68 59 07 37 18 21 80 68 91 18 34 34 39 38 45 67 89 AB 54 66 A7 67 34 78 99 45 AC 65 78 44 44 56 A3 4C 2A 16
+
+68 59 07 37 18 21 80 68 91 18 34 35 39 38 45 67 89 AB 54 66 A7 67 34 78 99 45 AC 65 78 44 44 56 A3 4C 2B 16
 
 
 
 
+17:06:22.600  发送设置Dlt645地址 地址1 2 3 4 5 6
+
+17:06:22.600  192.168.0.237发送报文：AA FF FF 08 00 06 05 01 02 03 04 05 06 0C
+
+17:06:22.642  接收报文：AA FF FF 03 00 06 05 00 00
+
+17:06:22.642  接收-设置Dlt645地址 地址1 2 3 4 5 6成功
+
+17:07:00.987  发送读Dlt645地址
+
+17:07:00.987  192.168.0.237发送报文：AA FF FF 03 00 06 06 01 02
+
+17:07:01.045  接收报文：AA FF FF 08 00 06 06 01 02 03 04 05 06 0F
+
+17:07:01.045  接收-读Dlt645地址成功,Dlt645地址:06 05 04 03 02 01 
 
 
+EB 00 0C EB 00 01 00 06 10 69 01 00 6A 16 00 00 01 D7
+
+10 8B 01 00 8C 16
 
 
+http://172.20.88.241/svn/E9361BM/tests/E9361BM/E9361-C0/E9361-C0%E5%B7%A5%E8%A3%85%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/E9361-C0%E5%B7%A5%E8%A3%85%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F-v3.00.01.zip
+
+v3.00.01
 
 
+E9361-C0工装调试软件
 
 
-
-
-
-
-
-
+CXQ0001265
 
 
 
