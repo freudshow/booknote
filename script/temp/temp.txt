@@ -1425,13 +1425,29 @@ E9361-C0工装调试软件
 CXQ0001265
 
 
+tar --numeric-owner --exclude=/proc --exclude=/sys --exclude=/mnt --exclude=/var/cache --exclude=/usr/share/{foomatic,backgrounds,perl5,fonts,cups,qt4,groff,kde4,icons,pixmaps,emacs,gnome-background-properties,sounds,gnome,games,desktop-directories} --exclude=/var/log -zcvf /mnt/CentOS7-BaseImage.tar /
 
+cd /
 
+# 将系统打包成tar包
+# --directory 是被打包目录
+# --exclude指定不打包的目录
+tar -cvpf /docker/system.tar --directory=/ --exclude=docker --exclude=proc --exclude=temp
+--exclude=sys --exclude=run
 
+# 上传docker镜像
+# ${repo_url} 是镜像源的地址，${image_name}是镜像名称，${tag_name}是镜像的标签名
+# 导入镜像
+docker import system.tar ${repo_url}/${image_name}:${tag_name}
+# 检查镜像
+docker images | grep ${image_name}
+# 推送镜像
+docker push ${repo_url}/${image_name}:${tag_name}
 
+docker import centos7-base.tar centos7
+docker run -itd --name JosonCentos centos7:latest /bin/bash
 
-
-
+ -fsanitize=address -fno-omit-frame-pointer
 
 
 
