@@ -1297,11 +1297,11 @@ exit 0
 
 
 
-sudo /home/sysadm/appSignTool -f /home/sysadm/src/ltu485/bin -b c_ltu485 -l /home/sysadm/src/ltu485/lib -v SV02.100 -o c_ltu485
+sudo /home/sysadm/src/appSignTool -f /home/sysadm/src/c_ltu485/bin -b c_ltu485 -l /home/sysadm/src/c_ltu485/lib -v SV02.100 -o c_ltu485
 sudo container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3  -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 5000:5000
 
 
-container install c_ltu485  /home/sysadm/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2404:2404
+container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2414:2414
 
 
 
@@ -1447,11 +1447,21 @@ docker push ${repo_url}/${image_name}:${tag_name}
 docker import centos7-base.tar centos7
 docker run -itd --name JosonCentos centos7:latest /bin/bash
 
- -fsanitize=address -fno-omit-frame-pointer
+-fsanitize=address -fno-omit-frame-pointer
+
+/etc/init.d/rpcbind restart
+/etc/init.d/nfs-kernel-server restart
+
+mount -t nfs -o nolock 192.168.31.108:/home/floyd/opt /nfs
+
+tar --numeric-owner --exclude=/proc --exclude=/nfs --exclude=/var/cache --exclude=/var/log -zcvf /nfs/zx.tar /
+
+
+tar --numeric-owner --exclude=/proc --exclude=/nfs --exclude=/var/cache --exclude=/var/log -zcvf /nfs/zx.tar /
 
 
 
-
+mount -t nfs -o nolock 192.168.31.108:/home/floyd/opt /nfs
 
 
 
