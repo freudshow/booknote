@@ -1303,12 +1303,19 @@ sudo container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:
 
 container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2414:2414
 
+container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2414:2414 --log-driver none
+
+container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4850:4850 -p 2414:2414 --log-driver=none --log-opt max-size=1m --log-opt max-file=3
+
+
 container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 4950:4950
 
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 
 sudo docker exec -it c_ltu485 /bin/sh
 
-
+/etc/docker/daemon.json
 sudo route add -host 172.10.1.1 dev FE0
 
 
