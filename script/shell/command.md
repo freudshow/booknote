@@ -334,6 +334,12 @@ sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib libncurses5:i386 libncur
 1.按Ctrl+X，会有一个询问是否保存，输入Y保存修改后的grub文件，会有再次询问时，按回车确认退出
 1.输入 sudo update-grub更新grub文件
 
+### 安装新立德软件包管理器
+
+```bash
+    sudo apt install -y synaptic
+```
+
 ### `Linux`字体渲染
 
 ```bash
