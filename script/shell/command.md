@@ -326,6 +326,20 @@ sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib libncurses5:i386 libncur
     退出qemu: Ctrl - A X 按下Ctrl 键和A键, 然后释放这两个键,再按X
 ```
 
+### `Windows+Ubuntu`双系统如何设置`Windows`为第一启动项
+
+1.打开终端，输入 cd /etc/default/
+1.接着输入sudo sudo nano grub，会提示输入密码，输入密码按回车即可
+1.现在进入了grub文件，找到GRUB_DEFAULT = 0，因为Ubuntu的顺序是从0开始的，并且windows对应第5个选项，所以将0改为4，
+1.按Ctrl+X，会有一个询问是否保存，输入Y保存修改后的grub文件，会有再次询问时，按回车确认退出
+1.输入 sudo update-grub更新grub文件
+
+### 安装新立德软件包管理器
+
+```bash
+    sudo apt install -y synaptic
+```
+
 ### `Linux`字体渲染
 
 ```bash
