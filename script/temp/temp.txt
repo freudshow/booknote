@@ -1472,7 +1472,7 @@ tar --numeric-owner --exclude=/proc --exclude=/nfs --exclude=/var/cache --exclud
 mount -t nfs -o nolock 192.168.31.108:/home/floyd/opt /nfs
 
 
-
+ arch/x86/entyr/vdso/vdso-image-64.c
 
 
 
