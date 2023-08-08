@@ -87,6 +87,7 @@ https://ziglang.org/    Zig programming language
 
 https://blog.csdn.net/weixin_46564301/article/details/131157388 finite state machine
 
+https://wokwi.com/projects/353353893815793665 单片机模拟站
 
 
 
