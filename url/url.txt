@@ -89,6 +89,8 @@ https://blog.csdn.net/weixin_46564301/article/details/131157388 finite state mac
 
 https://wokwi.com/projects/353353893815793665 单片机模拟站
 
+https://juejin.cn/post/7233625509107384379 基于 ChatGLM-6B 搭建个人专属知识库
+https://juejin.cn/post/7225509897763930168 免费部署一个开源大模型 MOSS
 
-
-
+https://blog.csdn.net/freemote/article/details/124452920 硬件/软件i2c两种方式移植u8g2单色图形库驱动0.96吋OLED
+https://github.com/olikraus/u8g2/wiki/Porting-to-new-MCU-platform Porting to new MCU platform
