@@ -1490,15 +1490,30 @@ mount -t nfs -o nolock 192.168.31.108:/home/floyd/opt /nfs
 
 pa0W89U6-UB056hz7-8m1bMn64
 l0v78G4s-3186Ojqx-xr1325Al
-
+76aFK1b5-VTu7p134-8DOac396
 
 Codeium
 https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=5630287
 
 
+AA FF FF 04 00 06 0E 00 00 0C
+
+V3.03.29 b0
+V3.03.37 a0
+V3.03.22 a1
+
+http://172.20.88.241/svn/E9361BM/tests/E9361BM/E9361-A0/V3.03.37_%E5%B0%8F%E6%89%B9%E7%A8%8B%E5%BA%8F
+
+http://172.20.88.241/svn/E9361BM/tests/E9361BM/E9361-A1/V3.03.22_%E5%B0%8F%E6%89%B9%E7%A8%8B%E5%BA%8F
+
+http://172.20.88.241/svn/E9361BM/tests/E9361BM/E9361-B0/V3.03.29_%E5%B0%8F%E6%89%B9%E7%A8%8B%E5%BA%8F
 
 
+车间滚动生产程序2023.8.11
 
+宋宝善, 吕春生
+
+王海波，联系方式: 18611976658。
 
 
 
