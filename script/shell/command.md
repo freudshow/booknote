@@ -141,18 +141,24 @@ cp /home/usr/dir/file{1..4} ./ # 其实同一目录也可以看做是文件名�
 
 用root账号在/etc/apt/sources.list中把软件源修改为：
 
-- `debian 10`:
+- `debian 12`:
 
 ```bash
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
 
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-    deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-    deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
+
+deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
+
+# deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
+# # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security bookworm-security main contrib non-free non-free-firmware
+
+deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+# deb-src https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
 ```
 
 - `ubuntu 20.04`
