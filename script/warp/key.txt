@@ -5,3 +5,15 @@ l0v78G4s-3186Ojqx-xr1325Al
 x6th075D-kj9X0p28-574p6Rbe
 915Th4qJ-p9n763GA-5o0w28nr
 B3Kg864c-o1Hr3w80-EK8p05T2
+
+[Interface]
+PrivateKey = yH8w9LcNM7KTX83w2k5OL3Mr4QanUZA1prZd8X4qy1o=
+Address = 172.16.0.2/32
+Address = 2606:4700:110:8886:6c4f:5529:abb1:9c64/128
+DNS = 1.1.1.1
+MTU = 1280
+[Peer]
+PublicKey = bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+AllowedIPs = 0.0.0.0/0
+AllowedIPs = ::/0
+Endpoint = engage.cloudflareclient.com:2408
