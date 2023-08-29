@@ -1544,3 +1544,9 @@ E9361-B0
 255.255.255.0
 
 10.126.95.65
+
+arm-linux-gnueabi-gcc
+make ARCH=arm CROSS_COMPILE=arm-none-eabi- menuconfig
+make ARCH=arm CROSS_COMPILE=arm-none-eabi- menuconfig
+arm-poky-linux-gnueabi-
+
