@@ -783,6 +783,12 @@ bash /etc/init.d/rcloned start
     sudo laptop_mode start
     ```
 
+### `Debian`禁用休眠
+
+```bash
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
+
 ### 为`Bash shell`定义`Home, Del, Insert`热键
 
 ```bash
