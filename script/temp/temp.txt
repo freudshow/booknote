@@ -1582,29 +1582,68 @@ SELECT *
 个人远程桌面IP 8.130.115.4      内网IP 172.20.34.54   255.255.240.0  172.20.34.54
 USER:   administrator                    PASSWD:   Tiger@5511283
 
-
-PhoneService_OneDev dev = new PhoneService_OneDev
+for (int i = 0; i < 100; i++)
 {
-	DeviceName = "simplettu001",
-	TotalOnLineDev = 100,
-	Status = true,
-	ProductName = "E9361-C0",
-	PosInfo = "连云港"
-};
+	PhoneService_OneDev dev = new PhoneService_OneDev
+	{
+		DeviceName = "simplettu001",
+		TotalOnLineDev = 100,
+		Status = true,
+		ProductName = "E9361-C0",
+		PosInfo = "连云港",
+		dotNetPhone_WebServices = new List<DotNetPhoneWebService>()
+	};
 
-DotNetPhoneWebService data = new DotNetPhoneWebService
-{
-	DataItemIsEnable = true,
-	data_type = 1,
-	ModeName = "PhV_phsA",
-	GetVal = 222.13f,
-	PreGetVal = 221.111f,
-	Name_desc = "A相电压",
-	Timestamp = DateTime.Now
-};
+	for (int j = 0; j < 300; j++)
+	{
+		dev.dotNetPhone_WebServices.Add(new DotNetPhoneWebService
+		{
+			DataItemIsEnable = true,
+			data_type = j,
+			ModeName = "PhV_phsA",
+			GetVal = 1.0f,
+			PreGetVal = 221.111f + j,
+			Name_desc = $"{j}相电压",
+			Timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.FFF")
+		});
+	}
 
-dev.dotNetPhone_WebServices = new List<DotNetPhoneWebService> { data };
-
-m_RtdbDataDic.Add("连云港_simplettu01", dev);
+	m_RtdbDataDic.Add($"连云港_simplettu{i}", dev);
+}
 
 SQLiteConnection.CreateFile("MyDatabase.sqlite");
+
+GetOneDevCurveDataByModeName
+
+
+1. 企业标准(参考标准), 企标高于行标
+
+
+windows server 2022:
+magnet:?xt=urn:btih:eaa74aadaac68f481156bad27f153e7e215b4dba&dn=zh-cn_windows_server_2022_updated_sep_2023_x64_dvd_892eeda9.iso&xl=5525116928
+
+
+dotnet new worker --name <Project.Name>
+dotnet add package Microsoft.Extensions.Hosting.WindowsServices
+
+sc.exe create ".NET Joke Service" binpath="C:\Path\To\dotnet.exe C:\Path\To\App.WindowsService.dll"
+
+
+sc.exe create ".NET Joke Service" binpath="D:\mydoc\repo\wpf\mqtttest\DCSService\bin\publish\DCSService.exe"
+
+
+sc.exe failure ".NET Joke Service" reset=0 actions=restart/60000/restart/60000/run/1000
+
+
+sc.exe start ".NET Joke Service"
+sc.exe stop ".NET Joke Service"
+sc.exe delete ".NET Joke Service"
+
+
+主卡 15589585579
+副卡 18561020790
+
+
+postbuildStep="arm-linux-gnueabihf-strip e9361app"
+
+
