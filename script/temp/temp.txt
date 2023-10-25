@@ -1647,3 +1647,4 @@ sc.exe delete ".NET Joke Service"
 postbuildStep="arm-linux-gnueabihf-strip e9361app"
 
 
+\accesschk.exe -osv > objects.txt

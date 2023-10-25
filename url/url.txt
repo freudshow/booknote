@@ -94,3 +94,42 @@ https://juejin.cn/post/7225509897763930168 免费部署一个开源大模型 MOS
 
 https://blog.csdn.net/freemote/article/details/124452920 硬件/软件i2c两种方式移植u8g2单色图形库驱动0.96吋OLED
 https://github.com/olikraus/u8g2/wiki/Porting-to-new-MCU-platform Porting to new MCU platform
+
+
+https://learn.microsoft.com/zh-cn/dotnet/standard/io/memory-mapped-files
+
+
+主卡 15589585579
+
+
+副卡 18561020790
+
+
+[文件]
+
+
+https://www.shortform.com/best-books/genre/best-compiler-books-of-all-time
+
+
+https://pandoc.org/MANUAL.html
+
+
+https://www.doc88.com/p-6991746639109.html
+
+
+https://clangd.llvm.org/installation.html
+
+
+https://learn.microsoft.com/en-us/dotnet/core/extensions/windows-service?pivots=dotnet-7-0
+
+
+https://www.doc88.com/p-2743992146124.html
+
+
+GB/T 13729-2019
+
+
+https://www.doc88.com/p-2834915710837.html   DL T 721—2013 配电自动化远方终端
+
+
+https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=7788F822755965C2EC86C1291A487771      GB/T 13729-2019 远动终端设备
