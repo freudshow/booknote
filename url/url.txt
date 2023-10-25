@@ -133,3 +133,7 @@ https://www.doc88.com/p-2834915710837.html   DL T 721—2013 配电自动化远�
 
 
 https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=7788F822755965C2EC86C1291A487771      GB/T 13729-2019 远动终端设备
+
+https://www.mdpi.com/2227-7390/9/22/2885
+
+Automatic Voltage Control algorithm
