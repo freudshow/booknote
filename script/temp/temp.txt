@@ -1615,6 +1615,20 @@ SQLiteConnection.CreateFile("MyDatabase.sqlite");
 
 GetOneDevCurveDataByModeName
 
+ERROR: modpost: "__ClearPageMovable" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "kmalloc_caches" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "kmalloc_trace" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "kfree" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "unregister_shrinker" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "kmem_cache_destroy" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "kstrdup" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "kmem_cache_create" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "register_shrinker" [mm/zsmalloc.ko] undefined!
+ERROR: modpost: "unlock_page" [mm/zsmalloc.ko] undefined!
+WARNING: modpost: suppressed 1252 unresolved symbol warnings because there were too many)
+make[2]: *** [scripts/Makefile.modpost:144：Module.symvers] 错误 1
+make[1]: *** [/home/mobian/soft/linux-6.5.9/Makefile:1986：modpost] 错误 2
+make: *** [Makefile:234：__sub-make] 错误 2
 
 1. 企业标准(参考标准), 企标高于行标
 
@@ -1648,3 +1662,10 @@ postbuildStep="arm-linux-gnueabihf-strip e9361app"
 
 
 \accesschk.exe -osv > objects.txt
+
+
+青岛港QQCTU主站地址:
+172.20.16.40、172.20.16.41，是两台服务器IP。  218.56.32.4：9052对应服务器172.20.16.40：2402端口；
+218.56.32.4:9054 对应服务器172.20.16.41:2402端口。用于APP通讯
+
+10.101.51.34
