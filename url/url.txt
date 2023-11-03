@@ -137,3 +137,10 @@ https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=7788F822755965C2EC86C1291A487
 https://www.mdpi.com/2227-7390/9/22/2885
 
 Automatic Voltage Control algorithm
+
+https://blog.csdn.net/xiaoqiaoq0/article/details/122051942   Linux 内存管理之 SLUB分配器(2) ：kmalloc_cache 结构
+https://www.cnblogs.com/binlovetech/archive/2023/06/21/17495824.html   深度解读 Linux 内核级通用内存池 —— kmalloc 体系
+https://www.kernel.org/doc/html/v5.16/vm/zsmalloc.html  zsmalloc
+https://www.kernel.org/doc/html/latest/core-api/mm-api.html?highlight=kmalloc  kmalloc
+https://www.kernel.org/doc/html/latest/core-api/memory-allocation.html  Memory Allocation Guide
+
