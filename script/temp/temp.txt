@@ -1671,3 +1671,10 @@ postbuildStep="arm-linux-gnueabihf-strip e9361app"
 218.56.32.4:9054 对应服务器172.20.16.41:2402端口。用于APP通讯
 
 10.101.51.34
+
+New release '18.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+ip tunnel add atb mode gre remote 192.168.0.166 local 192.168.0.231 ttl 255
+ip link set atb up
+ip addr add 10.10.10.1/24 dev atb
