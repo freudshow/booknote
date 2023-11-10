@@ -1684,12 +1684,39 @@ nandwrite -p /dev/mtd4 /home/root/zImage
 insmod gre.ko#gre.ko放在当前目录
 insmod ip_gre.ko#ip_gre.ko放在当前目录
 
+#自动加载gre模块
+#1. 将文件复制到 /lib/modules/`uname -r`/ 目录下
+cp gre.ko ip_gre.ko /lib/modules/`uname -r`/
+
+#2. 建立依赖信息
+depmod -a
+
+#3. 编辑/etc/modules/
+echo gre >> /etc/modules
+echo ip_gre >> /etc/modules
+
+#4. 重启即可
+reboot
+
+#5. 查看是否有gre虚拟链路
+ip link
+
+
 #启动gre隧道. 创建了一个名为 atb 的灰色隧道设备，并将其远程地址设置为192.168.9.166。隧道数据包将来自 192.168.0.231（本地IP地址），并且它们的TTL字段将被设置为255。隧道设备被分配IP地址10.10.10.1和netmask 255.255.255.0。
-ip tunnel add atb mode gre remote 192.168.0.166 local 192.168.0.231 ttl 255
+ip tunnel add atb mode gre remote 192.168.0.239 local 192.168.0.231 ttl 255
 ip link set atb up
 ip addr add 10.10.10.1/24 dev atb
 
 #另一台主机gre隧道设置
-ip tunnel add atb mode gre remote 192.168.0.231 local 192.168.0.166 ttl 255
+ip tunnel add atb mode gre remote 192.168.0.231 local 192.168.0.239 ttl 255
 ip link set atb up
 ip addr add 10.10.10.2/24 dev atb
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+ping 10.10.10.1
+
+ip link del atb
+
+
+
+rm /data/app/e9361app/root/para/*
