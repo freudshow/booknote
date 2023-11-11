@@ -1720,3 +1720,24 @@ ip link del atb
 
 
 rm /data/app/e9361app/root/para/*
+
+
+#vnc server
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+x-window-manager &
+mate-session &
+
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+mate-session &
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+x-window-manager &
+
