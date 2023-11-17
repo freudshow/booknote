@@ -147,10 +147,13 @@ https://www.kernel.org/doc/html/latest/core-api/memory-allocation.html  Memory A
 https://blog.51cto.com/u_13316945/5832448  移植ubuntu 16.04.4 到arm平台（i.MX6UL）
 
 https://blog.csdn.net/weever7/article/details/124773248  Linux学习笔记 驱动开发篇
+https://www.doc88.com/p-086717510986.html?s=like&id=5 IEC62056-31
 
+https://gptstore.ai/gpts gpt市场
 
+https://blog.csdn.net/SHH_1064994894/article/details/132535837 Linux(28) Linux双网卡配置为连接到Linux主机的PC提供外网访问
+https://www.lxlinux.net/10989-2.html Linux 虚拟网络设备之 bridge
 
+https://dev.to/mble/installing-latest-neovim-and-lunarvim-on-debian-3cg1#:~:text=Installing%20latest%20Neovim%20and%20LunarVim%20on%20Debian%201,installation%20guide%20to%20get%20the%20latest%20release.%20     Installing latest Neovim and LunarVim on Debian
 
-
-
-
+https://askubuntu.com/questions/376717/how-to-set-up-a-linux-server-as-a-router    How to set up a linux server as a router

@@ -118,66 +118,6 @@ ftp://192.168.137.254:2121
 
 Sgc1161DecryptData
 
-103.85.232.146:1080	SOCKS5	HIA	Bangladesh (Dhaka) !!!	103.85.232.146 (House 1Katasur Ground Floor)	1.016
-50% (181) -	26-may-2021 08:51 (6 mins ago)
-184.178.172.14:4145	SOCKS5	HIA	United States	wsip-184-178-172-14.rn.hr.cox.net (ASN-CXA-ALL-CCI-22773-RDC)	1.17
-96% (223) -	26-may-2021 08:50 (7 mins ago)
-98.178.72.8:4145	SOCKS5	HIA	United States	98.178.72.8 (ASN-CXA-ALL-CCI-22773-RDC)	12.56
-87% (506) -	26-may-2021 08:50 (7 mins ago)
-210.16.73.85:1080	SOCKS5	HIA	Hong Kong !!!	210.16.73.85 (HONG KONG EVERGRANDE ENTERPRISE GROUP CO., LIMITED)	1.348
-20% (24) -	26-may-2021 08:49 (8 mins ago)
-66.135.227.181:4145	SOCKS5	HIA	United States (Honolulu)	66.135.227.181 (SYSTEMMETRICS-1)	1.61
-89% (474) -	26-may-2021 08:49 (8 mins ago)
-72.206.181.103:4145	SOCKS5	HIA	United States	72.206.181.103 (ASN-CXA-ALL-CCI-22773-RDC)	3.277
-86% (367) -	26-may-2021 08:48 (9 mins ago)
-184.185.2.103:4145	SOCKS5	HIA	United States	184.185.2.103 (ASN-CXA-ALL-CCI-22773-RDC)	2.363
-79% (308) -	26-may-2021 08:48 (10 mins ago)
-72.212.63.101:4145	SOCKS5	HIA	United States	ip72-212-63-101.ph.ph.cox.net (ASN-CXA-ALL-CCI-22773-RDC)	3.988
-80% (1353) -	26-may-2021 08:48 (10 mins ago)
-192.111.135.21:4145	SOCKS5	HIA	United States (Los Angeles)	192.111.135.21 (PERFORMIVE)	2.492
-81% (1138) -	26-may-2021 08:46 (12 mins ago)
-184.181.217.204:4145	SOCKS5	HIA	United States	184.181.217.204 (ASN-CXA-ALL-CCI-22773-RDC)	1.998
-95% (484) -	26-may-2021 08:46 (12 mins ago)
-139.162.78.109:1080	SOCKS5	HIA	Japan (Tokyo)	li1558-109.members.linode.com (Linode, LLC)	3.85
-94% (1219) -	26-may-2021 05:50 (3 hours ago)
-192.111.130.2:4145	SOCKS5	HIA	Canada (Toronto)	192.111.130.2 (PERFORMIVE)	1.428
-86% (1304) -	26-may-2021 05:50 (3 hours ago)
-184.181.217.210:4145	SOCKS5	HIA	United States	184.181.217.210 (ASN-CXA-ALL-CCI-22773-RDC)	1.071
-94% (478) -	26-may-2021 05:49 (3 hours ago)
-193.29.187.226:9050	SOCKS5	HIA	Romania !!!	mail.btcmining.uk (THC Projects SRL)	0.567
-7% (31) +	26-may-2021 05:48 (3 hours ago)
-181.5.216.159:1080	SOCKS5	HIA	Argentina (Buenos Aires) !!!	host159.181-5-216.telecom.net.ar (Telecom Argentina S.A.)	9.941
-50% (3) -	26-may-2021 05:48 (3 hours ago)
-72.221.172.203:4145	SOCKS5	HIA	United States	72.221.172.203 (ASN-CXA-ALL-CCI-22773-RDC)	1.921
-82% (503) -	26-may-2021 05:47 (3 hours ago)
-161.35.70.249:1080	SOCKS5	HIA	Germany (Frankfurt am Main)	161.35.70.249 (DIGITALOCEAN-ASN)	1.818
-99% (1183) -	26-may-2021 05:47 (3 hours ago)
-128.199.202.122:1080	SOCKS5	HIA	Singapore (Singapore)	128.199.202.122 (DIGITALOCEAN-ASN)	5.692
-91% (1937) -	26-may-2021 05:42 (3 hours ago)
-88.198.50.103:1080	SOCKS5	HIA	Germany (Munich)	static.88-198-50-103.clients.your-server.de (Hetzner Online GmbH)	0.061
-99% (2092) -	26-may-2021 05:42 (3 hours ago)
-104.238.151.123:1080	SOCKS5	HIA	Japan (Heiwajima)	104.238.151.123.vultr.com (AS-CHOOPA)	3.029
-75% (9) -	26-may-2021 05:41 (3 hours ago)
-159.203.61.169:1080	SOCKS5	HIA	Canada (Toronto)	159.203.61.169 (DIGITALOCEAN-ASN)	1.225
-97% (1320) -	26-may-2021 05:41 (3 hours ago)
-167.71.5.83:1080	SOCKS5	HIA	Netherlands (Amsterdam)	167.71.5.83 (DIGITALOCEAN-ASN)	1.363
-97% (1166) -	26-may-2021 05:41 (3 hours ago)
-181.129.7.202:6699	SOCKS5	HIA	Colombia (Medellín)	adsl-181-129-7-202.une.net.co (EPM Telecomunicaciones S.A. E.S.P.)	2.445
-43% (757) -	26-may-2021 05:40 (3 hours ago)
-176.9.75.42:1080	SOCKS5	HIA	Germany	static.42.75.9.176.clients.your-server.de (Hetzner Online GmbH)	0.053
-99% (2211) -	26-may-2021 05:40 (3 hours ago)
-113.160.188.21:1080	SOCKS5	HIA	VietNam (Hanoi)	static.vnpt.vn (VNPT Corp)	1.207
-44% (1098) -	26-may-2021 05:39 (3 hours ago)
-195.144.21.185:1080	SOCKS5	HIA	Austria (Vienna) !!!	black.host-185.21.144.195.in-addr.arpa (COGENT-174)	0.496
-93% (1532) -	26-may-2021 05:39 (3 hours ago)
-154.16.202.22:1080	SOCKS5	HIA	Germany (Frankfurt am Main)	154.16.202.22 (Digital Energy Technologies Ltd.)	1.073
-99% (1222) -	26-may-2021 05:39 (3 hours ago)
-103.240.161.109:6667	SOCKS5	HIA	India (Patan)	103.240.161.109 (Gujarat Telelink Pvt Ltd)	3.68
-32% (307) -	26-may-2021 05:38 (3 hours ago)
-88.198.24.108:1080	SOCKS5	HIA	Germany	static.88-198-24-108.clients.your-server.de (Hetzner Online GmbH)	0.054
-99% (2162) -	26-may-2021 05:36 (3 hours ago)
-98.184.33.205:4145	SOCKS5	HIA	United States	98.184.33.205 (ASN-CXA-ALL-CCI-22773-RDC)	6.52
-87% (487) -	26-may-2021 05:36 (3 hours ago)
 
 9000+Le+ CerID+Cer+Date+Scer+asKID
 
@@ -329,30 +269,6 @@ git.exe clone --progress -v "https://github.com/stepancheg/rust-protobuf" "D:\my
 --target=TARGET   configure for building compilers for TARGET [HOST]
 
 
-/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/snapshots/gcc-linaro-4.9-2016.02/configure SHELL=/bin/bash
---with-bugurl=https://bugs.linaro.org
---with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
---with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
---with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
---with-gnu-as
---with-gnu-ld
---disable-libstdcxx-pch
---disable-libmudflap
---with-cloog=no
---with-ppl=no --with-isl=no --disable-nls --enable-c99 --with-tune=cortex-a9 --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-multilib
---enable-multiarch
---with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/sysroots/arm-linux-gnueabihf
---enable-lto
---enable-linker-build-id
---enable-long-long --enable-shared --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu/arm-linux-gnueabihf/libc
---enable-languages=c,c++,fortran,lto --enable-checking=release --disable-bootstrap --with-bugurl=https://bugs.linaro.org --build=x86_64-unknown-linux-gnu
---host=x86_64-unknown-linux-gnu
---target=arm-linux-gnueabihf
---prefix=/home/tcwg-buildslave/workspace/tcwg-make-release/label/tcwg-x86_64-ex40/target/arm-linux-gnueabihf/_build/builds/destdir/x86_64-unknown-linux-gnu
-
-
-../gcc-linaro-4.9-2016.02/configure --host=arm-linux-gnueabihf --target=arm-linux-gnueabihf
-
 
 0xb6d1420a
 CheckRealtimeData
@@ -434,22 +350,6 @@ docker exec -it lucid_tu /bin/bash
 FE FE FE FE 68 01 02 03 04 05 06 68 91 6B 35 33 33 39 D3 D3 95 6B 44 54 43 55 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 CC 7C DD 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 DD 33 33 33 33 33 33 33 33 DD 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 DD 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 33 DD 32 32 32 32 32 32 DD 49 18 4B 16
 
 
-
-华为云公开的学习资料:
-https://bbs.huaweicloud.com/forum/thread-21746-1-1.html
-https://bbs.huaweicloud.com/videos/100957   华为容器创建相关的视频
-https://bbs.huaweicloud.com/forum/thread-37308-1-1.html  融合终端送检专题
-http://ec.devcloud.huaweicloud.com/tool
-https://bbs.huaweicloud.com/devcloud
-https://www.huaweicloud.com/product/iot.html
-
-
-华为云网址
-https://iot-dev.huaweicloud.com/#/developer-overview
-https://iot-dev.huaweicloud.com:8843
-用户名  sddky001     密码  1234qwer
-华为公有云---东方电子
-用户名 dfe-df8003d      密码 ytdf000.
 
 docker info --format '{{.LoggingDriver}}'
 docker logs -f --tail 200 c_iot
@@ -586,33 +486,6 @@ buff
 13到14是尾端硬件版本
 
 /usr/bin/ffmpeg -protocol_whitelist "file,crypto,data,http,https,tls,httpproxy,tcp" -i 2e4dcabbc1361a113d3650776b5dc6fe.m3u8  -c:v libx264 -preset ultrafast -crf 10 t2.mp4
-
-
-
-
-
-
-sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-
-
-
-#deb http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse
-#deb-src http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse
-
-# 默认注释了源码镜像以提高 apt update 速度, 如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-security main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-security main restricted universe multiverse
-
-# 预发布软件源, 不建议启用
-# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse
-root@localhost:~#
 
 
 
@@ -911,25 +784,6 @@ ilspy
 遥控2分
 发送报文：AA FF FF 04 00 0B 02 02 91 9E
 接收报文：AA FF FF 04 00 0B 02 02 00 0F
-
-
-
-
-停止看门狗
-e9361app/set/request/e9361esdkapp/version
-{
-	"token": "200513",
-	"timestamp": "2019-05-29T19:05:51.641+0800",
-	"iHardVer": "V1.00.01",
-	"iSoftdVer": "V1.00.07",
-	"eHardVer": "SV01.01",
-	"eSoftdVer": "SV01.007",
-	"runtime_min": 4,
-	"upprogram": 0,
-	"watchdog": 1
-}
-
-
 
 
 
@@ -1254,36 +1108,8 @@ AA FF FF 03 00 06 05 00 00
 类型：L21，厂商：东方电子股份有限公司，型号：E5402，ID：L210E0193093201909260002，硬件版本：HV61%2E01，生产日期：2019年09月26日。
 
 
-402??2IDL0E3093201909260001272???????????????HV 012???2??2??????????2019227092??26????62?
-
 L210E0193093201909260001
 
-/bin/boa&
-/bin/mosquitto -v -c /etc/mosquitto.conf&
-/home/sysadm/src/e9361app>/dev/null&
-/home/sysadm/src/e9361esdkapp>/dev/null&
-exit 0
-
-/bin/boa&
-/bin/mosquitto -v -c /etc/mosquitto.conf&
-/home/sysadm/src/e9361app>/dev/null&
-/home/sysadm/src/e9361esdkapp>/dev/null&
-exit 0
-
-/bin/boa&
-/bin/mosquitto&
-/home/sysadm/src/e9361app>/dev/null&
-/home/sysadm/src/e9361esdkapp>/dev/null&
-exit 0
-
-
-
-/bin/boa&
-/bin/mosquitto&
-/home/sysadm/src/e9361app>/dev/null&
-/home/sysadm/src/e9361esdkapp>/dev/null&
-/bin/mosquitto&
-exit 0
 
 
 
@@ -1490,14 +1316,6 @@ mount -t nfs -o nolock 192.168.31.108:/home/floyd/opt /nfs
 08:34:16.469  接收报文：AA FF FF 03 00 04 30 11 26
 
 
-pa0W89U6-UB056hz7-8m1bMn64
-l0v78G4s-3186Ojqx-xr1325Al
-76aFK1b5-VTu7p134-8DOac396
-57j0I9Ec-B4a5c7S2-f72R9B4A
-x6th075D-kj9X0p28-574p6Rbe
-915Th4qJ-p9n763GA-5o0w28nr
-B3Kg864c-o1Hr3w80-EK8p05T2
-Up4T785Q-32z45DXj-2Ck98GT7
 
 Codeium
 https://marketplace.eclipse.org/marketplace-client-intro?mpc_install=5630287
@@ -1535,7 +1353,7 @@ E9361-B0
 
 王海波，联系方式: 18611976658。
 
-   ip tunnel add tun0  mode gre remote 10.112.110.67 local 113.126.102.79  ttl 255
+ip tunnel add tun0  mode gre remote 10.112.110.67 local 113.126.102.79  ttl 255
 
 
 10.100.111.1
@@ -1563,74 +1381,12 @@ Sep 20 09:56:49 SCT230A security_proxy_bin[2601]: [INFO] B Master send len=13  E
 
 
 
-postgresql-sequential-uuids-1.0.2-r0
-postgresql-uint-1.20220601-r0
-postgresql-uint-bitcode-1.20220601-r0
-postmarketos-base-ui-gnome-2-r0
-postmarketos-base-ui-openrc-settingsd-14-r0
-postmarketos-base-ui-qt-tweaks-14-r0
-postmarketos-base-ui-qt-wayland-14-r0
-postmarketos-base-ui-tinydm-14-r0
-postmarketos-base-ui-x11-14-r0
-postmarketos-ui-phosh-22.3-r1
-
-apk add linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison openjdk-18-jdk openjdk-11-jdk openssh-server net-tools
-
-SELECT *
-  FROM 连云港_simplettu01
- WHERE timestamp > datetime('2023-10-10 16:30:32.332') and timestamp < datetime('2023-10-10 20:30:32.332');
 
 
 个人远程桌面IP 8.130.115.4      内网IP 172.20.34.54   255.255.240.0  172.20.34.54
-USER:   administrator                    PASSWD:   Tiger@5511283
+USER:   adm
 
-for (int i = 0; i < 100; i++)
-{
-	PhoneService_OneDev dev = new PhoneService_OneDev
-	{
-		DeviceName = "simplettu001",
-		TotalOnLineDev = 100,
-		Status = true,
-		ProductName = "E9361-C0",
-		PosInfo = "连云港",
-		dotNetPhone_WebServices = new List<DotNetPhoneWebService>()
-	};
 
-	for (int j = 0; j < 300; j++)
-	{
-		dev.dotNetPhone_WebServices.Add(new DotNetPhoneWebService
-		{
-			DataItemIsEnable = true,
-			data_type = j,
-			ModeName = "PhV_phsA",
-			GetVal = 1.0f,
-			PreGetVal = 221.111f + j,
-			Name_desc = $"{j}相电压",
-			Timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.FFF")
-		});
-	}
-
-	m_RtdbDataDic.Add($"连云港_simplettu{i}", dev);
-}
-
-SQLiteConnection.CreateFile("MyDatabase.sqlite");
-
-GetOneDevCurveDataByModeName
-
-ERROR: modpost: "__ClearPageMovable" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "kmalloc_caches" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "kmalloc_trace" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "kfree" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "unregister_shrinker" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "kmem_cache_destroy" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "kstrdup" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "kmem_cache_create" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "register_shrinker" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "unlock_page" [mm/zsmalloc.ko] undefined!
-WARNING: modpost: suppressed 1252 unresolved symbol warnings because there were too many)
-make[2]: *** [scripts/Makefile.modpost:144：Module.symvers] 错误 1
-make[1]: *** [/home/mobian/soft/linux-6.5.9/Makefile:1986：modpost] 错误 2
-make: *** [Makefile:234：__sub-make] 错误 2
 
 1. 企业标准(参考标准), 企标高于行标
 
@@ -1662,8 +1418,8 @@ sc.exe delete ".NET Joke Service"
 
 postbuildStep="arm-linux-gnueabihf-strip e9361app"
 
-
-\accesschk.exe -osv > objects.txt
+#查看Windows共享内存
+accesschk.exe -osv > objects.txt
 
 
 青岛港QQCTU主站地址:
@@ -1702,21 +1458,144 @@ reboot
 ip link
 
 
-#启动gre隧道. 创建了一个名为 atb 的灰色隧道设备，并将其远程地址设置为192.168.9.166。隧道数据包将来自 192.168.0.231（本地IP地址），并且它们的TTL字段将被设置为255。隧道设备被分配IP地址10.10.10.1和netmask 255.255.255.0。
-ip tunnel add atb mode gre remote 192.168.0.239 local 192.168.0.231 ttl 255
-ip link set atb up
-ip addr add 10.10.10.1/24 dev atb
+#启动gre隧道. 创建了一个名为 tunnel0 的灰色隧道设备，并将其远程地址设置为192.168.9.166。隧道数据包将来自 192.168.0.231（本地IP地址），并且它们的TTL字段将被设置为255。隧道设备被分配IP地址10.10.10.1和netmask 255.255.255.0。
+ip tunnel add tunnel0 mode gre remote 172.20.43.183 local 172.20.43.68 ttl 255 dev eth0
+ip link set tunnel0 up
+ip addr add 172.16.33.2/24 dev tunnel0
+ip route add 192.168.71.0/24 dev tunnel0
+
+#添加指向隧道接口的路由以引导流量进入隧道
+ip route add 10.10.10.1/32 dev tunnel0
+ip route add 172.16.20.20/32 dev tunnel0
 
 #另一台主机gre隧道设置
-ip tunnel add atb mode gre remote 192.168.0.231 local 192.168.0.239 ttl 255
-ip link set atb up
-ip addr add 10.10.10.2/24 dev atb
+ip tunnel add tunnel0 mode gre remote 172.20.43.68 local 172.20.43.183 ttl 255 dev eth0
+ip link set tunnel0 up
+ip addr add 172.16.33.1/24 dev tunnel0
+
+#开启转发
+#或者 echo "net.ipv4.ip_forward = 1">/etc/sysctl.conf, 这样开机自动开启转发
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-ping 10.10.10.1
+#查看是否开启转发
+cat /proc/sys/net/ipv4/ip_forward
 
-ip link del atb
+#添加到192.168.2.0网络的路由转发
+ip route add 192.168.2.0/24 dev tunnel0
+
+#C0测试链路是否通畅
+ping -c3 -I 172.16.33.1 172.16.33.2
+ping -c3 -I 192.168.71.1 192.168.2.1
+
+#windows测试链路是否通畅
+ping -t -S 192.168.71.239 192.168.2.135
+
+# /etc/network/interfaces -- configuration file for ifup(8), ifdown(8)
+
+# The loopback interface
+auto lo
+iface lo inet loopback
+
+# Wireless interfaces
+iface wlan0 inet dhcp
+        wireless_mode managed
+        wireless_essid any
+        wpa-driver wext
+        wpa-conf /etc/wpa_supplicant.conf
+
+iface atml0 inet dhcp
+
+# Wired or wireless interfaces
+auto eth0
+#iface eth0 inet dhcp
+#iface eth1 inet dhcp
+iface eth0 inet static
+address 172.20.43.183
+netmask 255.255.252.0
+gateway 172.20.40.1
+broadcast 172.20.43.255
+
+auto eth1
+iface eth1 inet static
+address 192.168.71.1
+netmask 255.255.255.0
+broadcast 192.168.71.255
+network 192.168.71.0
+
+# Ethernet/RNDIS gadget (g_ether)
+# ... or on host side, usbnet and random hwaddr
+iface usb0 inet static
+        address 192.168.7.2
+        netmask 255.255.255.0
+        network 192.168.7.0
+        gateway 192.168.7.1
+
+# Bluetooth networking
+iface bnep0 inet dhcp
 
 
+### 下面的命令无用 start ###
+route add -net 192.168.2.0 netmask 255.255.255.0 gw 172.16.33.1 dev tunnel0
 
+route add -net 192.168.2.0 netmask 255.255.255.0 dev tunnel0
+
+iptables -t nat -A POSTROUTING -s 192.168.71.0/24 -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 192.168.71.0/24 -o tunnel0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT
+iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+### 下面的命令无用 end ###
+
+ip link del tunnel0
+
+
+#删除所有配置文件
 rm /data/app/e9361app/root/para/*
+
+#Windows 网络配置
+Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : ASIX AX88179A USB 3.2 Gen1 to Gigabit Ethernet Adapter
+   Physical Address. . . . . . . . . : 08-26-AE-3B-D6-B5
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::eae8:ded9:952e:c3c%20(Preferred)
+   IPv4 Address. . . . . . . . . . . : 172.20.43.180(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.252.0
+   IPv4 Address. . . . . . . . . . . : 192.168.0.127(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 192.168.1.127(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 192.168.21.126(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 192.168.31.127(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 192.168.71.239(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 192.168.80.233(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 192.168.100.233(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : 192.168.127.127(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 172.20.40.1+
+   DHCPv6 IAID . . . . . . . . . . . : 1040721582
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2A-61-81-E3-00-2B-67-97-A7-D6
+   DNS Servers . . . . . . . . . . . : fec0:0:0:ffff::1%1
+                                       fec0:0:0:ffff::2%1
+                                       fec0:0:0:ffff::3%1
+                                       fec0:0:0:ffff::1%1
+                                       fec0:0:0:ffff::2%1
+                                       fec0:0:0:ffff::3%1
+                                       fec0:0:0:ffff::1%1
+                                       fec0:0:0:ffff::2%1
+                                       fec0:0:0:ffff::3%1
+                                       fec0:0:0:ffff::1%1
+                                       fec0:0:0:ffff::2%1
+                                       fec0:0:0:ffff::3%1
+                                       192.168.50.212
+                                       8.8.8.8
+                                       192.168.50.212
+                                       8.8.8.8
+                                       192.168.50.212
+                                       202.102.152.3
