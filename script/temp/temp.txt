@@ -1553,6 +1553,7 @@ ip link del tunnel0
 #删除所有配置文件
 rm /data/app/e9361app/root/para/*
 
+
 #Windows 网络配置
 Connection-specific DNS Suffix  . :
    Description . . . . . . . . . . . : ASIX AX88179A USB 3.2 Gen1 to Gigabit Ethernet Adapter
@@ -1599,3 +1600,25 @@ Connection-specific DNS Suffix  . :
                                        8.8.8.8
                                        192.168.50.212
                                        202.102.152.3
+
+
+#vnc server
+#!/bin/sh
+unset DBUS_SESSION_BUS_ADDRESS
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+x-window-manager &
+mate-session &
+
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+mate-session &
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+x-window-manager &
+
+
