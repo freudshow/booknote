@@ -1623,7 +1623,25 @@ tigervncserver -kill :1
 
 vncserver -localhost no -geometry 2160x1440 -depth 24 -name remote-desktop :1
 
-vncserver -geometry 1920x1080 -depth 24 -name remote-desktop :1
+vncserver -localhost no -geometry 1920x1080 -depth 24 -name remote-desktop :1
 
-
+#列出当前正在运行的服务
 systemctl list-units --type=service --state=running
+
+#修复不能安装的包
+sudo dpkg -i --force-overwrite graphviz_2.42.2-7+b3_arm64.deb
+
+#系统默认进入纯文本模式
+sudo systemctl set-default multi-user.target
+
+#系统默认启用图形界面
+sudo systemctl set-default graphical.target
+
+#mobian运行vncserver
+在手机上安装wayvnc:  sudo apt install -y wayvnc
+在手机上运行:  wayvnc localhost 5901
+在windows上运行: ssh -L 5901:localhost:5901 mobian@mobian
+再用RealVncViewer打开: localhost:5901 即可
+
+#安装交叉工具链
+sudo apt install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
