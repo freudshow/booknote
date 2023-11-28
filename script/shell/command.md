@@ -923,3 +923,21 @@ deb-src http://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main multiverse 
 onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
 <--不要心慈手软，直接删除后保存即可。-->
 ```
+
+## 新建`eclipse`启动图标
+
+在目录`~/.local/share/applications`中新建文件`eclipse.desktop`, 文件内容如下:
+
+```
+[Desktop Entry]
+Name=eclipse
+Comment=Run eclipse embedded C/C++
+Exec=/home/floyd/soft/eclipse/eclipse
+Terminal=false
+Type=Application
+Icon=/home/floyd/soft/eclipse/icon.xpm
+StartupNotify=true
+MimeType=application/x-ipynb+json;
+Categories=Development;Education;
+Keywords=eclipse;
+```

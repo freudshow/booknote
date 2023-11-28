@@ -1645,3 +1645,8 @@ sudo systemctl set-default graphical.target
 
 #安装交叉工具链
 sudo apt install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+
+
+
+
+
