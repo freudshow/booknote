@@ -1647,6 +1647,8 @@ sudo systemctl set-default graphical.target
 sudo apt install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 
 
-
+xV_PCF
+Zero-Crossing Detection
+RMS Calibration
 
 
