@@ -1,0 +1,3618 @@
+{
+  "Pad": {
+    "TotalYcCount": 301,
+    "TotalYxCount": 84,
+    "TotalYkCount": 0,
+    "TotalDDCount": 11,
+    "TotalParameterCount": 0,
+    "YcRatioEnable": 1,
+    "RecordingYkOpera": 0,
+    "LinkAddr": 1,
+    "SingleORDoubleInit": 0,
+    "LinkAddrLen": 2,
+    "VsqLen": 1,
+    "coTlen": 2,
+    "AsduLen": 2,
+    "InfoAddrLen": 3,
+    "YxType": 1,
+    "YcType": 13,
+    "DdType": 206,
+    "YkType": 45,
+    "T0TimeOut": 30,
+    "T1TimeOut": 30,
+    "T2TimeOut": 12,
+    "T3TimeOut": 20,
+    "k": 12,
+    "w": 8,
+    "baseyear": 2000,
+    "alldatainterval": 0,
+    "allddinterval": 0,
+    "setclockinterval": 0,
+    "testlinkinterval": 0,
+    "encrypt": 0,
+    "sendcos": 1,
+    "BackScan": 0,
+    "ThreadAfterSndDelayms": 100,
+    "ThreadAfterRcvDelayms": 100
+  },
+  "ParaInstruction": "v0.1运用园区",
+  "Para": [
+    {
+      "SN": 0,
+      "Running_info": [],
+      "Actionfixed_info": []
+    }
+  ],
+  "FaultEventSubmission": [],
+  "YCDataItem": [
+    {
+      "No": 0,
+      "Name": "设备[1]-设备[1]-光照-实时库号[285]-实时库号[492]",
+      "Unit": null,
+      "Addr": 16385,
+      "Xishu": 1.0,
+      "RealDevNo": 492,
+      "type": 1
+    },
+    {
+      "No": 1,
+      "Name": "设备[1]-设备[2]-总辐射1-实时库号[607]-实时库号[493]",
+      "Unit": null,
+      "Addr": 16386,
+      "Xishu": 1.0,
+      "RealDevNo": 493,
+      "type": 1
+    },
+    {
+      "No": 2,
+      "Name": "设备[1]-设备[1]-温度1-实时库号[606]-实时库号[494]",
+      "Unit": null,
+      "Addr": 16387,
+      "Xishu": 1.0,
+      "RealDevNo": 494,
+      "type": 1
+    },
+    {
+      "No": 3,
+      "Name": "设备[1]-设备[1]-湿度-实时库号[605]-实时库号[495]",
+      "Unit": null,
+      "Addr": 16388,
+      "Xishu": 1.0,
+      "RealDevNo": 495,
+      "type": 1
+    },
+    {
+      "No": 4,
+      "Name": "设备[1]-设备[2]-大气压-实时库号[289]-实时库号[496]",
+      "Unit": null,
+      "Addr": 16389,
+      "Xishu": 1.0,
+      "RealDevNo": 496,
+      "type": 1
+    },
+    {
+      "No": 5,
+      "Name": "设备[1]-设备[2]-噪声-实时库号[290]-实时库号[497]",
+      "Unit": null,
+      "Addr": 16390,
+      "Xishu": 1.0,
+      "RealDevNo": 497,
+      "type": 1
+    },
+    {
+      "No": 6,
+      "Name": "设备[1]-设备[3]-背板温度-实时库号[608]-实时库号[498]",
+      "Unit": null,
+      "Addr": 16391,
+      "Xishu": 1.0,
+      "RealDevNo": 498,
+      "type": 1
+    },
+    {
+      "No": 7,
+      "Name": "设备[1]-设备[2]- 海拔高度-实时库号[292]-实时库号[499]",
+      "Unit": null,
+      "Addr": 16392,
+      "Xishu": 1.0,
+      "RealDevNo": 499,
+      "type": 1
+    },
+    {
+      "No": 8,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16393,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 9,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16394,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 10,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16395,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 11,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16396,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 12,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16397,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 13,
+      "Name": "设备[1]-设备[3]-PV1电压-实时库号[293]-实时库号[500]",
+      "Unit": null,
+      "Addr": 16398,
+      "Xishu": 1.0,
+      "RealDevNo": 500,
+      "type": 1
+    },
+    {
+      "No": 14,
+      "Name": "设备[1]-设备[3]-PV1电流-实时库号[294]-实时库号[501]",
+      "Unit": null,
+      "Addr": 16399,
+      "Xishu": 1.0,
+      "RealDevNo": 501,
+      "type": 1
+    },
+    {
+      "No": 15,
+      "Name": "设备[1]-设备[3]-PV2电压-实时库号[295]-实时库号[502]",
+      "Unit": null,
+      "Addr": 16400,
+      "Xishu": 1.0,
+      "RealDevNo": 502,
+      "type": 1
+    },
+    {
+      "No": 16,
+      "Name": "设备[1]-设备[3]-PV2电流-实时库号[296]-实时库号[503]",
+      "Unit": null,
+      "Addr": 16401,
+      "Xishu": 1.0,
+      "RealDevNo": 503,
+      "type": 1
+    },
+    {
+      "No": 17,
+      "Name": "设备[1]-设备[3]-PV3电压-实时库号[297]-实时库号[504]",
+      "Unit": null,
+      "Addr": 16402,
+      "Xishu": 1.0,
+      "RealDevNo": 504,
+      "type": 1
+    },
+    {
+      "No": 18,
+      "Name": "设备[1]-设备[3]-PV3电流-实时库号[298]-实时库号[505]",
+      "Unit": null,
+      "Addr": 16403,
+      "Xishu": 1.0,
+      "RealDevNo": 505,
+      "type": 1
+    },
+    {
+      "No": 19,
+      "Name": "设备[1]-设备[3]-PV4电压-实时库号[299]-实时库号[506]",
+      "Unit": null,
+      "Addr": 16404,
+      "Xishu": 1.0,
+      "RealDevNo": 506,
+      "type": 1
+    },
+    {
+      "No": 20,
+      "Name": "设备[1]-设备[3]-PV4电流-实时库号[300]-实时库号[507]",
+      "Unit": null,
+      "Addr": 16405,
+      "Xishu": 1.0,
+      "RealDevNo": 507,
+      "type": 1
+    },
+    {
+      "No": 21,
+      "Name": "设备[1]-设备[3]-PV5电压-实时库号[301]-实时库号[508]",
+      "Unit": null,
+      "Addr": 16406,
+      "Xishu": 1.0,
+      "RealDevNo": 508,
+      "type": 1
+    },
+    {
+      "No": 22,
+      "Name": "设备[1]-设备[3]-PV5电流-实时库号[302]-实时库号[509]",
+      "Unit": null,
+      "Addr": 16407,
+      "Xishu": 1.0,
+      "RealDevNo": 509,
+      "type": 1
+    },
+    {
+      "No": 23,
+      "Name": "设备[1]-设备[3]-PV6电压-实时库号[303]-实时库号[510]",
+      "Unit": null,
+      "Addr": 16408,
+      "Xishu": 1.0,
+      "RealDevNo": 510,
+      "type": 1
+    },
+    {
+      "No": 24,
+      "Name": "设备[1]-设备[3]-PV6电流-实时库号[304]-实时库号[511]",
+      "Unit": null,
+      "Addr": 16409,
+      "Xishu": 1.0,
+      "RealDevNo": 511,
+      "type": 1
+    },
+    {
+      "No": 25,
+      "Name": "设备[1]-设备[3]-PV7电压-实时库号[305]-实时库号[512]",
+      "Unit": null,
+      "Addr": 16410,
+      "Xishu": 1.0,
+      "RealDevNo": 512,
+      "type": 1
+    },
+    {
+      "No": 26,
+      "Name": "设备[1]-设备[3]-PV7电流-实时库号[306]-实时库号[513]",
+      "Unit": null,
+      "Addr": 16411,
+      "Xishu": 1.0,
+      "RealDevNo": 513,
+      "type": 1
+    },
+    {
+      "No": 27,
+      "Name": "设备[1]-设备[3]-PV8电压-实时库号[307]-实时库号[514]",
+      "Unit": null,
+      "Addr": 16412,
+      "Xishu": 1.0,
+      "RealDevNo": 514,
+      "type": 1
+    },
+    {
+      "No": 28,
+      "Name": "设备[1]-设备[3]-PV8电流-实时库号[308]-实时库号[515]",
+      "Unit": null,
+      "Addr": 16413,
+      "Xishu": 1.0,
+      "RealDevNo": 515,
+      "type": 1
+    },
+    {
+      "No": 29,
+      "Name": "设备[1]-设备[3]-PV9电压-实时库号[309]-实时库号[516]",
+      "Unit": null,
+      "Addr": 16414,
+      "Xishu": 1.0,
+      "RealDevNo": 516,
+      "type": 1
+    },
+    {
+      "No": 30,
+      "Name": "设备[1]-设备[3]-PV9电流-实时库号[310]-实时库号[517]",
+      "Unit": null,
+      "Addr": 16415,
+      "Xishu": 1.0,
+      "RealDevNo": 517,
+      "type": 1
+    },
+    {
+      "No": 31,
+      "Name": "设备[1]-设备[3]-PV10电压-实时库号[311]-实时库号[518]",
+      "Unit": null,
+      "Addr": 16416,
+      "Xishu": 1.0,
+      "RealDevNo": 518,
+      "type": 1
+    },
+    {
+      "No": 32,
+      "Name": "设备[1]-设备[3]-PV10电流-实时库号[312]-实时库号[519]",
+      "Unit": null,
+      "Addr": 16417,
+      "Xishu": 1.0,
+      "RealDevNo": 519,
+      "type": 1
+    },
+    {
+      "No": 33,
+      "Name": "设备[1]-设备[3]-PV11电压-实时库号[313]-实时库号[520]",
+      "Unit": null,
+      "Addr": 16418,
+      "Xishu": 1.0,
+      "RealDevNo": 520,
+      "type": 1
+    },
+    {
+      "No": 34,
+      "Name": "设备[1]-设备[3]-PV11电流-实时库号[314]-实时库号[521]",
+      "Unit": null,
+      "Addr": 16419,
+      "Xishu": 1.0,
+      "RealDevNo": 521,
+      "type": 1
+    },
+    {
+      "No": 35,
+      "Name": "设备[1]-设备[3]-PV12电压-实时库号[315]-实时库号[522]",
+      "Unit": null,
+      "Addr": 16420,
+      "Xishu": 1.0,
+      "RealDevNo": 522,
+      "type": 1
+    },
+    {
+      "No": 36,
+      "Name": "设备[1]-设备[3]-PV12电流-实时库号[316]-实时库号[523]",
+      "Unit": null,
+      "Addr": 16421,
+      "Xishu": 1.0,
+      "RealDevNo": 523,
+      "type": 1
+    },
+    {
+      "No": 37,
+      "Name": "设备[1]-设备[3]-PV13电压-实时库号[317]-实时库号[524]",
+      "Unit": null,
+      "Addr": 16422,
+      "Xishu": 1.0,
+      "RealDevNo": 524,
+      "type": 1
+    },
+    {
+      "No": 38,
+      "Name": "设备[1]-设备[3]-PV13电流-实时库号[318]-实时库号[525]",
+      "Unit": null,
+      "Addr": 16423,
+      "Xishu": 1.0,
+      "RealDevNo": 525,
+      "type": 1
+    },
+    {
+      "No": 39,
+      "Name": "设备[1]-设备[3]-PV14电压-实时库号[319]-实时库号[526]",
+      "Unit": null,
+      "Addr": 16424,
+      "Xishu": 1.0,
+      "RealDevNo": 526,
+      "type": 1
+    },
+    {
+      "No": 40,
+      "Name": "设备[1]-设备[3]-PV14电流-实时库号[320]-实时库号[527]",
+      "Unit": null,
+      "Addr": 16425,
+      "Xishu": 1.0,
+      "RealDevNo": 527,
+      "type": 1
+    },
+    {
+      "No": 41,
+      "Name": "设备[1]-设备[3]-PV15电压-实时库号[321]-实时库号[528]",
+      "Unit": null,
+      "Addr": 16426,
+      "Xishu": 1.0,
+      "RealDevNo": 528,
+      "type": 1
+    },
+    {
+      "No": 42,
+      "Name": "设备[1]-设备[3]-PV15电流-实时库号[322]-实时库号[529]",
+      "Unit": null,
+      "Addr": 16427,
+      "Xishu": 1.0,
+      "RealDevNo": 529,
+      "type": 1
+    },
+    {
+      "No": 43,
+      "Name": "设备[1]-设备[3]-PV16电压-实时库号[323]-实时库号[530]",
+      "Unit": null,
+      "Addr": 16428,
+      "Xishu": 1.0,
+      "RealDevNo": 530,
+      "type": 1
+    },
+    {
+      "No": 44,
+      "Name": "设备[1]-设备[3]-PV16电流-实时库号[324]-实时库号[531]",
+      "Unit": null,
+      "Addr": 16429,
+      "Xishu": 1.0,
+      "RealDevNo": 531,
+      "type": 1
+    },
+    {
+      "No": 45,
+      "Name": "设备[1]-设备[3]-PV17电压-实时库号[325]-实时库号[532]",
+      "Unit": null,
+      "Addr": 16430,
+      "Xishu": 1.0,
+      "RealDevNo": 532,
+      "type": 1
+    },
+    {
+      "No": 46,
+      "Name": "设备[1]-设备[3]-PV17电流-实时库号[326]-实时库号[533]",
+      "Unit": null,
+      "Addr": 16431,
+      "Xishu": 1.0,
+      "RealDevNo": 533,
+      "type": 1
+    },
+    {
+      "No": 47,
+      "Name": "设备[1]-设备[3]-PV18电压-实时库号[327]-实时库号[534]",
+      "Unit": null,
+      "Addr": 16432,
+      "Xishu": 1.0,
+      "RealDevNo": 534,
+      "type": 1
+    },
+    {
+      "No": 48,
+      "Name": "设备[1]-设备[3]-PV18电流-实时库号[328]-实时库号[535]",
+      "Unit": null,
+      "Addr": 16433,
+      "Xishu": 1.0,
+      "RealDevNo": 535,
+      "type": 1
+    },
+    {
+      "No": 49,
+      "Name": "设备[1]-设备[3]-PV19电压-实时库号[329]-实时库号[536]",
+      "Unit": null,
+      "Addr": 16434,
+      "Xishu": 1.0,
+      "RealDevNo": 536,
+      "type": 1
+    },
+    {
+      "No": 50,
+      "Name": "设备[1]-设备[3]-PV19电流-实时库号[330]-实时库号[537]",
+      "Unit": null,
+      "Addr": 16435,
+      "Xishu": 1.0,
+      "RealDevNo": 537,
+      "type": 1
+    },
+    {
+      "No": 51,
+      "Name": "设备[1]-设备[3]-PV20电压-实时库号[331]-实时库号[538]",
+      "Unit": null,
+      "Addr": 16436,
+      "Xishu": 1.0,
+      "RealDevNo": 538,
+      "type": 1
+    },
+    {
+      "No": 52,
+      "Name": "设备[1]-设备[3]-PV20电流-实时库号[332]-实时库号[539]",
+      "Unit": null,
+      "Addr": 16437,
+      "Xishu": 1.0,
+      "RealDevNo": 539,
+      "type": 1
+    },
+    {
+      "No": 53,
+      "Name": "设备[1]-设备[3]-输入功率-实时库号[333]-实时库号[540]",
+      "Unit": null,
+      "Addr": 16438,
+      "Xishu": 1.0,
+      "RealDevNo": 540,
+      "type": 1
+    },
+    {
+      "No": 54,
+      "Name": "设备[1]-设备[3]-AB线电压-实时库号[334]-实时库号[541]",
+      "Unit": null,
+      "Addr": 16439,
+      "Xishu": 1.0,
+      "RealDevNo": 541,
+      "type": 1
+    },
+    {
+      "No": 55,
+      "Name": "设备[1]-设备[3]-BC线电压-实时库号[335]-实时库号[542]",
+      "Unit": null,
+      "Addr": 16440,
+      "Xishu": 1.0,
+      "RealDevNo": 542,
+      "type": 1
+    },
+    {
+      "No": 56,
+      "Name": "设备[1]-设备[3]-CA线电压 -实时库号[336]-实时库号[543]",
+      "Unit": null,
+      "Addr": 16441,
+      "Xishu": 1.0,
+      "RealDevNo": 543,
+      "type": 1
+    },
+    {
+      "No": 57,
+      "Name": "设备[1]-设备[3]-电网A相电压 -实时库号[337]-实时库号[544]",
+      "Unit": null,
+      "Addr": 16442,
+      "Xishu": 1.0,
+      "RealDevNo": 544,
+      "type": 1
+    },
+    {
+      "No": 58,
+      "Name": "设备[1]-设备[3]-电网B相电压-实时库号[338]-实时库号[545]",
+      "Unit": null,
+      "Addr": 16443,
+      "Xishu": 1.0,
+      "RealDevNo": 545,
+      "type": 1
+    },
+    {
+      "No": 59,
+      "Name": "设备[1]-设备[3]-电网C相电压-实时库号[339]-实时库号[546]",
+      "Unit": null,
+      "Addr": 16444,
+      "Xishu": 1.0,
+      "RealDevNo": 546,
+      "type": 1
+    },
+    {
+      "No": 60,
+      "Name": "设备[1]-设备[3]-A相电流-实时库号[340]-实时库号[547]",
+      "Unit": null,
+      "Addr": 16445,
+      "Xishu": 1.0,
+      "RealDevNo": 547,
+      "type": 1
+    },
+    {
+      "No": 61,
+      "Name": "设备[1]-设备[3]-B相电流-实时库号[341]-实时库号[548]",
+      "Unit": null,
+      "Addr": 16446,
+      "Xishu": 1.0,
+      "RealDevNo": 548,
+      "type": 1
+    },
+    {
+      "No": 62,
+      "Name": "设备[1]-设备[3]-C相电流 -实时库号[342]-实时库号[549]",
+      "Unit": null,
+      "Addr": 16447,
+      "Xishu": 1.0,
+      "RealDevNo": 549,
+      "type": 1
+    },
+    {
+      "No": 63,
+      "Name": "设备[1]-设备[3]-当天峰值有功-实时库号[343]-实时库号[550]",
+      "Unit": null,
+      "Addr": 16448,
+      "Xishu": 1.0,
+      "RealDevNo": 550,
+      "type": 1
+    },
+    {
+      "No": 64,
+      "Name": "设备[1]-设备[3]-有功功率-实时库号[344]-实时库号[551]",
+      "Unit": null,
+      "Addr": 16449,
+      "Xishu": 1.0,
+      "RealDevNo": 551,
+      "type": 1
+    },
+    {
+      "No": 65,
+      "Name": "设备[1]-设备[3]-无功功率-实时库号[345]-实时库号[552]",
+      "Unit": null,
+      "Addr": 16450,
+      "Xishu": 1.0,
+      "RealDevNo": 552,
+      "type": 1
+    },
+    {
+      "No": 66,
+      "Name": "设备[1]-设备[3]-功率因数-实时库号[346]-实时库号[553]",
+      "Unit": null,
+      "Addr": 16451,
+      "Xishu": 1.0,
+      "RealDevNo": 553,
+      "type": 1
+    },
+    {
+      "No": 67,
+      "Name": "设备[1]-设备[3]-电网频率-实时库号[347]-实时库号[554]",
+      "Unit": null,
+      "Addr": 16452,
+      "Xishu": 1.0,
+      "RealDevNo": 554,
+      "type": 1
+    },
+    {
+      "No": 68,
+      "Name": "设备[1]-设备[3]-效率-实时库号[348]-实时库号[555]",
+      "Unit": null,
+      "Addr": 16453,
+      "Xishu": 1.0,
+      "RealDevNo": 555,
+      "type": 1
+    },
+    {
+      "No": 69,
+      "Name": "设备[1]-设备[3]-内部温度-实时库号[349]-实时库号[556]",
+      "Unit": null,
+      "Addr": 16454,
+      "Xishu": 1.0,
+      "RealDevNo": 556,
+      "type": 1
+    },
+    {
+      "No": 70,
+      "Name": "设备[1]-设备[3]-绝缘阻抗值-实时库号[350]-实时库号[557]",
+      "Unit": null,
+      "Addr": 16455,
+      "Xishu": 1.0,
+      "RealDevNo": 557,
+      "type": 1
+    },
+    {
+      "No": 71,
+      "Name": "设备[1]-设备[3]-开机时间-实时库号[351]-实时库号[558]",
+      "Unit": null,
+      "Addr": 16456,
+      "Xishu": 1.0,
+      "RealDevNo": 558,
+      "type": 1
+    },
+    {
+      "No": 72,
+      "Name": "设备[1]-设备[3]-关机时间-实时库号[352]-实时库号[559]",
+      "Unit": null,
+      "Addr": 16457,
+      "Xishu": 1.0,
+      "RealDevNo": 559,
+      "type": 1
+    },
+    {
+      "No": 73,
+      "Name": "设备[1]-设备[3]-累计发电量-实时库号[353]-实时库号[560]",
+      "Unit": null,
+      "Addr": 16458,
+      "Xishu": 1.0,
+      "RealDevNo": 560,
+      "type": 1
+    },
+    {
+      "No": 74,
+      "Name": "设备[1]-设备[3]-当日发电量-实时库号[354]-实时库号[561]",
+      "Unit": null,
+      "Addr": 16459,
+      "Xishu": 1.0,
+      "RealDevNo": 561,
+      "type": 1
+    },
+    {
+      "No": 75,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16460,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 76,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16461,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 77,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16462,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 78,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16463,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 79,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16464,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 80,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16465,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 81,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16466,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 82,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16467,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 83,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16468,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 84,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16469,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 85,
+      "Name": "设备[1]-设备[4]-PV1电压-实时库号[371]-实时库号[562]",
+      "Unit": null,
+      "Addr": 16470,
+      "Xishu": 1.0,
+      "RealDevNo": 562,
+      "type": 1
+    },
+    {
+      "No": 86,
+      "Name": "设备[1]-设备[4]-PV1电流-实时库号[372]-实时库号[563]",
+      "Unit": null,
+      "Addr": 16471,
+      "Xishu": 1.0,
+      "RealDevNo": 563,
+      "type": 1
+    },
+    {
+      "No": 87,
+      "Name": "设备[1]-设备[4]-PV2电压-实时库号[373]-实时库号[564]",
+      "Unit": null,
+      "Addr": 16472,
+      "Xishu": 1.0,
+      "RealDevNo": 564,
+      "type": 1
+    },
+    {
+      "No": 88,
+      "Name": "设备[1]-设备[4]-PV2电流-实时库号[374]-实时库号[565]",
+      "Unit": null,
+      "Addr": 16473,
+      "Xishu": 1.0,
+      "RealDevNo": 565,
+      "type": 1
+    },
+    {
+      "No": 89,
+      "Name": "设备[1]-设备[4]-PV3电压-实时库号[375]-实时库号[566]",
+      "Unit": null,
+      "Addr": 16474,
+      "Xishu": 1.0,
+      "RealDevNo": 566,
+      "type": 1
+    },
+    {
+      "No": 90,
+      "Name": "设备[1]-设备[4]-PV3电流-实时库号[376]-实时库号[567]",
+      "Unit": null,
+      "Addr": 16475,
+      "Xishu": 1.0,
+      "RealDevNo": 567,
+      "type": 1
+    },
+    {
+      "No": 91,
+      "Name": "设备[1]-设备[4]-PV4电压-实时库号[377]-实时库号[568]",
+      "Unit": null,
+      "Addr": 16476,
+      "Xishu": 1.0,
+      "RealDevNo": 568,
+      "type": 1
+    },
+    {
+      "No": 92,
+      "Name": "设备[1]-设备[4]-PV4电流-实时库号[378]-实时库号[569]",
+      "Unit": null,
+      "Addr": 16477,
+      "Xishu": 1.0,
+      "RealDevNo": 569,
+      "type": 1
+    },
+    {
+      "No": 93,
+      "Name": "设备[1]-设备[4]-PV5电压-实时库号[379]-实时库号[570]",
+      "Unit": null,
+      "Addr": 16478,
+      "Xishu": 1.0,
+      "RealDevNo": 570,
+      "type": 1
+    },
+    {
+      "No": 94,
+      "Name": "设备[1]-设备[4]-PV5电流-实时库号[380]-实时库号[571]",
+      "Unit": null,
+      "Addr": 16479,
+      "Xishu": 1.0,
+      "RealDevNo": 571,
+      "type": 1
+    },
+    {
+      "No": 95,
+      "Name": "设备[1]-设备[4]-PV6电压-实时库号[381]-实时库号[572]",
+      "Unit": null,
+      "Addr": 16480,
+      "Xishu": 1.0,
+      "RealDevNo": 572,
+      "type": 1
+    },
+    {
+      "No": 96,
+      "Name": "设备[1]-设备[4]-PV6电流-实时库号[382]-实时库号[573]",
+      "Unit": null,
+      "Addr": 16481,
+      "Xishu": 1.0,
+      "RealDevNo": 573,
+      "type": 1
+    },
+    {
+      "No": 97,
+      "Name": "设备[1]-设备[4]-PV7电压-实时库号[383]-实时库号[574]",
+      "Unit": null,
+      "Addr": 16482,
+      "Xishu": 1.0,
+      "RealDevNo": 574,
+      "type": 1
+    },
+    {
+      "No": 98,
+      "Name": "设备[1]-设备[4]-PV7电流-实时库号[384]-实时库号[575]",
+      "Unit": null,
+      "Addr": 16483,
+      "Xishu": 1.0,
+      "RealDevNo": 575,
+      "type": 1
+    },
+    {
+      "No": 99,
+      "Name": "设备[1]-设备[4]-PV8电压-实时库号[385]-实时库号[576]",
+      "Unit": null,
+      "Addr": 16484,
+      "Xishu": 1.0,
+      "RealDevNo": 576,
+      "type": 1
+    },
+    {
+      "No": 100,
+      "Name": "设备[1]-设备[4]-PV8电流-实时库号[386]-实时库号[577]",
+      "Unit": null,
+      "Addr": 16485,
+      "Xishu": 1.0,
+      "RealDevNo": 577,
+      "type": 1
+    },
+    {
+      "No": 101,
+      "Name": "设备[1]-设备[4]-PV9电压-实时库号[387]-实时库号[578]",
+      "Unit": null,
+      "Addr": 16486,
+      "Xishu": 1.0,
+      "RealDevNo": 578,
+      "type": 1
+    },
+    {
+      "No": 102,
+      "Name": "设备[1]-设备[4]-PV9电流-实时库号[388]-实时库号[579]",
+      "Unit": null,
+      "Addr": 16487,
+      "Xishu": 1.0,
+      "RealDevNo": 579,
+      "type": 1
+    },
+    {
+      "No": 103,
+      "Name": "设备[1]-设备[4]-PV10电压-实时库号[389]-实时库号[580]",
+      "Unit": null,
+      "Addr": 16488,
+      "Xishu": 1.0,
+      "RealDevNo": 580,
+      "type": 1
+    },
+    {
+      "No": 104,
+      "Name": "设备[1]-设备[4]-PV10电流-实时库号[390]-实时库号[581]",
+      "Unit": null,
+      "Addr": 16489,
+      "Xishu": 1.0,
+      "RealDevNo": 581,
+      "type": 1
+    },
+    {
+      "No": 105,
+      "Name": "设备[1]-设备[4]-PV11电压-实时库号[391]-实时库号[582]",
+      "Unit": null,
+      "Addr": 16490,
+      "Xishu": 1.0,
+      "RealDevNo": 582,
+      "type": 1
+    },
+    {
+      "No": 106,
+      "Name": "设备[1]-设备[4]-PV11电流-实时库号[392]-实时库号[583]",
+      "Unit": null,
+      "Addr": 16491,
+      "Xishu": 1.0,
+      "RealDevNo": 583,
+      "type": 1
+    },
+    {
+      "No": 107,
+      "Name": "设备[1]-设备[4]-PV12电压-实时库号[393]-实时库号[584]",
+      "Unit": null,
+      "Addr": 16492,
+      "Xishu": 1.0,
+      "RealDevNo": 584,
+      "type": 1
+    },
+    {
+      "No": 108,
+      "Name": "设备[1]-设备[4]-PV12电流-实时库号[394]-实时库号[585]",
+      "Unit": null,
+      "Addr": 16493,
+      "Xishu": 1.0,
+      "RealDevNo": 585,
+      "type": 1
+    },
+    {
+      "No": 109,
+      "Name": "设备[1]-设备[4]-PV13电压-实时库号[395]-实时库号[586]",
+      "Unit": null,
+      "Addr": 16494,
+      "Xishu": 1.0,
+      "RealDevNo": 586,
+      "type": 1
+    },
+    {
+      "No": 110,
+      "Name": "设备[1]-设备[4]-PV13电流-实时库号[396]-实时库号[587]",
+      "Unit": null,
+      "Addr": 16495,
+      "Xishu": 1.0,
+      "RealDevNo": 587,
+      "type": 1
+    },
+    {
+      "No": 111,
+      "Name": "设备[1]-设备[4]-PV14电压-实时库号[397]-实时库号[588]",
+      "Unit": null,
+      "Addr": 16496,
+      "Xishu": 1.0,
+      "RealDevNo": 588,
+      "type": 1
+    },
+    {
+      "No": 112,
+      "Name": "设备[1]-设备[4]-PV14电流-实时库号[398]-实时库号[589]",
+      "Unit": null,
+      "Addr": 16497,
+      "Xishu": 1.0,
+      "RealDevNo": 589,
+      "type": 1
+    },
+    {
+      "No": 113,
+      "Name": "设备[1]-设备[4]-PV15电压-实时库号[399]-实时库号[590]",
+      "Unit": null,
+      "Addr": 16498,
+      "Xishu": 1.0,
+      "RealDevNo": 590,
+      "type": 1
+    },
+    {
+      "No": 114,
+      "Name": "设备[1]-设备[4]-PV15电流-实时库号[400]-实时库号[591]",
+      "Unit": null,
+      "Addr": 16499,
+      "Xishu": 1.0,
+      "RealDevNo": 591,
+      "type": 1
+    },
+    {
+      "No": 115,
+      "Name": "设备[1]-设备[4]-PV16电压-实时库号[401]-实时库号[592]",
+      "Unit": null,
+      "Addr": 16500,
+      "Xishu": 1.0,
+      "RealDevNo": 592,
+      "type": 1
+    },
+    {
+      "No": 116,
+      "Name": "设备[1]-设备[4]-PV16电流-实时库号[402]-实时库号[593]",
+      "Unit": null,
+      "Addr": 16501,
+      "Xishu": 1.0,
+      "RealDevNo": 593,
+      "type": 1
+    },
+    {
+      "No": 117,
+      "Name": "设备[1]-设备[4]-PV17电压-实时库号[403]-实时库号[594]",
+      "Unit": null,
+      "Addr": 16502,
+      "Xishu": 1.0,
+      "RealDevNo": 594,
+      "type": 1
+    },
+    {
+      "No": 118,
+      "Name": "设备[1]-设备[4]-PV17电流-实时库号[404]-实时库号[595]",
+      "Unit": null,
+      "Addr": 16503,
+      "Xishu": 1.0,
+      "RealDevNo": 595,
+      "type": 1
+    },
+    {
+      "No": 119,
+      "Name": "设备[1]-设备[4]-PV18电压-实时库号[405]-实时库号[596]",
+      "Unit": null,
+      "Addr": 16504,
+      "Xishu": 1.0,
+      "RealDevNo": 596,
+      "type": 1
+    },
+    {
+      "No": 120,
+      "Name": "设备[1]-设备[4]-PV18电流-实时库号[406]-实时库号[597]",
+      "Unit": null,
+      "Addr": 16505,
+      "Xishu": 1.0,
+      "RealDevNo": 597,
+      "type": 1
+    },
+    {
+      "No": 121,
+      "Name": "设备[1]-设备[4]-PV19电压-实时库号[407]-实时库号[598]",
+      "Unit": null,
+      "Addr": 16506,
+      "Xishu": 1.0,
+      "RealDevNo": 598,
+      "type": 1
+    },
+    {
+      "No": 122,
+      "Name": "设备[1]-设备[4]-PV19电流-实时库号[408]-实时库号[599]",
+      "Unit": null,
+      "Addr": 16507,
+      "Xishu": 1.0,
+      "RealDevNo": 599,
+      "type": 1
+    },
+    {
+      "No": 123,
+      "Name": "设备[1]-设备[4]-PV20电压-实时库号[409]-实时库号[600]",
+      "Unit": null,
+      "Addr": 16508,
+      "Xishu": 1.0,
+      "RealDevNo": 600,
+      "type": 1
+    },
+    {
+      "No": 124,
+      "Name": "设备[1]-设备[4]-PV20电流-实时库号[410]-实时库号[601]",
+      "Unit": null,
+      "Addr": 16509,
+      "Xishu": 1.0,
+      "RealDevNo": 601,
+      "type": 1
+    },
+    {
+      "No": 125,
+      "Name": "设备[1]-设备[4]-输入功率-实时库号[411]-实时库号[602]",
+      "Unit": null,
+      "Addr": 16510,
+      "Xishu": 1.0,
+      "RealDevNo": 602,
+      "type": 1
+    },
+    {
+      "No": 126,
+      "Name": "设备[1]-设备[4]-AB线电压-实时库号[412]-实时库号[603]",
+      "Unit": null,
+      "Addr": 16511,
+      "Xishu": 1.0,
+      "RealDevNo": 603,
+      "type": 1
+    },
+    {
+      "No": 127,
+      "Name": "设备[1]-设备[4]-BC线电压-实时库号[413]-实时库号[604]",
+      "Unit": null,
+      "Addr": 16512,
+      "Xishu": 1.0,
+      "RealDevNo": 604,
+      "type": 1
+    },
+    {
+      "No": 128,
+      "Name": "设备[1]-设备[4]-CA线电压 -实时库号[414]-实时库号[605]",
+      "Unit": null,
+      "Addr": 16513,
+      "Xishu": 1.0,
+      "RealDevNo": 605,
+      "type": 1
+    },
+    {
+      "No": 129,
+      "Name": "设备[1]-设备[4]-电网A相电压 -实时库号[415]-实时库号[606]",
+      "Unit": null,
+      "Addr": 16514,
+      "Xishu": 1.0,
+      "RealDevNo": 606,
+      "type": 1
+    },
+    {
+      "No": 130,
+      "Name": "设备[1]-设备[4]-电网B相电压-实时库号[416]-实时库号[607]",
+      "Unit": null,
+      "Addr": 16515,
+      "Xishu": 1.0,
+      "RealDevNo": 607,
+      "type": 1
+    },
+    {
+      "No": 131,
+      "Name": "设备[1]-设备[4]-电网C相电压-实时库号[417]-实时库号[608]",
+      "Unit": null,
+      "Addr": 16516,
+      "Xishu": 1.0,
+      "RealDevNo": 608,
+      "type": 1
+    },
+    {
+      "No": 132,
+      "Name": "设备[1]-设备[4]-A相电流-实时库号[418]-实时库号[609]",
+      "Unit": null,
+      "Addr": 16517,
+      "Xishu": 1.0,
+      "RealDevNo": 609,
+      "type": 1
+    },
+    {
+      "No": 133,
+      "Name": "设备[1]-设备[4]-B相电流-实时库号[419]-实时库号[610]",
+      "Unit": null,
+      "Addr": 16518,
+      "Xishu": 1.0,
+      "RealDevNo": 610,
+      "type": 1
+    },
+    {
+      "No": 134,
+      "Name": "设备[1]-设备[4]-C相电流 -实时库号[420]-实时库号[611]",
+      "Unit": null,
+      "Addr": 16519,
+      "Xishu": 1.0,
+      "RealDevNo": 611,
+      "type": 1
+    },
+    {
+      "No": 135,
+      "Name": "设备[1]-设备[4]-当天峰值有功-实时库号[421]-实时库号[612]",
+      "Unit": null,
+      "Addr": 16520,
+      "Xishu": 1.0,
+      "RealDevNo": 612,
+      "type": 1
+    },
+    {
+      "No": 136,
+      "Name": "设备[1]-设备[4]-有功功率-实时库号[422]-实时库号[613]",
+      "Unit": null,
+      "Addr": 16521,
+      "Xishu": 1.0,
+      "RealDevNo": 613,
+      "type": 1
+    },
+    {
+      "No": 137,
+      "Name": "设备[1]-设备[4]-无功功率-实时库号[423]-实时库号[614]",
+      "Unit": null,
+      "Addr": 16522,
+      "Xishu": 1.0,
+      "RealDevNo": 614,
+      "type": 1
+    },
+    {
+      "No": 138,
+      "Name": "设备[1]-设备[4]-功率因数-实时库号[424]-实时库号[615]",
+      "Unit": null,
+      "Addr": 16523,
+      "Xishu": 1.0,
+      "RealDevNo": 615,
+      "type": 1
+    },
+    {
+      "No": 139,
+      "Name": "设备[1]-设备[4]-电网频率-实时库号[425]-实时库号[616]",
+      "Unit": null,
+      "Addr": 16524,
+      "Xishu": 1.0,
+      "RealDevNo": 616,
+      "type": 1
+    },
+    {
+      "No": 140,
+      "Name": "设备[1]-设备[4]-效率-实时库号[426]-实时库号[617]",
+      "Unit": null,
+      "Addr": 16525,
+      "Xishu": 1.0,
+      "RealDevNo": 617,
+      "type": 1
+    },
+    {
+      "No": 141,
+      "Name": "设备[1]-设备[4]-内部温度-实时库号[427]-实时库号[618]",
+      "Unit": null,
+      "Addr": 16526,
+      "Xishu": 1.0,
+      "RealDevNo": 618,
+      "type": 1
+    },
+    {
+      "No": 142,
+      "Name": "设备[1]-设备[4]-绝缘阻抗值-实时库号[428]-实时库号[619]",
+      "Unit": null,
+      "Addr": 16527,
+      "Xishu": 1.0,
+      "RealDevNo": 619,
+      "type": 1
+    },
+    {
+      "No": 143,
+      "Name": "设备[1]-设备[4]-开机时间-实时库号[429]-实时库号[620]",
+      "Unit": null,
+      "Addr": 16528,
+      "Xishu": 1.0,
+      "RealDevNo": 620,
+      "type": 1
+    },
+    {
+      "No": 144,
+      "Name": "设备[1]-设备[4]-关机时间-实时库号[430]-实时库号[621]",
+      "Unit": null,
+      "Addr": 16529,
+      "Xishu": 1.0,
+      "RealDevNo": 621,
+      "type": 1
+    },
+    {
+      "No": 145,
+      "Name": "设备[1]-设备[4]-累计发电量-实时库号[431]-实时库号[622]",
+      "Unit": null,
+      "Addr": 16530,
+      "Xishu": 1.0,
+      "RealDevNo": 622,
+      "type": 1
+    },
+    {
+      "No": 146,
+      "Name": "设备[1]-设备[4]-当日发电量-实时库号[432]-实时库号[623]",
+      "Unit": null,
+      "Addr": 16531,
+      "Xishu": 1.0,
+      "RealDevNo": 623,
+      "type": 1
+    },
+    {
+      "No": 147,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16532,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 148,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16533,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 149,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16534,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 150,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16535,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 151,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16536,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 152,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16537,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 153,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16538,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 154,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16539,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 155,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16540,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 156,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16541,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 157,
+      "Name": "设备[1]-设备[5]-PV1电压-实时库号[449]-实时库号[624]",
+      "Unit": null,
+      "Addr": 16542,
+      "Xishu": 1.0,
+      "RealDevNo": 624,
+      "type": 1
+    },
+    {
+      "No": 158,
+      "Name": "设备[1]-设备[5]-PV1电流-实时库号[450]-实时库号[625]",
+      "Unit": null,
+      "Addr": 16543,
+      "Xishu": 1.0,
+      "RealDevNo": 625,
+      "type": 1
+    },
+    {
+      "No": 159,
+      "Name": "设备[1]-设备[5]-PV2电压-实时库号[451]-实时库号[626]",
+      "Unit": null,
+      "Addr": 16544,
+      "Xishu": 1.0,
+      "RealDevNo": 626,
+      "type": 1
+    },
+    {
+      "No": 160,
+      "Name": "设备[1]-设备[5]-PV2电流-实时库号[452]-实时库号[627]",
+      "Unit": null,
+      "Addr": 16545,
+      "Xishu": 1.0,
+      "RealDevNo": 627,
+      "type": 1
+    },
+    {
+      "No": 161,
+      "Name": "设备[1]-设备[5]-PV3电压-实时库号[453]-实时库号[628]",
+      "Unit": null,
+      "Addr": 16546,
+      "Xishu": 1.0,
+      "RealDevNo": 628,
+      "type": 1
+    },
+    {
+      "No": 162,
+      "Name": "设备[1]-设备[5]-PV3电流-实时库号[454]-实时库号[629]",
+      "Unit": null,
+      "Addr": 16547,
+      "Xishu": 1.0,
+      "RealDevNo": 629,
+      "type": 1
+    },
+    {
+      "No": 163,
+      "Name": "设备[1]-设备[5]-PV4电压-实时库号[455]-实时库号[630]",
+      "Unit": null,
+      "Addr": 16548,
+      "Xishu": 1.0,
+      "RealDevNo": 630,
+      "type": 1
+    },
+    {
+      "No": 164,
+      "Name": "设备[1]-设备[5]-PV4电流-实时库号[456]-实时库号[631]",
+      "Unit": null,
+      "Addr": 16549,
+      "Xishu": 1.0,
+      "RealDevNo": 631,
+      "type": 1
+    },
+    {
+      "No": 165,
+      "Name": "设备[1]-设备[5]-PV5电压-实时库号[457]-实时库号[632]",
+      "Unit": null,
+      "Addr": 16550,
+      "Xishu": 1.0,
+      "RealDevNo": 632,
+      "type": 1
+    },
+    {
+      "No": 166,
+      "Name": "设备[1]-设备[5]-PV5电流-实时库号[458]-实时库号[633]",
+      "Unit": null,
+      "Addr": 16551,
+      "Xishu": 1.0,
+      "RealDevNo": 633,
+      "type": 1
+    },
+    {
+      "No": 167,
+      "Name": "设备[1]-设备[5]-PV6电压-实时库号[459]-实时库号[634]",
+      "Unit": null,
+      "Addr": 16552,
+      "Xishu": 1.0,
+      "RealDevNo": 634,
+      "type": 1
+    },
+    {
+      "No": 168,
+      "Name": "设备[1]-设备[5]-PV6电流-实时库号[460]-实时库号[635]",
+      "Unit": null,
+      "Addr": 16553,
+      "Xishu": 1.0,
+      "RealDevNo": 635,
+      "type": 1
+    },
+    {
+      "No": 169,
+      "Name": "设备[1]-设备[5]-PV7电压-实时库号[461]-实时库号[636]",
+      "Unit": null,
+      "Addr": 16554,
+      "Xishu": 1.0,
+      "RealDevNo": 636,
+      "type": 1
+    },
+    {
+      "No": 170,
+      "Name": "设备[1]-设备[5]-PV7电流-实时库号[462]-实时库号[637]",
+      "Unit": null,
+      "Addr": 16555,
+      "Xishu": 1.0,
+      "RealDevNo": 637,
+      "type": 1
+    },
+    {
+      "No": 171,
+      "Name": "设备[1]-设备[5]-PV8电压-实时库号[463]-实时库号[638]",
+      "Unit": null,
+      "Addr": 16556,
+      "Xishu": 1.0,
+      "RealDevNo": 638,
+      "type": 1
+    },
+    {
+      "No": 172,
+      "Name": "设备[1]-设备[5]-PV8电流-实时库号[464]-实时库号[639]",
+      "Unit": null,
+      "Addr": 16557,
+      "Xishu": 1.0,
+      "RealDevNo": 639,
+      "type": 1
+    },
+    {
+      "No": 173,
+      "Name": "设备[1]-设备[5]-PV9电压-实时库号[465]-实时库号[640]",
+      "Unit": null,
+      "Addr": 16558,
+      "Xishu": 1.0,
+      "RealDevNo": 640,
+      "type": 1
+    },
+    {
+      "No": 174,
+      "Name": "设备[1]-设备[5]-PV9电流-实时库号[466]-实时库号[641]",
+      "Unit": null,
+      "Addr": 16559,
+      "Xishu": 1.0,
+      "RealDevNo": 641,
+      "type": 1
+    },
+    {
+      "No": 175,
+      "Name": "设备[1]-设备[5]-PV10电压-实时库号[467]-实时库号[642]",
+      "Unit": null,
+      "Addr": 16560,
+      "Xishu": 1.0,
+      "RealDevNo": 642,
+      "type": 1
+    },
+    {
+      "No": 176,
+      "Name": "设备[1]-设备[5]-PV10电流-实时库号[468]-实时库号[643]",
+      "Unit": null,
+      "Addr": 16561,
+      "Xishu": 1.0,
+      "RealDevNo": 643,
+      "type": 1
+    },
+    {
+      "No": 177,
+      "Name": "设备[1]-设备[5]-PV11电压-实时库号[469]-实时库号[644]",
+      "Unit": null,
+      "Addr": 16562,
+      "Xishu": 1.0,
+      "RealDevNo": 644,
+      "type": 1
+    },
+    {
+      "No": 178,
+      "Name": "设备[1]-设备[5]-PV11电流-实时库号[470]-实时库号[645]",
+      "Unit": null,
+      "Addr": 16563,
+      "Xishu": 1.0,
+      "RealDevNo": 645,
+      "type": 1
+    },
+    {
+      "No": 179,
+      "Name": "设备[1]-设备[5]-PV12电压-实时库号[471]-实时库号[646]",
+      "Unit": null,
+      "Addr": 16564,
+      "Xishu": 1.0,
+      "RealDevNo": 646,
+      "type": 1
+    },
+    {
+      "No": 180,
+      "Name": "设备[1]-设备[5]-PV12电流-实时库号[472]-实时库号[647]",
+      "Unit": null,
+      "Addr": 16565,
+      "Xishu": 1.0,
+      "RealDevNo": 647,
+      "type": 1
+    },
+    {
+      "No": 181,
+      "Name": "设备[1]-设备[5]-PV13电压-实时库号[473]-实时库号[648]",
+      "Unit": null,
+      "Addr": 16566,
+      "Xishu": 1.0,
+      "RealDevNo": 648,
+      "type": 1
+    },
+    {
+      "No": 182,
+      "Name": "设备[1]-设备[5]-PV13电流-实时库号[474]-实时库号[649]",
+      "Unit": null,
+      "Addr": 16567,
+      "Xishu": 1.0,
+      "RealDevNo": 649,
+      "type": 1
+    },
+    {
+      "No": 183,
+      "Name": "设备[1]-设备[5]-PV14电压-实时库号[475]-实时库号[650]",
+      "Unit": null,
+      "Addr": 16568,
+      "Xishu": 1.0,
+      "RealDevNo": 650,
+      "type": 1
+    },
+    {
+      "No": 184,
+      "Name": "设备[1]-设备[5]-PV14电流-实时库号[476]-实时库号[651]",
+      "Unit": null,
+      "Addr": 16569,
+      "Xishu": 1.0,
+      "RealDevNo": 651,
+      "type": 1
+    },
+    {
+      "No": 185,
+      "Name": "设备[1]-设备[5]-PV15电压-实时库号[477]-实时库号[652]",
+      "Unit": null,
+      "Addr": 16570,
+      "Xishu": 1.0,
+      "RealDevNo": 652,
+      "type": 1
+    },
+    {
+      "No": 186,
+      "Name": "设备[1]-设备[5]-PV15电流-实时库号[478]-实时库号[653]",
+      "Unit": null,
+      "Addr": 16571,
+      "Xishu": 1.0,
+      "RealDevNo": 653,
+      "type": 1
+    },
+    {
+      "No": 187,
+      "Name": "设备[1]-设备[5]-PV16电压-实时库号[479]-实时库号[654]",
+      "Unit": null,
+      "Addr": 16572,
+      "Xishu": 1.0,
+      "RealDevNo": 654,
+      "type": 1
+    },
+    {
+      "No": 188,
+      "Name": "设备[1]-设备[5]-PV16电流-实时库号[480]-实时库号[655]",
+      "Unit": null,
+      "Addr": 16573,
+      "Xishu": 1.0,
+      "RealDevNo": 655,
+      "type": 1
+    },
+    {
+      "No": 189,
+      "Name": "设备[1]-设备[5]-PV17电压-实时库号[481]-实时库号[656]",
+      "Unit": null,
+      "Addr": 16574,
+      "Xishu": 1.0,
+      "RealDevNo": 656,
+      "type": 1
+    },
+    {
+      "No": 190,
+      "Name": "设备[1]-设备[5]-PV17电流-实时库号[482]-实时库号[657]",
+      "Unit": null,
+      "Addr": 16575,
+      "Xishu": 1.0,
+      "RealDevNo": 657,
+      "type": 1
+    },
+    {
+      "No": 191,
+      "Name": "设备[1]-设备[5]-PV18电压-实时库号[483]-实时库号[658]",
+      "Unit": null,
+      "Addr": 16576,
+      "Xishu": 1.0,
+      "RealDevNo": 658,
+      "type": 1
+    },
+    {
+      "No": 192,
+      "Name": "设备[1]-设备[5]-PV18电流-实时库号[484]-实时库号[659]",
+      "Unit": null,
+      "Addr": 16577,
+      "Xishu": 1.0,
+      "RealDevNo": 659,
+      "type": 1
+    },
+    {
+      "No": 193,
+      "Name": "设备[1]-设备[5]-PV19电压-实时库号[485]-实时库号[660]",
+      "Unit": null,
+      "Addr": 16578,
+      "Xishu": 1.0,
+      "RealDevNo": 660,
+      "type": 1
+    },
+    {
+      "No": 194,
+      "Name": "设备[1]-设备[5]-PV19电流-实时库号[486]-实时库号[661]",
+      "Unit": null,
+      "Addr": 16579,
+      "Xishu": 1.0,
+      "RealDevNo": 661,
+      "type": 1
+    },
+    {
+      "No": 195,
+      "Name": "设备[1]-设备[5]-PV20电压-实时库号[487]-实时库号[662]",
+      "Unit": null,
+      "Addr": 16580,
+      "Xishu": 1.0,
+      "RealDevNo": 662,
+      "type": 1
+    },
+    {
+      "No": 196,
+      "Name": "设备[1]-设备[5]-PV20电流-实时库号[488]-实时库号[663]",
+      "Unit": null,
+      "Addr": 16581,
+      "Xishu": 1.0,
+      "RealDevNo": 663,
+      "type": 1
+    },
+    {
+      "No": 197,
+      "Name": "设备[1]-设备[5]-输入功率-实时库号[489]-实时库号[664]",
+      "Unit": null,
+      "Addr": 16582,
+      "Xishu": 1.0,
+      "RealDevNo": 664,
+      "type": 1
+    },
+    {
+      "No": 198,
+      "Name": "设备[1]-设备[5]-AB线电压-实时库号[490]-实时库号[665]",
+      "Unit": null,
+      "Addr": 16583,
+      "Xishu": 1.0,
+      "RealDevNo": 665,
+      "type": 1
+    },
+    {
+      "No": 199,
+      "Name": "设备[1]-设备[5]-BC线电压-实时库号[491]-实时库号[666]",
+      "Unit": null,
+      "Addr": 16584,
+      "Xishu": 1.0,
+      "RealDevNo": 666,
+      "type": 1
+    },
+    {
+      "No": 200,
+      "Name": "设备[1]-设备[5]-CA线电压 -实时库号[492]-实时库号[667]",
+      "Unit": null,
+      "Addr": 16585,
+      "Xishu": 1.0,
+      "RealDevNo": 667,
+      "type": 1
+    },
+    {
+      "No": 201,
+      "Name": "设备[1]-设备[5]-电网A相电压 -实时库号[493]-实时库号[668]",
+      "Unit": null,
+      "Addr": 16586,
+      "Xishu": 1.0,
+      "RealDevNo": 668,
+      "type": 1
+    },
+    {
+      "No": 202,
+      "Name": "设备[1]-设备[5]-电网B相电压-实时库号[494]-实时库号[669]",
+      "Unit": null,
+      "Addr": 16587,
+      "Xishu": 1.0,
+      "RealDevNo": 669,
+      "type": 1
+    },
+    {
+      "No": 203,
+      "Name": "设备[1]-设备[5]-电网C相电压-实时库号[495]-实时库号[670]",
+      "Unit": null,
+      "Addr": 16588,
+      "Xishu": 1.0,
+      "RealDevNo": 670,
+      "type": 1
+    },
+    {
+      "No": 204,
+      "Name": "设备[1]-设备[5]-A相电流-实时库号[496]-实时库号[671]",
+      "Unit": null,
+      "Addr": 16589,
+      "Xishu": 1.0,
+      "RealDevNo": 671,
+      "type": 1
+    },
+    {
+      "No": 205,
+      "Name": "设备[1]-设备[5]-B相电流-实时库号[497]-实时库号[672]",
+      "Unit": null,
+      "Addr": 16590,
+      "Xishu": 1.0,
+      "RealDevNo": 672,
+      "type": 1
+    },
+    {
+      "No": 206,
+      "Name": "设备[1]-设备[5]-C相电流 -实时库号[498]-实时库号[673]",
+      "Unit": null,
+      "Addr": 16591,
+      "Xishu": 1.0,
+      "RealDevNo": 673,
+      "type": 1
+    },
+    {
+      "No": 207,
+      "Name": "设备[1]-设备[5]-当天峰值有功-实时库号[499]-实时库号[674]",
+      "Unit": null,
+      "Addr": 16592,
+      "Xishu": 1.0,
+      "RealDevNo": 674,
+      "type": 1
+    },
+    {
+      "No": 208,
+      "Name": "设备[1]-设备[5]-有功功率-实时库号[500]-实时库号[675]",
+      "Unit": null,
+      "Addr": 16593,
+      "Xishu": 1.0,
+      "RealDevNo": 675,
+      "type": 1
+    },
+    {
+      "No": 209,
+      "Name": "设备[1]-设备[5]-无功功率-实时库号[501]-实时库号[676]",
+      "Unit": null,
+      "Addr": 16594,
+      "Xishu": 1.0,
+      "RealDevNo": 676,
+      "type": 1
+    },
+    {
+      "No": 210,
+      "Name": "设备[1]-设备[5]-功率因数-实时库号[502]-实时库号[677]",
+      "Unit": null,
+      "Addr": 16595,
+      "Xishu": 1.0,
+      "RealDevNo": 677,
+      "type": 1
+    },
+    {
+      "No": 211,
+      "Name": "设备[1]-设备[5]-电网频率-实时库号[503]-实时库号[678]",
+      "Unit": null,
+      "Addr": 16596,
+      "Xishu": 1.0,
+      "RealDevNo": 678,
+      "type": 1
+    },
+    {
+      "No": 212,
+      "Name": "设备[1]-设备[5]-效率-实时库号[504]-实时库号[679]",
+      "Unit": null,
+      "Addr": 16597,
+      "Xishu": 1.0,
+      "RealDevNo": 679,
+      "type": 1
+    },
+    {
+      "No": 213,
+      "Name": "设备[1]-设备[5]-内部温度-实时库号[505]-实时库号[680]",
+      "Unit": null,
+      "Addr": 16598,
+      "Xishu": 1.0,
+      "RealDevNo": 680,
+      "type": 1
+    },
+    {
+      "No": 214,
+      "Name": "设备[1]-设备[5]-绝缘阻抗值-实时库号[506]-实时库号[681]",
+      "Unit": null,
+      "Addr": 16599,
+      "Xishu": 1.0,
+      "RealDevNo": 681,
+      "type": 1
+    },
+    {
+      "No": 215,
+      "Name": "设备[1]-设备[5]-开机时间-实时库号[507]-实时库号[682]",
+      "Unit": null,
+      "Addr": 16600,
+      "Xishu": 1.0,
+      "RealDevNo": 682,
+      "type": 1
+    },
+    {
+      "No": 216,
+      "Name": "设备[1]-设备[5]-关机时间-实时库号[508]-实时库号[683]",
+      "Unit": null,
+      "Addr": 16601,
+      "Xishu": 1.0,
+      "RealDevNo": 683,
+      "type": 1
+    },
+    {
+      "No": 217,
+      "Name": "设备[1]-设备[5]-累计发电量-实时库号[509]-实时库号[684]",
+      "Unit": null,
+      "Addr": 16602,
+      "Xishu": 1.0,
+      "RealDevNo": 684,
+      "type": 1
+    },
+    {
+      "No": 218,
+      "Name": "设备[1]-设备[5]-当日发电量-实时库号[510]-实时库号[685]",
+      "Unit": null,
+      "Addr": 16603,
+      "Xishu": 1.0,
+      "RealDevNo": 685,
+      "type": 1
+    },
+    {
+      "No": 219,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16604,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 220,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16605,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 221,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16606,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 222,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16607,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 223,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16608,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 224,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16609,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 225,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16610,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 226,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16611,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 227,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16612,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 228,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16613,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 229,
+      "Name": "设备[1]-设备[6]-PV1电压-实时库号[527]-实时库号[686]",
+      "Unit": null,
+      "Addr": 16614,
+      "Xishu": 1.0,
+      "RealDevNo": 686,
+      "type": 1
+    },
+    {
+      "No": 230,
+      "Name": "设备[1]-设备[6]-PV1电流-实时库号[528]-实时库号[687]",
+      "Unit": null,
+      "Addr": 16615,
+      "Xishu": 1.0,
+      "RealDevNo": 687,
+      "type": 1
+    },
+    {
+      "No": 231,
+      "Name": "设备[1]-设备[6]-PV2电压-实时库号[529]-实时库号[688]",
+      "Unit": null,
+      "Addr": 16616,
+      "Xishu": 1.0,
+      "RealDevNo": 688,
+      "type": 1
+    },
+    {
+      "No": 232,
+      "Name": "设备[1]-设备[6]-PV2电流-实时库号[530]-实时库号[689]",
+      "Unit": null,
+      "Addr": 16617,
+      "Xishu": 1.0,
+      "RealDevNo": 689,
+      "type": 1
+    },
+    {
+      "No": 233,
+      "Name": "设备[1]-设备[6]-PV3电压-实时库号[531]-实时库号[690]",
+      "Unit": null,
+      "Addr": 16618,
+      "Xishu": 1.0,
+      "RealDevNo": 690,
+      "type": 1
+    },
+    {
+      "No": 234,
+      "Name": "设备[1]-设备[6]-PV3电流-实时库号[532]-实时库号[691]",
+      "Unit": null,
+      "Addr": 16619,
+      "Xishu": 1.0,
+      "RealDevNo": 691,
+      "type": 1
+    },
+    {
+      "No": 235,
+      "Name": "设备[1]-设备[6]-PV4电压-实时库号[533]-实时库号[692]",
+      "Unit": null,
+      "Addr": 16620,
+      "Xishu": 1.0,
+      "RealDevNo": 692,
+      "type": 1
+    },
+    {
+      "No": 236,
+      "Name": "设备[1]-设备[6]-PV4电流-实时库号[534]-实时库号[693]",
+      "Unit": null,
+      "Addr": 16621,
+      "Xishu": 1.0,
+      "RealDevNo": 693,
+      "type": 1
+    },
+    {
+      "No": 237,
+      "Name": "设备[1]-设备[6]-PV5电压-实时库号[535]-实时库号[694]",
+      "Unit": null,
+      "Addr": 16622,
+      "Xishu": 1.0,
+      "RealDevNo": 694,
+      "type": 1
+    },
+    {
+      "No": 238,
+      "Name": "设备[1]-设备[6]-PV5电流-实时库号[536]-实时库号[695]",
+      "Unit": null,
+      "Addr": 16623,
+      "Xishu": 1.0,
+      "RealDevNo": 695,
+      "type": 1
+    },
+    {
+      "No": 239,
+      "Name": "设备[1]-设备[6]-PV6电压-实时库号[537]-实时库号[696]",
+      "Unit": null,
+      "Addr": 16624,
+      "Xishu": 1.0,
+      "RealDevNo": 696,
+      "type": 1
+    },
+    {
+      "No": 240,
+      "Name": "设备[1]-设备[6]-PV6电流-实时库号[538]-实时库号[697]",
+      "Unit": null,
+      "Addr": 16625,
+      "Xishu": 1.0,
+      "RealDevNo": 697,
+      "type": 1
+    },
+    {
+      "No": 241,
+      "Name": "设备[1]-设备[6]-PV7电压-实时库号[539]-实时库号[698]",
+      "Unit": null,
+      "Addr": 16626,
+      "Xishu": 1.0,
+      "RealDevNo": 698,
+      "type": 1
+    },
+    {
+      "No": 242,
+      "Name": "设备[1]-设备[6]-PV7电流-实时库号[540]-实时库号[699]",
+      "Unit": null,
+      "Addr": 16627,
+      "Xishu": 1.0,
+      "RealDevNo": 699,
+      "type": 1
+    },
+    {
+      "No": 243,
+      "Name": "设备[1]-设备[6]-PV8电压-实时库号[541]-实时库号[700]",
+      "Unit": null,
+      "Addr": 16628,
+      "Xishu": 1.0,
+      "RealDevNo": 700,
+      "type": 1
+    },
+    {
+      "No": 244,
+      "Name": "设备[1]-设备[6]-PV8电流-实时库号[542]-实时库号[701]",
+      "Unit": null,
+      "Addr": 16629,
+      "Xishu": 1.0,
+      "RealDevNo": 701,
+      "type": 1
+    },
+    {
+      "No": 245,
+      "Name": "设备[1]-设备[6]-PV9电压-实时库号[543]-实时库号[702]",
+      "Unit": null,
+      "Addr": 16630,
+      "Xishu": 1.0,
+      "RealDevNo": 702,
+      "type": 1
+    },
+    {
+      "No": 246,
+      "Name": "设备[1]-设备[6]-PV9电流-实时库号[544]-实时库号[703]",
+      "Unit": null,
+      "Addr": 16631,
+      "Xishu": 1.0,
+      "RealDevNo": 703,
+      "type": 1
+    },
+    {
+      "No": 247,
+      "Name": "设备[1]-设备[6]-PV10电压-实时库号[545]-实时库号[704]",
+      "Unit": null,
+      "Addr": 16632,
+      "Xishu": 1.0,
+      "RealDevNo": 704,
+      "type": 1
+    },
+    {
+      "No": 248,
+      "Name": "设备[1]-设备[6]-PV10电流-实时库号[546]-实时库号[705]",
+      "Unit": null,
+      "Addr": 16633,
+      "Xishu": 1.0,
+      "RealDevNo": 705,
+      "type": 1
+    },
+    {
+      "No": 249,
+      "Name": "设备[1]-设备[6]-PV11电压-实时库号[547]-实时库号[706]",
+      "Unit": null,
+      "Addr": 16634,
+      "Xishu": 1.0,
+      "RealDevNo": 706,
+      "type": 1
+    },
+    {
+      "No": 250,
+      "Name": "设备[1]-设备[6]-PV11电流-实时库号[548]-实时库号[707]",
+      "Unit": null,
+      "Addr": 16635,
+      "Xishu": 1.0,
+      "RealDevNo": 707,
+      "type": 1
+    },
+    {
+      "No": 251,
+      "Name": "设备[1]-设备[6]-PV12电压-实时库号[549]-实时库号[708]",
+      "Unit": null,
+      "Addr": 16636,
+      "Xishu": 1.0,
+      "RealDevNo": 708,
+      "type": 1
+    },
+    {
+      "No": 252,
+      "Name": "设备[1]-设备[6]-PV12电流-实时库号[550]-实时库号[709]",
+      "Unit": null,
+      "Addr": 16637,
+      "Xishu": 1.0,
+      "RealDevNo": 709,
+      "type": 1
+    },
+    {
+      "No": 253,
+      "Name": "设备[1]-设备[6]-PV13电压-实时库号[551]-实时库号[710]",
+      "Unit": null,
+      "Addr": 16638,
+      "Xishu": 1.0,
+      "RealDevNo": 710,
+      "type": 1
+    },
+    {
+      "No": 254,
+      "Name": "设备[1]-设备[6]-PV13电流-实时库号[552]-实时库号[711]",
+      "Unit": null,
+      "Addr": 16639,
+      "Xishu": 1.0,
+      "RealDevNo": 711,
+      "type": 1
+    },
+    {
+      "No": 255,
+      "Name": "设备[1]-设备[6]-PV14电压-实时库号[553]-实时库号[712]",
+      "Unit": null,
+      "Addr": 16640,
+      "Xishu": 1.0,
+      "RealDevNo": 712,
+      "type": 1
+    },
+    {
+      "No": 256,
+      "Name": "设备[1]-设备[6]-PV14电流-实时库号[554]-实时库号[713]",
+      "Unit": null,
+      "Addr": 16641,
+      "Xishu": 1.0,
+      "RealDevNo": 713,
+      "type": 1
+    },
+    {
+      "No": 257,
+      "Name": "设备[1]-设备[6]-PV15电压-实时库号[555]-实时库号[714]",
+      "Unit": null,
+      "Addr": 16642,
+      "Xishu": 1.0,
+      "RealDevNo": 714,
+      "type": 1
+    },
+    {
+      "No": 258,
+      "Name": "设备[1]-设备[6]-PV15电流-实时库号[556]-实时库号[715]",
+      "Unit": null,
+      "Addr": 16643,
+      "Xishu": 1.0,
+      "RealDevNo": 715,
+      "type": 1
+    },
+    {
+      "No": 259,
+      "Name": "设备[1]-设备[6]-PV16电压-实时库号[557]-实时库号[716]",
+      "Unit": null,
+      "Addr": 16644,
+      "Xishu": 1.0,
+      "RealDevNo": 716,
+      "type": 1
+    },
+    {
+      "No": 260,
+      "Name": "设备[1]-设备[6]-PV16电流-实时库号[558]-实时库号[717]",
+      "Unit": null,
+      "Addr": 16645,
+      "Xishu": 1.0,
+      "RealDevNo": 717,
+      "type": 1
+    },
+    {
+      "No": 261,
+      "Name": "设备[1]-设备[6]-PV17电压-实时库号[559]-实时库号[718]",
+      "Unit": null,
+      "Addr": 16646,
+      "Xishu": 1.0,
+      "RealDevNo": 718,
+      "type": 1
+    },
+    {
+      "No": 262,
+      "Name": "设备[1]-设备[6]-PV17电流-实时库号[560]-实时库号[719]",
+      "Unit": null,
+      "Addr": 16647,
+      "Xishu": 1.0,
+      "RealDevNo": 719,
+      "type": 1
+    },
+    {
+      "No": 263,
+      "Name": "设备[1]-设备[6]-PV18电压-实时库号[561]-实时库号[720]",
+      "Unit": null,
+      "Addr": 16648,
+      "Xishu": 1.0,
+      "RealDevNo": 720,
+      "type": 1
+    },
+    {
+      "No": 264,
+      "Name": "设备[1]-设备[6]-PV18电流-实时库号[562]-实时库号[721]",
+      "Unit": null,
+      "Addr": 16649,
+      "Xishu": 1.0,
+      "RealDevNo": 721,
+      "type": 1
+    },
+    {
+      "No": 265,
+      "Name": "设备[1]-设备[6]-PV19电压-实时库号[563]-实时库号[722]",
+      "Unit": null,
+      "Addr": 16650,
+      "Xishu": 1.0,
+      "RealDevNo": 722,
+      "type": 1
+    },
+    {
+      "No": 266,
+      "Name": "设备[1]-设备[6]-PV19电流-实时库号[564]-实时库号[723]",
+      "Unit": null,
+      "Addr": 16651,
+      "Xishu": 1.0,
+      "RealDevNo": 723,
+      "type": 1
+    },
+    {
+      "No": 267,
+      "Name": "设备[1]-设备[6]-PV20电压-实时库号[565]-实时库号[724]",
+      "Unit": null,
+      "Addr": 16652,
+      "Xishu": 1.0,
+      "RealDevNo": 724,
+      "type": 1
+    },
+    {
+      "No": 268,
+      "Name": "设备[1]-设备[6]-PV20电流-实时库号[566]-实时库号[725]",
+      "Unit": null,
+      "Addr": 16653,
+      "Xishu": 1.0,
+      "RealDevNo": 725,
+      "type": 1
+    },
+    {
+      "No": 269,
+      "Name": "设备[1]-设备[6]-输入功率-实时库号[567]-实时库号[726]",
+      "Unit": null,
+      "Addr": 16654,
+      "Xishu": 1.0,
+      "RealDevNo": 726,
+      "type": 1
+    },
+    {
+      "No": 270,
+      "Name": "设备[1]-设备[6]-AB线电压-实时库号[568]-实时库号[727]",
+      "Unit": null,
+      "Addr": 16655,
+      "Xishu": 1.0,
+      "RealDevNo": 727,
+      "type": 1
+    },
+    {
+      "No": 271,
+      "Name": "设备[1]-设备[6]-BC线电压-实时库号[569]-实时库号[728]",
+      "Unit": null,
+      "Addr": 16656,
+      "Xishu": 1.0,
+      "RealDevNo": 728,
+      "type": 1
+    },
+    {
+      "No": 272,
+      "Name": "设备[1]-设备[6]-CA线电压 -实时库号[570]-实时库号[729]",
+      "Unit": null,
+      "Addr": 16657,
+      "Xishu": 1.0,
+      "RealDevNo": 729,
+      "type": 1
+    },
+    {
+      "No": 273,
+      "Name": "设备[1]-设备[6]-电网A相电压 -实时库号[571]-实时库号[730]",
+      "Unit": null,
+      "Addr": 16658,
+      "Xishu": 1.0,
+      "RealDevNo": 730,
+      "type": 1
+    },
+    {
+      "No": 274,
+      "Name": "设备[1]-设备[6]-电网B相电压-实时库号[572]-实时库号[731]",
+      "Unit": null,
+      "Addr": 16659,
+      "Xishu": 1.0,
+      "RealDevNo": 731,
+      "type": 1
+    },
+    {
+      "No": 275,
+      "Name": "设备[1]-设备[6]-电网C相电压-实时库号[573]-实时库号[732]",
+      "Unit": null,
+      "Addr": 16660,
+      "Xishu": 1.0,
+      "RealDevNo": 732,
+      "type": 1
+    },
+    {
+      "No": 276,
+      "Name": "设备[1]-设备[6]-A相电流-实时库号[574]-实时库号[733]",
+      "Unit": null,
+      "Addr": 16661,
+      "Xishu": 1.0,
+      "RealDevNo": 733,
+      "type": 1
+    },
+    {
+      "No": 277,
+      "Name": "设备[1]-设备[6]-B相电流-实时库号[575]-实时库号[734]",
+      "Unit": null,
+      "Addr": 16662,
+      "Xishu": 1.0,
+      "RealDevNo": 734,
+      "type": 1
+    },
+    {
+      "No": 278,
+      "Name": "设备[1]-设备[6]-C相电流 -实时库号[576]-实时库号[735]",
+      "Unit": null,
+      "Addr": 16663,
+      "Xishu": 1.0,
+      "RealDevNo": 735,
+      "type": 1
+    },
+    {
+      "No": 279,
+      "Name": "设备[1]-设备[6]-当天峰值有功-实时库号[577]-实时库号[736]",
+      "Unit": null,
+      "Addr": 16664,
+      "Xishu": 1.0,
+      "RealDevNo": 736,
+      "type": 1
+    },
+    {
+      "No": 280,
+      "Name": "设备[1]-设备[6]-有功功率-实时库号[578]-实时库号[737]",
+      "Unit": null,
+      "Addr": 16665,
+      "Xishu": 1.0,
+      "RealDevNo": 737,
+      "type": 1
+    },
+    {
+      "No": 281,
+      "Name": "设备[1]-设备[6]-无功功率-实时库号[579]-实时库号[738]",
+      "Unit": null,
+      "Addr": 16666,
+      "Xishu": 1.0,
+      "RealDevNo": 738,
+      "type": 1
+    },
+    {
+      "No": 282,
+      "Name": "设备[1]-设备[6]-功率因数-实时库号[580]-实时库号[739]",
+      "Unit": null,
+      "Addr": 16667,
+      "Xishu": 1.0,
+      "RealDevNo": 739,
+      "type": 1
+    },
+    {
+      "No": 283,
+      "Name": "设备[1]-设备[6]-电网频率-实时库号[581]-实时库号[740]",
+      "Unit": null,
+      "Addr": 16668,
+      "Xishu": 1.0,
+      "RealDevNo": 740,
+      "type": 1
+    },
+    {
+      "No": 284,
+      "Name": "设备[1]-设备[6]-效率-实时库号[582]-实时库号[741]",
+      "Unit": null,
+      "Addr": 16669,
+      "Xishu": 1.0,
+      "RealDevNo": 741,
+      "type": 1
+    },
+    {
+      "No": 285,
+      "Name": "设备[1]-设备[6]-内部温度-实时库号[583]-实时库号[742]",
+      "Unit": null,
+      "Addr": 16670,
+      "Xishu": 1.0,
+      "RealDevNo": 742,
+      "type": 1
+    },
+    {
+      "No": 286,
+      "Name": "设备[1]-设备[6]-绝缘阻抗值-实时库号[584]-实时库号[743]",
+      "Unit": null,
+      "Addr": 16671,
+      "Xishu": 1.0,
+      "RealDevNo": 743,
+      "type": 1
+    },
+    {
+      "No": 287,
+      "Name": "设备[1]-设备[6]-开机时间-实时库号[585]-实时库号[744]",
+      "Unit": null,
+      "Addr": 16672,
+      "Xishu": 1.0,
+      "RealDevNo": 744,
+      "type": 1
+    },
+    {
+      "No": 288,
+      "Name": "设备[1]-设备[6]-关机时间-实时库号[586]-实时库号[745]",
+      "Unit": null,
+      "Addr": 16673,
+      "Xishu": 1.0,
+      "RealDevNo": 745,
+      "type": 1
+    },
+    {
+      "No": 289,
+      "Name": "设备[1]-设备[6]-累计发电量-实时库号[587]-实时库号[746]",
+      "Unit": null,
+      "Addr": 16674,
+      "Xishu": 1.0,
+      "RealDevNo": 746,
+      "type": 1
+    },
+    {
+      "No": 290,
+      "Name": "设备[1]-设备[6]-当日发电量-实时库号[588]-实时库号[747]",
+      "Unit": null,
+      "Addr": 16675,
+      "Xishu": 1.0,
+      "RealDevNo": 747,
+      "type": 1
+    },
+    {
+      "No": 291,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16676,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 292,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16677,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 293,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16678,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 294,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16679,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 295,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16680,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 296,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16681,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 297,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16682,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 298,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16683,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 299,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16684,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    },
+    {
+      "No": 300,
+      "Name": "设备[0]-备用遥测7-实时库号[61]",
+      "Unit": null,
+      "Addr": 16685,
+      "Xishu": 1.0,
+      "RealDevNo": 61,
+      "type": 1
+    }
+  ],
+  "YXDataItem": [
+    {
+      "No": 0,
+      "Name": "设备[1]-设备[3]-输入组串电压高-实时库号[355]-实时库号[748]",
+      "Unit": null,
+      "Addr": 1,
+      "Xishu": 1.0,
+      "RealDevNo": 748,
+      "type": 0
+    },
+    {
+      "No": 1,
+      "Name": "设备[1]-设备[3]-直流电弧故障-实时库号[356]-实时库号[749]",
+      "Unit": null,
+      "Addr": 2,
+      "Xishu": 1.0,
+      "RealDevNo": 749,
+      "type": 0
+    },
+    {
+      "No": 2,
+      "Name": "设备[1]-设备[3]-组串反接-实时库号[357]-实时库号[750]",
+      "Unit": null,
+      "Addr": 3,
+      "Xishu": 1.0,
+      "RealDevNo": 750,
+      "type": 0
+    },
+    {
+      "No": 3,
+      "Name": "设备[1]-设备[3]-组串电流反灌-实时库号[358]-实时库号[751]",
+      "Unit": null,
+      "Addr": 4,
+      "Xishu": 1.0,
+      "RealDevNo": 751,
+      "type": 0
+    },
+    {
+      "No": 4,
+      "Name": "设备[1]-设备[3]-组串功率异常-实时库号[359]-实时库号[752]",
+      "Unit": null,
+      "Addr": 5,
+      "Xishu": 1.0,
+      "RealDevNo": 752,
+      "type": 0
+    },
+    {
+      "No": 5,
+      "Name": "设备[1]-设备[3]-AFCI自检失败-实时库号[360]-实时库号[753]",
+      "Unit": null,
+      "Addr": 6,
+      "Xishu": 1.0,
+      "RealDevNo": 753,
+      "type": 0
+    },
+    {
+      "No": 6,
+      "Name": "设备[1]-设备[3]-电网相线对PE短路-实时库号[361]-实时库号[754]",
+      "Unit": null,
+      "Addr": 7,
+      "Xishu": 1.0,
+      "RealDevNo": 754,
+      "type": 0
+    },
+    {
+      "No": 7,
+      "Name": "设备[1]-设备[3]-电网掉电-实时库号[362]-实时库号[755]",
+      "Unit": null,
+      "Addr": 8,
+      "Xishu": 1.0,
+      "RealDevNo": 755,
+      "type": 0
+    },
+    {
+      "No": 8,
+      "Name": "设备[1]-设备[3]-电网欠压-实时库号[363]-实时库号[756]",
+      "Unit": null,
+      "Addr": 9,
+      "Xishu": 1.0,
+      "RealDevNo": 756,
+      "type": 0
+    },
+    {
+      "No": 9,
+      "Name": "设备[1]-设备[3]-电网过压-实时库号[364]-实时库号[757]",
+      "Unit": null,
+      "Addr": 10,
+      "Xishu": 1.0,
+      "RealDevNo": 757,
+      "type": 0
+    },
+    {
+      "No": 10,
+      "Name": "设备[1]-设备[3]-电网电压不平衡 -实时库号[365]-实时库号[758]",
+      "Unit": null,
+      "Addr": 11,
+      "Xishu": 1.0,
+      "RealDevNo": 758,
+      "type": 0
+    },
+    {
+      "No": 11,
+      "Name": "设备[1]-设备[3]-电网过频-实时库号[366]-实时库号[759]",
+      "Unit": null,
+      "Addr": 12,
+      "Xishu": 1.0,
+      "RealDevNo": 759,
+      "type": 0
+    },
+    {
+      "No": 12,
+      "Name": "设备[1]-设备[3]-电网欠频 -实时库号[367]-实时库号[760]",
+      "Unit": null,
+      "Addr": 13,
+      "Xishu": 1.0,
+      "RealDevNo": 760,
+      "type": 0
+    },
+    {
+      "No": 13,
+      "Name": "设备[1]-设备[3]-电网频率不稳定 -实时库号[368]-实时库号[761]",
+      "Unit": null,
+      "Addr": 14,
+      "Xishu": 1.0,
+      "RealDevNo": 761,
+      "type": 0
+    },
+    {
+      "No": 14,
+      "Name": "设备[1]-设备[3]-输出过流-实时库号[369]-实时库号[762]",
+      "Unit": null,
+      "Addr": 15,
+      "Xishu": 1.0,
+      "RealDevNo": 762,
+      "type": 0
+    },
+    {
+      "No": 15,
+      "Name": "设备[1]-设备[3]-输出电流直流分量过大-实时库号[370]-实时库号[763]",
+      "Unit": null,
+      "Addr": 16,
+      "Xishu": 1.0,
+      "RealDevNo": 763,
+      "type": 0
+    },
+    {
+      "No": 16,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[764]",
+      "Unit": null,
+      "Addr": 17,
+      "Xishu": 1.0,
+      "RealDevNo": 764,
+      "type": 0
+    },
+    {
+      "No": 17,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[765]",
+      "Unit": null,
+      "Addr": 18,
+      "Xishu": 1.0,
+      "RealDevNo": 765,
+      "type": 0
+    },
+    {
+      "No": 18,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[766]",
+      "Unit": null,
+      "Addr": 19,
+      "Xishu": 1.0,
+      "RealDevNo": 766,
+      "type": 0
+    },
+    {
+      "No": 19,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[767]",
+      "Unit": null,
+      "Addr": 20,
+      "Xishu": 1.0,
+      "RealDevNo": 767,
+      "type": 0
+    },
+    {
+      "No": 20,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[768]",
+      "Unit": null,
+      "Addr": 21,
+      "Xishu": 1.0,
+      "RealDevNo": 768,
+      "type": 0
+    },
+    {
+      "No": 21,
+      "Name": "设备[1]-设备[4]-输入组串电压高-实时库号[433]-实时库号[769]",
+      "Unit": null,
+      "Addr": 22,
+      "Xishu": 1.0,
+      "RealDevNo": 769,
+      "type": 0
+    },
+    {
+      "No": 22,
+      "Name": "设备[1]-设备[4]-直流电弧故障-实时库号[434]-实时库号[770]",
+      "Unit": null,
+      "Addr": 23,
+      "Xishu": 1.0,
+      "RealDevNo": 770,
+      "type": 0
+    },
+    {
+      "No": 23,
+      "Name": "设备[1]-设备[4]-组串反接-实时库号[435]-实时库号[771]",
+      "Unit": null,
+      "Addr": 24,
+      "Xishu": 1.0,
+      "RealDevNo": 771,
+      "type": 0
+    },
+    {
+      "No": 24,
+      "Name": "设备[1]-设备[4]-组串电流反灌-实时库号[436]-实时库号[772]",
+      "Unit": null,
+      "Addr": 25,
+      "Xishu": 1.0,
+      "RealDevNo": 772,
+      "type": 0
+    },
+    {
+      "No": 25,
+      "Name": "设备[1]-设备[4]-组串功率异常-实时库号[437]-实时库号[773]",
+      "Unit": null,
+      "Addr": 26,
+      "Xishu": 1.0,
+      "RealDevNo": 773,
+      "type": 0
+    },
+    {
+      "No": 26,
+      "Name": "设备[1]-设备[4]-AFCI自检失败-实时库号[438]-实时库号[774]",
+      "Unit": null,
+      "Addr": 27,
+      "Xishu": 1.0,
+      "RealDevNo": 774,
+      "type": 0
+    },
+    {
+      "No": 27,
+      "Name": "设备[1]-设备[4]-电网相线对PE短路-实时库号[439]-实时库号[775]",
+      "Unit": null,
+      "Addr": 28,
+      "Xishu": 1.0,
+      "RealDevNo": 775,
+      "type": 0
+    },
+    {
+      "No": 28,
+      "Name": "设备[1]-设备[4]-电网掉电-实时库号[440]-实时库号[776]",
+      "Unit": null,
+      "Addr": 29,
+      "Xishu": 1.0,
+      "RealDevNo": 776,
+      "type": 0
+    },
+    {
+      "No": 29,
+      "Name": "设备[1]-设备[4]-电网欠压-实时库号[441]-实时库号[777]",
+      "Unit": null,
+      "Addr": 30,
+      "Xishu": 1.0,
+      "RealDevNo": 777,
+      "type": 0
+    },
+    {
+      "No": 30,
+      "Name": "设备[1]-设备[4]-电网过压-实时库号[442]-实时库号[778]",
+      "Unit": null,
+      "Addr": 31,
+      "Xishu": 1.0,
+      "RealDevNo": 778,
+      "type": 0
+    },
+    {
+      "No": 31,
+      "Name": "设备[1]-设备[4]-电网电压不平衡 -实时库号[443]-实时库号[779]",
+      "Unit": null,
+      "Addr": 32,
+      "Xishu": 1.0,
+      "RealDevNo": 779,
+      "type": 0
+    },
+    {
+      "No": 32,
+      "Name": "设备[1]-设备[4]-电网过频-实时库号[444]-实时库号[780]",
+      "Unit": null,
+      "Addr": 33,
+      "Xishu": 1.0,
+      "RealDevNo": 780,
+      "type": 0
+    },
+    {
+      "No": 33,
+      "Name": "设备[1]-设备[4]-电网欠频 -实时库号[445]-实时库号[781]",
+      "Unit": null,
+      "Addr": 34,
+      "Xishu": 1.0,
+      "RealDevNo": 781,
+      "type": 0
+    },
+    {
+      "No": 34,
+      "Name": "设备[1]-设备[4]-电网频率不稳定 -实时库号[446]-实时库号[782]",
+      "Unit": null,
+      "Addr": 35,
+      "Xishu": 1.0,
+      "RealDevNo": 782,
+      "type": 0
+    },
+    {
+      "No": 35,
+      "Name": "设备[1]-设备[4]-输出过流-实时库号[447]-实时库号[783]",
+      "Unit": null,
+      "Addr": 36,
+      "Xishu": 1.0,
+      "RealDevNo": 783,
+      "type": 0
+    },
+    {
+      "No": 36,
+      "Name": "设备[1]-设备[4]-输出电流直流分量过大-实时库号[448]-实时库号[784]",
+      "Unit": null,
+      "Addr": 37,
+      "Xishu": 1.0,
+      "RealDevNo": 784,
+      "type": 0
+    },
+    {
+      "No": 37,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[785]",
+      "Unit": null,
+      "Addr": 38,
+      "Xishu": 1.0,
+      "RealDevNo": 785,
+      "type": 0
+    },
+    {
+      "No": 38,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[786]",
+      "Unit": null,
+      "Addr": 39,
+      "Xishu": 1.0,
+      "RealDevNo": 786,
+      "type": 0
+    },
+    {
+      "No": 39,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[787]",
+      "Unit": null,
+      "Addr": 40,
+      "Xishu": 1.0,
+      "RealDevNo": 787,
+      "type": 0
+    },
+    {
+      "No": 40,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[788]",
+      "Unit": null,
+      "Addr": 41,
+      "Xishu": 1.0,
+      "RealDevNo": 788,
+      "type": 0
+    },
+    {
+      "No": 41,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[789]",
+      "Unit": null,
+      "Addr": 42,
+      "Xishu": 1.0,
+      "RealDevNo": 789,
+      "type": 0
+    },
+    {
+      "No": 42,
+      "Name": "设备[1]-设备[5]-输入组串电压高-实时库号[511]-实时库号[790]",
+      "Unit": null,
+      "Addr": 43,
+      "Xishu": 1.0,
+      "RealDevNo": 790,
+      "type": 0
+    },
+    {
+      "No": 43,
+      "Name": "设备[1]-设备[5]-直流电弧故障-实时库号[512]-实时库号[791]",
+      "Unit": null,
+      "Addr": 44,
+      "Xishu": 1.0,
+      "RealDevNo": 791,
+      "type": 0
+    },
+    {
+      "No": 44,
+      "Name": "设备[1]-设备[5]-组串反接-实时库号[513]-实时库号[792]",
+      "Unit": null,
+      "Addr": 45,
+      "Xishu": 1.0,
+      "RealDevNo": 792,
+      "type": 0
+    },
+    {
+      "No": 45,
+      "Name": "设备[1]-设备[5]-组串电流反灌-实时库号[514]-实时库号[793]",
+      "Unit": null,
+      "Addr": 46,
+      "Xishu": 1.0,
+      "RealDevNo": 793,
+      "type": 0
+    },
+    {
+      "No": 46,
+      "Name": "设备[1]-设备[5]-组串功率异常-实时库号[515]-实时库号[794]",
+      "Unit": null,
+      "Addr": 47,
+      "Xishu": 1.0,
+      "RealDevNo": 794,
+      "type": 0
+    },
+    {
+      "No": 47,
+      "Name": "设备[1]-设备[5]-AFCI自检失败-实时库号[516]-实时库号[795]",
+      "Unit": null,
+      "Addr": 48,
+      "Xishu": 1.0,
+      "RealDevNo": 795,
+      "type": 0
+    },
+    {
+      "No": 48,
+      "Name": "设备[1]-设备[5]-电网相线对PE短路-实时库号[517]-实时库号[796]",
+      "Unit": null,
+      "Addr": 49,
+      "Xishu": 1.0,
+      "RealDevNo": 796,
+      "type": 0
+    },
+    {
+      "No": 49,
+      "Name": "设备[1]-设备[5]-电网掉电-实时库号[518]-实时库号[797]",
+      "Unit": null,
+      "Addr": 50,
+      "Xishu": 1.0,
+      "RealDevNo": 797,
+      "type": 0
+    },
+    {
+      "No": 50,
+      "Name": "设备[1]-设备[5]-电网欠压-实时库号[519]-实时库号[798]",
+      "Unit": null,
+      "Addr": 51,
+      "Xishu": 1.0,
+      "RealDevNo": 798,
+      "type": 0
+    },
+    {
+      "No": 51,
+      "Name": "设备[1]-设备[5]-电网过压-实时库号[520]-实时库号[799]",
+      "Unit": null,
+      "Addr": 52,
+      "Xishu": 1.0,
+      "RealDevNo": 799,
+      "type": 0
+    },
+    {
+      "No": 52,
+      "Name": "设备[1]-设备[5]-电网电压不平衡 -实时库号[521]-实时库号[800]",
+      "Unit": null,
+      "Addr": 53,
+      "Xishu": 1.0,
+      "RealDevNo": 800,
+      "type": 0
+    },
+    {
+      "No": 53,
+      "Name": "设备[1]-设备[5]-电网过频-实时库号[522]-实时库号[801]",
+      "Unit": null,
+      "Addr": 54,
+      "Xishu": 1.0,
+      "RealDevNo": 801,
+      "type": 0
+    },
+    {
+      "No": 54,
+      "Name": "设备[1]-设备[5]-电网欠频 -实时库号[523]-实时库号[802]",
+      "Unit": null,
+      "Addr": 55,
+      "Xishu": 1.0,
+      "RealDevNo": 802,
+      "type": 0
+    },
+    {
+      "No": 55,
+      "Name": "设备[1]-设备[5]-电网频率不稳定 -实时库号[524]-实时库号[803]",
+      "Unit": null,
+      "Addr": 56,
+      "Xishu": 1.0,
+      "RealDevNo": 803,
+      "type": 0
+    },
+    {
+      "No": 56,
+      "Name": "设备[1]-设备[5]-输出过流-实时库号[525]-实时库号[804]",
+      "Unit": null,
+      "Addr": 57,
+      "Xishu": 1.0,
+      "RealDevNo": 804,
+      "type": 0
+    },
+    {
+      "No": 57,
+      "Name": "设备[1]-设备[5]-输出电流直流分量过大-实时库号[526]-实时库号[805]",
+      "Unit": null,
+      "Addr": 58,
+      "Xishu": 1.0,
+      "RealDevNo": 805,
+      "type": 0
+    },
+    {
+      "No": 58,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[806]",
+      "Unit": null,
+      "Addr": 59,
+      "Xishu": 1.0,
+      "RealDevNo": 806,
+      "type": 0
+    },
+    {
+      "No": 59,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[807]",
+      "Unit": null,
+      "Addr": 60,
+      "Xishu": 1.0,
+      "RealDevNo": 807,
+      "type": 0
+    },
+    {
+      "No": 60,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[808]",
+      "Unit": null,
+      "Addr": 61,
+      "Xishu": 1.0,
+      "RealDevNo": 808,
+      "type": 0
+    },
+    {
+      "No": 61,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[809]",
+      "Unit": null,
+      "Addr": 62,
+      "Xishu": 1.0,
+      "RealDevNo": 809,
+      "type": 0
+    },
+    {
+      "No": 62,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[810]",
+      "Unit": null,
+      "Addr": 63,
+      "Xishu": 1.0,
+      "RealDevNo": 810,
+      "type": 0
+    },
+    {
+      "No": 63,
+      "Name": "设备[1]-设备[6]-输入组串电压高-实时库号[589]-实时库号[811]",
+      "Unit": null,
+      "Addr": 64,
+      "Xishu": 1.0,
+      "RealDevNo": 811,
+      "type": 0
+    },
+    {
+      "No": 64,
+      "Name": "设备[1]-设备[6]-直流电弧故障-实时库号[590]-实时库号[812]",
+      "Unit": null,
+      "Addr": 65,
+      "Xishu": 1.0,
+      "RealDevNo": 812,
+      "type": 0
+    },
+    {
+      "No": 65,
+      "Name": "设备[1]-设备[6]-组串反接-实时库号[591]-实时库号[813]",
+      "Unit": null,
+      "Addr": 66,
+      "Xishu": 1.0,
+      "RealDevNo": 813,
+      "type": 0
+    },
+    {
+      "No": 66,
+      "Name": "设备[1]-设备[6]-组串电流反灌-实时库号[592]-实时库号[814]",
+      "Unit": null,
+      "Addr": 67,
+      "Xishu": 1.0,
+      "RealDevNo": 814,
+      "type": 0
+    },
+    {
+      "No": 67,
+      "Name": "设备[1]-设备[6]-组串功率异常-实时库号[593]-实时库号[815]",
+      "Unit": null,
+      "Addr": 68,
+      "Xishu": 1.0,
+      "RealDevNo": 815,
+      "type": 0
+    },
+    {
+      "No": 68,
+      "Name": "设备[1]-设备[6]-AFCI自检失败-实时库号[594]-实时库号[816]",
+      "Unit": null,
+      "Addr": 69,
+      "Xishu": 1.0,
+      "RealDevNo": 816,
+      "type": 0
+    },
+    {
+      "No": 69,
+      "Name": "设备[1]-设备[6]-电网相线对PE短路-实时库号[595]-实时库号[817]",
+      "Unit": null,
+      "Addr": 70,
+      "Xishu": 1.0,
+      "RealDevNo": 817,
+      "type": 0
+    },
+    {
+      "No": 70,
+      "Name": "设备[1]-设备[6]-电网掉电-实时库号[596]-实时库号[818]",
+      "Unit": null,
+      "Addr": 71,
+      "Xishu": 1.0,
+      "RealDevNo": 818,
+      "type": 0
+    },
+    {
+      "No": 71,
+      "Name": "设备[1]-设备[6]-电网欠压-实时库号[597]-实时库号[819]",
+      "Unit": null,
+      "Addr": 72,
+      "Xishu": 1.0,
+      "RealDevNo": 819,
+      "type": 0
+    },
+    {
+      "No": 72,
+      "Name": "设备[1]-设备[6]-电网过压-实时库号[598]-实时库号[820]",
+      "Unit": null,
+      "Addr": 73,
+      "Xishu": 1.0,
+      "RealDevNo": 820,
+      "type": 0
+    },
+    {
+      "No": 73,
+      "Name": "设备[1]-设备[6]-电网电压不平衡 -实时库号[599]-实时库号[821]",
+      "Unit": null,
+      "Addr": 74,
+      "Xishu": 1.0,
+      "RealDevNo": 821,
+      "type": 0
+    },
+    {
+      "No": 74,
+      "Name": "设备[1]-设备[6]-电网过频-实时库号[600]-实时库号[822]",
+      "Unit": null,
+      "Addr": 75,
+      "Xishu": 1.0,
+      "RealDevNo": 822,
+      "type": 0
+    },
+    {
+      "No": 75,
+      "Name": "设备[1]-设备[6]-电网欠频 -实时库号[601]-实时库号[823]",
+      "Unit": null,
+      "Addr": 76,
+      "Xishu": 1.0,
+      "RealDevNo": 823,
+      "type": 0
+    },
+    {
+      "No": 76,
+      "Name": "设备[1]-设备[6]-电网频率不稳定 -实时库号[602]-实时库号[824]",
+      "Unit": null,
+      "Addr": 77,
+      "Xishu": 1.0,
+      "RealDevNo": 824,
+      "type": 0
+    },
+    {
+      "No": 77,
+      "Name": "设备[1]-设备[6]-输出过流-实时库号[603]-实时库号[825]",
+      "Unit": null,
+      "Addr": 78,
+      "Xishu": 1.0,
+      "RealDevNo": 825,
+      "type": 0
+    },
+    {
+      "No": 78,
+      "Name": "设备[1]-设备[6]-输出电流直流分量过大-实时库号[604]-实时库号[826]",
+      "Unit": null,
+      "Addr": 79,
+      "Xishu": 1.0,
+      "RealDevNo": 826,
+      "type": 0
+    },
+    {
+      "No": 79,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[827]",
+      "Unit": null,
+      "Addr": 80,
+      "Xishu": 1.0,
+      "RealDevNo": 827,
+      "type": 0
+    },
+    {
+      "No": 80,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[828]",
+      "Unit": null,
+      "Addr": 81,
+      "Xishu": 1.0,
+      "RealDevNo": 828,
+      "type": 0
+    },
+    {
+      "No": 81,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[829]",
+      "Unit": null,
+      "Addr": 82,
+      "Xishu": 1.0,
+      "RealDevNo": 829,
+      "type": 0
+    },
+    {
+      "No": 82,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[830]",
+      "Unit": null,
+      "Addr": 83,
+      "Xishu": 1.0,
+      "RealDevNo": 830,
+      "type": 0
+    },
+    {
+      "No": 83,
+      "Name": "设备[1]-设备[0]-预留-实时库号[268]-实时库号[831]",
+      "Unit": null,
+      "Addr": 84,
+      "Xishu": 1.0,
+      "RealDevNo": 831,
+      "type": 0
+    }
+  ],
+  "YKDataItem": [],
+  "DDDataItem": [
+    {
+      "No": 0,
+      "Name": "设备[1]-设备[0]-当前正向有功总电能-实时库号[279]-实时库号[832]",
+      "Unit": null,
+      "Addr": 25601,
+      "Xishu": 1.0,
+      "RealDevNo": 832,
+      "type": 3
+    },
+    {
+      "No": 1,
+      "Name": "设备[1]-设备[0]-当前反向有功总电能-实时库号[280]-实时库号[833]",
+      "Unit": null,
+      "Addr": 25602,
+      "Xishu": 1.0,
+      "RealDevNo": 833,
+      "type": 3
+    },
+    {
+      "No": 2,
+      "Name": "设备[1]-设备[0]-当前费率1反向有功电能-实时库号[281]-实时库号[834]",
+      "Unit": null,
+      "Addr": 25603,
+      "Xishu": 1.0,
+      "RealDevNo": 834,
+      "type": 3
+    },
+    {
+      "No": 3,
+      "Name": "设备[1]-设备[0]-当前费率2反向有功电能-实时库号[282]-实时库号[835]",
+      "Unit": null,
+      "Addr": 25604,
+      "Xishu": 1.0,
+      "RealDevNo": 835,
+      "type": 3
+    },
+    {
+      "No": 4,
+      "Name": "设备[1]-设备[0]-当前费率3反向有功电能-实时库号[283]-实时库号[836]",
+      "Unit": null,
+      "Addr": 25605,
+      "Xishu": 1.0,
+      "RealDevNo": 836,
+      "type": 3
+    },
+    {
+      "No": 5,
+      "Name": "设备[1]-设备[0]-当前费率4反向有功电能-实时库号[284]-实时库号[837]",
+      "Unit": null,
+      "Addr": 25606,
+      "Xishu": 1.0,
+      "RealDevNo": 837,
+      "type": 3
+    },
+    {
+      "No": 6,
+      "Name": "设备[0]-备用电度1-实时库号[65]",
+      "Unit": null,
+      "Addr": 25607,
+      "Xishu": 1.0,
+      "RealDevNo": 65,
+      "type": 3
+    },
+    {
+      "No": 7,
+      "Name": "设备[0]-备用电度1-实时库号[65]",
+      "Unit": null,
+      "Addr": 25608,
+      "Xishu": 1.0,
+      "RealDevNo": 65,
+      "type": 3
+    },
+    {
+      "No": 8,
+      "Name": "设备[0]-备用电度1-实时库号[65]",
+      "Unit": null,
+      "Addr": 25609,
+      "Xishu": 1.0,
+      "RealDevNo": 65,
+      "type": 3
+    },
+    {
+      "No": 9,
+      "Name": "设备[0]-备用电度1-实时库号[65]",
+      "Unit": null,
+      "Addr": 25610,
+      "Xishu": 1.0,
+      "RealDevNo": 65,
+      "type": 3
+    },
+    {
+      "No": 10,
+      "Name": "设备[0]-备用电度1-实时库号[65]",
+      "Unit": null,
+      "Addr": 25611,
+      "Xishu": 1.0,
+      "RealDevNo": 65,
+      "type": 3
+    }
+  ]
+}
