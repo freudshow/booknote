@@ -1,0 +1,13 @@
+{
+  "DataItem": [
+    {
+      "strNum": 42,
+      "PortType": 3,
+      "devNo": 0,
+      "RegNo": 0,
+      "OverTime": 60,
+      "mode": 3,
+      "Reset": 1
+    }
+  ]
+}

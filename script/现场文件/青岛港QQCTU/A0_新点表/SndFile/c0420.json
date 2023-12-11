@@ -1,0 +1,36 @@
+{
+  "applianceName": "未命名",
+  "TotalYcCount": 1,
+  "TotalYxCount": 1,
+  "TotalYkCount": 0,
+  "TotalDDCount": 1,
+  "dataItem": [
+    {
+      "linkNo": 4,
+      "devNo": 0,
+      "RegNo": 0,
+      "type": 0,
+      "Name": "预留",
+      "Ratio": 1.0,
+      "BoardDevAddr": 0
+    },
+    {
+      "linkNo": 4,
+      "devNo": 0,
+      "RegNo": 1,
+      "type": 1,
+      "Name": "预留",
+      "Ratio": 1.0,
+      "BoardDevAddr": 0
+    },
+    {
+      "linkNo": 4,
+      "devNo": 0,
+      "RegNo": 2,
+      "type": 3,
+      "Name": "预留",
+      "Ratio": 1.0,
+      "BoardDevAddr": 0
+    }
+  ]
+}

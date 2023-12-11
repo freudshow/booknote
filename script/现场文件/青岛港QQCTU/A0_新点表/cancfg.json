@@ -1,0 +1,124 @@
+{
+  "CanConfig": [
+    {
+      "Linkno": 0,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 1,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 2,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 3,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 4,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 5,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 6,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 7,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 8,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 9,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 10,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 11,
+      "IsEnable": 1,
+      "Braude": 500,
+      "CanId": 2,
+      "CanMode": 0,
+      "SndRcvCanId": 3
+    },
+    {
+      "Linkno": 12,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 13,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    },
+    {
+      "Linkno": 14,
+      "IsEnable": 0,
+      "Braude": 500,
+      "CanId": 1,
+      "CanMode": 0,
+      "SndRcvCanId": 1
+    }
+  ]
+}

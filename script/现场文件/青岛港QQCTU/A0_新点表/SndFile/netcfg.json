@@ -1,0 +1,149 @@
+{
+  "NetCfg": [
+    {
+      "mac": "192.168.88.44.55.55",
+      "macChanged": 0,
+      "localIPAddr": "10.101.51.34",
+      "gateway": "10.101.51.62",
+      "subnet": "255.255.255.192",
+      "dns_server": "114.114.114.114",
+      "ChildNetCfg": [
+        {
+          "linkno": 0,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 1,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 2,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 3,
+          "mode": 128,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 5000,
+          "RemotePort": 1000,
+          "SocketChannelNo": 0,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 4,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 5,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 6,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 7,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 8,
+          "mode": 131,
+          "ipaddr": "10.101.132.126",
+          "LocalPort": 0,
+          "RemotePort": 11000,
+          "SocketChannelNo": 1,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 9,
+          "mode": 130,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 4000,
+          "RemotePort": 1000,
+          "SocketChannelNo": 2,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 10,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 11,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 12,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 13,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        },
+        {
+          "linkno": 14,
+          "mode": 0,
+          "ipaddr": "192.168.1.10",
+          "LocalPort": 0,
+          "RemotePort": 1000,
+          "SocketChannelNo": 8,
+          "TcpServerSet": null
+        }
+      ]
+    }
+  ]
+}

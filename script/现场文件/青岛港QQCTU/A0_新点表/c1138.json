@@ -1,0 +1,3187 @@
+{
+  "Pad": {
+    "Cmd03DataType": 1,
+    "Cmd03MaxDataNum": 50,
+    "Cmd01MaxDataNum": 50,
+    "Cmd05DataType": 0,
+    "Cmd10DataType": 0,
+    "CommunicationModle": 0,
+    "DevAddr": 2
+  },
+  "Para": [],
+  "YCDataItem": [
+    {
+      "No": 0,
+      "Name": "设备[1]-光照-实时库号[285]",
+      "ShowAddr": "0",
+      "Addr": 16385,
+      "RegNum": 2,
+      "RealDevNo": 285
+    },
+    {
+      "No": 1,
+      "Name": "设备[2]-总辐射1-实时库号[607]",
+      "ShowAddr": "0",
+      "Addr": 16387,
+      "RegNum": 2,
+      "RealDevNo": 607
+    },
+    {
+      "No": 2,
+      "Name": "设备[1]-温度1-实时库号[606]",
+      "ShowAddr": "0",
+      "Addr": 16389,
+      "RegNum": 2,
+      "RealDevNo": 606
+    },
+    {
+      "No": 3,
+      "Name": "设备[1]-湿度-实时库号[605]",
+      "ShowAddr": "0",
+      "Addr": 16391,
+      "RegNum": 2,
+      "RealDevNo": 605
+    },
+    {
+      "No": 4,
+      "Name": "设备[2]-大气压-实时库号[289]",
+      "ShowAddr": "0",
+      "Addr": 16393,
+      "RegNum": 2,
+      "RealDevNo": 289
+    },
+    {
+      "No": 5,
+      "Name": "设备[2]-噪声-实时库号[290]",
+      "ShowAddr": "0",
+      "Addr": 16395,
+      "RegNum": 2,
+      "RealDevNo": 290
+    },
+    {
+      "No": 6,
+      "Name": "设备[3]-背板温度-实时库号[608]",
+      "ShowAddr": "0",
+      "Addr": 16397,
+      "RegNum": 2,
+      "RealDevNo": 608
+    },
+    {
+      "No": 7,
+      "Name": "设备[2]- 海拔高度-实时库号[292]",
+      "ShowAddr": "0",
+      "Addr": 16399,
+      "RegNum": 2,
+      "RealDevNo": 292
+    },
+    {
+      "No": 8,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16401,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 9,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16403,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 10,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16405,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 11,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16407,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 12,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16409,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 13,
+      "Name": "设备[3]-PV1电压-实时库号[293]",
+      "ShowAddr": "0",
+      "Addr": 16411,
+      "RegNum": 2,
+      "RealDevNo": 293
+    },
+    {
+      "No": 14,
+      "Name": "设备[3]-PV1电流-实时库号[294]",
+      "ShowAddr": "0",
+      "Addr": 16413,
+      "RegNum": 2,
+      "RealDevNo": 294
+    },
+    {
+      "No": 15,
+      "Name": "设备[3]-PV2电压-实时库号[295]",
+      "ShowAddr": "0",
+      "Addr": 16415,
+      "RegNum": 2,
+      "RealDevNo": 295
+    },
+    {
+      "No": 16,
+      "Name": "设备[3]-PV2电流-实时库号[296]",
+      "ShowAddr": "0",
+      "Addr": 16417,
+      "RegNum": 2,
+      "RealDevNo": 296
+    },
+    {
+      "No": 17,
+      "Name": "设备[3]-PV3电压-实时库号[297]",
+      "ShowAddr": "0",
+      "Addr": 16419,
+      "RegNum": 2,
+      "RealDevNo": 297
+    },
+    {
+      "No": 18,
+      "Name": "设备[3]-PV3电流-实时库号[298]",
+      "ShowAddr": "0",
+      "Addr": 16421,
+      "RegNum": 2,
+      "RealDevNo": 298
+    },
+    {
+      "No": 19,
+      "Name": "设备[3]-PV4电压-实时库号[299]",
+      "ShowAddr": "0",
+      "Addr": 16423,
+      "RegNum": 2,
+      "RealDevNo": 299
+    },
+    {
+      "No": 20,
+      "Name": "设备[3]-PV4电流-实时库号[300]",
+      "ShowAddr": "0",
+      "Addr": 16425,
+      "RegNum": 2,
+      "RealDevNo": 300
+    },
+    {
+      "No": 21,
+      "Name": "设备[3]-PV5电压-实时库号[301]",
+      "ShowAddr": "0",
+      "Addr": 16427,
+      "RegNum": 2,
+      "RealDevNo": 301
+    },
+    {
+      "No": 22,
+      "Name": "设备[3]-PV5电流-实时库号[302]",
+      "ShowAddr": "0",
+      "Addr": 16429,
+      "RegNum": 2,
+      "RealDevNo": 302
+    },
+    {
+      "No": 23,
+      "Name": "设备[3]-PV6电压-实时库号[303]",
+      "ShowAddr": "0",
+      "Addr": 16431,
+      "RegNum": 2,
+      "RealDevNo": 303
+    },
+    {
+      "No": 24,
+      "Name": "设备[3]-PV6电流-实时库号[304]",
+      "ShowAddr": "0",
+      "Addr": 16433,
+      "RegNum": 2,
+      "RealDevNo": 304
+    },
+    {
+      "No": 25,
+      "Name": "设备[3]-PV7电压-实时库号[305]",
+      "ShowAddr": "0",
+      "Addr": 16435,
+      "RegNum": 2,
+      "RealDevNo": 305
+    },
+    {
+      "No": 26,
+      "Name": "设备[3]-PV7电流-实时库号[306]",
+      "ShowAddr": "0",
+      "Addr": 16437,
+      "RegNum": 2,
+      "RealDevNo": 306
+    },
+    {
+      "No": 27,
+      "Name": "设备[3]-PV8电压-实时库号[307]",
+      "ShowAddr": "0",
+      "Addr": 16439,
+      "RegNum": 2,
+      "RealDevNo": 307
+    },
+    {
+      "No": 28,
+      "Name": "设备[3]-PV8电流-实时库号[308]",
+      "ShowAddr": "0",
+      "Addr": 16441,
+      "RegNum": 2,
+      "RealDevNo": 308
+    },
+    {
+      "No": 29,
+      "Name": "设备[3]-PV9电压-实时库号[309]",
+      "ShowAddr": "0",
+      "Addr": 16443,
+      "RegNum": 2,
+      "RealDevNo": 309
+    },
+    {
+      "No": 30,
+      "Name": "设备[3]-PV9电流-实时库号[310]",
+      "ShowAddr": "0",
+      "Addr": 16445,
+      "RegNum": 2,
+      "RealDevNo": 310
+    },
+    {
+      "No": 31,
+      "Name": "设备[3]-PV10电压-实时库号[311]",
+      "ShowAddr": "0",
+      "Addr": 16447,
+      "RegNum": 2,
+      "RealDevNo": 311
+    },
+    {
+      "No": 32,
+      "Name": "设备[3]-PV10电流-实时库号[312]",
+      "ShowAddr": "0",
+      "Addr": 16449,
+      "RegNum": 2,
+      "RealDevNo": 312
+    },
+    {
+      "No": 33,
+      "Name": "设备[3]-PV11电压-实时库号[313]",
+      "ShowAddr": "0",
+      "Addr": 16451,
+      "RegNum": 2,
+      "RealDevNo": 313
+    },
+    {
+      "No": 34,
+      "Name": "设备[3]-PV11电流-实时库号[314]",
+      "ShowAddr": "0",
+      "Addr": 16453,
+      "RegNum": 2,
+      "RealDevNo": 314
+    },
+    {
+      "No": 35,
+      "Name": "设备[3]-PV12电压-实时库号[315]",
+      "ShowAddr": "0",
+      "Addr": 16455,
+      "RegNum": 2,
+      "RealDevNo": 315
+    },
+    {
+      "No": 36,
+      "Name": "设备[3]-PV12电流-实时库号[316]",
+      "ShowAddr": "0",
+      "Addr": 16457,
+      "RegNum": 2,
+      "RealDevNo": 316
+    },
+    {
+      "No": 37,
+      "Name": "设备[3]-PV13电压-实时库号[317]",
+      "ShowAddr": "0",
+      "Addr": 16459,
+      "RegNum": 2,
+      "RealDevNo": 317
+    },
+    {
+      "No": 38,
+      "Name": "设备[3]-PV13电流-实时库号[318]",
+      "ShowAddr": "0",
+      "Addr": 16461,
+      "RegNum": 2,
+      "RealDevNo": 318
+    },
+    {
+      "No": 39,
+      "Name": "设备[3]-PV14电压-实时库号[319]",
+      "ShowAddr": "0",
+      "Addr": 16463,
+      "RegNum": 2,
+      "RealDevNo": 319
+    },
+    {
+      "No": 40,
+      "Name": "设备[3]-PV14电流-实时库号[320]",
+      "ShowAddr": "0",
+      "Addr": 16465,
+      "RegNum": 2,
+      "RealDevNo": 320
+    },
+    {
+      "No": 41,
+      "Name": "设备[3]-PV15电压-实时库号[321]",
+      "ShowAddr": "0",
+      "Addr": 16467,
+      "RegNum": 2,
+      "RealDevNo": 321
+    },
+    {
+      "No": 42,
+      "Name": "设备[3]-PV15电流-实时库号[322]",
+      "ShowAddr": "0",
+      "Addr": 16469,
+      "RegNum": 2,
+      "RealDevNo": 322
+    },
+    {
+      "No": 43,
+      "Name": "设备[3]-PV16电压-实时库号[323]",
+      "ShowAddr": "0",
+      "Addr": 16471,
+      "RegNum": 2,
+      "RealDevNo": 323
+    },
+    {
+      "No": 44,
+      "Name": "设备[3]-PV16电流-实时库号[324]",
+      "ShowAddr": "0",
+      "Addr": 16473,
+      "RegNum": 2,
+      "RealDevNo": 324
+    },
+    {
+      "No": 45,
+      "Name": "设备[3]-PV17电压-实时库号[325]",
+      "ShowAddr": "0",
+      "Addr": 16475,
+      "RegNum": 2,
+      "RealDevNo": 325
+    },
+    {
+      "No": 46,
+      "Name": "设备[3]-PV17电流-实时库号[326]",
+      "ShowAddr": "0",
+      "Addr": 16477,
+      "RegNum": 2,
+      "RealDevNo": 326
+    },
+    {
+      "No": 47,
+      "Name": "设备[3]-PV18电压-实时库号[327]",
+      "ShowAddr": "0",
+      "Addr": 16479,
+      "RegNum": 2,
+      "RealDevNo": 327
+    },
+    {
+      "No": 48,
+      "Name": "设备[3]-PV18电流-实时库号[328]",
+      "ShowAddr": "0",
+      "Addr": 16481,
+      "RegNum": 2,
+      "RealDevNo": 328
+    },
+    {
+      "No": 49,
+      "Name": "设备[3]-PV19电压-实时库号[329]",
+      "ShowAddr": "0",
+      "Addr": 16483,
+      "RegNum": 2,
+      "RealDevNo": 329
+    },
+    {
+      "No": 50,
+      "Name": "设备[3]-PV19电流-实时库号[330]",
+      "ShowAddr": "0",
+      "Addr": 16485,
+      "RegNum": 2,
+      "RealDevNo": 330
+    },
+    {
+      "No": 51,
+      "Name": "设备[3]-PV20电压-实时库号[331]",
+      "ShowAddr": "0",
+      "Addr": 16487,
+      "RegNum": 2,
+      "RealDevNo": 331
+    },
+    {
+      "No": 52,
+      "Name": "设备[3]-PV20电流-实时库号[332]",
+      "ShowAddr": "0",
+      "Addr": 16489,
+      "RegNum": 2,
+      "RealDevNo": 332
+    },
+    {
+      "No": 53,
+      "Name": "设备[3]-输入功率-实时库号[333]",
+      "ShowAddr": "0",
+      "Addr": 16491,
+      "RegNum": 2,
+      "RealDevNo": 333
+    },
+    {
+      "No": 54,
+      "Name": "设备[3]-AB线电压-实时库号[334]",
+      "ShowAddr": "0",
+      "Addr": 16493,
+      "RegNum": 2,
+      "RealDevNo": 334
+    },
+    {
+      "No": 55,
+      "Name": "设备[3]-BC线电压-实时库号[335]",
+      "ShowAddr": "0",
+      "Addr": 16495,
+      "RegNum": 2,
+      "RealDevNo": 335
+    },
+    {
+      "No": 56,
+      "Name": "设备[3]-CA线电压 -实时库号[336]",
+      "ShowAddr": "0",
+      "Addr": 16497,
+      "RegNum": 2,
+      "RealDevNo": 336
+    },
+    {
+      "No": 57,
+      "Name": "设备[3]-电网A相电压 -实时库号[337]",
+      "ShowAddr": "0",
+      "Addr": 16499,
+      "RegNum": 2,
+      "RealDevNo": 337
+    },
+    {
+      "No": 58,
+      "Name": "设备[3]-电网B相电压-实时库号[338]",
+      "ShowAddr": "0",
+      "Addr": 16501,
+      "RegNum": 2,
+      "RealDevNo": 338
+    },
+    {
+      "No": 59,
+      "Name": "设备[3]-电网C相电压-实时库号[339]",
+      "ShowAddr": "0",
+      "Addr": 16503,
+      "RegNum": 2,
+      "RealDevNo": 339
+    },
+    {
+      "No": 60,
+      "Name": "设备[3]-A相电流-实时库号[340]",
+      "ShowAddr": "0",
+      "Addr": 16505,
+      "RegNum": 2,
+      "RealDevNo": 340
+    },
+    {
+      "No": 61,
+      "Name": "设备[3]-B相电流-实时库号[341]",
+      "ShowAddr": "0",
+      "Addr": 16507,
+      "RegNum": 2,
+      "RealDevNo": 341
+    },
+    {
+      "No": 62,
+      "Name": "设备[3]-C相电流 -实时库号[342]",
+      "ShowAddr": "0",
+      "Addr": 16509,
+      "RegNum": 2,
+      "RealDevNo": 342
+    },
+    {
+      "No": 63,
+      "Name": "设备[3]-当天峰值有功-实时库号[343]",
+      "ShowAddr": "0",
+      "Addr": 16511,
+      "RegNum": 2,
+      "RealDevNo": 343
+    },
+    {
+      "No": 64,
+      "Name": "设备[3]-有功功率-实时库号[344]",
+      "ShowAddr": "0",
+      "Addr": 16513,
+      "RegNum": 2,
+      "RealDevNo": 344
+    },
+    {
+      "No": 65,
+      "Name": "设备[3]-无功功率-实时库号[345]",
+      "ShowAddr": "0",
+      "Addr": 16515,
+      "RegNum": 2,
+      "RealDevNo": 345
+    },
+    {
+      "No": 66,
+      "Name": "设备[3]-功率因数-实时库号[346]",
+      "ShowAddr": "0",
+      "Addr": 16517,
+      "RegNum": 2,
+      "RealDevNo": 346
+    },
+    {
+      "No": 67,
+      "Name": "设备[3]-电网频率-实时库号[347]",
+      "ShowAddr": "0",
+      "Addr": 16519,
+      "RegNum": 2,
+      "RealDevNo": 347
+    },
+    {
+      "No": 68,
+      "Name": "设备[3]-效率-实时库号[348]",
+      "ShowAddr": "0",
+      "Addr": 16521,
+      "RegNum": 2,
+      "RealDevNo": 348
+    },
+    {
+      "No": 69,
+      "Name": "设备[3]-内部温度-实时库号[349]",
+      "ShowAddr": "0",
+      "Addr": 16523,
+      "RegNum": 2,
+      "RealDevNo": 349
+    },
+    {
+      "No": 70,
+      "Name": "设备[3]-绝缘阻抗值-实时库号[350]",
+      "ShowAddr": "0",
+      "Addr": 16525,
+      "RegNum": 2,
+      "RealDevNo": 350
+    },
+    {
+      "No": 71,
+      "Name": "设备[3]-开机时间-实时库号[351]",
+      "ShowAddr": "0",
+      "Addr": 16527,
+      "RegNum": 2,
+      "RealDevNo": 351
+    },
+    {
+      "No": 72,
+      "Name": "设备[3]-关机时间-实时库号[352]",
+      "ShowAddr": "0",
+      "Addr": 16529,
+      "RegNum": 2,
+      "RealDevNo": 352
+    },
+    {
+      "No": 73,
+      "Name": "设备[3]-累计发电量-实时库号[353]",
+      "ShowAddr": "0",
+      "Addr": 16531,
+      "RegNum": 2,
+      "RealDevNo": 353
+    },
+    {
+      "No": 74,
+      "Name": "设备[3]-当日发电量-实时库号[354]",
+      "ShowAddr": "0",
+      "Addr": 16533,
+      "RegNum": 2,
+      "RealDevNo": 354
+    },
+    {
+      "No": 75,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16535,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 76,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16537,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 77,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16539,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 78,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16541,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 79,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16543,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 80,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16545,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 81,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16547,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 82,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16549,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 83,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16551,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 84,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16553,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 85,
+      "Name": "设备[4]-PV1电压-实时库号[371]",
+      "ShowAddr": "0",
+      "Addr": 16555,
+      "RegNum": 2,
+      "RealDevNo": 371
+    },
+    {
+      "No": 86,
+      "Name": "设备[4]-PV1电流-实时库号[372]",
+      "ShowAddr": "0",
+      "Addr": 16557,
+      "RegNum": 2,
+      "RealDevNo": 372
+    },
+    {
+      "No": 87,
+      "Name": "设备[4]-PV2电压-实时库号[373]",
+      "ShowAddr": "0",
+      "Addr": 16559,
+      "RegNum": 2,
+      "RealDevNo": 373
+    },
+    {
+      "No": 88,
+      "Name": "设备[4]-PV2电流-实时库号[374]",
+      "ShowAddr": "0",
+      "Addr": 16561,
+      "RegNum": 2,
+      "RealDevNo": 374
+    },
+    {
+      "No": 89,
+      "Name": "设备[4]-PV3电压-实时库号[375]",
+      "ShowAddr": "0",
+      "Addr": 16563,
+      "RegNum": 2,
+      "RealDevNo": 375
+    },
+    {
+      "No": 90,
+      "Name": "设备[4]-PV3电流-实时库号[376]",
+      "ShowAddr": "0",
+      "Addr": 16565,
+      "RegNum": 2,
+      "RealDevNo": 376
+    },
+    {
+      "No": 91,
+      "Name": "设备[4]-PV4电压-实时库号[377]",
+      "ShowAddr": "0",
+      "Addr": 16567,
+      "RegNum": 2,
+      "RealDevNo": 377
+    },
+    {
+      "No": 92,
+      "Name": "设备[4]-PV4电流-实时库号[378]",
+      "ShowAddr": "0",
+      "Addr": 16569,
+      "RegNum": 2,
+      "RealDevNo": 378
+    },
+    {
+      "No": 93,
+      "Name": "设备[4]-PV5电压-实时库号[379]",
+      "ShowAddr": "0",
+      "Addr": 16571,
+      "RegNum": 2,
+      "RealDevNo": 379
+    },
+    {
+      "No": 94,
+      "Name": "设备[4]-PV5电流-实时库号[380]",
+      "ShowAddr": "0",
+      "Addr": 16573,
+      "RegNum": 2,
+      "RealDevNo": 380
+    },
+    {
+      "No": 95,
+      "Name": "设备[4]-PV6电压-实时库号[381]",
+      "ShowAddr": "0",
+      "Addr": 16575,
+      "RegNum": 2,
+      "RealDevNo": 381
+    },
+    {
+      "No": 96,
+      "Name": "设备[4]-PV6电流-实时库号[382]",
+      "ShowAddr": "0",
+      "Addr": 16577,
+      "RegNum": 2,
+      "RealDevNo": 382
+    },
+    {
+      "No": 97,
+      "Name": "设备[4]-PV7电压-实时库号[383]",
+      "ShowAddr": "0",
+      "Addr": 16579,
+      "RegNum": 2,
+      "RealDevNo": 383
+    },
+    {
+      "No": 98,
+      "Name": "设备[4]-PV7电流-实时库号[384]",
+      "ShowAddr": "0",
+      "Addr": 16581,
+      "RegNum": 2,
+      "RealDevNo": 384
+    },
+    {
+      "No": 99,
+      "Name": "设备[4]-PV8电压-实时库号[385]",
+      "ShowAddr": "0",
+      "Addr": 16583,
+      "RegNum": 2,
+      "RealDevNo": 385
+    },
+    {
+      "No": 100,
+      "Name": "设备[4]-PV8电流-实时库号[386]",
+      "ShowAddr": "0",
+      "Addr": 16585,
+      "RegNum": 2,
+      "RealDevNo": 386
+    },
+    {
+      "No": 101,
+      "Name": "设备[4]-PV9电压-实时库号[387]",
+      "ShowAddr": "0",
+      "Addr": 16587,
+      "RegNum": 2,
+      "RealDevNo": 387
+    },
+    {
+      "No": 102,
+      "Name": "设备[4]-PV9电流-实时库号[388]",
+      "ShowAddr": "0",
+      "Addr": 16589,
+      "RegNum": 2,
+      "RealDevNo": 388
+    },
+    {
+      "No": 103,
+      "Name": "设备[4]-PV10电压-实时库号[389]",
+      "ShowAddr": "0",
+      "Addr": 16591,
+      "RegNum": 2,
+      "RealDevNo": 389
+    },
+    {
+      "No": 104,
+      "Name": "设备[4]-PV10电流-实时库号[390]",
+      "ShowAddr": "0",
+      "Addr": 16593,
+      "RegNum": 2,
+      "RealDevNo": 390
+    },
+    {
+      "No": 105,
+      "Name": "设备[4]-PV11电压-实时库号[391]",
+      "ShowAddr": "0",
+      "Addr": 16595,
+      "RegNum": 2,
+      "RealDevNo": 391
+    },
+    {
+      "No": 106,
+      "Name": "设备[4]-PV11电流-实时库号[392]",
+      "ShowAddr": "0",
+      "Addr": 16597,
+      "RegNum": 2,
+      "RealDevNo": 392
+    },
+    {
+      "No": 107,
+      "Name": "设备[4]-PV12电压-实时库号[393]",
+      "ShowAddr": "0",
+      "Addr": 16599,
+      "RegNum": 2,
+      "RealDevNo": 393
+    },
+    {
+      "No": 108,
+      "Name": "设备[4]-PV12电流-实时库号[394]",
+      "ShowAddr": "0",
+      "Addr": 16601,
+      "RegNum": 2,
+      "RealDevNo": 394
+    },
+    {
+      "No": 109,
+      "Name": "设备[4]-PV13电压-实时库号[395]",
+      "ShowAddr": "0",
+      "Addr": 16603,
+      "RegNum": 2,
+      "RealDevNo": 395
+    },
+    {
+      "No": 110,
+      "Name": "设备[4]-PV13电流-实时库号[396]",
+      "ShowAddr": "0",
+      "Addr": 16605,
+      "RegNum": 2,
+      "RealDevNo": 396
+    },
+    {
+      "No": 111,
+      "Name": "设备[4]-PV14电压-实时库号[397]",
+      "ShowAddr": "0",
+      "Addr": 16607,
+      "RegNum": 2,
+      "RealDevNo": 397
+    },
+    {
+      "No": 112,
+      "Name": "设备[4]-PV14电流-实时库号[398]",
+      "ShowAddr": "0",
+      "Addr": 16609,
+      "RegNum": 2,
+      "RealDevNo": 398
+    },
+    {
+      "No": 113,
+      "Name": "设备[4]-PV15电压-实时库号[399]",
+      "ShowAddr": "0",
+      "Addr": 16611,
+      "RegNum": 2,
+      "RealDevNo": 399
+    },
+    {
+      "No": 114,
+      "Name": "设备[4]-PV15电流-实时库号[400]",
+      "ShowAddr": "0",
+      "Addr": 16613,
+      "RegNum": 2,
+      "RealDevNo": 400
+    },
+    {
+      "No": 115,
+      "Name": "设备[4]-PV16电压-实时库号[401]",
+      "ShowAddr": "0",
+      "Addr": 16615,
+      "RegNum": 2,
+      "RealDevNo": 401
+    },
+    {
+      "No": 116,
+      "Name": "设备[4]-PV16电流-实时库号[402]",
+      "ShowAddr": "0",
+      "Addr": 16617,
+      "RegNum": 2,
+      "RealDevNo": 402
+    },
+    {
+      "No": 117,
+      "Name": "设备[4]-PV17电压-实时库号[403]",
+      "ShowAddr": "0",
+      "Addr": 16619,
+      "RegNum": 2,
+      "RealDevNo": 403
+    },
+    {
+      "No": 118,
+      "Name": "设备[4]-PV17电流-实时库号[404]",
+      "ShowAddr": "0",
+      "Addr": 16621,
+      "RegNum": 2,
+      "RealDevNo": 404
+    },
+    {
+      "No": 119,
+      "Name": "设备[4]-PV18电压-实时库号[405]",
+      "ShowAddr": "0",
+      "Addr": 16623,
+      "RegNum": 2,
+      "RealDevNo": 405
+    },
+    {
+      "No": 120,
+      "Name": "设备[4]-PV18电流-实时库号[406]",
+      "ShowAddr": "0",
+      "Addr": 16625,
+      "RegNum": 2,
+      "RealDevNo": 406
+    },
+    {
+      "No": 121,
+      "Name": "设备[4]-PV19电压-实时库号[407]",
+      "ShowAddr": "0",
+      "Addr": 16627,
+      "RegNum": 2,
+      "RealDevNo": 407
+    },
+    {
+      "No": 122,
+      "Name": "设备[4]-PV19电流-实时库号[408]",
+      "ShowAddr": "0",
+      "Addr": 16629,
+      "RegNum": 2,
+      "RealDevNo": 408
+    },
+    {
+      "No": 123,
+      "Name": "设备[4]-PV20电压-实时库号[409]",
+      "ShowAddr": "0",
+      "Addr": 16631,
+      "RegNum": 2,
+      "RealDevNo": 409
+    },
+    {
+      "No": 124,
+      "Name": "设备[4]-PV20电流-实时库号[410]",
+      "ShowAddr": "0",
+      "Addr": 16633,
+      "RegNum": 2,
+      "RealDevNo": 410
+    },
+    {
+      "No": 125,
+      "Name": "设备[4]-输入功率-实时库号[411]",
+      "ShowAddr": "0",
+      "Addr": 16635,
+      "RegNum": 2,
+      "RealDevNo": 411
+    },
+    {
+      "No": 126,
+      "Name": "设备[4]-AB线电压-实时库号[412]",
+      "ShowAddr": "0",
+      "Addr": 16637,
+      "RegNum": 2,
+      "RealDevNo": 412
+    },
+    {
+      "No": 127,
+      "Name": "设备[4]-BC线电压-实时库号[413]",
+      "ShowAddr": "0",
+      "Addr": 16639,
+      "RegNum": 2,
+      "RealDevNo": 413
+    },
+    {
+      "No": 128,
+      "Name": "设备[4]-CA线电压 -实时库号[414]",
+      "ShowAddr": "0",
+      "Addr": 16641,
+      "RegNum": 2,
+      "RealDevNo": 414
+    },
+    {
+      "No": 129,
+      "Name": "设备[4]-电网A相电压 -实时库号[415]",
+      "ShowAddr": "0",
+      "Addr": 16643,
+      "RegNum": 2,
+      "RealDevNo": 415
+    },
+    {
+      "No": 130,
+      "Name": "设备[4]-电网B相电压-实时库号[416]",
+      "ShowAddr": "0",
+      "Addr": 16645,
+      "RegNum": 2,
+      "RealDevNo": 416
+    },
+    {
+      "No": 131,
+      "Name": "设备[4]-电网C相电压-实时库号[417]",
+      "ShowAddr": "0",
+      "Addr": 16647,
+      "RegNum": 2,
+      "RealDevNo": 417
+    },
+    {
+      "No": 132,
+      "Name": "设备[4]-A相电流-实时库号[418]",
+      "ShowAddr": "0",
+      "Addr": 16649,
+      "RegNum": 2,
+      "RealDevNo": 418
+    },
+    {
+      "No": 133,
+      "Name": "设备[4]-B相电流-实时库号[419]",
+      "ShowAddr": "0",
+      "Addr": 16651,
+      "RegNum": 2,
+      "RealDevNo": 419
+    },
+    {
+      "No": 134,
+      "Name": "设备[4]-C相电流 -实时库号[420]",
+      "ShowAddr": "0",
+      "Addr": 16653,
+      "RegNum": 2,
+      "RealDevNo": 420
+    },
+    {
+      "No": 135,
+      "Name": "设备[4]-当天峰值有功-实时库号[421]",
+      "ShowAddr": "0",
+      "Addr": 16655,
+      "RegNum": 2,
+      "RealDevNo": 421
+    },
+    {
+      "No": 136,
+      "Name": "设备[4]-有功功率-实时库号[422]",
+      "ShowAddr": "0",
+      "Addr": 16657,
+      "RegNum": 2,
+      "RealDevNo": 422
+    },
+    {
+      "No": 137,
+      "Name": "设备[4]-无功功率-实时库号[423]",
+      "ShowAddr": "0",
+      "Addr": 16659,
+      "RegNum": 2,
+      "RealDevNo": 423
+    },
+    {
+      "No": 138,
+      "Name": "设备[4]-功率因数-实时库号[424]",
+      "ShowAddr": "0",
+      "Addr": 16661,
+      "RegNum": 2,
+      "RealDevNo": 424
+    },
+    {
+      "No": 139,
+      "Name": "设备[4]-电网频率-实时库号[425]",
+      "ShowAddr": "0",
+      "Addr": 16663,
+      "RegNum": 2,
+      "RealDevNo": 425
+    },
+    {
+      "No": 140,
+      "Name": "设备[4]-效率-实时库号[426]",
+      "ShowAddr": "0",
+      "Addr": 16665,
+      "RegNum": 2,
+      "RealDevNo": 426
+    },
+    {
+      "No": 141,
+      "Name": "设备[4]-内部温度-实时库号[427]",
+      "ShowAddr": "0",
+      "Addr": 16667,
+      "RegNum": 2,
+      "RealDevNo": 427
+    },
+    {
+      "No": 142,
+      "Name": "设备[4]-绝缘阻抗值-实时库号[428]",
+      "ShowAddr": "0",
+      "Addr": 16669,
+      "RegNum": 2,
+      "RealDevNo": 428
+    },
+    {
+      "No": 143,
+      "Name": "设备[4]-开机时间-实时库号[429]",
+      "ShowAddr": "0",
+      "Addr": 16671,
+      "RegNum": 2,
+      "RealDevNo": 429
+    },
+    {
+      "No": 144,
+      "Name": "设备[4]-关机时间-实时库号[430]",
+      "ShowAddr": "0",
+      "Addr": 16673,
+      "RegNum": 2,
+      "RealDevNo": 430
+    },
+    {
+      "No": 145,
+      "Name": "设备[4]-累计发电量-实时库号[431]",
+      "ShowAddr": "0",
+      "Addr": 16675,
+      "RegNum": 2,
+      "RealDevNo": 431
+    },
+    {
+      "No": 146,
+      "Name": "设备[4]-当日发电量-实时库号[432]",
+      "ShowAddr": "0",
+      "Addr": 16677,
+      "RegNum": 2,
+      "RealDevNo": 432
+    },
+    {
+      "No": 147,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16679,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 148,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16681,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 149,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16683,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 150,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16685,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 151,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16687,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 152,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16689,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 153,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16691,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 154,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16693,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 155,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16695,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 156,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16697,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 157,
+      "Name": "设备[5]-PV1电压-实时库号[449]",
+      "ShowAddr": "0",
+      "Addr": 16699,
+      "RegNum": 2,
+      "RealDevNo": 449
+    },
+    {
+      "No": 158,
+      "Name": "设备[5]-PV1电流-实时库号[450]",
+      "ShowAddr": "0",
+      "Addr": 16701,
+      "RegNum": 2,
+      "RealDevNo": 450
+    },
+    {
+      "No": 159,
+      "Name": "设备[5]-PV2电压-实时库号[451]",
+      "ShowAddr": "0",
+      "Addr": 16703,
+      "RegNum": 2,
+      "RealDevNo": 451
+    },
+    {
+      "No": 160,
+      "Name": "设备[5]-PV2电流-实时库号[452]",
+      "ShowAddr": "0",
+      "Addr": 16705,
+      "RegNum": 2,
+      "RealDevNo": 452
+    },
+    {
+      "No": 161,
+      "Name": "设备[5]-PV3电压-实时库号[453]",
+      "ShowAddr": "0",
+      "Addr": 16707,
+      "RegNum": 2,
+      "RealDevNo": 453
+    },
+    {
+      "No": 162,
+      "Name": "设备[5]-PV3电流-实时库号[454]",
+      "ShowAddr": "0",
+      "Addr": 16709,
+      "RegNum": 2,
+      "RealDevNo": 454
+    },
+    {
+      "No": 163,
+      "Name": "设备[5]-PV4电压-实时库号[455]",
+      "ShowAddr": "0",
+      "Addr": 16711,
+      "RegNum": 2,
+      "RealDevNo": 455
+    },
+    {
+      "No": 164,
+      "Name": "设备[5]-PV4电流-实时库号[456]",
+      "ShowAddr": "0",
+      "Addr": 16713,
+      "RegNum": 2,
+      "RealDevNo": 456
+    },
+    {
+      "No": 165,
+      "Name": "设备[5]-PV5电压-实时库号[457]",
+      "ShowAddr": "0",
+      "Addr": 16715,
+      "RegNum": 2,
+      "RealDevNo": 457
+    },
+    {
+      "No": 166,
+      "Name": "设备[5]-PV5电流-实时库号[458]",
+      "ShowAddr": "0",
+      "Addr": 16717,
+      "RegNum": 2,
+      "RealDevNo": 458
+    },
+    {
+      "No": 167,
+      "Name": "设备[5]-PV6电压-实时库号[459]",
+      "ShowAddr": "0",
+      "Addr": 16719,
+      "RegNum": 2,
+      "RealDevNo": 459
+    },
+    {
+      "No": 168,
+      "Name": "设备[5]-PV6电流-实时库号[460]",
+      "ShowAddr": "0",
+      "Addr": 16721,
+      "RegNum": 2,
+      "RealDevNo": 460
+    },
+    {
+      "No": 169,
+      "Name": "设备[5]-PV7电压-实时库号[461]",
+      "ShowAddr": "0",
+      "Addr": 16723,
+      "RegNum": 2,
+      "RealDevNo": 461
+    },
+    {
+      "No": 170,
+      "Name": "设备[5]-PV7电流-实时库号[462]",
+      "ShowAddr": "0",
+      "Addr": 16725,
+      "RegNum": 2,
+      "RealDevNo": 462
+    },
+    {
+      "No": 171,
+      "Name": "设备[5]-PV8电压-实时库号[463]",
+      "ShowAddr": "0",
+      "Addr": 16727,
+      "RegNum": 2,
+      "RealDevNo": 463
+    },
+    {
+      "No": 172,
+      "Name": "设备[5]-PV8电流-实时库号[464]",
+      "ShowAddr": "0",
+      "Addr": 16729,
+      "RegNum": 2,
+      "RealDevNo": 464
+    },
+    {
+      "No": 173,
+      "Name": "设备[5]-PV9电压-实时库号[465]",
+      "ShowAddr": "0",
+      "Addr": 16731,
+      "RegNum": 2,
+      "RealDevNo": 465
+    },
+    {
+      "No": 174,
+      "Name": "设备[5]-PV9电流-实时库号[466]",
+      "ShowAddr": "0",
+      "Addr": 16733,
+      "RegNum": 2,
+      "RealDevNo": 466
+    },
+    {
+      "No": 175,
+      "Name": "设备[5]-PV10电压-实时库号[467]",
+      "ShowAddr": "0",
+      "Addr": 16735,
+      "RegNum": 2,
+      "RealDevNo": 467
+    },
+    {
+      "No": 176,
+      "Name": "设备[5]-PV10电流-实时库号[468]",
+      "ShowAddr": "0",
+      "Addr": 16737,
+      "RegNum": 2,
+      "RealDevNo": 468
+    },
+    {
+      "No": 177,
+      "Name": "设备[5]-PV11电压-实时库号[469]",
+      "ShowAddr": "0",
+      "Addr": 16739,
+      "RegNum": 2,
+      "RealDevNo": 469
+    },
+    {
+      "No": 178,
+      "Name": "设备[5]-PV11电流-实时库号[470]",
+      "ShowAddr": "0",
+      "Addr": 16741,
+      "RegNum": 2,
+      "RealDevNo": 470
+    },
+    {
+      "No": 179,
+      "Name": "设备[5]-PV12电压-实时库号[471]",
+      "ShowAddr": "0",
+      "Addr": 16743,
+      "RegNum": 2,
+      "RealDevNo": 471
+    },
+    {
+      "No": 180,
+      "Name": "设备[5]-PV12电流-实时库号[472]",
+      "ShowAddr": "0",
+      "Addr": 16745,
+      "RegNum": 2,
+      "RealDevNo": 472
+    },
+    {
+      "No": 181,
+      "Name": "设备[5]-PV13电压-实时库号[473]",
+      "ShowAddr": "0",
+      "Addr": 16747,
+      "RegNum": 2,
+      "RealDevNo": 473
+    },
+    {
+      "No": 182,
+      "Name": "设备[5]-PV13电流-实时库号[474]",
+      "ShowAddr": "0",
+      "Addr": 16749,
+      "RegNum": 2,
+      "RealDevNo": 474
+    },
+    {
+      "No": 183,
+      "Name": "设备[5]-PV14电压-实时库号[475]",
+      "ShowAddr": "0",
+      "Addr": 16751,
+      "RegNum": 2,
+      "RealDevNo": 475
+    },
+    {
+      "No": 184,
+      "Name": "设备[5]-PV14电流-实时库号[476]",
+      "ShowAddr": "0",
+      "Addr": 16753,
+      "RegNum": 2,
+      "RealDevNo": 476
+    },
+    {
+      "No": 185,
+      "Name": "设备[5]-PV15电压-实时库号[477]",
+      "ShowAddr": "0",
+      "Addr": 16755,
+      "RegNum": 2,
+      "RealDevNo": 477
+    },
+    {
+      "No": 186,
+      "Name": "设备[5]-PV15电流-实时库号[478]",
+      "ShowAddr": "0",
+      "Addr": 16757,
+      "RegNum": 2,
+      "RealDevNo": 478
+    },
+    {
+      "No": 187,
+      "Name": "设备[5]-PV16电压-实时库号[479]",
+      "ShowAddr": "0",
+      "Addr": 16759,
+      "RegNum": 2,
+      "RealDevNo": 479
+    },
+    {
+      "No": 188,
+      "Name": "设备[5]-PV16电流-实时库号[480]",
+      "ShowAddr": "0",
+      "Addr": 16761,
+      "RegNum": 2,
+      "RealDevNo": 480
+    },
+    {
+      "No": 189,
+      "Name": "设备[5]-PV17电压-实时库号[481]",
+      "ShowAddr": "0",
+      "Addr": 16763,
+      "RegNum": 2,
+      "RealDevNo": 481
+    },
+    {
+      "No": 190,
+      "Name": "设备[5]-PV17电流-实时库号[482]",
+      "ShowAddr": "0",
+      "Addr": 16765,
+      "RegNum": 2,
+      "RealDevNo": 482
+    },
+    {
+      "No": 191,
+      "Name": "设备[5]-PV18电压-实时库号[483]",
+      "ShowAddr": "0",
+      "Addr": 16767,
+      "RegNum": 2,
+      "RealDevNo": 483
+    },
+    {
+      "No": 192,
+      "Name": "设备[5]-PV18电流-实时库号[484]",
+      "ShowAddr": "0",
+      "Addr": 16769,
+      "RegNum": 2,
+      "RealDevNo": 484
+    },
+    {
+      "No": 193,
+      "Name": "设备[5]-PV19电压-实时库号[485]",
+      "ShowAddr": "0",
+      "Addr": 16771,
+      "RegNum": 2,
+      "RealDevNo": 485
+    },
+    {
+      "No": 194,
+      "Name": "设备[5]-PV19电流-实时库号[486]",
+      "ShowAddr": "0",
+      "Addr": 16773,
+      "RegNum": 2,
+      "RealDevNo": 486
+    },
+    {
+      "No": 195,
+      "Name": "设备[5]-PV20电压-实时库号[487]",
+      "ShowAddr": "0",
+      "Addr": 16775,
+      "RegNum": 2,
+      "RealDevNo": 487
+    },
+    {
+      "No": 196,
+      "Name": "设备[5]-PV20电流-实时库号[488]",
+      "ShowAddr": "0",
+      "Addr": 16777,
+      "RegNum": 2,
+      "RealDevNo": 488
+    },
+    {
+      "No": 197,
+      "Name": "设备[5]-输入功率-实时库号[489]",
+      "ShowAddr": "0",
+      "Addr": 16779,
+      "RegNum": 2,
+      "RealDevNo": 489
+    },
+    {
+      "No": 198,
+      "Name": "设备[5]-AB线电压-实时库号[490]",
+      "ShowAddr": "0",
+      "Addr": 16781,
+      "RegNum": 2,
+      "RealDevNo": 490
+    },
+    {
+      "No": 199,
+      "Name": "设备[5]-BC线电压-实时库号[491]",
+      "ShowAddr": "0",
+      "Addr": 16783,
+      "RegNum": 2,
+      "RealDevNo": 491
+    },
+    {
+      "No": 200,
+      "Name": "设备[5]-CA线电压 -实时库号[492]",
+      "ShowAddr": "0",
+      "Addr": 16785,
+      "RegNum": 2,
+      "RealDevNo": 492
+    },
+    {
+      "No": 201,
+      "Name": "设备[5]-电网A相电压 -实时库号[493]",
+      "ShowAddr": "0",
+      "Addr": 16787,
+      "RegNum": 2,
+      "RealDevNo": 493
+    },
+    {
+      "No": 202,
+      "Name": "设备[5]-电网B相电压-实时库号[494]",
+      "ShowAddr": "0",
+      "Addr": 16789,
+      "RegNum": 2,
+      "RealDevNo": 494
+    },
+    {
+      "No": 203,
+      "Name": "设备[5]-电网C相电压-实时库号[495]",
+      "ShowAddr": "0",
+      "Addr": 16791,
+      "RegNum": 2,
+      "RealDevNo": 495
+    },
+    {
+      "No": 204,
+      "Name": "设备[5]-A相电流-实时库号[496]",
+      "ShowAddr": "0",
+      "Addr": 16793,
+      "RegNum": 2,
+      "RealDevNo": 496
+    },
+    {
+      "No": 205,
+      "Name": "设备[5]-B相电流-实时库号[497]",
+      "ShowAddr": "0",
+      "Addr": 16795,
+      "RegNum": 2,
+      "RealDevNo": 497
+    },
+    {
+      "No": 206,
+      "Name": "设备[5]-C相电流 -实时库号[498]",
+      "ShowAddr": "0",
+      "Addr": 16797,
+      "RegNum": 2,
+      "RealDevNo": 498
+    },
+    {
+      "No": 207,
+      "Name": "设备[5]-当天峰值有功-实时库号[499]",
+      "ShowAddr": "0",
+      "Addr": 16799,
+      "RegNum": 2,
+      "RealDevNo": 499
+    },
+    {
+      "No": 208,
+      "Name": "设备[5]-有功功率-实时库号[500]",
+      "ShowAddr": "0",
+      "Addr": 16801,
+      "RegNum": 2,
+      "RealDevNo": 500
+    },
+    {
+      "No": 209,
+      "Name": "设备[5]-无功功率-实时库号[501]",
+      "ShowAddr": "0",
+      "Addr": 16803,
+      "RegNum": 2,
+      "RealDevNo": 501
+    },
+    {
+      "No": 210,
+      "Name": "设备[5]-功率因数-实时库号[502]",
+      "ShowAddr": "0",
+      "Addr": 16805,
+      "RegNum": 2,
+      "RealDevNo": 502
+    },
+    {
+      "No": 211,
+      "Name": "设备[5]-电网频率-实时库号[503]",
+      "ShowAddr": "0",
+      "Addr": 16807,
+      "RegNum": 2,
+      "RealDevNo": 503
+    },
+    {
+      "No": 212,
+      "Name": "设备[5]-效率-实时库号[504]",
+      "ShowAddr": "0",
+      "Addr": 16809,
+      "RegNum": 2,
+      "RealDevNo": 504
+    },
+    {
+      "No": 213,
+      "Name": "设备[5]-内部温度-实时库号[505]",
+      "ShowAddr": "0",
+      "Addr": 16811,
+      "RegNum": 2,
+      "RealDevNo": 505
+    },
+    {
+      "No": 214,
+      "Name": "设备[5]-绝缘阻抗值-实时库号[506]",
+      "ShowAddr": "0",
+      "Addr": 16813,
+      "RegNum": 2,
+      "RealDevNo": 506
+    },
+    {
+      "No": 215,
+      "Name": "设备[5]-开机时间-实时库号[507]",
+      "ShowAddr": "0",
+      "Addr": 16815,
+      "RegNum": 2,
+      "RealDevNo": 507
+    },
+    {
+      "No": 216,
+      "Name": "设备[5]-关机时间-实时库号[508]",
+      "ShowAddr": "0",
+      "Addr": 16817,
+      "RegNum": 2,
+      "RealDevNo": 508
+    },
+    {
+      "No": 217,
+      "Name": "设备[5]-累计发电量-实时库号[509]",
+      "ShowAddr": "0",
+      "Addr": 16819,
+      "RegNum": 2,
+      "RealDevNo": 509
+    },
+    {
+      "No": 218,
+      "Name": "设备[5]-当日发电量-实时库号[510]",
+      "ShowAddr": "0",
+      "Addr": 16821,
+      "RegNum": 2,
+      "RealDevNo": 510
+    },
+    {
+      "No": 219,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16823,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 220,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16825,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 221,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16827,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 222,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16829,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 223,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16831,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 224,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16833,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 225,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16835,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 226,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16837,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 227,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16839,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 228,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16841,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 229,
+      "Name": "设备[6]-PV1电压-实时库号[527]",
+      "ShowAddr": "0",
+      "Addr": 16843,
+      "RegNum": 2,
+      "RealDevNo": 527
+    },
+    {
+      "No": 230,
+      "Name": "设备[6]-PV1电流-实时库号[528]",
+      "ShowAddr": "0",
+      "Addr": 16845,
+      "RegNum": 2,
+      "RealDevNo": 528
+    },
+    {
+      "No": 231,
+      "Name": "设备[6]-PV2电压-实时库号[529]",
+      "ShowAddr": "0",
+      "Addr": 16847,
+      "RegNum": 2,
+      "RealDevNo": 529
+    },
+    {
+      "No": 232,
+      "Name": "设备[6]-PV2电流-实时库号[530]",
+      "ShowAddr": "0",
+      "Addr": 16849,
+      "RegNum": 2,
+      "RealDevNo": 530
+    },
+    {
+      "No": 233,
+      "Name": "设备[6]-PV3电压-实时库号[531]",
+      "ShowAddr": "0",
+      "Addr": 16851,
+      "RegNum": 2,
+      "RealDevNo": 531
+    },
+    {
+      "No": 234,
+      "Name": "设备[6]-PV3电流-实时库号[532]",
+      "ShowAddr": "0",
+      "Addr": 16853,
+      "RegNum": 2,
+      "RealDevNo": 532
+    },
+    {
+      "No": 235,
+      "Name": "设备[6]-PV4电压-实时库号[533]",
+      "ShowAddr": "0",
+      "Addr": 16855,
+      "RegNum": 2,
+      "RealDevNo": 533
+    },
+    {
+      "No": 236,
+      "Name": "设备[6]-PV4电流-实时库号[534]",
+      "ShowAddr": "0",
+      "Addr": 16857,
+      "RegNum": 2,
+      "RealDevNo": 534
+    },
+    {
+      "No": 237,
+      "Name": "设备[6]-PV5电压-实时库号[535]",
+      "ShowAddr": "0",
+      "Addr": 16859,
+      "RegNum": 2,
+      "RealDevNo": 535
+    },
+    {
+      "No": 238,
+      "Name": "设备[6]-PV5电流-实时库号[536]",
+      "ShowAddr": "0",
+      "Addr": 16861,
+      "RegNum": 2,
+      "RealDevNo": 536
+    },
+    {
+      "No": 239,
+      "Name": "设备[6]-PV6电压-实时库号[537]",
+      "ShowAddr": "0",
+      "Addr": 16863,
+      "RegNum": 2,
+      "RealDevNo": 537
+    },
+    {
+      "No": 240,
+      "Name": "设备[6]-PV6电流-实时库号[538]",
+      "ShowAddr": "0",
+      "Addr": 16865,
+      "RegNum": 2,
+      "RealDevNo": 538
+    },
+    {
+      "No": 241,
+      "Name": "设备[6]-PV7电压-实时库号[539]",
+      "ShowAddr": "0",
+      "Addr": 16867,
+      "RegNum": 2,
+      "RealDevNo": 539
+    },
+    {
+      "No": 242,
+      "Name": "设备[6]-PV7电流-实时库号[540]",
+      "ShowAddr": "0",
+      "Addr": 16869,
+      "RegNum": 2,
+      "RealDevNo": 540
+    },
+    {
+      "No": 243,
+      "Name": "设备[6]-PV8电压-实时库号[541]",
+      "ShowAddr": "0",
+      "Addr": 16871,
+      "RegNum": 2,
+      "RealDevNo": 541
+    },
+    {
+      "No": 244,
+      "Name": "设备[6]-PV8电流-实时库号[542]",
+      "ShowAddr": "0",
+      "Addr": 16873,
+      "RegNum": 2,
+      "RealDevNo": 542
+    },
+    {
+      "No": 245,
+      "Name": "设备[6]-PV9电压-实时库号[543]",
+      "ShowAddr": "0",
+      "Addr": 16875,
+      "RegNum": 2,
+      "RealDevNo": 543
+    },
+    {
+      "No": 246,
+      "Name": "设备[6]-PV9电流-实时库号[544]",
+      "ShowAddr": "0",
+      "Addr": 16877,
+      "RegNum": 2,
+      "RealDevNo": 544
+    },
+    {
+      "No": 247,
+      "Name": "设备[6]-PV10电压-实时库号[545]",
+      "ShowAddr": "0",
+      "Addr": 16879,
+      "RegNum": 2,
+      "RealDevNo": 545
+    },
+    {
+      "No": 248,
+      "Name": "设备[6]-PV10电流-实时库号[546]",
+      "ShowAddr": "0",
+      "Addr": 16881,
+      "RegNum": 2,
+      "RealDevNo": 546
+    },
+    {
+      "No": 249,
+      "Name": "设备[6]-PV11电压-实时库号[547]",
+      "ShowAddr": "0",
+      "Addr": 16883,
+      "RegNum": 2,
+      "RealDevNo": 547
+    },
+    {
+      "No": 250,
+      "Name": "设备[6]-PV11电流-实时库号[548]",
+      "ShowAddr": "0",
+      "Addr": 16885,
+      "RegNum": 2,
+      "RealDevNo": 548
+    },
+    {
+      "No": 251,
+      "Name": "设备[6]-PV12电压-实时库号[549]",
+      "ShowAddr": "0",
+      "Addr": 16887,
+      "RegNum": 2,
+      "RealDevNo": 549
+    },
+    {
+      "No": 252,
+      "Name": "设备[6]-PV12电流-实时库号[550]",
+      "ShowAddr": "0",
+      "Addr": 16889,
+      "RegNum": 2,
+      "RealDevNo": 550
+    },
+    {
+      "No": 253,
+      "Name": "设备[6]-PV13电压-实时库号[551]",
+      "ShowAddr": "0",
+      "Addr": 16891,
+      "RegNum": 2,
+      "RealDevNo": 551
+    },
+    {
+      "No": 254,
+      "Name": "设备[6]-PV13电流-实时库号[552]",
+      "ShowAddr": "0",
+      "Addr": 16893,
+      "RegNum": 2,
+      "RealDevNo": 552
+    },
+    {
+      "No": 255,
+      "Name": "设备[6]-PV14电压-实时库号[553]",
+      "ShowAddr": "0",
+      "Addr": 16895,
+      "RegNum": 2,
+      "RealDevNo": 553
+    },
+    {
+      "No": 256,
+      "Name": "设备[6]-PV14电流-实时库号[554]",
+      "ShowAddr": "0",
+      "Addr": 16897,
+      "RegNum": 2,
+      "RealDevNo": 554
+    },
+    {
+      "No": 257,
+      "Name": "设备[6]-PV15电压-实时库号[555]",
+      "ShowAddr": "0",
+      "Addr": 16899,
+      "RegNum": 2,
+      "RealDevNo": 555
+    },
+    {
+      "No": 258,
+      "Name": "设备[6]-PV15电流-实时库号[556]",
+      "ShowAddr": "0",
+      "Addr": 16901,
+      "RegNum": 2,
+      "RealDevNo": 556
+    },
+    {
+      "No": 259,
+      "Name": "设备[6]-PV16电压-实时库号[557]",
+      "ShowAddr": "0",
+      "Addr": 16903,
+      "RegNum": 2,
+      "RealDevNo": 557
+    },
+    {
+      "No": 260,
+      "Name": "设备[6]-PV16电流-实时库号[558]",
+      "ShowAddr": "0",
+      "Addr": 16905,
+      "RegNum": 2,
+      "RealDevNo": 558
+    },
+    {
+      "No": 261,
+      "Name": "设备[6]-PV17电压-实时库号[559]",
+      "ShowAddr": "0",
+      "Addr": 16907,
+      "RegNum": 2,
+      "RealDevNo": 559
+    },
+    {
+      "No": 262,
+      "Name": "设备[6]-PV17电流-实时库号[560]",
+      "ShowAddr": "0",
+      "Addr": 16909,
+      "RegNum": 2,
+      "RealDevNo": 560
+    },
+    {
+      "No": 263,
+      "Name": "设备[6]-PV18电压-实时库号[561]",
+      "ShowAddr": "0",
+      "Addr": 16911,
+      "RegNum": 2,
+      "RealDevNo": 561
+    },
+    {
+      "No": 264,
+      "Name": "设备[6]-PV18电流-实时库号[562]",
+      "ShowAddr": "0",
+      "Addr": 16913,
+      "RegNum": 2,
+      "RealDevNo": 562
+    },
+    {
+      "No": 265,
+      "Name": "设备[6]-PV19电压-实时库号[563]",
+      "ShowAddr": "0",
+      "Addr": 16915,
+      "RegNum": 2,
+      "RealDevNo": 563
+    },
+    {
+      "No": 266,
+      "Name": "设备[6]-PV19电流-实时库号[564]",
+      "ShowAddr": "0",
+      "Addr": 16917,
+      "RegNum": 2,
+      "RealDevNo": 564
+    },
+    {
+      "No": 267,
+      "Name": "设备[6]-PV20电压-实时库号[565]",
+      "ShowAddr": "0",
+      "Addr": 16919,
+      "RegNum": 2,
+      "RealDevNo": 565
+    },
+    {
+      "No": 268,
+      "Name": "设备[6]-PV20电流-实时库号[566]",
+      "ShowAddr": "0",
+      "Addr": 16921,
+      "RegNum": 2,
+      "RealDevNo": 566
+    },
+    {
+      "No": 269,
+      "Name": "设备[6]-输入功率-实时库号[567]",
+      "ShowAddr": "0",
+      "Addr": 16923,
+      "RegNum": 2,
+      "RealDevNo": 567
+    },
+    {
+      "No": 270,
+      "Name": "设备[6]-AB线电压-实时库号[568]",
+      "ShowAddr": "0",
+      "Addr": 16925,
+      "RegNum": 2,
+      "RealDevNo": 568
+    },
+    {
+      "No": 271,
+      "Name": "设备[6]-BC线电压-实时库号[569]",
+      "ShowAddr": "0",
+      "Addr": 16927,
+      "RegNum": 2,
+      "RealDevNo": 569
+    },
+    {
+      "No": 272,
+      "Name": "设备[6]-CA线电压 -实时库号[570]",
+      "ShowAddr": "0",
+      "Addr": 16929,
+      "RegNum": 2,
+      "RealDevNo": 570
+    },
+    {
+      "No": 273,
+      "Name": "设备[6]-电网A相电压 -实时库号[571]",
+      "ShowAddr": "0",
+      "Addr": 16931,
+      "RegNum": 2,
+      "RealDevNo": 571
+    },
+    {
+      "No": 274,
+      "Name": "设备[6]-电网B相电压-实时库号[572]",
+      "ShowAddr": "0",
+      "Addr": 16933,
+      "RegNum": 2,
+      "RealDevNo": 572
+    },
+    {
+      "No": 275,
+      "Name": "设备[6]-电网C相电压-实时库号[573]",
+      "ShowAddr": "0",
+      "Addr": 16935,
+      "RegNum": 2,
+      "RealDevNo": 573
+    },
+    {
+      "No": 276,
+      "Name": "设备[6]-A相电流-实时库号[574]",
+      "ShowAddr": "0",
+      "Addr": 16937,
+      "RegNum": 2,
+      "RealDevNo": 574
+    },
+    {
+      "No": 277,
+      "Name": "设备[6]-B相电流-实时库号[575]",
+      "ShowAddr": "0",
+      "Addr": 16939,
+      "RegNum": 2,
+      "RealDevNo": 575
+    },
+    {
+      "No": 278,
+      "Name": "设备[6]-C相电流 -实时库号[576]",
+      "ShowAddr": "0",
+      "Addr": 16941,
+      "RegNum": 2,
+      "RealDevNo": 576
+    },
+    {
+      "No": 279,
+      "Name": "设备[6]-当天峰值有功-实时库号[577]",
+      "ShowAddr": "0",
+      "Addr": 16943,
+      "RegNum": 2,
+      "RealDevNo": 577
+    },
+    {
+      "No": 280,
+      "Name": "设备[6]-有功功率-实时库号[578]",
+      "ShowAddr": "0",
+      "Addr": 16945,
+      "RegNum": 2,
+      "RealDevNo": 578
+    },
+    {
+      "No": 281,
+      "Name": "设备[6]-无功功率-实时库号[579]",
+      "ShowAddr": "0",
+      "Addr": 16947,
+      "RegNum": 2,
+      "RealDevNo": 579
+    },
+    {
+      "No": 282,
+      "Name": "设备[6]-功率因数-实时库号[580]",
+      "ShowAddr": "0",
+      "Addr": 16949,
+      "RegNum": 2,
+      "RealDevNo": 580
+    },
+    {
+      "No": 283,
+      "Name": "设备[6]-电网频率-实时库号[581]",
+      "ShowAddr": "0",
+      "Addr": 16951,
+      "RegNum": 2,
+      "RealDevNo": 581
+    },
+    {
+      "No": 284,
+      "Name": "设备[6]-效率-实时库号[582]",
+      "ShowAddr": "0",
+      "Addr": 16953,
+      "RegNum": 2,
+      "RealDevNo": 582
+    },
+    {
+      "No": 285,
+      "Name": "设备[6]-内部温度-实时库号[583]",
+      "ShowAddr": "0",
+      "Addr": 16955,
+      "RegNum": 2,
+      "RealDevNo": 583
+    },
+    {
+      "No": 286,
+      "Name": "设备[6]-绝缘阻抗值-实时库号[584]",
+      "ShowAddr": "0",
+      "Addr": 16957,
+      "RegNum": 2,
+      "RealDevNo": 584
+    },
+    {
+      "No": 287,
+      "Name": "设备[6]-开机时间-实时库号[585]",
+      "ShowAddr": "0",
+      "Addr": 16959,
+      "RegNum": 2,
+      "RealDevNo": 585
+    },
+    {
+      "No": 288,
+      "Name": "设备[6]-关机时间-实时库号[586]",
+      "ShowAddr": "0",
+      "Addr": 16961,
+      "RegNum": 2,
+      "RealDevNo": 586
+    },
+    {
+      "No": 289,
+      "Name": "设备[6]-累计发电量-实时库号[587]",
+      "ShowAddr": "0",
+      "Addr": 16963,
+      "RegNum": 2,
+      "RealDevNo": 587
+    },
+    {
+      "No": 290,
+      "Name": "设备[6]-当日发电量-实时库号[588]",
+      "ShowAddr": "0",
+      "Addr": 16965,
+      "RegNum": 2,
+      "RealDevNo": 588
+    },
+    {
+      "No": 291,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16967,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 292,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16969,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 293,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16971,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 294,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16973,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 295,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16975,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 296,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16977,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 297,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16979,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 298,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16981,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 299,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16983,
+      "RegNum": 2,
+      "RealDevNo": 269
+    },
+    {
+      "No": 300,
+      "Name": "设备[0]-预留-实时库号[269]",
+      "ShowAddr": "0",
+      "Addr": 16985,
+      "RegNum": 2,
+      "RealDevNo": 269
+    }
+  ],
+  "YXDataItem": [
+    {
+      "No": 0,
+      "Name": "设备[3]-输入组串电压高-实时库号[355]",
+      "ShowAddr": "0",
+      "Addr": 1,
+      "RegNum": 1,
+      "RealDevNo": 355
+    },
+    {
+      "No": 1,
+      "Name": "设备[3]-直流电弧故障-实时库号[356]",
+      "ShowAddr": "0",
+      "Addr": 2,
+      "RegNum": 1,
+      "RealDevNo": 356
+    },
+    {
+      "No": 2,
+      "Name": "设备[3]-组串反接-实时库号[357]",
+      "ShowAddr": "0",
+      "Addr": 3,
+      "RegNum": 1,
+      "RealDevNo": 357
+    },
+    {
+      "No": 3,
+      "Name": "设备[3]-组串电流反灌-实时库号[358]",
+      "ShowAddr": "0",
+      "Addr": 4,
+      "RegNum": 1,
+      "RealDevNo": 358
+    },
+    {
+      "No": 4,
+      "Name": "设备[3]-组串功率异常-实时库号[359]",
+      "ShowAddr": "0",
+      "Addr": 5,
+      "RegNum": 1,
+      "RealDevNo": 359
+    },
+    {
+      "No": 5,
+      "Name": "设备[3]-AFCI自检失败-实时库号[360]",
+      "ShowAddr": "0",
+      "Addr": 6,
+      "RegNum": 1,
+      "RealDevNo": 360
+    },
+    {
+      "No": 6,
+      "Name": "设备[3]-电网相线对PE短路-实时库号[361]",
+      "ShowAddr": "0",
+      "Addr": 7,
+      "RegNum": 1,
+      "RealDevNo": 361
+    },
+    {
+      "No": 7,
+      "Name": "设备[3]-电网掉电-实时库号[362]",
+      "ShowAddr": "0",
+      "Addr": 8,
+      "RegNum": 1,
+      "RealDevNo": 362
+    },
+    {
+      "No": 8,
+      "Name": "设备[3]-电网欠压-实时库号[363]",
+      "ShowAddr": "0",
+      "Addr": 9,
+      "RegNum": 1,
+      "RealDevNo": 363
+    },
+    {
+      "No": 9,
+      "Name": "设备[3]-电网过压-实时库号[364]",
+      "ShowAddr": "0",
+      "Addr": 10,
+      "RegNum": 1,
+      "RealDevNo": 364
+    },
+    {
+      "No": 10,
+      "Name": "设备[3]-电网电压不平衡 -实时库号[365]",
+      "ShowAddr": "0",
+      "Addr": 11,
+      "RegNum": 1,
+      "RealDevNo": 365
+    },
+    {
+      "No": 11,
+      "Name": "设备[3]-电网过频-实时库号[366]",
+      "ShowAddr": "0",
+      "Addr": 12,
+      "RegNum": 1,
+      "RealDevNo": 366
+    },
+    {
+      "No": 12,
+      "Name": "设备[3]-电网欠频 -实时库号[367]",
+      "ShowAddr": "0",
+      "Addr": 13,
+      "RegNum": 1,
+      "RealDevNo": 367
+    },
+    {
+      "No": 13,
+      "Name": "设备[3]-电网频率不稳定 -实时库号[368]",
+      "ShowAddr": "0",
+      "Addr": 14,
+      "RegNum": 1,
+      "RealDevNo": 368
+    },
+    {
+      "No": 14,
+      "Name": "设备[3]-输出过流-实时库号[369]",
+      "ShowAddr": "0",
+      "Addr": 15,
+      "RegNum": 1,
+      "RealDevNo": 369
+    },
+    {
+      "No": 15,
+      "Name": "设备[3]-输出电流直流分量过大-实时库号[370]",
+      "ShowAddr": "0",
+      "Addr": 16,
+      "RegNum": 1,
+      "RealDevNo": 370
+    },
+    {
+      "No": 16,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 17,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 17,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 18,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 18,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 19,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 19,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 20,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 20,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 21,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 21,
+      "Name": "设备[4]-输入组串电压高-实时库号[433]",
+      "ShowAddr": "0",
+      "Addr": 22,
+      "RegNum": 1,
+      "RealDevNo": 433
+    },
+    {
+      "No": 22,
+      "Name": "设备[4]-直流电弧故障-实时库号[434]",
+      "ShowAddr": "0",
+      "Addr": 23,
+      "RegNum": 1,
+      "RealDevNo": 434
+    },
+    {
+      "No": 23,
+      "Name": "设备[4]-组串反接-实时库号[435]",
+      "ShowAddr": "0",
+      "Addr": 24,
+      "RegNum": 1,
+      "RealDevNo": 435
+    },
+    {
+      "No": 24,
+      "Name": "设备[4]-组串电流反灌-实时库号[436]",
+      "ShowAddr": "0",
+      "Addr": 25,
+      "RegNum": 1,
+      "RealDevNo": 436
+    },
+    {
+      "No": 25,
+      "Name": "设备[4]-组串功率异常-实时库号[437]",
+      "ShowAddr": "0",
+      "Addr": 26,
+      "RegNum": 1,
+      "RealDevNo": 437
+    },
+    {
+      "No": 26,
+      "Name": "设备[4]-AFCI自检失败-实时库号[438]",
+      "ShowAddr": "0",
+      "Addr": 27,
+      "RegNum": 1,
+      "RealDevNo": 438
+    },
+    {
+      "No": 27,
+      "Name": "设备[4]-电网相线对PE短路-实时库号[439]",
+      "ShowAddr": "0",
+      "Addr": 28,
+      "RegNum": 1,
+      "RealDevNo": 439
+    },
+    {
+      "No": 28,
+      "Name": "设备[4]-电网掉电-实时库号[440]",
+      "ShowAddr": "0",
+      "Addr": 29,
+      "RegNum": 1,
+      "RealDevNo": 440
+    },
+    {
+      "No": 29,
+      "Name": "设备[4]-电网欠压-实时库号[441]",
+      "ShowAddr": "0",
+      "Addr": 30,
+      "RegNum": 1,
+      "RealDevNo": 441
+    },
+    {
+      "No": 30,
+      "Name": "设备[4]-电网过压-实时库号[442]",
+      "ShowAddr": "0",
+      "Addr": 31,
+      "RegNum": 1,
+      "RealDevNo": 442
+    },
+    {
+      "No": 31,
+      "Name": "设备[4]-电网电压不平衡 -实时库号[443]",
+      "ShowAddr": "0",
+      "Addr": 32,
+      "RegNum": 1,
+      "RealDevNo": 443
+    },
+    {
+      "No": 32,
+      "Name": "设备[4]-电网过频-实时库号[444]",
+      "ShowAddr": "0",
+      "Addr": 33,
+      "RegNum": 1,
+      "RealDevNo": 444
+    },
+    {
+      "No": 33,
+      "Name": "设备[4]-电网欠频 -实时库号[445]",
+      "ShowAddr": "0",
+      "Addr": 34,
+      "RegNum": 1,
+      "RealDevNo": 445
+    },
+    {
+      "No": 34,
+      "Name": "设备[4]-电网频率不稳定 -实时库号[446]",
+      "ShowAddr": "0",
+      "Addr": 35,
+      "RegNum": 1,
+      "RealDevNo": 446
+    },
+    {
+      "No": 35,
+      "Name": "设备[4]-输出过流-实时库号[447]",
+      "ShowAddr": "0",
+      "Addr": 36,
+      "RegNum": 1,
+      "RealDevNo": 447
+    },
+    {
+      "No": 36,
+      "Name": "设备[4]-输出电流直流分量过大-实时库号[448]",
+      "ShowAddr": "0",
+      "Addr": 37,
+      "RegNum": 1,
+      "RealDevNo": 448
+    },
+    {
+      "No": 37,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 38,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 38,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 39,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 39,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 40,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 40,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 41,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 41,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 42,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 42,
+      "Name": "设备[5]-输入组串电压高-实时库号[511]",
+      "ShowAddr": "0",
+      "Addr": 43,
+      "RegNum": 1,
+      "RealDevNo": 511
+    },
+    {
+      "No": 43,
+      "Name": "设备[5]-直流电弧故障-实时库号[512]",
+      "ShowAddr": "0",
+      "Addr": 44,
+      "RegNum": 1,
+      "RealDevNo": 512
+    },
+    {
+      "No": 44,
+      "Name": "设备[5]-组串反接-实时库号[513]",
+      "ShowAddr": "0",
+      "Addr": 45,
+      "RegNum": 1,
+      "RealDevNo": 513
+    },
+    {
+      "No": 45,
+      "Name": "设备[5]-组串电流反灌-实时库号[514]",
+      "ShowAddr": "0",
+      "Addr": 46,
+      "RegNum": 1,
+      "RealDevNo": 514
+    },
+    {
+      "No": 46,
+      "Name": "设备[5]-组串功率异常-实时库号[515]",
+      "ShowAddr": "0",
+      "Addr": 47,
+      "RegNum": 1,
+      "RealDevNo": 515
+    },
+    {
+      "No": 47,
+      "Name": "设备[5]-AFCI自检失败-实时库号[516]",
+      "ShowAddr": "0",
+      "Addr": 48,
+      "RegNum": 1,
+      "RealDevNo": 516
+    },
+    {
+      "No": 48,
+      "Name": "设备[5]-电网相线对PE短路-实时库号[517]",
+      "ShowAddr": "0",
+      "Addr": 49,
+      "RegNum": 1,
+      "RealDevNo": 517
+    },
+    {
+      "No": 49,
+      "Name": "设备[5]-电网掉电-实时库号[518]",
+      "ShowAddr": "0",
+      "Addr": 50,
+      "RegNum": 1,
+      "RealDevNo": 518
+    },
+    {
+      "No": 50,
+      "Name": "设备[5]-电网欠压-实时库号[519]",
+      "ShowAddr": "0",
+      "Addr": 51,
+      "RegNum": 1,
+      "RealDevNo": 519
+    },
+    {
+      "No": 51,
+      "Name": "设备[5]-电网过压-实时库号[520]",
+      "ShowAddr": "0",
+      "Addr": 52,
+      "RegNum": 1,
+      "RealDevNo": 520
+    },
+    {
+      "No": 52,
+      "Name": "设备[5]-电网电压不平衡 -实时库号[521]",
+      "ShowAddr": "0",
+      "Addr": 53,
+      "RegNum": 1,
+      "RealDevNo": 521
+    },
+    {
+      "No": 53,
+      "Name": "设备[5]-电网过频-实时库号[522]",
+      "ShowAddr": "0",
+      "Addr": 54,
+      "RegNum": 1,
+      "RealDevNo": 522
+    },
+    {
+      "No": 54,
+      "Name": "设备[5]-电网欠频 -实时库号[523]",
+      "ShowAddr": "0",
+      "Addr": 55,
+      "RegNum": 1,
+      "RealDevNo": 523
+    },
+    {
+      "No": 55,
+      "Name": "设备[5]-电网频率不稳定 -实时库号[524]",
+      "ShowAddr": "0",
+      "Addr": 56,
+      "RegNum": 1,
+      "RealDevNo": 524
+    },
+    {
+      "No": 56,
+      "Name": "设备[5]-输出过流-实时库号[525]",
+      "ShowAddr": "0",
+      "Addr": 57,
+      "RegNum": 1,
+      "RealDevNo": 525
+    },
+    {
+      "No": 57,
+      "Name": "设备[5]-输出电流直流分量过大-实时库号[526]",
+      "ShowAddr": "0",
+      "Addr": 58,
+      "RegNum": 1,
+      "RealDevNo": 526
+    },
+    {
+      "No": 58,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 59,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 59,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 60,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 60,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 61,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 61,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 62,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 62,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 63,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 63,
+      "Name": "设备[6]-输入组串电压高-实时库号[589]",
+      "ShowAddr": "0",
+      "Addr": 64,
+      "RegNum": 1,
+      "RealDevNo": 589
+    },
+    {
+      "No": 64,
+      "Name": "设备[6]-直流电弧故障-实时库号[590]",
+      "ShowAddr": "0",
+      "Addr": 65,
+      "RegNum": 1,
+      "RealDevNo": 590
+    },
+    {
+      "No": 65,
+      "Name": "设备[6]-组串反接-实时库号[591]",
+      "ShowAddr": "0",
+      "Addr": 66,
+      "RegNum": 1,
+      "RealDevNo": 591
+    },
+    {
+      "No": 66,
+      "Name": "设备[6]-组串电流反灌-实时库号[592]",
+      "ShowAddr": "0",
+      "Addr": 67,
+      "RegNum": 1,
+      "RealDevNo": 592
+    },
+    {
+      "No": 67,
+      "Name": "设备[6]-组串功率异常-实时库号[593]",
+      "ShowAddr": "0",
+      "Addr": 68,
+      "RegNum": 1,
+      "RealDevNo": 593
+    },
+    {
+      "No": 68,
+      "Name": "设备[6]-AFCI自检失败-实时库号[594]",
+      "ShowAddr": "0",
+      "Addr": 69,
+      "RegNum": 1,
+      "RealDevNo": 594
+    },
+    {
+      "No": 69,
+      "Name": "设备[6]-电网相线对PE短路-实时库号[595]",
+      "ShowAddr": "0",
+      "Addr": 70,
+      "RegNum": 1,
+      "RealDevNo": 595
+    },
+    {
+      "No": 70,
+      "Name": "设备[6]-电网掉电-实时库号[596]",
+      "ShowAddr": "0",
+      "Addr": 71,
+      "RegNum": 1,
+      "RealDevNo": 596
+    },
+    {
+      "No": 71,
+      "Name": "设备[6]-电网欠压-实时库号[597]",
+      "ShowAddr": "0",
+      "Addr": 72,
+      "RegNum": 1,
+      "RealDevNo": 597
+    },
+    {
+      "No": 72,
+      "Name": "设备[6]-电网过压-实时库号[598]",
+      "ShowAddr": "0",
+      "Addr": 73,
+      "RegNum": 1,
+      "RealDevNo": 598
+    },
+    {
+      "No": 73,
+      "Name": "设备[6]-电网电压不平衡 -实时库号[599]",
+      "ShowAddr": "0",
+      "Addr": 74,
+      "RegNum": 1,
+      "RealDevNo": 599
+    },
+    {
+      "No": 74,
+      "Name": "设备[6]-电网过频-实时库号[600]",
+      "ShowAddr": "0",
+      "Addr": 75,
+      "RegNum": 1,
+      "RealDevNo": 600
+    },
+    {
+      "No": 75,
+      "Name": "设备[6]-电网欠频 -实时库号[601]",
+      "ShowAddr": "0",
+      "Addr": 76,
+      "RegNum": 1,
+      "RealDevNo": 601
+    },
+    {
+      "No": 76,
+      "Name": "设备[6]-电网频率不稳定 -实时库号[602]",
+      "ShowAddr": "0",
+      "Addr": 77,
+      "RegNum": 1,
+      "RealDevNo": 602
+    },
+    {
+      "No": 77,
+      "Name": "设备[6]-输出过流-实时库号[603]",
+      "ShowAddr": "0",
+      "Addr": 78,
+      "RegNum": 1,
+      "RealDevNo": 603
+    },
+    {
+      "No": 78,
+      "Name": "设备[6]-输出电流直流分量过大-实时库号[604]",
+      "ShowAddr": "0",
+      "Addr": 79,
+      "RegNum": 1,
+      "RealDevNo": 604
+    },
+    {
+      "No": 79,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 80,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 80,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 81,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 81,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 82,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 82,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 83,
+      "RegNum": 1,
+      "RealDevNo": 268
+    },
+    {
+      "No": 83,
+      "Name": "设备[0]-预留-实时库号[268]",
+      "ShowAddr": "0",
+      "Addr": 84,
+      "RegNum": 1,
+      "RealDevNo": 268
+    }
+  ],
+  "YKDataItem": [],
+  "DDDataItem": [
+    {
+      "No": 0,
+      "Name": "设备[0]-当前正向有功总电能-实时库号[279]",
+      "ShowAddr": "0",
+      "Addr": 25601,
+      "RegNum": 2,
+      "RealDevNo": 279
+    },
+    {
+      "No": 1,
+      "Name": "设备[0]-当前反向有功总电能-实时库号[280]",
+      "ShowAddr": "0",
+      "Addr": 25603,
+      "RegNum": 2,
+      "RealDevNo": 280
+    },
+    {
+      "No": 2,
+      "Name": "设备[0]-当前费率1反向有功电能-实时库号[281]",
+      "ShowAddr": "0",
+      "Addr": 25605,
+      "RegNum": 2,
+      "RealDevNo": 281
+    },
+    {
+      "No": 3,
+      "Name": "设备[0]-当前费率2反向有功电能-实时库号[282]",
+      "ShowAddr": "0",
+      "Addr": 25607,
+      "RegNum": 2,
+      "RealDevNo": 282
+    },
+    {
+      "No": 4,
+      "Name": "设备[0]-当前费率3反向有功电能-实时库号[283]",
+      "ShowAddr": "0",
+      "Addr": 25609,
+      "RegNum": 2,
+      "RealDevNo": 283
+    },
+    {
+      "No": 5,
+      "Name": "设备[0]-当前费率4反向有功电能-实时库号[284]",
+      "ShowAddr": "0",
+      "Addr": 25611,
+      "RegNum": 2,
+      "RealDevNo": 284
+    },
+    {
+      "No": 6,
+      "Name": "设备[0]-预留-实时库号[270]",
+      "ShowAddr": "0",
+      "Addr": 25613,
+      "RegNum": 2,
+      "RealDevNo": 270
+    },
+    {
+      "No": 7,
+      "Name": "设备[0]-预留-实时库号[270]",
+      "ShowAddr": "0",
+      "Addr": 25615,
+      "RegNum": 2,
+      "RealDevNo": 270
+    },
+    {
+      "No": 8,
+      "Name": "设备[0]-预留-实时库号[270]",
+      "ShowAddr": "0",
+      "Addr": 25617,
+      "RegNum": 2,
+      "RealDevNo": 270
+    },
+    {
+      "No": 9,
+      "Name": "设备[0]-预留-实时库号[270]",
+      "ShowAddr": "0",
+      "Addr": 25619,
+      "RegNum": 2,
+      "RealDevNo": 270
+    },
+    {
+      "No": 10,
+      "Name": "设备[0]-预留-实时库号[270]",
+      "ShowAddr": "0",
+      "Addr": 25621,
+      "RegNum": 2,
+      "RealDevNo": 270
+    }
+  ]
+}

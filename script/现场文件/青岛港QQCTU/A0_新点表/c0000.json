@@ -1,0 +1,2684 @@
+{
+  "DevSelfDataclassRoot": [
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 0,
+      "type": 0,
+      "Name": "硬遥信1",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 9
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 1,
+      "type": 0,
+      "Name": "硬遥信2",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 10
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 2,
+      "type": 0,
+      "Name": "硬遥信3",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 11
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 3,
+      "type": 0,
+      "Name": "硬遥信4",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 12
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 4,
+      "type": 0,
+      "Name": "硬遥信5",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 13
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 5,
+      "type": 0,
+      "Name": "硬遥信6",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 14
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 6,
+      "type": 0,
+      "Name": "硬遥信7",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 15
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 7,
+      "type": 0,
+      "Name": "硬遥信8",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 16
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 8,
+      "type": 0,
+      "Name": "K1_确认",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 9,
+      "type": 0,
+      "Name": "FSR恢复出厂设置",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 10,
+      "type": 0,
+      "Name": "K3_下",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 11,
+      "type": 0,
+      "Name": "K4_返回",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 12,
+      "type": 0,
+      "Name": "K2_上",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 13,
+      "type": 0,
+      "Name": "预留2",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 14,
+      "type": 0,
+      "Name": "预留3",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 15,
+      "type": 0,
+      "Name": "预留4",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 16,
+      "type": 0,
+      "Name": "A相过压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 17,
+      "type": 0,
+      "Name": "A相失压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 18,
+      "type": 0,
+      "Name": "B相过压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 19,
+      "type": 0,
+      "Name": "B相失压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 20,
+      "type": 0,
+      "Name": "C相过压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 21,
+      "type": 0,
+      "Name": "C相失压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 22,
+      "type": 0,
+      "Name": "A相过流",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 23,
+      "type": 0,
+      "Name": "B相过流",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 24,
+      "type": 0,
+      "Name": "C相过流",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 25,
+      "type": 0,
+      "Name": "A相过载",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 26,
+      "type": 0,
+      "Name": "B相过载",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 27,
+      "type": 0,
+      "Name": "C相过载",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 28,
+      "type": 0,
+      "Name": "A相停电",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 29,
+      "type": 0,
+      "Name": "B相停电",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 30,
+      "type": 0,
+      "Name": "C相停电",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 31,
+      "type": 0,
+      "Name": "录波完成",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 32,
+      "type": 0,
+      "Name": "虚拟遥信1",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 33,
+      "type": 0,
+      "Name": "虚拟遥信2",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 34,
+      "type": 0,
+      "Name": "虚拟遥信3",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 35,
+      "type": 0,
+      "Name": "虚拟遥信4",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 36,
+      "type": 0,
+      "Name": "虚拟遥信5",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 37,
+      "type": 0,
+      "Name": "虚拟遥信6",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 38,
+      "type": 0,
+      "Name": "虚拟遥信7",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 39,
+      "type": 0,
+      "Name": "虚拟遥信8",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 40,
+      "type": 0,
+      "Name": "虚拟遥信9",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 41,
+      "type": 0,
+      "Name": "虚拟遥信10",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 42,
+      "type": 0,
+      "Name": "虚拟遥信11",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 43,
+      "type": 0,
+      "Name": "虚拟遥信12",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 44,
+      "type": 0,
+      "Name": "虚拟遥信13",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 45,
+      "type": 0,
+      "Name": "虚拟遥信14",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 46,
+      "type": 0,
+      "Name": "虚拟遥信15",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 47,
+      "type": 0,
+      "Name": "虚拟遥信16",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 48,
+      "type": 0,
+      "Name": "虚拟遥信17",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 49,
+      "type": 0,
+      "Name": "虚拟遥信18",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 50,
+      "type": 0,
+      "Name": "虚拟遥信19",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 51,
+      "type": 0,
+      "Name": "虚拟遥信20",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 52,
+      "type": 0,
+      "Name": "故障软遥信",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 53,
+      "type": 0,
+      "Name": "告警软遥信",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 1,
+      "type": 2,
+      "Name": "设备自身遥控1",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 2,
+      "type": 2,
+      "Name": "设备自身遥控2",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 3,
+      "type": 2,
+      "Name": "设备自身遥控3",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 4,
+      "type": 2,
+      "Name": "设备自身遥控4",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 5,
+      "type": 2,
+      "Name": "预留设备自身遥控5",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 6,
+      "type": 2,
+      "Name": "预留预留设备自身遥控6",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 7,
+      "type": 2,
+      "Name": "装置复位_分_软压板遥控",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 1,
+      "RegNo": 8,
+      "type": 2,
+      "Name": "装置复位_合_软压板遥控",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 0,
+      "type": 1,
+      "Name": "A相电流(A)",
+      "Unit": "A",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 1,
+      "type": 1,
+      "Name": "B相电流(A)",
+      "Unit": "A",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 2,
+      "type": 1,
+      "Name": "C相电流(A)",
+      "Unit": "A",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 3,
+      "type": 1,
+      "Name": "A相电压(V)",
+      "Unit": "V",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 4,
+      "type": 1,
+      "Name": "B相电压(V)",
+      "Unit": "V",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 5,
+      "type": 1,
+      "Name": "C相电压(V)",
+      "Unit": "V",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 6,
+      "type": 1,
+      "Name": "A相有功功率(W)",
+      "Unit": "W",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 7,
+      "type": 1,
+      "Name": "B相有功功率(W)",
+      "Unit": "W",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 8,
+      "type": 1,
+      "Name": "C相有功功率(W)",
+      "Unit": "W",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 9,
+      "type": 1,
+      "Name": "A相无功功率(Var)",
+      "Unit": "Var",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 10,
+      "type": 1,
+      "Name": "B相无功功率(Var)",
+      "Unit": "Var",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 11,
+      "type": 1,
+      "Name": "C相无功功率(Var)",
+      "Unit": "Var",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 12,
+      "type": 1,
+      "Name": "A相视在功率(VA)",
+      "Unit": "VA",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 13,
+      "type": 1,
+      "Name": "B相视在功率(VA)",
+      "Unit": "VA",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 14,
+      "type": 1,
+      "Name": "C相视在功率(VA)",
+      "Unit": "VA",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 15,
+      "type": 1,
+      "Name": "A相功率因数(%)",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 16,
+      "type": 1,
+      "Name": "B相功率因数(%)",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 17,
+      "type": 1,
+      "Name": "C相功率因数(%)",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 18,
+      "type": 1,
+      "Name": "总功率因数(%)",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 19,
+      "type": 1,
+      "Name": "A相电网频率(HZ)",
+      "Unit": "HZ",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 20,
+      "type": 1,
+      "Name": "B相电网频率(HZ)",
+      "Unit": "HZ",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 21,
+      "type": 1,
+      "Name": "C相电网频率(HZ)",
+      "Unit": "HZ",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 22,
+      "type": 1,
+      "Name": "电网频率(HZ)",
+      "Unit": "HZ",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 23,
+      "type": 1,
+      "Name": "设备12V电压值(mv)",
+      "Unit": "mv",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 24,
+      "type": 1,
+      "Name": "设备PT100值(mv)",
+      "Unit": "mv",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 25,
+      "type": 1,
+      "Name": "总视在功率(VA)",
+      "Unit": "VA",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 26,
+      "type": 1,
+      "Name": "总有功功率(W)",
+      "Unit": "W",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 27,
+      "type": 1,
+      "Name": "总无功功率(Var)",
+      "Unit": "Var",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 2,
+      "RegNo": 28,
+      "type": 1,
+      "Name": "变压器负载率(%)",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 7,
+      "type": 1,
+      "Name": "UaUb相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 8,
+      "type": 1,
+      "Name": "UbUc相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 9,
+      "type": 1,
+      "Name": "UaUc相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 10,
+      "type": 1,
+      "Name": "IaIb相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 11,
+      "type": 1,
+      "Name": "IbIc相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 12,
+      "type": 1,
+      "Name": "IaIc相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 13,
+      "type": 1,
+      "Name": "零线电流",
+      "Unit": "A",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 14,
+      "type": 1,
+      "Name": "UaIa相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 15,
+      "type": 1,
+      "Name": "UbIb相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 16,
+      "type": 1,
+      "Name": "UcIc相角",
+      "Unit": "°",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 17,
+      "type": 1,
+      "Name": "A相电压波形失真度",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 18,
+      "type": 1,
+      "Name": "B相电压波形失真度",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 19,
+      "type": 1,
+      "Name": "C相电压波形失真度",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 20,
+      "type": 1,
+      "Name": "A相电流波形失真度",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 21,
+      "type": 1,
+      "Name": "B相电流波形失真度",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 22,
+      "type": 1,
+      "Name": "C相电流波形失真度",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 23,
+      "type": 1,
+      "Name": "A相电压2次谐波含量",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 24,
+      "type": 1,
+      "Name": "A相电压3次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 25,
+      "type": 1,
+      "Name": "A相电压4次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 26,
+      "type": 1,
+      "Name": "A相电压5次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 27,
+      "type": 1,
+      "Name": "A相电压6次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 28,
+      "type": 1,
+      "Name": "A相电压7次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 29,
+      "type": 1,
+      "Name": "A相电压8次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 30,
+      "type": 1,
+      "Name": "A相电压9次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 31,
+      "type": 1,
+      "Name": "A相电压10次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 32,
+      "type": 1,
+      "Name": "A相电压11次谐波含量",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 33,
+      "type": 1,
+      "Name": "A相电压12次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 34,
+      "type": 1,
+      "Name": "A相电压13次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 35,
+      "type": 1,
+      "Name": "A相电压14次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 36,
+      "type": 1,
+      "Name": "A相电压15次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 37,
+      "type": 1,
+      "Name": "A相电压16次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 38,
+      "type": 1,
+      "Name": "A相电压17次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 39,
+      "type": 1,
+      "Name": "A相电压18次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 40,
+      "type": 1,
+      "Name": "A相电压19次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 41,
+      "type": 1,
+      "Name": "B相电压2次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 42,
+      "type": 1,
+      "Name": "B相电压3次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 43,
+      "type": 1,
+      "Name": "B相电压4次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 44,
+      "type": 1,
+      "Name": "B相电压5次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 3,
+      "RegNo": 45,
+      "type": 1,
+      "Name": "B相电压6次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 0,
+      "type": 1,
+      "Name": "B相电压7次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 1,
+      "type": 1,
+      "Name": "B相电压8次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 2,
+      "type": 1,
+      "Name": "B相电压9次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 3,
+      "type": 1,
+      "Name": "B相电压10次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 4,
+      "type": 1,
+      "Name": "B相电压11次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 5,
+      "type": 1,
+      "Name": "B相电压12次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 6,
+      "type": 1,
+      "Name": "B相电压13次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 7,
+      "type": 1,
+      "Name": "B相电压14次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 8,
+      "type": 1,
+      "Name": "B相电压15次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 9,
+      "type": 1,
+      "Name": "B相电压16次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 10,
+      "type": 1,
+      "Name": "B相电压17次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 11,
+      "type": 1,
+      "Name": "B相电压18次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 12,
+      "type": 1,
+      "Name": "B相电压19次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 13,
+      "type": 1,
+      "Name": "C相电压2次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 14,
+      "type": 1,
+      "Name": "C相电压3次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 15,
+      "type": 1,
+      "Name": "C相电压4次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 16,
+      "type": 1,
+      "Name": "C相电压5次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 17,
+      "type": 1,
+      "Name": "C相电压6次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 18,
+      "type": 1,
+      "Name": "C相电压7次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 19,
+      "type": 1,
+      "Name": "C相电压8次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 20,
+      "type": 1,
+      "Name": "C相电压9次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 21,
+      "type": 1,
+      "Name": "C相电压10次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 22,
+      "type": 1,
+      "Name": "C相电压11次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 23,
+      "type": 1,
+      "Name": "C相电压12次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 24,
+      "type": 1,
+      "Name": "C相电压13次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 25,
+      "type": 1,
+      "Name": "C相电压14次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 26,
+      "type": 1,
+      "Name": "C相电压15次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 27,
+      "type": 1,
+      "Name": "C相电压16次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 28,
+      "type": 1,
+      "Name": "C相电压17次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 29,
+      "type": 1,
+      "Name": "C相电压18次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 30,
+      "type": 1,
+      "Name": "C相电压19次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 31,
+      "type": 1,
+      "Name": "A相电流2次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 32,
+      "type": 1,
+      "Name": "A相电流3次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 33,
+      "type": 1,
+      "Name": "A相电流4次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 34,
+      "type": 1,
+      "Name": "A相电流5次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 35,
+      "type": 1,
+      "Name": "A相电流6次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 36,
+      "type": 1,
+      "Name": "A相电流7次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 37,
+      "type": 1,
+      "Name": "A相电流8次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 38,
+      "type": 1,
+      "Name": "A相电流9次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 39,
+      "type": 1,
+      "Name": "A相电流10次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 40,
+      "type": 1,
+      "Name": "A相电流11次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 41,
+      "type": 1,
+      "Name": "A相电流12次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 42,
+      "type": 1,
+      "Name": "A相电流13次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 43,
+      "type": 1,
+      "Name": "A相电流14次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 44,
+      "type": 1,
+      "Name": "A相电流15次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 4,
+      "RegNo": 45,
+      "type": 1,
+      "Name": "A相电流16次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 0,
+      "type": 1,
+      "Name": "A相电流17次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 1,
+      "type": 1,
+      "Name": "A相电流18次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 2,
+      "type": 1,
+      "Name": "A相电流19次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 3,
+      "type": 1,
+      "Name": "B相电流2次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 4,
+      "type": 1,
+      "Name": "B相电流3次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 5,
+      "type": 1,
+      "Name": "B相电流4次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 6,
+      "type": 1,
+      "Name": "B相电流5次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 7,
+      "type": 1,
+      "Name": "B相电流6次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 8,
+      "type": 1,
+      "Name": "B相电流7次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 9,
+      "type": 1,
+      "Name": "B相电流8次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 10,
+      "type": 1,
+      "Name": "B相电流9次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 11,
+      "type": 1,
+      "Name": "B相电流10次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 12,
+      "type": 1,
+      "Name": "B相电流11次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 13,
+      "type": 1,
+      "Name": "B相电流12次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 14,
+      "type": 1,
+      "Name": "B相电流13次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 15,
+      "type": 1,
+      "Name": "B相电流14次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 16,
+      "type": 1,
+      "Name": "B相电流15次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 17,
+      "type": 1,
+      "Name": "B相电流16次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 18,
+      "type": 1,
+      "Name": "B相电流17次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 19,
+      "type": 1,
+      "Name": "B相电流18次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 20,
+      "type": 1,
+      "Name": "B相电流19次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 21,
+      "type": 1,
+      "Name": "C相电流2次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 22,
+      "type": 1,
+      "Name": "C相电流3次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 23,
+      "type": 1,
+      "Name": "C相电流4次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 24,
+      "type": 1,
+      "Name": "C相电流5次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 25,
+      "type": 1,
+      "Name": "C相电流6次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 26,
+      "type": 1,
+      "Name": "C相电流7次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 27,
+      "type": 1,
+      "Name": "C相电流8次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 28,
+      "type": 1,
+      "Name": "C相电流9次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 29,
+      "type": 1,
+      "Name": "C相电流10次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 30,
+      "type": 1,
+      "Name": "C相电流11次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 31,
+      "type": 1,
+      "Name": "C相电流12次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 32,
+      "type": 1,
+      "Name": "C相电流13次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 33,
+      "type": 1,
+      "Name": "C相电流14次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 34,
+      "type": 1,
+      "Name": "C相电流15次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 35,
+      "type": 1,
+      "Name": "C相电流16次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 36,
+      "type": 1,
+      "Name": "C相电流17次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 37,
+      "type": 1,
+      "Name": "C相电流18次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 38,
+      "type": 1,
+      "Name": "C相电流19次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 0,
+      "type": 3,
+      "Name": "A相正向有功电能(wh)",
+      "Unit": "wh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 1,
+      "type": 3,
+      "Name": "B相正向有功电能(wh)",
+      "Unit": "wh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 2,
+      "type": 3,
+      "Name": "C相正向有功电能(wh)",
+      "Unit": "wh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 3,
+      "type": 3,
+      "Name": "A相反向有功电能(wh)",
+      "Unit": "wh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 4,
+      "type": 3,
+      "Name": "B相反向有功电能(wh)",
+      "Unit": "wh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 5,
+      "type": 3,
+      "Name": "C相反向有功电能(wh)",
+      "Unit": "wh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 6,
+      "type": 3,
+      "Name": "A相正向无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 7,
+      "type": 3,
+      "Name": "B相正向无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 8,
+      "type": 3,
+      "Name": "C相正向无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 9,
+      "type": 3,
+      "Name": "A相反向无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 10,
+      "type": 3,
+      "Name": "B相反向无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 11,
+      "type": 3,
+      "Name": "C相反向无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 12,
+      "type": 3,
+      "Name": "1象限A相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 13,
+      "type": 3,
+      "Name": "1象限B相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 14,
+      "type": 3,
+      "Name": "1象限C相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 15,
+      "type": 3,
+      "Name": "2象限A相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 16,
+      "type": 3,
+      "Name": "2象限B相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 17,
+      "type": 3,
+      "Name": "2象限C相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 18,
+      "type": 3,
+      "Name": "3象限A相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 19,
+      "type": 3,
+      "Name": "3象限B相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 20,
+      "type": 3,
+      "Name": "3象限C相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 21,
+      "type": 3,
+      "Name": "4象限A相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 10,
+      "RegNo": 22,
+      "type": 3,
+      "Name": "4象限B相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 11,
+      "RegNo": 0,
+      "type": 3,
+      "Name": "4象限C相无功电能(varh)",
+      "Unit": "varh",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 11,
+      "RegNo": 1,
+      "type": 3,
+      "Name": "A相正向视在电能(vah)",
+      "Unit": "vah",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 11,
+      "RegNo": 2,
+      "type": 3,
+      "Name": "B相正向视在电能(vah)",
+      "Unit": "vah",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 11,
+      "RegNo": 3,
+      "type": 3,
+      "Name": "C相正向视在电能(vah)",
+      "Unit": "vah",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 11,
+      "RegNo": 4,
+      "type": 3,
+      "Name": "A相反向视在电能(vah)",
+      "Unit": "vah",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 11,
+      "RegNo": 5,
+      "type": 3,
+      "Name": "B相反向视在电能(vah)",
+      "Unit": "vah",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 11,
+      "RegNo": 6,
+      "type": 3,
+      "Name": "C相反向视在电能(vah)",
+      "Unit": "vah",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 54,
+      "type": 0,
+      "Name": "A相欠压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 55,
+      "type": 0,
+      "Name": "B相欠压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 56,
+      "type": 0,
+      "Name": "C相欠压",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 57,
+      "type": 0,
+      "Name": "A相失流",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 58,
+      "type": 0,
+      "Name": "B相失流",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 59,
+      "type": 0,
+      "Name": "C相失流",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 60,
+      "type": 0,
+      "Name": "电压不平衡",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 61,
+      "type": 0,
+      "Name": "电流不平衡",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 62,
+      "type": 0,
+      "Name": "电流严重不平衡",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 63,
+      "type": 0,
+      "Name": "辅助电源失电",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 0,
+      "RegNo": 64,
+      "type": 0,
+      "Name": "功率因数超下限",
+      "Unit": null,
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 39,
+      "type": 1,
+      "Name": "A相电压20次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 40,
+      "type": 1,
+      "Name": "A相电压21次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 41,
+      "type": 1,
+      "Name": "B相电压20次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 42,
+      "type": 1,
+      "Name": "B相电压21次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 43,
+      "type": 1,
+      "Name": "C相电压20次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 44,
+      "type": 1,
+      "Name": "C相电压21次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 45,
+      "type": 1,
+      "Name": "A相电流20次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 46,
+      "type": 1,
+      "Name": "A相电流21次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 47,
+      "type": 1,
+      "Name": "B相电流20次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 48,
+      "type": 1,
+      "Name": "B相电流21次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 49,
+      "type": 1,
+      "Name": "C相电流20次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    },
+    {
+      "linkNo": 0,
+      "devNo": 5,
+      "RegNo": 50,
+      "type": 1,
+      "Name": "C相电流21次谐波含量",
+      "Unit": "%",
+      "Ratio": 0,
+      "TypeProperty": 0
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+{
+  "RepeatTimes": 5,
+  "IntervalTimeMs": 1000,
+  "FE_Count": 4,
+  "isBroadcast_Time": 0,
+  "Broadcast_Time": "T00:00:00.000",
+  "DveConfig": [
+    {
+      "DveID": 0,
+      "DveIsValid": "Y",
+      "DveAddr": [
+        "01",
+        "22",
+        "00",
+        "12",
+        "85",
+        "71"
+      ],
+      "DveProtocl": 0,
+      "DveModel": "MultiMeter",
+      "Phase": 0
+    }
+  ],
+  "DataConfig": [
+    {
+      "DataName": null,
+      "Desc": "A相电压",
+      "UseBlockData": 0,
+      "RegNo": 0,
+      "Type": 1,
+      "BlockDataCount": 0,
+      "DataID": [
+        "02",
+        "01",
+        "01",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXX.X",
+      "DataLen": 2,
+      "Danwei": "V",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "B相电压",
+      "UseBlockData": 0,
+      "RegNo": 1,
+      "Type": 1,
+      "BlockDataCount": 0,
+      "DataID": [
+        "02",
+        "01",
+        "02",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXX.X",
+      "DataLen": 2,
+      "Danwei": "V",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "C相电压",
+      "UseBlockData": 0,
+      "RegNo": 2,
+      "Type": 1,
+      "BlockDataCount": 0,
+      "DataID": [
+        "02",
+        "01",
+        "03",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXX.X",
+      "DataLen": 2,
+      "Danwei": "V",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "A相电流",
+      "UseBlockData": 0,
+      "RegNo": 3,
+      "Type": 1,
+      "BlockDataCount": 0,
+      "DataID": [
+        "02",
+        "02",
+        "01",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXX.XXX",
+      "DataLen": 3,
+      "Danwei": "A",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "B相电流",
+      "UseBlockData": 0,
+      "RegNo": 4,
+      "Type": 1,
+      "BlockDataCount": 0,
+      "DataID": [
+        "02",
+        "02",
+        "02",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXX.XXX",
+      "DataLen": 3,
+      "Danwei": "A",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "C相电流",
+      "UseBlockData": 0,
+      "RegNo": 5,
+      "Type": 1,
+      "BlockDataCount": 0,
+      "DataID": [
+        "02",
+        "02",
+        "03",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXX.XXX",
+      "DataLen": 3,
+      "Danwei": "A",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "总有功功率",
+      "UseBlockData": 0,
+      "RegNo": 6,
+      "Type": 1,
+      "BlockDataCount": 0,
+      "DataID": [
+        "02",
+        "03",
+        "00",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XX.XXXX",
+      "DataLen": 3,
+      "Danwei": "kW",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "当前正向有功总电能",
+      "UseBlockData": 0,
+      "RegNo": 7,
+      "Type": 3,
+      "BlockDataCount": 0,
+      "DataID": [
+        "00",
+        "01",
+        "00",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXXXXX.XX",
+      "DataLen": 4,
+      "Danwei": "kWh",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "当前反向有功总电能",
+      "UseBlockData": 0,
+      "RegNo": 8,
+      "Type": 3,
+      "BlockDataCount": 0,
+      "DataID": [
+        "00",
+        "02",
+        "00",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXXXXX.XX",
+      "DataLen": 4,
+      "Danwei": "kWh",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "当前费率1反向有功电能",
+      "UseBlockData": 0,
+      "RegNo": 9,
+      "Type": 3,
+      "BlockDataCount": 0,
+      "DataID": [
+        "00",
+        "02",
+        "01",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXXXXX.XX",
+      "DataLen": 4,
+      "Danwei": "kWh",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "当前费率2反向有功电能",
+      "UseBlockData": 0,
+      "RegNo": 10,
+      "Type": 3,
+      "BlockDataCount": 0,
+      "DataID": [
+        "00",
+        "02",
+        "02",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXXXXX.XX",
+      "DataLen": 4,
+      "Danwei": "kWh",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "当前费率3反向有功电能",
+      "UseBlockData": 0,
+      "RegNo": 11,
+      "Type": 3,
+      "BlockDataCount": 0,
+      "DataID": [
+        "00",
+        "02",
+        "03",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXXXXX.XX",
+      "DataLen": 4,
+      "Danwei": "kWh",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    },
+    {
+      "DataName": null,
+      "Desc": "当前费率4反向有功电能",
+      "UseBlockData": 0,
+      "RegNo": 12,
+      "Type": 3,
+      "BlockDataCount": 0,
+      "DataID": [
+        "00",
+        "02",
+        "04",
+        "00"
+      ],
+      "CheckEnabled": true,
+      "Format": "XXXXXX.XX",
+      "DataLen": 4,
+      "Danwei": "kWh",
+      "DataRorW": 0,
+      "DveModel": "MultiMeter"
+    }
+  ]
+}

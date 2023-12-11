@@ -1,0 +1,20 @@
+{
+  "GprsCfg": {
+    "DtuID": "",
+    "APN": "ctnet",
+    "UserName": "",
+    "PassWord": "",
+    "Socket_Type": "TCP",
+    "RemoteIP": "10.101.132.126",
+    "RemotePort": "11000",
+    "BakRemoteIP": "0.0.0.0",
+    "BakRemotePort": "0",
+    "LocalPort": "",
+    "DNS": "",
+    "WorkMode": 0,
+    "ATMode": 1,
+    "RunSpecFunc": 0,
+    "FrameHead": null,
+    "FrameMAC": null
+  }
+}
