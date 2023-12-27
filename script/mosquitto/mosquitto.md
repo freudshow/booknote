@@ -15,7 +15,7 @@
 在开发板的`/etc/rc.local`加上:
 
 ```shell
-    /sbin/mosquitto -v -c /etc/mosquitto #指定运行时读取的配置文件
+    /bin/mosquitto -c /etc/mosquitto.conf #指定运行时读取的配置文件
 ```
 
 重启开发板, 就可以从外部计算机访问开发板的`mosquitto`了
