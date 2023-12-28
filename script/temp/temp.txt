@@ -1701,3 +1701,5 @@ ProtectApp/notify/spont/e9361appGetProtect/soe/LTU/0
 
 V3.02.34
 /home/sysadm/src/
+
+AA FF FF 08 00 0B 04 01 01 00 00 00 00 AD
