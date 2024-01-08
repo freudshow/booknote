@@ -1702,4 +1702,23 @@ ProtectApp/notify/spont/e9361appGetProtect/soe/LTU/0
 V3.02.34
 /home/sysadm/src/
 
-AA FF FF 08 00 0B 04 01 01 00 00 00 00 AD
+遥控1控合
+AA FF FF 08 00 0B 04 01 01 00 00 00 00 07
+
+遥控1控分
+AA FF FF 08 00 0B 04 01 00 00 00 00 00 06
+
+零票整定
+AA FF FF 04 00 04 20 00 00 20
+
+0°整定
+AA FF FF 04 00 04 21 00 00 21
+
+90°整定
+AA FF FF 04 00 04 22 00 00 22
+
+整定应答
+AA FF FF 03 00 04 20 11 36 
+
+###中文标点符号
+，、。；
