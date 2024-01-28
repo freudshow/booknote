@@ -1722,3 +1722,5 @@ AA FF FF 03 00 04 20 11 36
 
 ###中文标点符号
 ，、。；
+
+ffmpeg -i input.mp4 -vf scale=3840x2560:flags=lanczos -c:v libx264 -preset slow -crf 21 output_compress_4k.mp4
