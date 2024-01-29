@@ -1723,4 +1723,55 @@ AA FF FF 03 00 04 20 11 36
 ###中文标点符号
 ，、。；
 
+###信发客户电脑故障
+203203470
+1q2w3e
+
+故障存储段 1605544873995916009，类型 5
+事件名称: BEX64
+响应: 不可用
+Cab ID: 0
+
+问题签名:
+P1: 分支监测单元.exe
+P2: 1.0.0.0
+P3: 6552e5e0
+P4: ucrtbase.dll
+P5: 10.0.22621.2506
+P6: 097c794c
+P7: 000000000007f61e
+P8: c0000409
+P9: 0000000000000007
+P10: 
+
+附加文件:
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WER.a0ef2a59-c2fd-40f6-9ab2-de8ebab1c9d3.tmp.mdmp
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WER.14d42b63-0515-4e31-b4e4-04d29774a794.tmp.WERInternalMetadata.xml
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WER.947e7c1d-e414-47b2-96d4-771f7f223ad4.tmp.csv
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WER.2cf7ddfb-951b-47fb-889a-fbece2c34a05.tmp.txt
+\\?\C:\ProgramData\Microsoft\Windows\WER\Temp\WER.3a5b9b57-269d-4e5c-b94a-cc57631ec9cb.tmp.xml
+
+可在此处获取这些文件:
+\\?\C:\ProgramData\Microsoft\Windows\WER\ReportArchive\AppCrash_分支监测单元.exe_24f0adbdf8d180a470beed4b52f88ccb646e4936_825034e8_0d40ee66-5b00-4da8-bd69-5f20ea423f72
+
+分析符号: 
+重新检查解决方案: 0
+报告 ID: 96f808eb-3e76-4366-abd6-ec55d251cb59
+报告状态: 268435456
+哈希存储段: 895857af8f41685d86480a8e6d79d2e9
+Cab GUID: 0
+
+错误应用程序名称: 分支监测单元.exe，版本: 1.0.0.0，时间戳: 0x6552e5e0
+错误模块名称: ucrtbase.dll，版本: 10.0.22621.2506，时间戳: 0x097c794c
+异常代码: 0xc0000409
+错误偏移量: 0x000000000007f61e
+错误进程 ID: 0x0x117C
+错误应用程序启动时间: 0x0x1DA45F97E7DD91A
+错误应用程序路径: C:\Users\13969\Desktop\B0程序\Debug\Debug\分支监测单元.exe
+错误模块路径: C:\Windows\System32\ucrtbase.dll
+报告 ID: 7411809c-df0d-413e-a353-ca0cde88fd97
+错误程序包全名: 
+错误程序包相对应用程序 ID: 
+
 ffmpeg -i input.mp4 -vf scale=3840x2560:flags=lanczos -c:v libx264 -preset slow -crf 21 output_compress_4k.mp4
+
