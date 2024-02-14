@@ -379,6 +379,14 @@ sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设
 编辑配置文件`~/.config/user-dirs.dirs`, 把文件夹指向改掉，例如：
 
 ```Shell
+mkdir -p $HOME/Desktop
+mkdir -p $HOME/Download
+mkdir -p $HOME/Templates
+mkdir -p $HOME/Public
+mkdir -p $HOME/Documents
+mkdir -p $HOME/Music
+mkdir -p $HOME/Pictures
+mkdir -p $HOME/Videos
 
 XDG_DESKTOP_DIR="$HOME/Desktop"
 XDG_DOWNLOAD_DIR="$HOME/Download"
@@ -393,7 +401,7 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 
 使用`xdg-user-dirs-gtk-update`点击了`不再问我`这个问题后，再次执行这个命令就会没有反应, 解决方法:
 
-执行一下命令`echo zh_CN > ~/.config/user-dirs.locale`，然后就可以在次执行`xdg-user-dirs-gtk-update`或者`xdg-user-dirs-update`了。
+执行一下命令`echo zh_CN > ~/.config/user-dirs.locale`，然后就可以再次执行`xdg-user-dirs-gtk-update`或者`xdg-user-dirs-update`了。
 
 ### 以太网和`wifi`同时上网
 
