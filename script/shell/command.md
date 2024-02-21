@@ -465,6 +465,23 @@ XDG_VIDEOS_DIR="$HOME/Videos"
     sudo apt install typora
 ```
 
+### `install cloudflare warp`
+
+to install warp, go to https://1.1.1.1/, hit Linux, then follow the script below:
+
+```bash
+    curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+
+
+	# Add this repo to your apt repositories
+	echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+
+
+	# Install
+	sudo apt-get update && sudo apt-get install cloudflare-warp
+```
+
+
 ### `install notepadqq`
 
 ```bash
