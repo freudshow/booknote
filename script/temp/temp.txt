@@ -1775,3 +1775,9 @@ Cab GUID: 0
 
 ffmpeg -i input.mp4 -vf scale=3840x2560:flags=lanczos -c:v libx264 -preset slow -crf 21 output_compress_4k.mp4
 
+#openssl 3.0.13交叉编译
+./Configure --prefix=/home/floyd/sshinstall --cross-compile-prefix=arm-linux-gnueabihf- -no-asm shared
+configure后，在生成的Makefile中删除 -m64 标记，不超过3处
+然后，make -j8 && make install
+
+openssl ecparam -genkey -name SM2 -out sm2.pem
