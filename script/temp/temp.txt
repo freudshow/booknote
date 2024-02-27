@@ -1780,4 +1780,31 @@ ffmpeg -i input.mp4 -vf scale=3840x2560:flags=lanczos -c:v libx264 -preset slow 
 configure后，在生成的Makefile中删除 -m64 标记，不超过3处
 然后，make -j8 && make install
 
+#生成sm2私钥
 openssl ecparam -genkey -name SM2 -out sm2.pem
+#基于私钥生成公钥
+openssl ec -in sm2.pem -inform pem -pubout -out sm2pub.pem
+
+#生成100字节的随机数
+openssl rand -base64 100
+
+#配置源代码，注意configure前加sudo，否则总是报找不到FindBin这个perl模块的错误
+sudo ./Configure linux-armv4  no-asm shared no-async --prefix=$(pwd)/install --cross-compile-prefix=arm-poky-linux-gnueabi-
+
+sudo ./Configure linux-armv4  no-asm no-shared no-async --prefix=$(pwd)/install --cross-compile-prefix=arm-poky-linux-gnueabi-
+
+#生成的Makefile是属于root用户的   需要运行  sudo chown book.book Makefile，改成book用户的
+#然后修改Makefile的下面变量：
+PLATFORM=arm
+CROSS_COMPILE=
+CC= arm-poky-linux-gnueabi-gcc -march=armv7ve -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/cortexa7hf-neon-poky-linux-gnueabi
+CXX=arm-poky-linux-gnueabi-g++ -march=armv7ve -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/cortexa7hf-neon-poky-linux-gnueabi
+CNF_CFLAGS=-pthread
+CNF_CXXFLAGS=-std=c++11 -pthread
+
+#将编译出来的库放到 /lib 下，注意删除以前 /lib 和 /usr/lib下的 libcrypto.so libssh.so.1.1.1
+rm /lib/libcrypto.so* /lib/libssl.so* /usr/lib/libcrypto.so* /usr/lib/libssl.so*
+cp /home/root/install/lib/libcrypto.so.1.1 /lib
+cp /home/root/install/lib/libssl.so.1.1 /lib
+
+#最后运行  ldconfig 刷新库文件缓存
