@@ -1808,3 +1808,9 @@ cp /home/root/install/lib/libcrypto.so.1.1 /lib
 cp /home/root/install/lib/libssl.so.1.1 /lib
 
 #最后运行  ldconfig 刷新库文件缓存
+
+#C0 配置文件路径
+/data/app/e9361app/root/para/
+
+#浙江天正断路器应答运行状态字1：
+68 06 05 04 03 02 01 68 91 05 34 33 38 37 5C AD 16
