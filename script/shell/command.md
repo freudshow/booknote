@@ -218,7 +218,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools man-db manpages-posix manpages-dev manpages-posix-dev
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools qbittorrent vlc man-db manpages-posix manpages-dev manpages-posix-dev
     sudo apt autoremove --purge snapd #卸载ubuntu自带的包管理软件, 否则它总是在后台运行, 不断读取磁盘
 ```
 
@@ -966,3 +966,14 @@ MimeType=application/x-ipynb+json;
 Categories=Development;Education;
 Keywords=eclipse;
 ```
+
+## `sudo update-grub`找不到`windows`
+
+在/etc/default/grub文件中添加
+```bash
+GRUB_DISABLE_OS_PROBER=false
+#之后更新grub的配置：
+sudo os-prober
+sudo update-grub
+```
+
