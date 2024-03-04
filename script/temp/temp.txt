@@ -993,6 +993,7 @@ EB 00 0C EB 00 01 00 06 68 04 07 00 00 00 00 00 7A D7
 
 EB 00 0E EB 00 00 61 00 09 01 3D E2 DC 7A E7 A0 9C B4 B7 D7
 
+#代码走查注释
 
 /************************************************************** 
 文 件 名: ***.h
@@ -1378,16 +1379,12 @@ Sep 20 09:56:49 SCT230A security_proxy_bin[2601]: [INFO] B Master send len=13  E
 
 
 
-个人远程桌面IP 8.130.115.4      内网IP 172.20.34.54   255.255.240.0  172.20.34.54
+阿里云远程桌面IP 8.130.115.4      内网IP 172.20.34.54   255.255.240.0  172.20.34.54
 USER:   adm
 
 
 
 1. 企业标准(参考标准), 企标高于行标
-
-
-windows server 2022:
-magnet:?xt=urn:btih:eaa74aadaac68f481156bad27f153e7e215b4dba&dn=zh-cn_windows_server_2022_updated_sep_2023_x64_dvd_892eeda9.iso&xl=5525116928
 
 
 dotnet new worker --name <Project.Name>
@@ -1813,4 +1810,13 @@ cp /home/root/install/lib/libssl.so.1.1 /lib
 /data/app/e9361app/root/para/
 
 #浙江天正断路器应答运行状态字1：
-68 06 05 04 03 02 01 68 91 05 34 33 38 37 5C AD 16
+send: FE FE FE FE 68 06 05 04 03 02 01 68 91 04 34 38 33 37 50 16
+recv: FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 5C AD 16, 状态1
+
+FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 3C 8D 16, 状态0
+FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 7C CD 16, 状态2
+FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 9C ED 16, 状态3
+
+#电表运行状态字1~3：
+send: FE FE FE FE 68 06 05 04 03 02 01 68 91 04 34 38 33 37 50 16
+recv: FE FE FE FE 68 06 05 04 03 02 01 68 91 06 34 38 33 37 32 32 B6 16, 状态1

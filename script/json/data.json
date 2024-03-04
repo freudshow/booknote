@@ -1,0 +1,1396 @@
+{
+	"phaseDataList": [
+		{
+			"srcDbNo": 289,
+			"description": "A相正向有功电能",
+			"freezeDataList": [
+				{
+					"accumType": 0,
+					"dataList": [
+						{
+							"realDbNo": 492,
+							"description": "A相当日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 493,
+							"description": "A相上1次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 494,
+							"description": "A相上2次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 495,
+							"description": "A相上3次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 496,
+							"description": "A相上4次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 497,
+							"description": "A相上5次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 498,
+							"description": "A相上6次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 499,
+							"description": "A相上7次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 500,
+							"description": "A相上8次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 501,
+							"description": "A相上9次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 502,
+							"description": "A相上10次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 503,
+							"description": "A相上11次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 504,
+							"description": "A相上12次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 505,
+							"description": "A相上13次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 506,
+							"description": "A相上14次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 507,
+							"description": "A相上15次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 508,
+							"description": "A相上16次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 509,
+							"description": "A相上17次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 510,
+							"description": "A相上18次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 511,
+							"description": "A相上19次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 512,
+							"description": "A相上20次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 513,
+							"description": "A相上21次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 514,
+							"description": "A相上22次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 515,
+							"description": "A相上23次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 516,
+							"description": "A相上24次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 517,
+							"description": "A相上25次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 518,
+							"description": "A相上26次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 519,
+							"description": "A相上27次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 520,
+							"description": "A相上28次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 521,
+							"description": "A相上29次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 522,
+							"description": "A相上30次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 523,
+							"description": "A相上31次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 1,
+					"dataList": [
+						{
+							"realDbNo": 524,
+							"description": "A相当月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 525,
+							"description": "A相上1次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 526,
+							"description": "A相上2次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 527,
+							"description": "A相上3次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 528,
+							"description": "A相上4次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 529,
+							"description": "A相上5次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 530,
+							"description": "A相上6次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 531,
+							"description": "A相上7次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 532,
+							"description": "A相上8次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 533,
+							"description": "A相上9次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 534,
+							"description": "A相上10次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 535,
+							"description": "A相上11次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 536,
+							"description": "A相上12次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 537,
+							"description": "A相上13次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 538,
+							"description": "A相上14次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 539,
+							"description": "A相上15次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 540,
+							"description": "A相上16次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 541,
+							"description": "A相上17次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 542,
+							"description": "A相上18次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 543,
+							"description": "A相上19次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 544,
+							"description": "A相上20次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 545,
+							"description": "A相上21次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 546,
+							"description": "A相上22次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 547,
+							"description": "A相上23次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 548,
+							"description": "A相上24次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 2,
+					"dataList": [
+						{
+							"realDbNo": 549,
+							"description": "A相当年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 550,
+							"description": "A相上1次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 551,
+							"description": "A相上2次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 552,
+							"description": "A相上3次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 553,
+							"description": "A相上4次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 554,
+							"description": "A相上5次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 555,
+							"description": "A相上6次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 556,
+							"description": "A相上7次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 557,
+							"description": "A相上8次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 558,
+							"description": "A相上9次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 559,
+							"description": "A相上10次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 3,
+					"dataList": [
+						{
+							"realDbNo": 560,
+							"description": "A相当周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 561,
+							"description": "A相上1次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 562,
+							"description": "A相上2次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 563,
+							"description": "A相上3次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 564,
+							"description": "A相上4次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				}
+			]
+		},
+		{
+			"srcDbNo": 290,
+			"description": "B相正向有功电能",
+			"freezeDataList": [
+				{
+					"accumType": 0,
+					"dataList": [
+						{
+							"realDbNo": 565,
+							"description": "B相当日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 566,
+							"description": "B相上1次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 567,
+							"description": "B相上2次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 568,
+							"description": "B相上3次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 569,
+							"description": "B相上4次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 570,
+							"description": "B相上5次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 571,
+							"description": "B相上6次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 572,
+							"description": "B相上7次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 573,
+							"description": "B相上8次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 574,
+							"description": "B相上9次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 575,
+							"description": "B相上10次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 576,
+							"description": "B相上11次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 577,
+							"description": "B相上12次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 578,
+							"description": "B相上13次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 579,
+							"description": "B相上14次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 580,
+							"description": "B相上15次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 581,
+							"description": "B相上16次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 582,
+							"description": "B相上17次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 583,
+							"description": "B相上18次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 584,
+							"description": "B相上19次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 585,
+							"description": "B相上20次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 586,
+							"description": "B相上21次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 587,
+							"description": "B相上22次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 588,
+							"description": "B相上23次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 589,
+							"description": "B相上24次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 590,
+							"description": "B相上25次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 591,
+							"description": "B相上26次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 592,
+							"description": "B相上27次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 593,
+							"description": "B相上28次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 594,
+							"description": "B相上29次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 595,
+							"description": "B相上30次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 596,
+							"description": "B相上31次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 1,
+					"dataList": [
+						{
+							"realDbNo": 597,
+							"description": "B相当月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 598,
+							"description": "B相上1次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 599,
+							"description": "B相上2次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 600,
+							"description": "B相上3次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 601,
+							"description": "B相上4次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 602,
+							"description": "B相上5次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 603,
+							"description": "B相上6次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 604,
+							"description": "B相上7次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 605,
+							"description": "B相上8次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 606,
+							"description": "B相上9次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 607,
+							"description": "B相上10次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 608,
+							"description": "B相上11次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 609,
+							"description": "B相上12次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 610,
+							"description": "B相上13次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 611,
+							"description": "B相上14次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 612,
+							"description": "B相上15次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 613,
+							"description": "B相上16次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 614,
+							"description": "B相上17次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 615,
+							"description": "B相上18次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 616,
+							"description": "B相上19次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 617,
+							"description": "B相上20次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 618,
+							"description": "B相上21次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 619,
+							"description": "B相上22次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 620,
+							"description": "B相上23次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 621,
+							"description": "B相上24次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 2,
+					"dataList": [
+						{
+							"realDbNo": 622,
+							"description": "B相当年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 623,
+							"description": "B相上1次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 624,
+							"description": "B相上2次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 625,
+							"description": "B相上3次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 626,
+							"description": "B相上4次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 627,
+							"description": "B相上5次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 628,
+							"description": "B相上6次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 629,
+							"description": "B相上7次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 630,
+							"description": "B相上8次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 631,
+							"description": "B相上9次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 632,
+							"description": "B相上10次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 3,
+					"dataList": [
+						{
+							"realDbNo": 633,
+							"description": "B相当周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 634,
+							"description": "B相上1次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 635,
+							"description": "B相上2次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 636,
+							"description": "B相上3次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 637,
+							"description": "B相上4次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				}
+			]
+		},
+		{
+			"srcDbNo": 291,
+			"description": "C相正向有功电能",
+			"freezeDataList": [
+				{
+					"accumType": 0,
+					"dataList": [
+						{
+							"realDbNo": 638,
+							"description": "C相当日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 639,
+							"description": "C相上1次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 640,
+							"description": "C相上2次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 641,
+							"description": "C相上3次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 642,
+							"description": "C相上4次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 643,
+							"description": "C相上5次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 644,
+							"description": "C相上6次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 645,
+							"description": "C相上7次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 646,
+							"description": "C相上8次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 647,
+							"description": "C相上9次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 648,
+							"description": "C相上10次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 649,
+							"description": "C相上11次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 650,
+							"description": "C相上12次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 651,
+							"description": "C相上13次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 652,
+							"description": "C相上14次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 653,
+							"description": "C相上15次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 654,
+							"description": "C相上16次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 655,
+							"description": "C相上17次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 656,
+							"description": "C相上18次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 657,
+							"description": "C相上19次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 658,
+							"description": "C相上20次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 659,
+							"description": "C相上21次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 660,
+							"description": "C相上22次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 661,
+							"description": "C相上23次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 662,
+							"description": "C相上24次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 663,
+							"description": "C相上25次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 664,
+							"description": "C相上26次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 665,
+							"description": "C相上27次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 666,
+							"description": "C相上28次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 667,
+							"description": "C相上29次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 668,
+							"description": "C相上30次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 669,
+							"description": "C相上31次日冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 1,
+					"dataList": [
+						{
+							"realDbNo": 670,
+							"description": "C相当月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 671,
+							"description": "C相上1次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 672,
+							"description": "C相上2次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 673,
+							"description": "C相上3次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 674,
+							"description": "C相上4次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 675,
+							"description": "C相上5次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 676,
+							"description": "C相上6次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 677,
+							"description": "C相上7次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 678,
+							"description": "C相上8次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 679,
+							"description": "C相上9次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 680,
+							"description": "C相上10次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 681,
+							"description": "C相上11次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 682,
+							"description": "C相上12次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 683,
+							"description": "C相上13次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 684,
+							"description": "C相上14次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 685,
+							"description": "C相上15次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 686,
+							"description": "C相上16次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 687,
+							"description": "C相上17次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 688,
+							"description": "C相上18次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 689,
+							"description": "C相上19次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 690,
+							"description": "C相上20次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 691,
+							"description": "C相上21次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 692,
+							"description": "C相上22次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 693,
+							"description": "C相上23次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 694,
+							"description": "C相上24次月冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 2,
+					"dataList": [
+						{
+							"realDbNo": 695,
+							"description": "C相当年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 696,
+							"description": "C相上1次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 697,
+							"description": "C相上2次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 698,
+							"description": "C相上3次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 699,
+							"description": "C相上4次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 700,
+							"description": "C相上5次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 701,
+							"description": "C相上6次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 702,
+							"description": "C相上7次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 703,
+							"description": "C相上8次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 704,
+							"description": "C相上9次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 705,
+							"description": "C相上10次年冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				},
+				{
+					"accumType": 3,
+					"dataList": [
+						{
+							"realDbNo": 706,
+							"description": "C相当周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "2023-11-03 04:03:51 5"
+						},
+						{
+							"realDbNo": 707,
+							"description": "C相上1次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 708,
+							"description": "C相上2次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 709,
+							"description": "C相上3次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						},
+						{
+							"realDbNo": 710,
+							"description": "C相上4次周冻结电能",
+							"freezeValue": 0.0,
+							"freezeTime": "0000-00-00 00:00:00 0"
+						}
+					]
+				}
+			]
+		}
+	]
+}
