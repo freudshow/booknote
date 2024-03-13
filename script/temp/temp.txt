@@ -1820,3 +1820,21 @@ FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 9C ED 16, 状态3
 #电表运行状态字1~3：
 send: FE FE FE FE 68 06 05 04 03 02 01 68 91 04 34 38 33 37 50 16
 recv: FE FE FE FE 68 06 05 04 03 02 01 68 91 06 34 38 33 37 32 32 B6 16, 状态1
+
+
+登录
+51.226
+ssh -X ytdf@172.20.51.226
+ytdf/ytdf000
+登录后运行
+export DISPLAY=172.20.43.219:0.0#IP换成自己笔记本的IP
+
+起界面
+kemp_qtiottool --name test
+
+测试用户：test/test123!
+
+模糊查询 cep
+选择 ceppnp-rtu-test-pd
+
+docker restart kemp-channeld_000_0
