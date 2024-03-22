@@ -977,3 +977,29 @@ sudo os-prober
 sudo update-grub
 ```
 
+## `debian`运行`arm-none-linux-gnueabihf-gdb`的错误
+
+1. 找不到`libncursesw.so.5`
+
+```shell
+    sudo apt install libncursesw5 libncursesw5-dev
+```
+
+2. 安装对应的`python`环境
+
+```shell
+    curl https://pyenv.run | bash
+    pyenv install 3.8.18
+    sudo mkdir -p /usr/local/bld-tools
+    sudo ln -s $PYENV_ROOT/versions/3.8.18 /usr/local/bld-tools/bld-tools-virtual-env
+    
+    #再次检查版本号即可
+    /home/floyd/soft/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gdb --version
+    GNU gdb (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.90.20231008-git
+    Copyright (C) 2023 Free Software Foundation, Inc.
+    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+    This is free software: you are free to change and redistribute it.
+    There is NO WARRANTY, to the extent permitted by law.
+```
+
+
