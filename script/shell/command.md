@@ -99,7 +99,7 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
 
 参考[Debian9安装最新版Nodejs和NPM](https://www.5yun.org/15395.html)
 
-- 添加Node.js PPA  
+- 添加Node.js PPA
 
 最新版安装命令:
 
@@ -470,15 +470,39 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 to install warp, go to https://1.1.1.1/, hit Linux, then follow the script below:
 
 ```bash
-    curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+# Ubuntu
+# The supported releases are:
+# Jammy (22.04)
+# Focal (20.04)
+# Bionic (18.04)
+# Xenial (16.04)
+# Add cloudflare gpg key
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
 
 
-	# Add this repo to your apt repositories
-	echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+# Add this repo to your apt repositories
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
 
 
-	# Install
-	sudo apt-get update && sudo apt-get install cloudflare-warp
+# Install
+sudo apt-get update && sudo apt-get install cloudflare-warp
+
+# Debian
+# The supported releases are:
+# Bookworm (12)
+# Bullseye (11)
+# Buster (10)
+# Stretch (9)
+# Add cloudflare gpg key
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+
+
+# Add this repo to your apt repositories
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+
+
+# Install
+sudo apt-get update && sudo apt-get install cloudflare-warp
 ```
 
 
@@ -493,7 +517,7 @@ to install warp, go to https://1.1.1.1/, hit Linux, then follow the script below
     sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
     sudo apt update
     sudo apt install notepadqq
-    
+
     sudo add-apt-repository ppa:notepadqq-team/notepadqq
     sudo apt update
     sudo apt install -y notepadqq
@@ -992,7 +1016,7 @@ sudo update-grub
     pyenv install 3.8.18
     sudo mkdir -p /usr/local/bld-tools
     sudo ln -s $PYENV_ROOT/versions/3.8.18 /usr/local/bld-tools/bld-tools-virtual-env
-    
+
     #再次检查版本号即可
     /home/floyd/soft/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gdb --version
     GNU gdb (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.90.20231008-git
