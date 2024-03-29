@@ -1838,3 +1838,8 @@ kemp_qtiottool --name test
 选择 ceppnp-rtu-test-pd
 
 docker restart kemp-channeld_000_0
+
+末端分支终端
+EndTerminal
+
+ container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000

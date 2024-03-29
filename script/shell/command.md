@@ -503,6 +503,10 @@ echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] ht
 
 # Install
 sudo apt-get update && sudo apt-get install cloudflare-warp
+
+
+warp-cli registration license q4LA8O73-6G15AX0V-J6v1m4j9
+warp-cli tunnel endpoint set 188.114.99.123:955
 ```
 
 
@@ -934,6 +938,19 @@ logout、login一下再试试
 ### `sysinstall`
 
 `sysinstall`换成了`bsdinstall`
+
+### 关机命令
+
+```Shell
+	#立即关机,但是不关闭电源:
+	shutdown -h now
+
+	#立即关机,并且关闭电源:
+	shutdown -p now
+
+	#重启命令
+	shutdown -r now
+```
 
 ## ARM 64位系统下编译32位程序
 
