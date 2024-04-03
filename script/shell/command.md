@@ -557,6 +557,50 @@ warp-cli tunnel endpoint set 188.114.99.123:955
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
+### `install postgresql`
+
+```shell
+	# Create the file repository configuration:
+	sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+	# Import the repository signing key:
+	wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+	# Update the package lists:
+	sudo apt-get update
+
+	# Install the latest version of PostgreSQL.
+	# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
+	sudo apt-get -y install postgresql
+	
+
+	#
+	# Setup the repository
+	#
+
+	# Install the public key for the repository (if not done previously):
+	curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+
+	# Create the repository configuration file:
+	sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+	#
+	# Install pgAdmin
+	#
+
+	# Install for both desktop and web modes:
+	sudo apt install pgadmin4
+
+	# Install for desktop mode only:
+	sudo apt install pgadmin4-desktop
+
+	# Install for web mode only: 
+	sudo apt install pgadmin4-web 
+
+	# Configure the webserver, if you installed pgadmin4-web:
+	sudo /usr/pgadmin4/bin/setup-web.sh
+```
+
 ### `Linux` 下转换文件编码
 
 ```bash
