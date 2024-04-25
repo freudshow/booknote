@@ -993,6 +993,7 @@ EB 00 0C EB 00 01 00 06 68 04 07 00 00 00 00 00 7A D7
 
 EB 00 0E EB 00 00 61 00 09 01 3D E2 DC 7A E7 A0 9C B4 B7 D7
 
+#代码走查注释
 
 /************************************************************** 
 文 件 名: ***.h
@@ -1378,16 +1379,12 @@ Sep 20 09:56:49 SCT230A security_proxy_bin[2601]: [INFO] B Master send len=13  E
 
 
 
-个人远程桌面IP 8.130.115.4      内网IP 172.20.34.54   255.255.240.0  172.20.34.54
+阿里云远程桌面IP 8.130.115.4      内网IP 172.20.34.54   255.255.240.0  172.20.34.54
 USER:   adm
 
 
 
 1. 企业标准(参考标准), 企标高于行标
-
-
-windows server 2022:
-magnet:?xt=urn:btih:eaa74aadaac68f481156bad27f153e7e215b4dba&dn=zh-cn_windows_server_2022_updated_sep_2023_x64_dvd_892eeda9.iso&xl=5525116928
 
 
 dotnet new worker --name <Project.Name>
@@ -1775,6 +1772,93 @@ Cab GUID: 0
 
 ffmpeg -i input.mp4 -vf scale=3840x2560:flags=lanczos -c:v libx264 -preset slow -crf 21 output_compress_4k.mp4
 
+#openssl 3.0.13交叉编译
+./Configure --prefix=/home/floyd/sshinstall --cross-compile-prefix=arm-linux-gnueabihf- -no-asm shared
+configure后，在生成的Makefile中删除 -m64 标记，不超过3处
+然后，make -j8 && make install
+
+#生成sm2私钥
+openssl ecparam -genkey -name SM2 -out sm2.pem
+#基于私钥生成公钥
+openssl ec -in sm2.pem -inform pem -pubout -out sm2pub.pem
+
+#生成100字节的随机数
+openssl rand -base64 100
+
+#配置源代码，注意configure前加sudo，否则总是报找不到FindBin这个perl模块的错误
+sudo ./Configure linux-armv4  no-asm shared no-async --prefix=$(pwd)/install --cross-compile-prefix=arm-poky-linux-gnueabi-
+
+sudo ./Configure linux-armv4  no-asm no-shared no-async --prefix=$(pwd)/install --cross-compile-prefix=arm-poky-linux-gnueabi-
+
+#生成的Makefile是属于root用户的   需要运行  sudo chown book.book Makefile，改成book用户的
+#然后修改Makefile的下面变量：
+PLATFORM=arm
+CROSS_COMPILE=
+CC= arm-poky-linux-gnueabi-gcc -march=armv7ve -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/cortexa7hf-neon-poky-linux-gnueabi
+CXX=arm-poky-linux-gnueabi-g++ -march=armv7ve -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a7 --sysroot=/opt/fsl-imx-x11/4.1.15-2.0.0/sysroots/cortexa7hf-neon-poky-linux-gnueabi
+CNF_CFLAGS=-pthread
+CNF_CXXFLAGS=-std=c++11 -pthread
+
+#将编译出来的库放到 /lib 下，注意删除以前 /lib 和 /usr/lib下的 libcrypto.so libssh.so.1.1.1
+rm /lib/libcrypto.so* /lib/libssl.so* /usr/lib/libcrypto.so* /usr/lib/libssl.so*
+cp /home/root/install/lib/libcrypto.so.1.1 /lib
+cp /home/root/install/lib/libssl.so.1.1 /lib
+
+#最后运行  ldconfig 刷新库文件缓存
+
+#C0 配置文件路径
+/data/app/e9361app/root/para/
+
+#浙江天正断路器应答运行状态字1：
+send: FE FE FE FE 68 06 05 04 03 02 01 68 91 04 34 38 33 37 50 16
+recv: FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 5C AD 16, 状态1
+
+FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 3C 8D 16, 状态0
+FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 7C CD 16, 状态2
+FE FE FE FE 68 06 05 04 03 02 01 68 91 05 34 38 33 37 9C ED 16, 状态3
+
+#电表运行状态字1~3：
+send: FE FE FE FE 68 06 05 04 03 02 01 68 91 04 34 38 33 37 50 16
+recv: FE FE FE FE 68 06 05 04 03 02 01 68 91 06 34 38 33 37 32 32 B6 16, 状态1
+
+
+登录
+51.226
+ssh -X ytdf@172.20.51.226
+ytdf/ytdf000
+登录后运行
+export DISPLAY=172.20.43.219:0.0#IP换成自己笔记本的IP
+
+起界面
+kemp_qtiottool --name test
+
+测试用户：test/test123!
+
+模糊查询 cep
+选择 ceppnp-rtu-test-pd
+
+docker restart kemp-channeld_000_0
+
+末端分支终端
+EndTerminal
+
+sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2404:2404 -p 2504:2504
+
+container stop e9361app
+container uninstall e9361app
+
+container restart e9361app
+
+tail -f /data/app/e9361app/root/log/log.txt
+
+-m  消息内容
+-t    指定topic
+-h   指定要连接的域名  默认为localhost
+
+mosquitto_pub -t "" -m"" -h localhost
+
+/nptl/pthread_mutex_lock.c:81: __pthread_mutex_cond_lock: Assertion `mutex->__data.__owner == 0' failed.
+
 10.66.0.28
 
 破解工具
@@ -1792,3 +1876,4 @@ https://java-doc.cn/img/activate/clion-new.txt
 
 @佑赛科技-汪强 @北京四方-杨海方 @成都汉度-程曼 @江苏华鹏 张弛 @上海国泉-祝宏祥 @深圳智微-郭宇飞 @烽火通信刘焱杰 @北京智芯孙濮东 @江苏清智云能综合能源服务有限公司 @辽能集团-张维翔 检测报告今天会出，请编辑邮寄地址短信至18600953321，短信格式：委托单位-地址-联系人-联系方式，谢谢！
 @威思顿 王云龙 @雄安许继 邓清闯 @上海欣影-顾光宇 @积成电子付强 @南京海兴陆超 @米格电气  赵小明 @江西明业-杨薇 检测报告今天会出，请编辑邮寄地址短信至18600953321，短信格式：委托单位-地址-联系人-联系方式，谢谢！
+

@@ -1,0 +1,12 @@
+[Macros]
+Zxbdt@739.TTU=12:4:0:Zxbdt@729.TTU|258:13:1835009:RETURN|0:0:0:SLEEPEQUAL1200|
+É±ËÀe9361app=12:2:0:/bin/mosquitto_pub   -t __DBLQUO__e9361app/set/request/e9361esdkapp/version__DBLQUO__  -m  __DBLQUO__{\__DBLQUO__token\__DBLQUO____DBLDOT__ \__DBLQUO__200513\__DBLQUO__, \__DBLQUO__timestamp\__DBLQUO____DBLDOT__ \__DBLQUO__2023-02-11T09__DBLDOT__41__DBLDOT__09.845+0800\__DBLQUO__, \__DBLQUO__iHardVer\__DBLQUO____DBLDOT__ \__DBLQUO__V1.01.03\__DBLQUO__, \__DBLQUO__iSoftdVer\__DBLQUO____DBLDOT__ \__DBLQUO__V1.00.04\__DBLQUO__, \__DBLQUO__eHardVer\__DBLQUO____DBLDOT__ \__DBLQUO__SV01.03\__DBLQUO__, \__DBLQUO__eSoftdVer\__DBLQUO____DBLDOT__ \__DBLQUO__SV01.004\__DBLQUO__, \__DBLQUO__runtime_min\__DBLQUO____DBLDOT__ 6, \__DBLQUO__upprogram\__DBLQUO____DBLDOT__ 0, \__DBLQUO__watchdog\__DBLQUO____DBLDOT__ 1 }__DBLQUO__ -h localhost|258:13:1835009:RETURN|12:2:0:ps __PIIPE__ grep e9361app __PIIPE__ awk '{print  $1}' __PIIPE__ xargs kill -9|258:13:18612225:RETURN|
+É±ËÀprotectapp=12:2:0:ps __PIIPE__ grep protectapp __PIIPE__ awk '{print  $1}' __PIIPE__ xargs kill -9|258:13:18612225:RETURN|
+e9361app=12:4:0:/home/sysadm/src/e9361app&|258:13:1835009:RETURN|0:0:0:SLEEPEQUAL1200|
+
+[MacrosHotkeys]
+Zxbdt@739.TTU=0
+É±ËÀe9361app=0
+É±ËÀprotectapp=0
+e9361app=0
+

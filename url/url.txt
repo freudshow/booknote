@@ -157,3 +157,9 @@ https://www.lxlinux.net/10989-2.html Linux 虚拟网络设备之 bridge
 https://dev.to/mble/installing-latest-neovim-and-lunarvim-on-debian-3cg1#:~:text=Installing%20latest%20Neovim%20and%20LunarVim%20on%20Debian%201,installation%20guide%20to%20get%20the%20latest%20release.%20     Installing latest Neovim and LunarVim on Debian
 
 https://askubuntu.com/questions/376717/how-to-set-up-a-linux-server-as-a-router    How to set up a linux server as a router
+
+https://olegkutkov.me/2018/02/14/monitoring-linux-networking-state-using-netlink/
+https://olegkutkov.me/2019/03/24/getting-linux-routing-table-using-netlink/
+https://olegkutkov.me/2019/08/29/modifying-linux-network-routes-using-netlink/
+
+https://blog.csdn.net/muyiacc/article/details/132048709

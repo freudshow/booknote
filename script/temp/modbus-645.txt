@@ -1,0 +1,554 @@
+030303030303 - 645 协议 modbus-0010, 16-v
+040404040404 - 645 协议 modbus-0022, 34-v
+060606060606 - modbus 协议 modbus-0024, 36-v
+020202020202 - modbus 协议 modbus-0020, 32-v
+050505050505 - modbus 协议 modbus-0023, 35-v
+080808080808 - modbus 协议 modbus-0021, 33-v
+202008111024  - modbus 协议 modbus-0034, 52-v
+201910300075  - 645 协议 威斯顿载波表
+
+你只是帝国的燃料, 机器的螺丝钉, 战场上的炮灰而已, 每个月两三千块钱, 你玩什么命啊!
+
+//104测试平台
+20 19 12 15 00 31 - 201912150031 - modbus 协议 modbus-00 02, 2   - LTU_7d28a53e96444695
+20 19 12 15 00 69 - 201912150069 - modbus 协议 modbus-00 01, 1   - LTU_947876200340153a
+20 19 12 15 00 84 - 201912150084 - modbus 协议 modbus-00 47, 71  - LTU_0995007150c8c097
+20 19 12 15 00 61 - 201912150061 - modbus 协议 modbus-00 04, 4   - LTU_9ef7492af90778b0
+
+20 19 10 15 00 99  - 201910150099 - 645 协议 modbus-00 03, 3    - 99 00 15 10 19 20 - MultiMeter_e6158e0520726b6b
+20 19 12 15 00 24  - 201910150024 - 645 协议 modbus-00 48, 72   - 24 00 15 10 19 20 - MultiMeter_08db11a06455e340
+20 19 12 15 00 30  - 201910150030 - 645 协议 modbus-00 05, 5    - 30 00 15 10 19 20 - MultiMeter_bc6638be4511f6c4
+20 19 12 15 00 02  - 201910150002 - 645 协议 modbus-00 06, 6    - 02 00 15 10 19 20 - MultiMeter_6d1032995c1b9f4d
+
+
+
+20 20 08 26 15 51  - 202008261551 - modbus 协议 modbus-00 17, 23
+20 20 08 26 15 52  - 202008261552 - modbus 协议 modbus-00 02, 2
+
+
+20 19 12 15 00 02 - 201912150002 - modbus 协议 modbus-00 06, 6
+20 19 12 15 00 61 - 201912150061 - 645 协议 modbus-00 01, 1
+
+
+0x55,0x00,0xb0,0x99,0x05,0x00,0x02,0x00,0x08,0xd9
+
+ls 1376.2App/{bin,lib}
+chmod 777 1376.2App/{bin/*,lib/*}
+
+----------------------------PLC APP----------------------------
+sudo container stop c_yingxiao
+sudo container stop c_ltuplc
+sudo container uninstall c_ltuplc
+sudo rm -f ltuplc.tar
+sudo cp /home/sysadm/src/linux_TTU.elf /home/sysadm/src/ltuplc/bin/ltuplc
+sudo ./appSignTool -f /home/sysadm/src/ltuplc/bin -b ltuplc -l /home/sysadm/src/ltuplc/lib -v V1.01.03 -o ltuplc
+sudo container install c_ltuplc /home/sysadm/src/ltuplc.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 7799:7799
+
+----------------------------------------------------------------
+
+----------------------------485 APP----------------------------
+sudo container stop c_yingxiao
+sudo container stop c_ltu485
+sudo container uninstall c_ltu485
+sudo rm -f c_ltu485.tar
+sudo cp /home/sysadm/src/linux_TTU.elf /home/sysadm/src/ltu485/bin/ltu_rs485
+sudo /home/sysadm/appSignTool -f /home/sysadm/src/ltu485/bin -b ltu_rs485 -l /home/sysadm/src/ltu485/lib -v SV02.100 -o c_ltu485
+sudo container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3  -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 5000:5000
+
+
+container install c_ltu485  /home/sysadm/src/c_ltu485.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 5000:5000
+----------------------------------------------------------------
+
+----------------------------QUA APP----------------------------
+sudo container stop c_yingxiao
+sudo container stop c_ltuqua
+sudo container uninstall c_ltuqua
+sudo rm -f ltuqua.tar
+sudo cp /home/sysadm/src/linuxttu /home/sysadm/src/ltuqua/bin/ltuqua
+sudo ./appSignTool -f /home/sysadm/src/ltuqua/bin -b ltuqua -l /home/sysadm/src/ltuqua/lib -v V1.01.03 -o ltuqua
+sudo container install c_ltuqua /home/sysadm/src/ltuqua.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 3344:3344
+
+docker logs -f --tail 200 c_ltuqua
+
+md5sum /home/sysadm/src/linuxttu
+
+sudo container restart c_ltuqua
+
+DEBUG_TIME_LINE("");
+
+
+----------------------------------------------------------------
+
+
+
+----------------------------plcproxy APP----------------------------
+sudo container stop c_yingxiao
+sudo container stop c_plcproxy
+sudo container uninstall c_plcproxy
+sudo rm -f plcproxy.tar
+sudo cp /home/sysadm/src/linux_TTU.elf /home/sysadm/src/plcproxy/bin/plcproxy
+sudo ./appSignTool -f /home/sysadm/src/plcproxy/bin -b plcproxy -l /home/sysadm/src/plcproxy/lib -v V1.01.03 -o plcproxy
+sudo container install c_plcproxy /home/sysadm/src/plcproxy.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 7799:7799
+
+
+
+appm -i -c lxc01 -n plcproxy -f /home/sysadm/src/plcproxy.tar
+
+----------------------------------------------------------------
+
+----------------------------鲁软 APP----------------------------
+appm -u -c lxc01 -n appdemo  # 在名称为lxc01的LXC容器中，卸载名称为appdemo的APP。
+appm -s -c lxc01 -n appdemo  # 在名称为lxc01的LXC容器中，启动名称为appdemo的APP
+appm -S -c lxc01 -n appdemo  # 在名称为lxc01的LXC容器中，停止名称为appdemo的APP
+appm -e -c lxc01 -n appdemo  # 在名称为lxc01的LXC容器中，使能名称为appdemo的APP
+appm -I -c lxc01             # 在名称为lxc01的LXC容器中，显示所有APP的信息。
+
+装载APP  appm -i -c lxc01 -f  /mnt/custom/jc.ova
+----------------------------------------------------------------
+
+
+
+
+
+sudo rm 1376.2App.tar
+sudo ./appSignTool -f /root/1376.2App/bin -b 1376.2App -l /root/1376.2App/lib -v V1.01.006 -o 1376.2App
+sudo cp 1376.2App.tar /usr/local/default/apps/
+sudo container install c_plc /usr/local/default/apps/1376.2App.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app
+
+sudo ./appSignTool -f /root/modbusapp/bin -b modbus_1 -l /root/modbusapp/lib -v V1.01.003 -o modbusapp_1
+sudo cp modbusapp_1.tar /usr/local/default/apps/
+sudo container install c_modbus1 /usr/local/default/apps/modbusapp_1.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/S7 -v /data/app:/data/app
+
+
+sudo ./appSignTool -f /root/645App_3/bin -b 645App_3 -l /root/645App_3/lib -v V1.01.003 -o 645App_3
+sudo cp 645App_3.tar /usr/local/default/apps/
+sudo container install c_645-3 /usr/local/default/apps/645App_3.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/S7 -v /data/app:/data/app
+
+
+
+cp SCBASEADC.tar /usr/local/default/apps/
+sudo container install c_adc /usr/local/default/apps/SCBASEADC.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app
+
+
+container stop c_limit
+container uninstall c_limit
+sudo rm overlimitapp.tar
+sudo ./appSignTool -f /root/overlimitapp/bin -b logicapp -l /root/overlimitapp/lib -v V1.01.006 -o overlimitapp
+sudo cp overlimitapp.tar /usr/local/default/apps/
+sudo container install c_limit /usr/local/default/apps/overlimitapp.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app
+docker logs -f c_limit
+ -p 1883:1883
+
+container install c_104 IEC104APP.tar -dev /dev/ttyRS0:/dev/ttySZ3 -dev /dev/ttyRS1:/dev/ttySZ4 -dev /dev/ttyRS2:/dev/ttySZ5 -dev /dev/ttyRS3:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -p 2404:2404 -v /data/app:/data/app -dev /dev/ledctrl:/dev/ledctrl
+
+sudo ./appSignTool -f /root/698app/bin -b 698app -v V1.01.001 -o 698app
+sudo cp 698app.tar /usr/local/default/apps/
+sudo container install c_698 /usr/local/default/apps/698app.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -dev /dev/encryption1:/dev/encryption1 -v /data/app:/data/app
+
+sudo ./appSignTool -f /home/sysadm/698clientapp/bin -b 698clientapp -l /home/sysadm/698clientapp/lib -v V1.01.006 -o 698clientapp
+sudo mkdir -p /usr/local/default/apps/
+sudo chmod 777 /usr/local/default/apps/
+sudo cp 698clientapp.tar /usr/local/default/apps/
+sudo container install c_698client /usr/local/default/apps/698clientapp.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app
+
+sudo cp /home/sysadm/bin/1376.2App 1376.2App/bin/
+sudo container start c_plc
+sudo container stop c_plc
+sudo container uninstall c_plc
+sudo docker attach c_plc
+
+container start c_data
+
+container start c_plc
+container start c_modbus1
+container start c_jc
+container start c_645-3
+container start c_iec104
+
+container restart c_data
+container restart c_plc
+container restart c_modbus1
+container restart c_jc
+container restart c_645-3
+container restart c_iec104
+container restart c_limit
+
+container stop c_iec104
+container stop c_plc
+container stop c_data
+container stop c_modbus1
+container stop c_jc
+container stop c_645-3
+container stop c_limit
+
+container stop c_peidian
+container stop c_data
+container stop c_iot
+container stop c_yingxiao
+container stop c_jc
+container stop c_645-3
+
+container uninstall c_peidian
+container uninstall c_data
+container uninstall c_iot
+container uninstall c_yingxiao
+container uninstall c_jc
+container uninstall c_645-3
+
+sudo docker exec -it c_plc /bin/sh
+sudo docker exec -it c_ltu485 /bin/sh
+
+scp -P 8888  -r dpkgdeb sysadm@192.168.1.101:/home/sysadm/
+scp -P 8888  ${BIN} sysadm@192.168.1.101:/home/sysadm/bin/
+apt install build-essential vim git vim-addon-mw-utils -y
+
+sudo chown sysadm.sysadm /data -R
+mkdir -p /data/app/13762app/configFile
+mkdir -p /data/app/13762app/logFile
+mkdir -p $HOME/bin
+
+#应用启动
+appm -s -c lxc01 -n lrZXBranchSwitch
+
+#应用停止
+appm -S -c lxc01 -n lrZXBranchSwitch
+
+#应用查询
+appm -I -c lxc01 -l
+
+#应用安装
+appm -i -c lxc01 -n lrZXBranchSwitch -f /usr/local/default/apps/lrZXBranchSwitch.tar
+
+#应用删除
+appm -u -c lxc01 -n lrZXBranchSwitch
+
+
+
+
+./configure --host=arm-linux-gnueabihf --prefix=$(pwd)/install --enable-editline=yes --enable-readline=yes --enable-static-shell=no
+
+C:\Users\floyd\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\rootfs
+
+sysadm
+Zxbdt@729.TTU
+
+Admin@huawei
+
+sudo service docker restart
+sudo docker run -v /home/share:/data -v /dev:/dev -v /lib/modules/:/lib/modules/ -v /run:/run --add-host='osc:127.0.0.1' -e UID=1001 --privileged -i --rm -t huawei-ec-iot/osc-sdk:1.0.0 /bin/bash
+
+appm -d -c lxc -n loadratio
+appm -u -c lxc -n loadratio
+appm -I -c lxc
+
+cd /mnt/nand/JC
+./ttu adc adj_execute
+./ttu adc collect
+
+cd /mnt/nand/LOADRATIO/
+./loadratio
+
+curl ftp://192.168.10.180/loadratio.ova -o /mnt/custom/loadratio.ova
+appm -i -c lxc -f  /mnt/custom/loadratio.ova
+
+wwan apn show dev ppp-0
+wwan apn add
+wwan at send "AT+CSQ" dev ppp-0
+wwan 配置文件位置: /etc/ppp/.wwan_sta.json
+
+root@SCT230A:/data/app/SCMQTTIot/commonFile# wwan modem show dev all
+========ppp-0 information========
+Model = SCMC1020M-L
+Modem Type = SCMC1020M-L
+Manufacturer = SJZG
+Modem Firmware Version = V150
+Hardware Version = VerC
+ICCID = 89861120259034148979
+IMSI = 460113339329831
+IMEI = 861953051625760
+PDP Type = IP
+Current Network Connection = 4G
+Current RSSI = -73dBm
+========ppp-1 information========
+Model = SCMC1020M-L
+Modem Type = SCMC1020M-L
+Manufacturer = SJZG
+Modem Firmware Version = V150
+Hardware Version = VerC
+ICCID = 89861121209033832684
+IMSI = 460113306729898
+IMEI = 861953051537817
+PDP Type = IP
+Current Network Connection = 4G
+Current RSSI = -71dBm
+root@SCT230A:/data/app/SCMQTTIot/commonFile#
+
+
+|*************************help************************|
+| cmd  :wwan apn {add | delete}                       |
+| desc :add/delete APN CONFIG                         |
+| usage:wwan apn add                                  |
+| usage:wwan apn delete apn_name dev port_name        |
+|       apn_name:APN name                             |
+|       port_name:{ppp-0 | ppp-1}                     |
+|                                                     |
+| cmd  :wwan apn show dev                             |
+| desc :read APN CONFIG info                          |
+| usage:wwan apn show dev port_name                   |
+|       port_name:{ppp-0 | ppp-1 | all}               |
+|                                                     |
+| cmd  :wwan dialer {start | stop}                    |
+| desc :start/stop LTE dialing function               |
+| usage:wwan dialer start                             |
+| usage:wwan dialer stop                              |
+|                                                     |
+|                                                     |
+| cmd  :wwan modem reboot dev                         |
+| desc :reboot LTE modem                              |
+| usage:wwan modem reboot dev port_name               |
+|       port_name:{ppp-0 | ppp-1 | all}               |
+|                                                     |
+| cmd  :wwan modem show dev                           |
+| desc :show LTE modem connecting info                |
+| usage:wwan modem show dev port_name                 |
+|       port_name:{ppp-0 | ppp-1 | all}               |
+|                                                     |
+| cmd  :wwan log {start | stop} dev                   |
+| desc :open/close LTE logging function               |
+| usage:wwan log start size buffer_size dev port_name |
+| usage:wwan log stop dev port_name                   |
+|       buffer_size:Log store cache(range:1-1000 MB)  |
+|       port_name:{ppp-0 | ppp-1 | all}               |
+|                                                     |
+| cmd  :wwan at send                                  |
+| desc :send AT CMD to LTE modem                      |
+| usage:wwan at send at_string dev port_name          |
+|       at_string:AT CMD(string,range:1-127)          |
+|       port_name:{ppp-0 | ppp-1 | all}               |
+|                                                     |
+| cmd  :wwan at show dev                              |
+| desc :return AT CMD record and LTE modem result     |
+| usage:wwan at show dev port_name                    |
+|       port_name:{ppp-0 | ppp-1 | all}               |
+|                                                     |
+|*****************************************************|
+
+
+/*********** config start *****************/
+mkdir -p $HOME/dfebin/{bin,lib,dir}
+mkdir -p $HOME/bin
+echo "export PATH=$PATH:$HOME/bin:$HOME/dfebin/bin">>$HOME/.bashrc
+echo "export nandroot=$HOME/dfebin/dir/nand">>$HOME/.bashrc
+. ~/.bashrc
+
+chmod +x $HOME/dfebin/bin/*
+echo "sysadm ALL=(ALL) NOPASSWD: NOPASSWD: ALL">>/etc/sudoers
+echo "sysadm ALL=(ALL) NOPASSWD: NOPASSWD: ALL">>/etc/sudoers.d/sysadm
+echo "/home/sysadm/dfebin/lib">/etc/ld.so.conf.d/ttu.conf
+ldconfig
+
+sudo chown sysadm.sysadm /data -R
+mkdir -p  /usr/local/default/apps/
+
+获取esn
+devctl -e
+
+获取sn
+devcfg -sn
+
+/*********** config end *****************/
+
+将公钥文件上传至免登录主机B
+ssh-copy-id -i ~/.ssh/id_rsa.pub -p 8888 sysadm@192.168.1.101(端口不是22的情况)
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub  192.168.198.132
+
+
+http://172.20.1.61/svn/DF6204/tests/智芯平台/698App
+
+
+http://172.20.1.61/svn/DF6204/tests/智芯平台/ZaiboApp
+
+
+./appSignTool -f /root/IEC101APP/bin -b 101App -l /root/IEC101APP/lib -v v01.01.002 -o 101app
+sudo cp IEC101APP.tar /usr/local/default/apps/IEC101APP.tar
+sudo container install c_iec101 /usr/local/default/apps/IEC101APP.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttySZ6:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/S7 -v /data/app:/data/app
+
+./appSignTool -f /root/104app/bin -b 104App -l /root/104app/lib -v V1.01.003 -o 104app
+container install c_iec104 104app.tar -dev /dev/ttyRS0:/dev/ttySZ3 -dev /dev/ttyRS1:/dev/ttySZ4 -dev /dev/ttyRS2:/dev/ttySZ5 -dev /dev/ttyRS3:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -p 2404:2404 -v /data/app:/data/app  -dev /dev/ledctrl:/dev/ledctrl
+
+container install c_iec104 104app.tar -dev /dev/ttyRS0:/dev/ttySZ3 -dev /dev/ttyRS1:/dev/ttySZ4 -dev /dev/ttyRS2:/dev/ttySZ5 -dev /dev/ttyRS3:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -p 2404:2404 -v /data/app:/data/app -dev /dev/ledctrl:/dev/ledctrl
+
+
+container install c_iec104 104app.tar -dev /dev/ttyRS0:/dev/ttySZ3 -dev /dev/ttyRS1:/dev/ttySZ4 -dev /dev/ttyRS2:/dev/ttySZ5 -dev /dev/ttyRS3:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app -dev /dev/ledctrl:/dev/ledctrl
+
+sudo docker run -v /home/share:/data -v /dev:/dev -v /lib/modules/:/lib/modules/ -v /run:/run --add-host='osc:127.0.0.1' -e UID=1001 --privileged -i --rm -t huawei-ec-iot/osc-sdk:1.0.0 /bin/bash
+
+docker run -d ubuntu:18.04 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+
+/dev/mmcblk0p7
+
+container install c_data /usr/local/default/apps/database_698.tar  -v /data/app:/data/app
+
+./appSignTool -f /root/database/bin -b database -l /root/database/lib -v SV02.012 -o database
+cp database.tar /usr/local/default/apps/
+container install c_data /usr/local/default/apps/database.tar  -v /data/app:/data/app
+
+###########德源开关ltu容器安装##################
+sudo container stop c_yingxiao
+sudo container stop ltu
+sudo container uninstall ltu
+mkdir -p /home/sysadm/ltu
+sleep 5
+sudo mkdir -p /usr/local/default/apps/
+sudo cp ltu.tar /usr/local/default/apps/ltu.tar
+sudo container install ltu /usr/local/default/apps/ltu.tar -dev /dev/ttyRS0:/dev/ttySZ3 -dev /dev/ttyRS1:/dev/ttySZ4 -dev /dev/ttyRS2:/dev/ttySZ5 -dev /dev/ttyRS3:/dev/ttySZ6 -dev /dev/gpio_sg:/dev/gpio_sg -dev /dev/spidev2.0:/dev/spidev2.0 -dev /dev/ttyS7:/dev/ttyS7 -p 2645:2645 -p 7705:7705 -v /data/app:/data/app -v /home/sysadm/ltu:/tmp/log
+###########德源开关ltu容器安装##################
+
+
+PRAGMA foreign_keys = 0;
+
+CREATE TABLE sqlitestudio_temp_table AS SELECT *
+                                          FROM t_698_645_trans;
+
+DROP TABLE t_698_645_trans;
+
+CREATE TABLE t_698_645_trans (
+    seq         INTEGER      PRIMARY KEY AUTOINCREMENT,
+    di3         INTEGER,
+    format      VARCHAR (20),
+    oi          INTEGER,
+    oi_attr     INTEGER,
+    oi_attr_idx INTEGER,
+    id2         INTEGER,
+    di1         INTEGER,
+    di0         INTEGER,
+    len         INTEGER,
+    unit        VARCHAR (20),
+    descrip     VARCHAR (64)
+);
+
+INSERT INTO t_698_645_trans (
+                                seq,
+                                di3,
+                                format,
+                                oi,
+                                oi_attr,
+                                oi_attr_idx
+                            )
+                            SELECT seq,
+                                   di3,
+                                   format,
+                                   oi,
+                                   oi_attr,
+                                   oi_attr_idx
+                              FROM sqlitestudio_temp_table;
+
+DROP TABLE sqlitestudio_temp_table;
+
+PRAGMA foreign_keys = 1;
+DEBUG_TIME_LINE("");
+./serial -c"/dev/ttyS7" -b9600 -f"68 27 00 43 04 00 5F 00 00 00 00 00 00 00 00 00 51 15 26 08 20 20 F1 01 00 00 00 08 00 01 03 04 01 00 01 D4 FA 4C 16"
+
+
+组合有功、无功电能最高位是符号位，0正1负。取值范围：0.00～799999.99。
+组合无功最大需量的最高位是符号位，0正1负。取值范围：0.0000～79.0000
+瞬时功率及当前需量最高位表示方向，0正，1负，三相三线B相为0。取值范围：0.0000～79.9999。
+表内温度最高位0表示零上，1表示零下。取值范围：0.0～799.9。
+电流最高位表示方向，0正，1负，取值范围：0.000～799.999。
+功率因数最高位表示方向，0正，1负，取值范围: 0.000～1.000。
+
+并发抄读注意事项:
+1. 当前并发帧数, 最大并发帧数
+2. 否认帧
+3. 并发地址不重复
+4. 校验错误的帧, 怎么处理
+
+/etc/network/interfaces.d/FE0
+#iface FE0 inet manual
+auto FE0
+allow-hotplug FE0
+iface FE0 inet static
+address 192.168.1.101
+netmask 255.255.255.0
+gateway 192.168.1.1
+dns-nameservers 202.102.152.3
+
+auto FE0:1
+allow-hotplug FE0:1
+iface FE0:1 inet static
+address 192.168.127.101
+netmask 255.255.255.0
+gateway 192.168.127.254
+dns-nameservers 202.102.154.3
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+
+https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/
+
+
+东软CCO上报模块信息
+68 38 00 C3 00 00 00 00 00 00 03 02 01 F2 3F 00 01 00 00 3C B0 04 00 01 E6 00 14 11 22 33 44 55 66 DC 05 11 00 21 03 13 21 03 13 53 45 31 41 25 10 19 01 68 96 80 82 16
+
+新CCO版本日期 22年2月17日
+68 18 00 83 00 00 00 00 00 15 03 01 00 53 45 31 41 17 02 22 14 27 1C 16
+68 18 00 83 00 00 00 00 00 16 03 01 00 53 45 31 41 17 02 22 14 27 1D 16
+68 38 00 C3 00 00 00 00 00 00 03 02 01 F2 3F 00 01 00 00 3C B0 04 00 01 E6 00 14 11 22 33 44 55 66 DC 05 11 00 21 03 13 21 03 13 53 45 31 41 17 02 22 14 27 96 80 41 16
+68 1F 00 83 00 00 00 00 00 01 10 08 00 00 11 00 00 00 00 00 03 96 80 00 00 00 08 08 08 DE 16
+
+从载波探测地址
+[recv]: [2022-5-26 17:14:14]>>FE FE FE FE 68 99 99 99 99 99 99 68 1F 02 E2 35 9E 16
+[send]: [2022-5-26 17:14:14]>>FE FE FE FE 68 88 01 19 04 22 20 68 9F 08 E2 35 BB 34 4C 37 55 53 90 16
+
+从载波读取事件
+[recv]: [2022-5-26 17:49:51]>>68 88 01 19 04 22 20 68 11 04 34 48 33 37 B3 16
+[send]: [2022-5-26 17:49:51]>>FE FE FE FE 68 88 01 19 04 22 20 68 91 0A 34 48 33 37 33 34 4C 4C 33 33 9E 16
+
+#递归删除当前目录下的 'PDF' 文件夹
+find . -name 'PDF' -type d | xargs rm -rf
+
+mosquitto_sub -v -t "appjc/notify/event/database/ADC/ADC_5aeeb33b6dcaceff" -h 172.17.0.1
+
+mosquitto_sub -v -t "#/notify/event/database/ADC/#" -h 172.17.0.1
+
+mosquitto_sub -v -h 172.17.0.1  -t "database/get/response/appjc/realtime/#"
+
+同时订阅多个主题
+./mosquitto_sub -v -t "puAmr/rspSample/#" -t "rspSample/puAmr/#" -h 172.17.0.1 > 4.txt
+
+
+[2022-07-26 08:39:01] 2022/07/26 08:37:44 restartApp libEnv: LD_LIBRARY_PATH=/usr/local/extapps/ltuqua/lib:/lib:/usr/lib:/home/zxlib
+[2022-07-26 08:39:01] 2022/07/26 08:37:44 restartApp start name = ltuqua , path = /usr/local/extapps/ltuqua/bin/ltuqua , pid = 561
+
+
+
+2022-08-01 14:41:50][..\src\main.c][main()][156]: /usr/local/extapps/ltuqua/bin/ltuqua app starting...
+
+
+## 104遥控报文
+1. 预置
+[2023-01-17 11:47:59.028][../src/common/encryption/encryption.cpp][doRecv()][149]: [pushData(16)]:<<< 68 0E 16 00 50 00 2E 01 06 00 01 00 02 60 00 82 
+[2023-01-17 11:47:59.032][../src/common/encryption/encryption.cpp][doSend()][172]: [doSend plainBuf(6)]:>>>>>>> 68 04 43 00 00 00 
+
+2. 执行
+[2023-01-17 11:48:19.736][../src/common/encryption/encryption.cpp][doRecv()][149]: [pushData(16)]:<<< 68 0E 18 00 52 00 2E 01 06 00 01 00 02 60 00 02 
+[2023-01-17 11:48:20.227][../src/common/encryption/encryption.cpp][doSend()][172]: [doSend plainBuf(16)]:>>>>>>> 68 0E 52 00 1A 00 2E 01 07 00 01 00 02 60 00 02 
+
+末端分支终端
+EndTerminal
+
+ container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000

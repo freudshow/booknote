@@ -99,7 +99,7 @@ sqlite3 -header -csv linyi.db "select * from ly order by '序号' limit 50 offse
 
 参考[Debian9安装最新版Nodejs和NPM](https://www.5yun.org/15395.html)
 
-- 添加Node.js PPA  
+- 添加Node.js PPA
 
 最新版安装命令:
 
@@ -218,7 +218,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools man-db manpages-posix manpages-dev manpages-posix-dev
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools qbittorrent vlc aria2 libssl-dev libelf-dev man-db manpages-posix manpages-dev manpages-posix-dev
     sudo apt autoremove --purge snapd #卸载ubuntu自带的包管理软件, 否则它总是在后台运行, 不断读取磁盘
 ```
 
@@ -379,9 +379,17 @@ sudo dpkg-reconfigure locales #根据提示, 安装相应的语言包, 最后设
 编辑配置文件`~/.config/user-dirs.dirs`, 把文件夹指向改掉，例如：
 
 ```Shell
+mkdir -p $HOME/Desktop
+mkdir -p $HOME/Download
+mkdir -p $HOME/Templates
+mkdir -p $HOME/Public
+mkdir -p $HOME/Documents
+mkdir -p $HOME/Music
+mkdir -p $HOME/Pictures
+mkdir -p $HOME/Videos
 
 XDG_DESKTOP_DIR="$HOME/Desktop"
-XDG_DOWNLOAD_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Download"
 XDG_TEMPLATES_DIR="$HOME/Templates"
 XDG_PUBLICSHARE_DIR="$HOME/Public"
 XDG_DOCUMENTS_DIR="$HOME/Documents"
@@ -393,7 +401,7 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 
 使用`xdg-user-dirs-gtk-update`点击了`不再问我`这个问题后，再次执行这个命令就会没有反应, 解决方法:
 
-执行一下命令`echo zh_CN > ~/.config/user-dirs.locale`，然后就可以在次执行`xdg-user-dirs-gtk-update`或者`xdg-user-dirs-update`了。
+执行一下命令`echo zh_CN > ~/.config/user-dirs.locale`，然后就可以再次执行`xdg-user-dirs-gtk-update`或者`xdg-user-dirs-update`了。
 
 ### 以太网和`wifi`同时上网
 
@@ -457,6 +465,51 @@ XDG_VIDEOS_DIR="$HOME/Videos"
     sudo apt install typora
 ```
 
+### `install cloudflare warp`
+
+to install warp, go to https://1.1.1.1/, hit Linux, then follow the script below:
+
+```bash
+# Ubuntu
+# The supported releases are:
+# Jammy (22.04)
+# Focal (20.04)
+# Bionic (18.04)
+# Xenial (16.04)
+# Add cloudflare gpg key
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+
+
+# Add this repo to your apt repositories
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+
+
+# Install
+sudo apt-get update && sudo apt-get install cloudflare-warp
+
+# Debian
+# The supported releases are:
+# Bookworm (12)
+# Bullseye (11)
+# Buster (10)
+# Stretch (9)
+# Add cloudflare gpg key
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+
+
+# Add this repo to your apt repositories
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+
+
+# Install
+sudo apt-get update && sudo apt-get install cloudflare-warp
+
+
+warp-cli registration license q4LA8O73-6G15AX0V-J6v1m4j9
+warp-cli tunnel endpoint set 188.114.99.123:955
+```
+
+
 ### `install notepadqq`
 
 ```bash
@@ -468,7 +521,7 @@ XDG_VIDEOS_DIR="$HOME/Videos"
     sudo apt-key adv --recv-key --keyserver keyserver.ubuntu.com 63DE9CD4
     sudo apt update
     sudo apt install notepadqq
-    
+
     sudo add-apt-repository ppa:notepadqq-team/notepadqq
     sudo apt update
     sudo apt install -y notepadqq
@@ -502,6 +555,50 @@ XDG_VIDEOS_DIR="$HOME/Videos"
 
 ```bash
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+```
+
+### `install postgresql`
+
+```shell
+	# Create the file repository configuration:
+	sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+	# Import the repository signing key:
+	wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+	# Update the package lists:
+	sudo apt-get update
+
+	# Install the latest version of PostgreSQL.
+	# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
+	sudo apt-get -y install postgresql
+	
+
+	#
+	# Setup the repository
+	#
+
+	# Install the public key for the repository (if not done previously):
+	curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+
+	# Create the repository configuration file:
+	sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+	#
+	# Install pgAdmin
+	#
+
+	# Install for both desktop and web modes:
+	sudo apt install pgadmin4
+
+	# Install for desktop mode only:
+	sudo apt install pgadmin4-desktop
+
+	# Install for web mode only: 
+	sudo apt install pgadmin4-web 
+
+	# Configure the webserver, if you installed pgadmin4-web:
+	sudo /usr/pgadmin4/bin/setup-web.sh
 ```
 
 ### `Linux` 下转换文件编码
@@ -886,6 +983,19 @@ logout、login一下再试试
 
 `sysinstall`换成了`bsdinstall`
 
+### 关机命令
+
+```Shell
+	#立即关机,但是不关闭电源:
+	shutdown -h now
+
+	#立即关机,并且关闭电源:
+	shutdown -p now
+
+	#重启命令
+	shutdown -r now
+```
+
 ## ARM 64位系统下编译32位程序
 
 ```bash
@@ -941,3 +1051,40 @@ MimeType=application/x-ipynb+json;
 Categories=Development;Education;
 Keywords=eclipse;
 ```
+
+## `sudo update-grub`找不到`windows`
+
+在/etc/default/grub文件中添加
+```bash
+GRUB_DISABLE_OS_PROBER=false
+#之后更新grub的配置：
+sudo os-prober
+sudo update-grub
+```
+
+## `debian`运行`arm-none-linux-gnueabihf-gdb`的错误
+
+1. 找不到`libncursesw.so.5`
+
+```shell
+    sudo apt install libncursesw5 libncursesw5-dev
+```
+
+2. 安装对应的`python`环境
+
+```shell
+    curl https://pyenv.run | bash
+    pyenv install 3.8.18
+    sudo mkdir -p /usr/local/bld-tools
+    sudo ln -s $PYENV_ROOT/versions/3.8.18 /usr/local/bld-tools/bld-tools-virtual-env
+
+    #再次检查版本号即可
+    /home/floyd/soft/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-linux-gnueabihf/bin/arm-none-linux-gnueabihf-gdb --version
+    GNU gdb (Arm GNU Toolchain 13.2.rel1 (Build arm-13.7)) 13.2.90.20231008-git
+    Copyright (C) 2023 Free Software Foundation, Inc.
+    License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+    This is free software: you are free to change and redistribute it.
+    There is NO WARRANTY, to the extent permitted by law.
+```
+
+

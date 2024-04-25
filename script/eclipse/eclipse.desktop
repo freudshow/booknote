@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=eclipse
+Exec=/home/floyd/soft/eclipse/eclipse
+Icon=/home/floyd/soft/eclipse/icon.xpm
+Terminal=false
+Type=Application
+Categories=Programming
+StartupNotify=false
+OnlyShowIn=MATE;
+Keywords=MATE;desktop;marco;compiz;theming;customize;fine;tune;tweak;adapt;
+Comment=Customize desktop, panel, and window manager settings
+Name[en_US]=eclipse.desktop
