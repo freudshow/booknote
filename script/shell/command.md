@@ -1087,4 +1087,12 @@ sudo update-grub
     There is NO WARRANTY, to the extent permitted by law.
 ```
 
+## `debian 12`运行`VNC-Server`
 
+```shell
+    sudo apt install -y tightvncserver
+	vncpasswd
+	tightvncserver :1 -geometry 1280x720 -depth 24
+```
+
+然后远程连接此`debian`, 注意端口号是`5901`
