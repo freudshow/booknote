@@ -1096,3 +1096,52 @@ sudo update-grub
 ```
 
 然后远程连接此`debian`, 注意端口号是`5901`
+
+## `debian 12`运行远程桌面`xrdp`
+
+```shell
+    #安装桌面环境和依赖包
+	sudo apt -y install xfce4 xfce4-goodies xorg dbus-x11 x11-xserver-utils
+	
+	#安装xrdp
+	sudo apt -y install xrdp 
+
+	#查看xrdp状态
+	sudo systemctl status xrdp
+	
+	#如何服务输出以下信息，说明xrdp安装并成功启动
+	● xrdp.service - xrdp daemon
+     Loaded: loaded (/lib/systemd/system/xrdp.service; enabled; preset: enabled)
+     Active: active (running) since Tue 2024-03-05 01:13:35 CST; 6s ago
+       Docs: man:xrdp(8)
+             man:xrdp.ini(5)
+    Process: 7709 ExecStartPre=/bin/sh /usr/share/xrdp/socksetup (code=exited, status=0/SUCCESS)
+    Process: 7717 ExecStart=/usr/sbin/xrdp $XRDP_OPTIONS (code=exited, status=0/SUCCESS)
+   Main PID: 7718 (xrdp)
+      Tasks: 1 (limit: 4581)
+     Memory: 888.0K
+        CPU: 11ms
+     CGroup: /system.slice/xrdp.service
+             └─7718 /usr/sbin/xrdp
+
+	#默认情况下，Xrdp使用的/etc/ssl/private/ssl-cert-snakeoil.key文件只有属于“ ssl-cert”组的用户才能读取。执行以下命令将xrdp(或者自己常用的用户)用户添加到组中：
+	sudo adduser xrdp ssl-cert
+	sudo adduser floyd ssl-cert
+	
+	#重启xrdp服务
+	sudo systemctl restart xrdp
+	
+	#配置防火墙, 放行192.168.108.0/24:3389
+	sudo ufw allow from 192.168.108.0/24 to any port 3389
+
+	#放行tcp 3389
+	sudo ufw allow 3389/tcp
+
+	#重载防火墙
+	sudo ufw reload
+
+	#查看防火墙规则是否已经添加成功
+	sudo ufw status numbered
+
+	#连接服务器的xrdp, 可以通过Windows自带的 mstsc 或者 mobaXterm中的 rdp 远程桌面连接
+```
