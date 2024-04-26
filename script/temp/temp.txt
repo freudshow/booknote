@@ -1860,21 +1860,3 @@ mosquitto_pub -t "" -m"" -h localhost
 /nptl/pthread_mutex_lock.c:81: __pthread_mutex_cond_lock: Assertion `mutex->__data.__owner == 0' failed.
 
 
-10.66.0.28
-
-破解工具
-链接：https://pan.baidu.com/s/1uSZX6CROndaAX4U86qczdQ 提取码：cx6c
-破解视频教程(求个赞)：https://www.bilibili.com/video/BV1jX4y1x71R/
-破解文档：https://www.bilibili.com/read/cv25794684
-最新激活码：
-https://java-doc.cn/img/activate/clion-new.txt
-
-
-
-不想下载、不想破解的、想进群的
-可以加下面的微信找我，备注：“工具 或者 激活码 或者 进群”。
-破解问题可以进群问群友
-
-@佑赛科技-汪强 @北京四方-杨海方 @成都汉度-程曼 @江苏华鹏 张弛 @上海国泉-祝宏祥 @深圳智微-郭宇飞 @烽火通信刘焱杰 @北京智芯孙濮东 @江苏清智云能综合能源服务有限公司 @辽能集团-张维翔 检测报告今天会出，请编辑邮寄地址短信至18600953321，短信格式：委托单位-地址-联系人-联系方式，谢谢！
-@威思顿 王云龙 @雄安许继 邓清闯 @上海欣影-顾光宇 @积成电子付强 @南京海兴陆超 @米格电气  赵小明 @江西明业-杨薇 检测报告今天会出，请编辑邮寄地址短信至18600953321，短信格式：委托单位-地址-联系人-联系方式，谢谢！
-
