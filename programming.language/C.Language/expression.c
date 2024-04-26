@@ -757,3 +757,192 @@ Edit Context
 Base Model ⚡️
 
 Ctrl + ⏎ With Codebase
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX_LENGTH 100
+
+typedef enum {
+    NUMBER,
+    OPERATOR,
+    PARENTHESIS
+} TokenType;
+
+typedef struct {
+    TokenType type;
+    char value[MAX_LENGTH];
+} Token;
+
+typedef struct Node {
+    Token token;
+    struct Node* left;
+    struct Node* right;
+} Node;
+
+Token createToken(TokenType type, const char* value) {
+    Token token;
+    token.type = type;
+    strcpy(token.value, value);
+    return token;
+}
+
+Node* createNode(Token token) {
+    Node* node = (Node*)malloc(sizeof(Node));
+    node->token = token;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+
+int evaluate(Node* node) {
+    if (node->token.type == NUMBER) {
+        return atoi(node->token.value);
+    } else if (node->token.type == OPERATOR) {
+        int leftValue = evaluate(node->left);
+        int rightValue = evaluate(node->right);
+        if (strcmp(node->token.value, "+") == 0) {
+            return leftValue + rightValue;
+        } else if (strcmp(node->token.value, "-") == 0) {
+            return leftValue - rightValue;
+        } else if (strcmp(node->token.value, "*") == 0) {
+            return leftValue * rightValue;
+        } else if (strcmp(node->token.value, "/") == 0) {
+            return leftValue / rightValue;
+        }
+    }
+    return 0;
+}
+
+void freeParseTree(Node* node) {
+    if (node != NULL) {
+        freeParseTree(node->left);
+        freeParseTree(node->right);
+        free(node);
+    }
+}
+
+Node* buildParseTree(Token* tokens, int tokenCount) {
+    Node* tree = NULL;
+    int i = 0;
+    while (i < tokenCount) {
+        if (tokens[i].type == NUMBER) {
+            tree = createNode(tokens[i]);
+            i++;
+        } else if (tokens[i].type == OPERATOR) {
+            if (tree == NULL) {
+                tree = createNode(tokens[i]);
+                i++;
+            } else {
+                Node* right = buildParseTree(tokens + i + 1, tokenCount - i - 1);
+                Node* left = tree;
+                tree = createNode(tokens[i]);
+                tree->left = left;
+                tree->right = right;
+                i += right->token.value[0] == ')' ? 2 : 1;
+            }
+        } else if (tokens[i].type == PARENTHESIS) {
+            if (tokens[i].value[0] == '(') {
+                Node* right = buildParseTree(tokens + i + 1, tokenCount - i - 1);
+                Node* left = createNode(createToken(NUMBER, "0"));
+                tree = createNode(createToken(OPERATOR, "+"));
+                tree->left = left;
+                tree->right = right;
+                i += right->token.value[0] == ')' ? 2 : 1;
+            } else {
+                i++;
+            }
+        }
+    }
+    return tree;
+}
+
+int main() {
+    char expression[MAX_LENGTH];
+    printf("Enter an arithmetic expression: ");
+    fgets(expression, MAX_LENGTH, stdin);
+
+    // Lexical analysis
+    Token tokens[MAX_LENGTH];
+    int tokenCount = 0;
+    int i = 0;
+    while (expression[i] != '\0') {
+        if (isdigit(expression[i])) {
+            char number[MAX_LENGTH];
+            int j = 0;
+            while (isdigit(expression[i])) {
+				
+				
+				
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX_LENGTH 100
+
+typedef enum {
+    NUMBER,
+    OPERATOR,
+    PARENTHESIS
+} TokenType;
+
+typedef struct {
+    TokenType type;
+    char value[MAX_LENGTH];
+} Token;
+
+Token createToken(TokenType type, const char* value) {
+    Token token;
+    token.type = type;
+    strcpy(token.value, value);
+    return token;
+}
+
+void lexer(const char* expression, Token* tokens, int* tokenCount) {
+    int i = 0;
+    while (expression[i] != '\0') {
+        if (isdigit(expression[i])) {
+            char number[MAX_LENGTH];
+            int j = 0;
+            while (isdigit(expression[i])) {
+                number[j++] = expression[i++];
+            }
+            number[j] = '\0';
+            tokens[*tokenCount] = createToken(NUMBER, number);
+            (*tokenCount)++;
+        } else if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/') {
+            tokens[*tokenCount] = createToken(OPERATOR, &expression[i]);
+            (*tokenCount)++;
+            i++;
+        } else if (expression[i] == '(' || expression[i] == ')') {
+            tokens[*tokenCount] = createToken(PARENTHESIS, &expression[i]);
+            (*tokenCount)++;
+            i++;
+        } else {
+            i++;
+        }
+    }
+}
+
+int main() {
+    char expression[MAX_LENGTH];
+    printf("Enter an arithmetic expression: ");
+    fgets(expression, MAX_LENGTH, stdin);
+
+    // Lexical analysis
+    Token tokens[MAX_LENGTH];
+    int tokenCount = 0;
+    lexer(expression, tokens, &tokenCount);
+
+    // Print the tokens
+    printf("Tokens:\n");
+    for (int i = 0; i < tokenCount; i++) {
+        printf("Type: %d, Value: %s\n", tokens[i].type, tokens[i].value);
+    }
+
+    return 0;
+}
