@@ -220,3 +220,11 @@ K型P型不就是典设里的叫法嘛 K就是开闭站 P是配电站 不过K站
 设计人员做浦东项目时，收集到的数据：
 
 住宅小区建筑面积如果不超过30000平方米，设置P型站（2 x 800kVA），15m x 10m x 5m or 13m x 9m x 5m（根据不同生产厂家的环网柜来决定P型站的大小）。
+
+## `HVDC` and `FACTS`, etc
+
+- `FACTS`: Flexible Alternating Current Transmission System, 柔性交流输电系统
+- `HVDC`:High Voltage Direct Current Transmission, 高压直流输电
+- reactive power compensation, 无功补偿, 在电力系统中，用于调整电压、改善功率因数、减小线损的一种技术方法。
+- Static VAR Compensators, 静止无功补偿装置
+
