@@ -1466,7 +1466,7 @@ ip link set tunnel0 up
 ip addr add 172.16.33.1/24 dev tunnel0
 
 #开启转发
-#或者 echo "net.ipv4.ip_forward = 1">/etc/sysctl.conf, 这样开机自动开启转发
+#或者 echo "net.ipv4.ip_forward = 1">/etc/sysctl.conf && sysctl -p, 这样开机自动开启转发
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
 #查看是否开启转发
@@ -1860,3 +1860,21 @@ mosquitto_pub -t "" -m"" -h localhost
 /nptl/pthread_mutex_lock.c:81: __pthread_mutex_cond_lock: Assertion `mutex->__data.__owner == 0' failed.
 
 
+docker exec -it 1f65409511e1 ollama run llama3
+
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+
+https://www.bilibili.com/video/BV1Bi4y1j7sX/?spm_id_from=333.337.search-card.all.click&vd_source=fa80fc7dd821b976e71b81469d25ea44
+
+https://www.bilibili.com/video/BV1y64y1U7H7/?spm_id_from=333.788.recommend_more_video.7&vd_source=fa80fc7dd821b976e71b81469d25ea44
+
+https://www.bilibili.com/video/BV1zU4y1S763/?spm_id_from=333.788.recommend_more_video.11&vd_source=fa80fc7dd821b976e71b81469d25ea44
+
+https://www.bilibili.com/video/BV1JK4y1t7io/?spm_id_from=333.788.recommend_more_video.14&vd_source=fa80fc7dd821b976e71b81469d25ea44
+
+https://www.bilibili.com/video/BV1pf4y1974n/?spm_id_from=333.788.recommend_more_video.1&vd_source=fa80fc7dd821b976e71b81469d25ea44
+
+https://www.bilibili.com/video/BV1fJ411i7PB/?spm_id_from=333.788.recommend_more_video.0&vd_source=fa80fc7dd821b976e71b81469d25ea44
+
+https://www.bilibili.com/video/BV1JK4y1Y7xQ/?spm_id_from=333.788.recommend_more_video.4&vd_source=fa80fc7dd821b976e71b81469d25ea44

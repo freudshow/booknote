@@ -1471,3 +1471,610 @@ public class UDPSocketClient
 在上面的代码中，使用了异步方法`ConnectAsync`、`SendAsync`和`ReceiveAsync`来实现UDP客户端的接收和发送。为了加入断线重连机制，将连接、发送和接收操作封装到了三个Task异步任务中，并采用了一个无限循环来进行重连尝试，直到成功连接为止。
 
 当发送或接收数据失败时，会抛出异常，并通过捕获该异常实现重新连接的目的。如果发送和接收都没有失败，就不会有任何操作，因此这段代码就可靠地保证了与服务器的通信。
+
+
+(base) floyd@debian:~/.steam$ cd
+(base) floyd@debian:~$ ls
+anaconda3  bin  Desktop  dice  Documents  Download  eclipse-workspace  gpt4all  LM_Studio-0.2.22.AppImage  Music  ollama.sh  Pictures  Public  repo  Scratch  soft  Templates  thinclient_drives  Videos  win
+(base) floyd@debian:~$ cd Download/
+(base) floyd@debian:~/Download$ ls
+'$RECYCLE.BIN'
+ 4kvideodownloaderplus_1.6.0-1_amd64.deb
+'4K_ · yt-dlp_yt-dlp · Discussion #974 · GitHub_files'
+'4K_ · yt-dlp_yt-dlp · Discussion #974 · GitHub.html'
+'安装win11系统如何跳过微软账号登录的四种方法 – 杰力皓博_files'
+'安装win11系统如何跳过微软账号登录的四种方法 – 杰力皓博.html'
+ 关于2024年清明节、劳动节和端午节放假及有关事项的通知.doc
+'Abdulmohsen Almalawi_ Zahir Tari_ Adil Fahad_ Xun Yi - SCADA Security_ Machine Learning Concepts for Intrusion Detection and Prevention-John Wiley & Sons (2020).pdf'
+'Adding and Removing Routes in the Linux Routing Table_files'
+'Adding and Removing Routes in the Linux Routing Table.mhtml'
+'(Advances in Information Security 66) Edward J. M. Colbert, Alexander Kott (eds.) - Cyber-security of SCADA and Other Industrial Control Systems-Springer International Publishing (2016).pdf'
+'Anaconda环境中安装jupyter notebook、创建快捷方式、添加_删除内核、配置主题色和工具栏【更新ing】_anaconda jupyter notebook-CSDN博客_files'
+'Anaconda环境中安装jupyter notebook、创建快捷方式、添加_删除内核、配置主题色和工具栏【更新ing】_anaconda jupyter notebook-CSDN博客.html'
+'anaconda里jupyter notebook的使用-Mac电脑_anaconda怎么打开jupyter notebook-CSDN博客_files'
+'anaconda里jupyter notebook的使用-Mac电脑_anaconda怎么打开jupyter notebook-CSDN博客.html'
+'Andrei Tchernykh (editor), Anatoly Alikhanov (editor), Mikhail Babenko (editor), Irina Samoylenko (editor) - Mathematics and its Applications in New Computer Systems_ MANCS-2021 (Lecture Notes in Netw.pdf'
+'Andrew S. Tanenbaum, Herbert Bos - Modern Operating Systems-Pearson (2023).pdf'
+'Andrew S. Tanenbaum, Nick Feamster, David J. Wetherall - Computer Networks, 6th Edition-Pearson (2021) (1).pdf'
+'Andrew S. Tanenbaum, Nick Feamster, David J. Wetherall - Computer Networks, 6th Edition-Pearson (2021).pdf'
+'Andrew S. Tanenbaum, Nick Feamster, David J. Wetherall - Computer Networks-Pearson (2021).pdf'
+'Andrew Tanenbaum, Herbert Bos - Modern Operating Systems, 5th Global Edition-Pearson (2024).pdf'
+'Andrew Tanenbaum, Nick Feamster, David Wetherall - Computer Networks, Global Edition-Pearson (2021).pdf'
+'Ata Elahi, Alex Cushman - Computer networks. Data communications, Internet and security. (2024).pdf'
+'AtiHowTo - Debian Wiki_files'
+'AtiHowTo - Debian Wiki.html'
+'Beej’s Guide to Network Programming Using Internet Sockets.pdf'
+'Bodungen, Clint E._Hilt, Stephen_Shbeeb, Aaron_Singer, Bryan L._Wilhoit, Kyle - Hacking Exposed Industrial Control Systems_ ICS and SCADA Security Secrets &amp_amp_ Solutions-McGraw-Hill Education (20.epub'
+'Brodsky, Jacob_ Radvanovsky, Robert - Handbook of SCADA_control systems security-CRC Press (2016).pdf'
+'Carlos Jahn (editor), László Ungvári (editor), Igor Ilin (editor) - Algorithms and Solutions Based on Computer Technology_ 5th Scientific International Online Conference Algorithms and Solutions based (1).pdf'
+'Carlos Jahn (editor), László Ungvári (editor), Igor Ilin (editor) - Algorithms and Solutions Based on Computer Technology_ 5th Scientific International Online Conference Algorithms and Solutions based (2).pdf'
+'Carlos Jahn (editor), László Ungvári (editor), Igor Ilin (editor) - Algorithms and Solutions Based on Computer Technology_ 5th Scientific International Online Conference Algorithms and Solutions based.pdf'
+'c++ - arm-none-eabi-gdb cannot start because of some python error - Stack Overflow_files'
+'c++ - arm-none-eabi-gdb cannot start because of some python error - Stack Overflow.html'
+'Christopher Coutinho - Roblox Lua Scripting Essentials _ A Step-by-Step Guide-Apress (2023).epub'
+'Claudia Alves_ Alexander Aronowitz - Lua Programming_ The Ultimate Beginner'\''s Guide to Learn Lua Step by Step (2021).epub'
+'Cloudflare Warp优选IP Windows_Mac_iPhone_Android_iPad都能用 - playfulsoul.net_files'
+'Cloudflare Warp优选IP Windows_Mac_iPhone_Android_iPad都能用 - playfulsoul.net.html'
+'David Bailey, Edwin Wright - Practical SCADA for Industry Elsevier (2003).pdf'
+'Desislav Andreev, Stanimir Lukanov - C++ Programming for Linux Systems_ Create robust enterprise software for Linux and Unix-based operating systems-Packt Publishing (2023).epub'
+ desktop.ini
+ emed64_24.1.1.msi
+'Emurasoft EmEditor Professional 24.1.1 Multilingual x64 [FileCR].zip'
+'Eric D. Knapp - Industrial Network Security_ Securing Critical Infrastructure Networks for Smart Grid, SCADA, and Other Industrial Control Systems-Syngress (2011).epub'
+'Eric D. Knapp - Industrial Network Security_ Securing Critical Infrastructure Networks for Smart Grid, SCADA, and Other Industrial Control Systems  -Syngress (2011).pdf'
+'Eric D. Knapp_ Joel Langill - Industrial Network Security_ Securing Critical Infrastructure Networks for Smart Grid, Scada, and Other Industrial Control Systems-Syngress Publishing (2014).pdf'
+'Eric D. Knapp, Joel Thomas Langill - Industrial Network Security, Second Edition_ Securing Critical Infrastructure Networks for Smart Grid, SCADA, and Other Industrial Control Systems-Syngress (2014).pdf'
+ freedownloadmanager.deb
+ fsearch_0.2.3-1+3.5_amd64.deb
+'(IDC Technology) David Bailey_ Edwin Wright - Practical SCADA for Industry-Elsevier Science & Technology (2003).pdf'
+'(IDC Technology) Gordon Clarke CP Eng  BEng  MBA, Deon Reynders Pr Eng  BSc (ElecEng) (Hons)  MBA - Practical Modern SCADA Protocols_ DNP3, 60870.5 and Related Systems-Newnes (2004).pdf'
+'IDM UEStudio 24.0.0.28 x64 [FileCR].zip'
+'IDM UltraEdit 31.0.0.28 x64 [FileCR].zip'
+ IEC60870-5-101-FDIS.pdf
+'Jaken Chandler Herman - Beginning Game Development with Amazon Lumberyard_ Create 3D Games Using Amazon Lumberyard and Lua-Apress (2019).pdf'
+'JetBrains CLion 2024.1 [FileCR].zip'
+'JetBrains IntelliJ IDEA Ultimate 2024.1 [FileCR].zip'
+'Jill West - Data Communication and Computer Networks_ A Business User'\''s Approach-Cengage Learning (2022).pdf'
+'John Madieu - Mastering Linux Device Driver Development_ Write custom device drivers to support computer peripherals in Linux operating systems-Packt Publishing Ltd (2021).pdf'
+'Kameron Hussain_ Frahaan Hussain - Lua Unleashed_ Revolutionizing Game Design and Development-Sonar Publishing (2024).epub'
+'K. C. Wang - Embedded and Real-Time Operating Systems-Springer (2023).pdf'
+'K. C. Wang - Embedded and Real-Time Operating Systems-Springer International Publishing (2023).epub'
+'(Lecture Notes in Artificial Intelligence, 13739. Subseries of Lecture Notes in Computer Science) Neamat El Gayar, Edmondo Trentin, Mirco Ravanelli, Hazem Abbas - Artificial Neural Networks in Pattern.pdf'
+'(Lecture Notes in Computer Science, 13772) Yevgeni Koucheryavy, Ahmed Aziz - Internet of Things, Smart Spaces, and Next Generation Networks and Systems_ 22nd International Conference, NEW2AN 2022 Tash.pdf'
+'(Lecture Notes in Networks and Systems, 565) H. S. Saini, Rishi Sayal, A. Govardhan, Rajkumar Buyya - Innovations in Computer Science and Engineering_ Proceedings of the Tenth ICICSE, 2022-Springer (2.pdf'
+'(Lecture Notes in Networks and Systems, 722) Radek Silhavy, Petr Silhavy - Software Engineering Research in System Science_ Proceedings of 12th Computer Science On-line Conference 2023, Volume 1-Sprin.pdf'
+'(Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering, 457) Fang Fang, Fu Shu - Game Theory for Networks_ 11th International EAI Conference, Game.pdf'
+'Lei Meng (editor) - International Conference on Cloud Computing and Computer Networks_ CCCN 2023 (Signals and Communication Technology)-Springer (2024).pdf'
+ Linux路由表的结构与算法分析_路由表算法-CSDN博客_files
+ Linux路由表的结构与算法分析_路由表算法-CSDN博客.html
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems-CreateSpace Independent Publishing Platform (2017).pdf'
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems-Maarten van Steen (2023).pdf'
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems_ Principles and Paradigms-Maarten van Steen (2023) (1).pdf'
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems_ Principles and Paradigms-Maarten van Steen (2023).pdf'
+'Markdown Monster 3.2.14 [FileCR].zip'
+'Matthew N. O. Sadiku, Cajetan M. Akujuobi - Fundamentals of Computer Networks-Springer (2022).7z'
+'Matthew N. O. Sadiku, Cajetan M. Akujuobi - Fundamentals of Computer Networks-Springer (2022).epub'
+'Matthew N. O. Sadiku, Cajetan M. Akujuobi - Fundamentals of Computer Networks-Springer (2022).pdf'
+'Minh Hoàng Hà (editor), Xingquan Zhu (editor), My T. Thai (editor) - Computational Data and Social Networks_ 12th International Conference, CSoNet 2023, Hanoi, Vietnam, December 11–13, 2023, Proceedin (1).pdf'
+'Minh Hoàng Hà (editor), Xingquan Zhu (editor), My T. Thai (editor) - Computational Data and Social Networks_ 12th International Conference, CSoNet 2023, Hanoi, Vietnam, December 11–13, 2023, Proceedin.pdf'
+'Mini S Thomas_ John D Mcdonald - Power system SCADA and smart grids-CRC Press (2015).pdf'
+'Mykola Nechyporuk (editor), Vladimir Pavlikov (editor), Dmitriy Kritskiy (editor) - Integrated Computer Technologies in Mechanical Engineering - 2022_ Synergetic Engineering (Lecture Notes in Networks.pdf'
+'(Networking & Comm. - OMG - Hacking Exposed) Clint Bodungen, Bryan Singer, Aaron Shbeeb, Kyle Wilhoit, Stephen Hilt - Hacking Exposed_ Industrial Control Systems_ ICS and SCADA Security Secrets and So.epub'
+'NI LabView 2020 SP1 v20.0.1_x64_[FileCR].zip'
+'Olushola Akande - Industrial Automation from Scratch_ A hands-on guide to using sensors, actuators, PLCs, HMIs, and SCADA to automate industrial processes-Packt Publishing.epub'
+'Olushola Akande - Industrial Automation from Scratch_ A hands-on guide to using sensors, actuators, PLCs, HMIs, and SCADA to automate industrial processes-Packt Publishing.pdf'
+'- Practical Modern SCADA Protocols-Elsevier (2004).pdf'
+'Pranabananda Chakraborty - Operating Systems. Evolutionary Concepts and Modern Design Principles-CRC Press (2024).pdf'
+'Radvanovsky, Robert - Handbook of SCADA_control systems security-CRC Press (2013).pdf'
+'Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau - Operating Systems_ Three Easy Pieces-Arpaci-Dusseau Books (2023).pdf'
+'Richard Clark - Framework for SCADA Cybersecurity ePub-InduSoft (2015) (1).epub'
+'Richard Clark - Framework for SCADA Cybersecurity ePub-InduSoft (2015).epub'
+'Rick Worley - Computer Networking Bible_ [3 in 1] The Complete Crash Course to Effectively Design, Implement and Manage Networks-Independently published (2023).pdf'
+'(River Publishers Series in Electronic Materials, Circuits and Devices) Dale R. Patrick, Stephen W. Fardo, Ray E. Richardson, Vigyan (Vigs) Chandra - Electronic Devices and Circuit Fundamentals-River .pdf.crdownload'
+'Robert L. Boylestad, Brian A. Olivari - Introductory Circuit Analysis-Pearson (2023).pdf.crdownload'
+'Robert Nystrom - Crafting Interpreters-Genever Benning (2021).epub'
+'Robert Nystrom - Crafting Interpreters-Genever Benning (2021).pdf'
+'Robert Radvanovsky_ Yaʻaḳov Brodsḳi - Handbook of SCADA_control systems security-CRC Press (2013).pdf'
+'Ronald L. Krutz - Securing SCADA Systems-Wiley Pub (2006).pdf'
+'Samir I. Abood, John Fuller - Power System Protection and Relaying. Computer-Aided Design Using SCADA Technology-CRC Press (2024).pdf'
+ scratch-desktop_3.3.0_amd64.deb
+'Shamshad Ansari - Building Computer Vision Applications Using Artificial Neural Networks_ With Examples in OpenCV and TensorFlow with Python-Apress (2023).pdf'
+ smartgit-linux-23_1_3.tar.gz
+'Source Insight 4.00.0137 [FileCR].zip'
+'(SpringerBriefs in Computer Science) Zehua Guo - Bringing Machine Learning to Software-Defined Networks-Springer (2022).pdf'
+'Sri Manikanta Palakollu - Practical System Programming with C - Pragmatic Example Applications in Linux and Unix-Based Operating Systems.-Apress (2021).pdf'
+ steam_latest.deb
+'Stephan J. G. Gift_ Brent Maundy - Electronic Circuit Design and Application-Springer (2022).pdf'
+'Stuart G McCrady - Designing SCADA application software_ a practical approach-Elsevier (2013).pdf'
+'(Technology in Action) Seth Kenlon - Developing Games on the Raspberry Pi_ App Programming with Lua and LÖVE-Apress (2019).epub'
+ todesk-v4.7.2.0-amd64.deb
+'(Transactions on computer systems and networks) K. C. S. Murti - Design principles for embedded systems-Springer (2022).pdf'
+'(Tutorials in Electronic Materials, Circuits and Devices) Milin Zhang, Zhihua Wang, Jan Van der Spiegel, Franco Maloberti - Advanced Tutorial on Analog Circuit Design-River Publishers (2023).pdf.crdownload'
+'(Undergraduate Topics in Computer Science) Alan Holt,Chi-Yu Huang (auth.) -  Embedded Operating Systems_ A Practical Approach-Springer International Publishing (2018).pdf'
+'WENHUANLI - Integrate Lua with C++_ Seamlessly integrate Lua scripting to enhance application flexibility-Packt (2023).pdf'
+'Wenhuan Li - Integrate Lua with C++_ Seamlessly integrate Lua scripting to enhance application flexibility-Packt Publishing Pvt Ltd (2023).epub'
+'(Wiley Series on Parallel and Distributed Computing) Abdulmohsen Almalawi_ Zahir Tari_ Adil Fahad_ Xun Yi - SCADA Security_ Machine Learning Concepts for Intrusion Detection and Prevention-Wiley (2021.epub'
+'William T. Shaw - Cybersecurity for SCADA Systems-PennWell Books (2021).pdf'
+ xdm-setup-7.2.11.tar.xz
+ yt-dlp_linux
+'Zander Brumbaugh, Manuel Leithner - Scripting Farming Simulator with Lua_ Unlocking the Virtual Fields-Apress (2024).pdf'
+'Zdzislaw Kowalczuk (editor) - Intelligent and Safe Computer Systems in Control and Diagnostics (Lecture Notes in Networks and Systems, 545)-Springer (2022).pdf'
+(base) floyd@debian:~/Download$ ls
+'$RECYCLE.BIN'
+ 4kvideodownloaderplus_1.6.0-1_amd64.deb
+'4K_ · yt-dlp_yt-dlp · Discussion #974 · GitHub_files'
+'4K_ · yt-dlp_yt-dlp · Discussion #974 · GitHub.html'
+'安装win11系统如何跳过微软账号登录的四种方法 – 杰力皓博_files'
+'安装win11系统如何跳过微软账号登录的四种方法 – 杰力皓博.html'
+ 关于2024年清明节、劳动节和端午节放假及有关事项的通知.doc
+'Abdulmohsen Almalawi_ Zahir Tari_ Adil Fahad_ Xun Yi - SCADA Security_ Machine Learning Concepts for Intrusion Detection and Prevention-John Wiley & Sons (2020).pdf'
+'Adding and Removing Routes in the Linux Routing Table_files'
+'Adding and Removing Routes in the Linux Routing Table.mhtml'
+'(Advances in Information Security 66) Edward J. M. Colbert, Alexander Kott (eds.) - Cyber-security of SCADA and Other Industrial Control Systems-Springer International Publishing (2016).pdf'
+'Anaconda环境中安装jupyter notebook、创建快捷方式、添加_删除内核、配置主题色和工具栏【更新ing】_anaconda jupyter notebook-CSDN博客_files'
+'Anaconda环境中安装jupyter notebook、创建快捷方式、添加_删除内核、配置主题色和工具栏【更新ing】_anaconda jupyter notebook-CSDN博客.html'
+'anaconda里jupyter notebook的使用-Mac电脑_anaconda怎么打开jupyter notebook-CSDN博客_files'
+'anaconda里jupyter notebook的使用-Mac电脑_anaconda怎么打开jupyter notebook-CSDN博客.html'
+'Andrei Tchernykh (editor), Anatoly Alikhanov (editor), Mikhail Babenko (editor), Irina Samoylenko (editor) - Mathematics and its Applications in New Computer Systems_ MANCS-2021 (Lecture Notes in Netw.pdf'
+'Andrew S. Tanenbaum, Herbert Bos - Modern Operating Systems-Pearson (2023).pdf'
+'Andrew S. Tanenbaum, Nick Feamster, David J. Wetherall - Computer Networks, 6th Edition-Pearson (2021) (1).pdf'
+'Andrew S. Tanenbaum, Nick Feamster, David J. Wetherall - Computer Networks, 6th Edition-Pearson (2021).pdf'
+'Andrew S. Tanenbaum, Nick Feamster, David J. Wetherall - Computer Networks-Pearson (2021).pdf'
+'Andrew Tanenbaum, Herbert Bos - Modern Operating Systems, 5th Global Edition-Pearson (2024).pdf'
+'Andrew Tanenbaum, Nick Feamster, David Wetherall - Computer Networks, Global Edition-Pearson (2021).pdf'
+'Ata Elahi, Alex Cushman - Computer networks. Data communications, Internet and security. (2024).pdf'
+'AtiHowTo - Debian Wiki_files'
+'AtiHowTo - Debian Wiki.html'
+'Beej’s Guide to Network Programming Using Internet Sockets.pdf'
+'Bodungen, Clint E._Hilt, Stephen_Shbeeb, Aaron_Singer, Bryan L._Wilhoit, Kyle - Hacking Exposed Industrial Control Systems_ ICS and SCADA Security Secrets &amp_amp_ Solutions-McGraw-Hill Education (20.epub'
+'Brodsky, Jacob_ Radvanovsky, Robert - Handbook of SCADA_control systems security-CRC Press (2016).pdf'
+'Carlos Jahn (editor), László Ungvári (editor), Igor Ilin (editor) - Algorithms and Solutions Based on Computer Technology_ 5th Scientific International Online Conference Algorithms and Solutions based (1).pdf'
+'Carlos Jahn (editor), László Ungvári (editor), Igor Ilin (editor) - Algorithms and Solutions Based on Computer Technology_ 5th Scientific International Online Conference Algorithms and Solutions based (2).pdf'
+'Carlos Jahn (editor), László Ungvári (editor), Igor Ilin (editor) - Algorithms and Solutions Based on Computer Technology_ 5th Scientific International Online Conference Algorithms and Solutions based.pdf'
+'c++ - arm-none-eabi-gdb cannot start because of some python error - Stack Overflow_files'
+'c++ - arm-none-eabi-gdb cannot start because of some python error - Stack Overflow.html'
+'Christopher Coutinho - Roblox Lua Scripting Essentials _ A Step-by-Step Guide-Apress (2023).epub'
+'Claudia Alves_ Alexander Aronowitz - Lua Programming_ The Ultimate Beginner'\''s Guide to Learn Lua Step by Step (2021).epub'
+'Cloudflare Warp优选IP Windows_Mac_iPhone_Android_iPad都能用 - playfulsoul.net_files'
+'Cloudflare Warp优选IP Windows_Mac_iPhone_Android_iPad都能用 - playfulsoul.net.html'
+'David Bailey, Edwin Wright - Practical SCADA for Industry Elsevier (2003).pdf'
+'Desislav Andreev, Stanimir Lukanov - C++ Programming for Linux Systems_ Create robust enterprise software for Linux and Unix-based operating systems-Packt Publishing (2023).epub'
+ desktop.ini
+ emed64_24.1.1.msi
+'Emurasoft EmEditor Professional 24.1.1 Multilingual x64 [FileCR].zip'
+'Eric D. Knapp - Industrial Network Security_ Securing Critical Infrastructure Networks for Smart Grid, SCADA, and Other Industrial Control Systems-Syngress (2011).epub'
+'Eric D. Knapp - Industrial Network Security_ Securing Critical Infrastructure Networks for Smart Grid, SCADA, and Other Industrial Control Systems  -Syngress (2011).pdf'
+'Eric D. Knapp_ Joel Langill - Industrial Network Security_ Securing Critical Infrastructure Networks for Smart Grid, Scada, and Other Industrial Control Systems-Syngress Publishing (2014).pdf'
+'Eric D. Knapp, Joel Thomas Langill - Industrial Network Security, Second Edition_ Securing Critical Infrastructure Networks for Smart Grid, SCADA, and Other Industrial Control Systems-Syngress (2014).pdf'
+ freedownloadmanager.deb
+ fsearch_0.2.3-1+3.5_amd64.deb
+'(IDC Technology) David Bailey_ Edwin Wright - Practical SCADA for Industry-Elsevier Science & Technology (2003).pdf'
+'(IDC Technology) Gordon Clarke CP Eng  BEng  MBA, Deon Reynders Pr Eng  BSc (ElecEng) (Hons)  MBA - Practical Modern SCADA Protocols_ DNP3, 60870.5 and Related Systems-Newnes (2004).pdf'
+'IDM UEStudio 24.0.0.28 x64 [FileCR].zip'
+'IDM UltraEdit 31.0.0.28 x64 [FileCR].zip'
+ IEC60870-5-101-FDIS.pdf
+'Jaken Chandler Herman - Beginning Game Development with Amazon Lumberyard_ Create 3D Games Using Amazon Lumberyard and Lua-Apress (2019).pdf'
+'JetBrains CLion 2024.1 [FileCR].zip'
+'JetBrains IntelliJ IDEA Ultimate 2024.1 [FileCR].zip'
+'Jill West - Data Communication and Computer Networks_ A Business User'\''s Approach-Cengage Learning (2022).pdf'
+'John Madieu - Mastering Linux Device Driver Development_ Write custom device drivers to support computer peripherals in Linux operating systems-Packt Publishing Ltd (2021).pdf'
+'Kameron Hussain_ Frahaan Hussain - Lua Unleashed_ Revolutionizing Game Design and Development-Sonar Publishing (2024).epub'
+'K. C. Wang - Embedded and Real-Time Operating Systems-Springer (2023).pdf'
+'K. C. Wang - Embedded and Real-Time Operating Systems-Springer International Publishing (2023).epub'
+'(Lecture Notes in Artificial Intelligence, 13739. Subseries of Lecture Notes in Computer Science) Neamat El Gayar, Edmondo Trentin, Mirco Ravanelli, Hazem Abbas - Artificial Neural Networks in Pattern.pdf'
+'(Lecture Notes in Computer Science, 13772) Yevgeni Koucheryavy, Ahmed Aziz - Internet of Things, Smart Spaces, and Next Generation Networks and Systems_ 22nd International Conference, NEW2AN 2022 Tash.pdf'
+'(Lecture Notes in Networks and Systems, 565) H. S. Saini, Rishi Sayal, A. Govardhan, Rajkumar Buyya - Innovations in Computer Science and Engineering_ Proceedings of the Tenth ICICSE, 2022-Springer (2.pdf'
+'(Lecture Notes in Networks and Systems, 722) Radek Silhavy, Petr Silhavy - Software Engineering Research in System Science_ Proceedings of 12th Computer Science On-line Conference 2023, Volume 1-Sprin.pdf'
+'(Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering, 457) Fang Fang, Fu Shu - Game Theory for Networks_ 11th International EAI Conference, Game.pdf'
+'Lei Meng (editor) - International Conference on Cloud Computing and Computer Networks_ CCCN 2023 (Signals and Communication Technology)-Springer (2024).pdf'
+ Linux路由表的结构与算法分析_路由表算法-CSDN博客_files
+ Linux路由表的结构与算法分析_路由表算法-CSDN博客.html
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems-CreateSpace Independent Publishing Platform (2017).pdf'
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems-Maarten van Steen (2023).pdf'
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems_ Principles and Paradigms-Maarten van Steen (2023) (1).pdf'
+'Maarten van Steen, Andrew S. Tanenbaum - Distributed Systems_ Principles and Paradigms-Maarten van Steen (2023).pdf'
+'Markdown Monster 3.2.14 [FileCR].zip'
+'Matthew N. O. Sadiku, Cajetan M. Akujuobi - Fundamentals of Computer Networks-Springer (2022).7z'
+'Matthew N. O. Sadiku, Cajetan M. Akujuobi - Fundamentals of Computer Networks-Springer (2022).epub'
+'Matthew N. O. Sadiku, Cajetan M. Akujuobi - Fundamentals of Computer Networks-Springer (2022).pdf'
+'Minh Hoàng Hà (editor), Xingquan Zhu (editor), My T. Thai (editor) - Computational Data and Social Networks_ 12th International Conference, CSoNet 2023, Hanoi, Vietnam, December 11–13, 2023, Proceedin (1).pdf'
+'Minh Hoàng Hà (editor), Xingquan Zhu (editor), My T. Thai (editor) - Computational Data and Social Networks_ 12th International Conference, CSoNet 2023, Hanoi, Vietnam, December 11–13, 2023, Proceedin.pdf'
+'Mini S Thomas_ John D Mcdonald - Power system SCADA and smart grids-CRC Press (2015).pdf'
+'Mykola Nechyporuk (editor), Vladimir Pavlikov (editor), Dmitriy Kritskiy (editor) - Integrated Computer Technologies in Mechanical Engineering - 2022_ Synergetic Engineering (Lecture Notes in Networks.pdf'
+'(Networking & Comm. - OMG - Hacking Exposed) Clint Bodungen, Bryan Singer, Aaron Shbeeb, Kyle Wilhoit, Stephen Hilt - Hacking Exposed_ Industrial Control Systems_ ICS and SCADA Security Secrets and So.epub'
+'NI LabView 2020 SP1 v20.0.1_x64_[FileCR].zip'
+'Olushola Akande - Industrial Automation from Scratch_ A hands-on guide to using sensors, actuators, PLCs, HMIs, and SCADA to automate industrial processes-Packt Publishing.epub'
+'Olushola Akande - Industrial Automation from Scratch_ A hands-on guide to using sensors, actuators, PLCs, HMIs, and SCADA to automate industrial processes-Packt Publishing.pdf'
+'- Practical Modern SCADA Protocols-Elsevier (2004).pdf'
+'Pranabananda Chakraborty - Operating Systems. Evolutionary Concepts and Modern Design Principles-CRC Press (2024).pdf'
+'Radvanovsky, Robert - Handbook of SCADA_control systems security-CRC Press (2013).pdf'
+'Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau - Operating Systems_ Three Easy Pieces-Arpaci-Dusseau Books (2023).pdf'
+'Richard Clark - Framework for SCADA Cybersecurity ePub-InduSoft (2015) (1).epub'
+'Richard Clark - Framework for SCADA Cybersecurity ePub-InduSoft (2015).epub'
+'Rick Worley - Computer Networking Bible_ [3 in 1] The Complete Crash Course to Effectively Design, Implement and Manage Networks-Independently published (2023).pdf'
+'(River Publishers Series in Electronic Materials, Circuits and Devices) Dale R. Patrick, Stephen W. Fardo, Ray E. Richardson, Vigyan (Vigs) Chandra - Electronic Devices and Circuit Fundamentals-River .pdf.crdownload'
+'Robert L. Boylestad, Brian A. Olivari - Introductory Circuit Analysis-Pearson (2023).pdf.crdownload'
+'Robert Nystrom - Crafting Interpreters-Genever Benning (2021).epub'
+'Robert Nystrom - Crafting Interpreters-Genever Benning (2021).pdf'
+'Robert Radvanovsky_ Yaʻaḳov Brodsḳi - Handbook of SCADA_control systems security-CRC Press (2013).pdf'
+'Ronald L. Krutz - Securing SCADA Systems-Wiley Pub (2006).pdf'
+'Samir I. Abood, John Fuller - Power System Protection and Relaying. Computer-Aided Design Using SCADA Technology-CRC Press (2024).pdf'
+ scratch-desktop_3.3.0_amd64.deb
+'Shamshad Ansari - Building Computer Vision Applications Using Artificial Neural Networks_ With Examples in OpenCV and TensorFlow with Python-Apress (2023).pdf'
+ smartgit-linux-23_1_3.tar.gz
+'Source Insight 4.00.0137 [FileCR].zip'
+'(SpringerBriefs in Computer Science) Zehua Guo - Bringing Machine Learning to Software-Defined Networks-Springer (2022).pdf'
+'Sri Manikanta Palakollu - Practical System Programming with C - Pragmatic Example Applications in Linux and Unix-Based Operating Systems.-Apress (2021).pdf'
+ steam_latest.deb
+'Stephan J. G. Gift_ Brent Maundy - Electronic Circuit Design and Application-Springer (2022).pdf'
+'Stuart G McCrady - Designing SCADA application software_ a practical approach-Elsevier (2013).pdf'
+'(Technology in Action) Seth Kenlon - Developing Games on the Raspberry Pi_ App Programming with Lua and LÖVE-Apress (2019).epub'
+ todesk-v4.7.2.0-amd64.deb
+'(Transactions on computer systems and networks) K. C. S. Murti - Design principles for embedded systems-Springer (2022).pdf'
+'(Tutorials in Electronic Materials, Circuits and Devices) Milin Zhang, Zhihua Wang, Jan Van der Spiegel, Franco Maloberti - Advanced Tutorial on Analog Circuit Design-River Publishers (2023).pdf.crdownload'
+'(Undergraduate Topics in Computer Science) Alan Holt,Chi-Yu Huang (auth.) -  Embedded Operating Systems_ A Practical Approach-Springer International Publishing (2018).pdf'
+'WENHUANLI - Integrate Lua with C++_ Seamlessly integrate Lua scripting to enhance application flexibility-Packt (2023).pdf'
+'Wenhuan Li - Integrate Lua with C++_ Seamlessly integrate Lua scripting to enhance application flexibility-Packt Publishing Pvt Ltd (2023).epub'
+'(Wiley Series on Parallel and Distributed Computing) Abdulmohsen Almalawi_ Zahir Tari_ Adil Fahad_ Xun Yi - SCADA Security_ Machine Learning Concepts for Intrusion Detection and Prevention-Wiley (2021.epub'
+'William T. Shaw - Cybersecurity for SCADA Systems-PennWell Books (2021).pdf'
+ xdm-setup-7.2.11.tar.xz
+ yt-dlp_linux
+'Zander Brumbaugh, Manuel Leithner - Scripting Farming Simulator with Lua_ Unlocking the Virtual Fields-Apress (2024).pdf'
+'Zdzislaw Kowalczuk (editor) - Intelligent and Safe Computer Systems in Control and Diagnostics (Lecture Notes in Networks and Systems, 545)-Springer (2022).pdf'
+(base) floyd@debian:~/Download$ cd
+(base) floyd@debian:~$ ls
+anaconda3  bin  Desktop  dice  Documents  Download  eclipse-workspace  gpt4all  LM_Studio-0.2.22.AppImage  Music  ollama.sh  Pictures  Public  repo  Scratch  soft  Templates  thinclient_drives  Videos  win
+(base) floyd@debian:~$ gpt4all/
+bin/                include/            installerResources/ lib/                Licenses/           maintenancetool     plugins/            qml/                share/
+(base) floyd@debian:~$ gpt4all/bin/chat
+[Warning] (Fri May 10 14:22:56 2024): WARNING: Could not download models.json synchronously
+[Debug] (Fri May 10 14:22:56 2024): deserializing chat "/home/floyd/.local/share/nomic.ai/GPT4All//gpt4all-1cf18b22-45f7-496e-83e6-4b6f72540444.chat"
+[Warning] (Fri May 10 14:22:56 2024): Could not connect "org.freedesktop.NetworkManager" to "stateChanged"
+[Warning] (Fri May 10 14:22:56 2024): Could not connect "org.freedesktop.NetworkManager" to "connectivityChanged"
+[Warning] (Fri May 10 14:22:56 2024): Could not connect "org.freedesktop.NetworkManager" to "deviceTypeChanged"
+[Warning] (Fri May 10 14:22:56 2024): Could not connect "org.freedesktop.NetworkManager" to "meteredChanged"
+[Debug] (Fri May 10 14:23:00 2024): deserializing chat "/home/floyd/.local/share/nomic.ai/GPT4All//gpt4all-c30d304a-4dd3-4b5e-a0ae-1ed501003f8d.chat"
+[Debug] (Fri May 10 14:23:02 2024): deserializing chat "/home/floyd/.local/share/nomic.ai/GPT4All//gpt4all-a41f7bd3-89b8-4bda-8a4a-984b3b8ab352.chat"
+[Debug] (Fri May 10 14:23:03 2024): deserializing chat "/home/floyd/.local/share/nomic.ai/GPT4All//gpt4all-0e5727af-a9ec-4acf-80b9-ab3c689792e6.chat"
+[Debug] (Fri May 10 14:23:05 2024): deserializing chats took: 9226 ms
+LLAMA ERROR: failed to load model from /home/floyd/.local/share/nomic.ai/GPT4All/Meta-Llama-3-8B-Instruct.Q4_0.gguf
+[Warning] (Fri May 10 14:24:01 2024): ERROR: Could not load model due to invalid model file for Meta-Llama-3-8B-Instruct.Q4_0.gguf id "1cf18b22-45f7-496e-83e6-4b6f72540444"
+[Debug] (Fri May 10 14:24:05 2024): serializing chat "gpt4all-1cf18b22-45f7-496e-83e6-4b6f72540444.chat"
+[Debug] (Fri May 10 14:24:18 2024): serializing chat "gpt4all-c30d304a-4dd3-4b5e-a0ae-1ed501003f8d.chat"
+[Debug] (Fri May 10 14:24:24 2024): serializing chat "gpt4all-a41f7bd3-89b8-4bda-8a4a-984b3b8ab352.chat"
+[Debug] (Fri May 10 14:24:29 2024): serializing chat "gpt4all-0e5727af-a9ec-4acf-80b9-ab3c689792e6.chat"
+[Debug] (Fri May 10 14:24:34 2024): serializing chats took: 29126 ms
+[Warning] (Fri May 10 14:24:35 2024): "ERROR: Modellist download failed with error code \"5-Operation canceled\""
+[Warning] (Fri May 10 14:24:35 2024): QIODevice::read (QNetworkReplyHttpImpl): device not open
+[Warning] (Fri May 10 14:24:35 2024): ERROR: Couldn't parse:  "" "illegal value"
+[Warning] (Fri May 10 14:24:35 2024): QIODevice::read (QNetworkReplyHttpImpl): device not open
+[Warning] (Fri May 10 14:24:35 2024): ERROR: Couldn't parse:  "" "illegal value"
+(base) floyd@debian:~$ createTunnel(pConfig)^C
+(base) floyd@debian:~$ pip install tensorflow
+Collecting tensorflow
+  Downloading tensorflow-2.16.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.3 kB)
+Collecting absl-py>=1.0.0 (from tensorflow)
+  Downloading absl_py-2.1.0-py3-none-any.whl.metadata (2.3 kB)
+Collecting astunparse>=1.6.0 (from tensorflow)
+  Downloading astunparse-1.6.3-py2.py3-none-any.whl.metadata (4.4 kB)
+Collecting flatbuffers>=23.5.26 (from tensorflow)
+  Downloading flatbuffers-24.3.25-py2.py3-none-any.whl.metadata (850 bytes)
+Collecting gast!=0.5.0,!=0.5.1,!=0.5.2,>=0.2.1 (from tensorflow)
+  Downloading gast-0.5.4-py3-none-any.whl.metadata (1.3 kB)
+Collecting google-pasta>=0.1.1 (from tensorflow)
+  Downloading google_pasta-0.2.0-py3-none-any.whl.metadata (814 bytes)
+Collecting h5py>=3.10.0 (from tensorflow)
+  Downloading h5py-3.11.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+Collecting libclang>=13.0.0 (from tensorflow)
+  Downloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl.metadata (5.2 kB)
+Collecting ml-dtypes~=0.3.1 (from tensorflow)
+  Downloading ml_dtypes-0.3.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
+Collecting opt-einsum>=2.3.2 (from tensorflow)
+  Downloading opt_einsum-3.3.0-py3-none-any.whl.metadata (6.5 kB)
+Requirement already satisfied: packaging in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (23.1)
+Requirement already satisfied: protobuf!=4.21.0,!=4.21.1,!=4.21.2,!=4.21.3,!=4.21.4,!=4.21.5,<5.0.0dev,>=3.20.3 in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (3.20.3)
+Requirement already satisfied: requests<3,>=2.21.0 in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (2.31.0)
+Requirement already satisfied: setuptools in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (68.2.2)
+Requirement already satisfied: six>=1.12.0 in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (1.16.0)
+Collecting termcolor>=1.1.0 (from tensorflow)
+  Downloading termcolor-2.4.0-py3-none-any.whl.metadata (6.1 kB)
+Requirement already satisfied: typing-extensions>=3.6.6 in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (4.9.0)
+Requirement already satisfied: wrapt>=1.11.0 in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (1.14.1)
+Collecting grpcio<2.0,>=1.24.3 (from tensorflow)
+  Downloading grpcio-1.63.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.2 kB)
+Collecting tensorboard<2.17,>=2.16 (from tensorflow)
+  Downloading tensorboard-2.16.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting keras>=3.0.0 (from tensorflow)
+  Downloading keras-3.3.3-py3-none-any.whl.metadata (5.7 kB)
+Collecting tensorflow-io-gcs-filesystem>=0.23.1 (from tensorflow)
+  Downloading tensorflow_io_gcs_filesystem-0.37.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+Requirement already satisfied: numpy<2.0.0,>=1.23.5 in ./anaconda3/lib/python3.11/site-packages (from tensorflow) (1.26.4)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in ./anaconda3/lib/python3.11/site-packages (from astunparse>=1.6.0->tensorflow) (0.41.2)
+Requirement already satisfied: rich in ./anaconda3/lib/python3.11/site-packages (from keras>=3.0.0->tensorflow) (13.3.5)
+Collecting namex (from keras>=3.0.0->tensorflow)
+  Downloading namex-0.0.8-py3-none-any.whl.metadata (246 bytes)
+Collecting optree (from keras>=3.0.0->tensorflow)
+  Downloading optree-0.11.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.4/45.4 kB 147.1 kB/s eta 0:00:00
+Requirement already satisfied: charset-normalizer<4,>=2 in ./anaconda3/lib/python3.11/site-packages (from requests<3,>=2.21.0->tensorflow) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in ./anaconda3/lib/python3.11/site-packages (from requests<3,>=2.21.0->tensorflow) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./anaconda3/lib/python3.11/site-packages (from requests<3,>=2.21.0->tensorflow) (2.0.7)
+Requirement already satisfied: certifi>=2017.4.17 in ./anaconda3/lib/python3.11/site-packages (from requests<3,>=2.21.0->tensorflow) (2024.2.2)
+Requirement already satisfied: markdown>=2.6.8 in ./anaconda3/lib/python3.11/site-packages (from tensorboard<2.17,>=2.16->tensorflow) (3.4.1)
+Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard<2.17,>=2.16->tensorflow)
+  Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+Requirement already satisfied: werkzeug>=1.0.1 in ./anaconda3/lib/python3.11/site-packages (from tensorboard<2.17,>=2.16->tensorflow) (2.2.3)
+Requirement already satisfied: MarkupSafe>=2.1.1 in ./anaconda3/lib/python3.11/site-packages (from werkzeug>=1.0.1->tensorboard<2.17,>=2.16->tensorflow) (2.1.3)
+Requirement already satisfied: markdown-it-py<3.0.0,>=2.2.0 in ./anaconda3/lib/python3.11/site-packages (from rich->keras>=3.0.0->tensorflow) (2.2.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./anaconda3/lib/python3.11/site-packages (from rich->keras>=3.0.0->tensorflow) (2.15.1)
+Requirement already satisfied: mdurl~=0.1 in ./anaconda3/lib/python3.11/site-packages (from markdown-it-py<3.0.0,>=2.2.0->rich->keras>=3.0.0->tensorflow) (0.1.0)
+Downloading tensorflow-2.16.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (589.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 589.8/589.8 MB 940.5 kB/s eta 0:00:00
+Downloading absl_py-2.1.0-py3-none-any.whl (133 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.7/133.7 kB 443.4 kB/s eta 0:00:00
+Downloading astunparse-1.6.3-py2.py3-none-any.whl (12 kB)
+Downloading flatbuffers-24.3.25-py2.py3-none-any.whl (26 kB)
+Downloading gast-0.5.4-py3-none-any.whl (19 kB)
+Downloading google_pasta-0.2.0-py3-none-any.whl (57 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.5/57.5 kB 157.9 kB/s eta 0:00:00
+Downloading grpcio-1.63.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 1.1 MB/s eta 0:00:00
+Downloading h5py-3.11.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 976.6 kB/s eta 0:00:00
+Downloading keras-3.3.3-py3-none-any.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 753.5 kB/s eta 0:00:00
+Downloading libclang-18.1.1-py2.py3-none-manylinux2010_x86_64.whl (24.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.5/24.5 MB 1.1 MB/s eta 0:00:00
+Downloading ml_dtypes-0.3.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 752.2 kB/s eta 0:00:00
+Downloading opt_einsum-3.3.0-py3-none-any.whl (65 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.5/65.5 kB 133.1 kB/s eta 0:00:00
+Downloading tensorboard-2.16.2-py3-none-any.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 1.1 MB/s eta 0:00:00
+Downloading tensorflow_io_gcs_filesystem-0.37.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.1/5.1 MB 827.6 kB/s eta 0:00:00
+Downloading termcolor-2.4.0-py3-none-any.whl (7.7 kB)
+Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 490.6 kB/s eta 0:00:00
+Downloading namex-0.0.8-py3-none-any.whl (5.8 kB)
+Downloading optree-0.11.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (312 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 312.0/312.0 kB 491.3 kB/s eta 0:00:00
+Installing collected packages: namex, libclang, flatbuffers, termcolor, tensorflow-io-gcs-filesystem, tensorboard-data-server, optree, opt-einsum, ml-dtypes, h5py, grpcio, google-pasta, gast, astunparse, absl-py, tensorboard, keras, tensorflow
+  Attempting uninstall: h5py
+    Found existing installation: h5py 3.9.0
+    Uninstalling h5py-3.9.0:
+      Successfully uninstalled h5py-3.9.0
+Successfully installed absl-py-2.1.0 astunparse-1.6.3 flatbuffers-24.3.25 gast-0.5.4 google-pasta-0.2.0 grpcio-1.63.0 h5py-3.11.0 keras-3.3.3 libclang-18.1.1 ml-dtypes-0.3.2 namex-0.0.8 opt-einsum-3.3.0 optree-0.11.0 tensorboard-2.16.2 tensorboard-data-server-0.7.2 tensorflow-2.16.1 tensorflow-io-gcs-filesystem-0.37.0 termcolor-2.4.0
+(base) floyd@debian:~$ htop
+(base) floyd@debian:~$ sudo apt install -y spotify
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树... 完成
+正在读取状态信息... 完成
+E: 无法定位软件包 spotify
+(base) floyd@debian:~$ snap
+-bash: snap: 未找到命令
+(base) floyd@debian:~$ pip install spotify
+Collecting spotify
+  Downloading spotify-0.10.2-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: aiohttp<4.0,>=3.6 in ./anaconda3/lib/python3.11/site-packages (from spotify) (3.9.3)
+Collecting backoff<2.0.0,>=1.10.0 (from spotify)
+  Downloading backoff-1.11.1-py2.py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: aiosignal>=1.1.2 in ./anaconda3/lib/python3.11/site-packages (from aiohttp<4.0,>=3.6->spotify) (1.2.0)
+Requirement already satisfied: attrs>=17.3.0 in ./anaconda3/lib/python3.11/site-packages (from aiohttp<4.0,>=3.6->spotify) (23.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in ./anaconda3/lib/python3.11/site-packages (from aiohttp<4.0,>=3.6->spotify) (1.4.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in ./anaconda3/lib/python3.11/site-packages (from aiohttp<4.0,>=3.6->spotify) (6.0.4)
+Requirement already satisfied: yarl<2.0,>=1.0 in ./anaconda3/lib/python3.11/site-packages (from aiohttp<4.0,>=3.6->spotify) (1.9.3)
+Requirement already satisfied: idna>=2.0 in ./anaconda3/lib/python3.11/site-packages (from yarl<2.0,>=1.0->aiohttp<4.0,>=3.6->spotify) (3.4)
+Downloading spotify-0.10.2-py3-none-any.whl (46 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 99.5 kB/s eta 0:00:00
+Downloading backoff-1.11.1-py2.py3-none-any.whl (13 kB)
+Installing collected packages: backoff, spotify
+Successfully installed backoff-1.11.1 spotify-0.10.2
+(base) floyd@debian:~$ ip tunnel add tunnel0 mode gre remote 172.20.43.68 local 172.20.43.183 ttl 255 dev eth0^C
+(base) floyd@debian:~$ ip tunnel add tunnel0 mode gre remote 172.20.43.68 local 172.20.43.183 ttl 255 dev eth0
+Cannot find device "eth0"
+(base) floyd@debian:~$
+(base) floyd@debian:~$
+(base) floyd@debian:~$
+(base) floyd@debian:~$ man access
+(base) floyd@debian:~$ man 2 access
+(base) floyd@debian:~$ man lockf
+(base) floyd@debian:~$ ollama run ollama3
+pulling manifest
+Error: pull model manifest: file does not exist
+(base) floyd@debian:~$ ollama run llama3
+>>> you are a expert of mathematic and encryption
+What an exciting combination! As an expert in both mathematics and encryption, I can help you with a wide range of topics. Here are some areas where my expertise lies:
+
+**Mathematics:**
+
+1. Number Theory: Modular arithmetic, congruences, Diophantine equations, primality tests, and more.
+2. Algebra: Groups, rings, fields, Galois theory, polynomial equations, and algebraic geometry.
+3. Analysis: Real and complex analysis, functional analysis, measure theory, Lebesgue integration, and more.
+4. Geometry: Euclidean, projective, and differential geometry; topology, curvature, and geometric algorithms.
+
+**Encryption:**
+
+1. Cryptographic primitives: Symmetric encryption (e.g., AES), asymmetric encryption (e.g., RSA), hash functions (e.g., SHA-256), digital signatures (e.g., ECDSA).
+2. Encryption protocols: SSL/TLS, IPsec, PGP/GPG, SSH, and other cryptographic protocols.
+3. Key exchange mechanisms: Public key infrastructure (PKI), Diffie-Hellman key exchange, Elliptic Curve Cryptography (ECC).
+4. Secure communication: Authentication, integrity, confidentiality, and non-repudiation in various contexts.
+
+Some specific topics I can help with:
+
+* Cryptanalysis techniques (e.g., brute force, frequency analysis, side-channel attacks)
+* Designing cryptographic protocols for specific use cases
+* Analyzing the security of cryptographic systems
+* Developing mathematical models for encryption-related problems
+* Explaining complex mathematical concepts in an intuitive way
+
+Feel free to ask me any questions you have on these topics!
+
+>>> what is the mathematical theory behind crc checksum
+A great topic!
+
+The mathematical theory behind CRC (Cyclic Redundancy Check) checksums is based on finite field arithmetic and polynomial algebra. Here's a brief overview:
+
+**Polynomial Representation:**
+CRC calculations are typically done using polynomials, which are mathematical expressions consisting of variables (such as x or y) and coefficients (like 2 or 3). In the context of CRC, we work with binary
+polynomials, where each variable represents either a 0 or a 1.
+
+**Galois Fields:**
+CRC calculations involve operations in Galois fields, which are finite fields with prime power order. Specifically, CRC uses the Galois field GF(2^n), where n is the degree of the polynomial (more on this later). In
+this context, addition and multiplication are performed modulo 2^n.
+
+**Polynomial Division:**
+The core idea behind CRC checksums is polynomial division. Given a dividend polynomial and a divisor polynomial, we find the quotient polynomial and remainder polynomial by dividing the dividend by the divisor using
+modular arithmetic in GF(2^n).
+
+**Divisor Polynomial:**
+The divisor polynomial (also called the generator polynomial) is used to calculate the CRC checksum. It's typically chosen such that it has a specific number of terms, which determines the width of the CRC.
+
+**CRC Calculation:**
+To calculate the CRC checksum, we perform the following steps:
+
+1. **Divide**: Divide the input data polynomial (the dividend) by the divisor polynomial using modular arithmetic in GF(2^n). This produces a quotient polynomial and remainder polynomial.
+2. **Append the remainder**: Append the remainder polynomial to the end of the input data polynomial.
+
+**Checksum Calculation:**
+The resulting polynomial is the CRC checksum. By taking the remainder modulo 2^n, we get the final checksum value, which is typically an n-bit binary number.
+
+**Properties of CRC:**
+
+1. **Deterministic**: The CRC checksum calculation is deterministic; given the same input data and divisor polynomial, the checksum will always be the same.
+2. **Error detection**: CRC checksums can detect single-bit errors in the input data, but they are not designed to correct such errors.
+
+**Theoretical Foundations:**
+The mathematical theory behind CRC checksums is based on the following concepts:
+
+1. **Finite field arithmetic**: Operations in Galois fields (GF(2^n)) and polynomial arithmetic over these fields.
+2. **Polynomial division**: Dividing polynomials using modular arithmetic in GF(2^n).
+3. **Galois Theory**: The study of finite fields, including the properties of Galois fields and their connections to polynomial algebra.
+
+**Practical Considerations:**
+In practice, CRC checksums are often used in combination with other error detection and correction mechanisms (e.g., parity bits or Reed-Solomon codes). The choice of divisor polynomial, the length of the input data,
+and the desired error detection capabilities all influence the design of a practical CRC-based system.
+
+I hope this gives you a good understanding of the mathematical theory behind CRC checksums!
+
+>>> write an article about how crc checksum works, including the mathematical theory behind it, the progress of crc checksum, the c language code
+**Understanding CRC Checksum: The Mathematical Theory and Practical Implementation**
+
+CRC  (Cyclic Redundancy Check) is a widely used error detection technique in computer systems. It's a simple yet effective method to detect single-bit errors in digital data streams. In this article, we'll delve into
+the mathematical theory behind CRC checksums, explore their history and progress, and provide an example implementation in C language.
+
+**Theoretical Background**
+
+CRC checksums are based on finite field arithmetic and polynomial algebra. The core idea is to divide a message polynomial by a divisor polynomial using modular arithmetic in GF(2^m), where m is the degree of the
+divisor polynomial.
+
+Let's consider a message polynomial ƒ(x) with degree n, represented as:
+
+ƒ(x) = a0 + a1x + ... + anxn
+
+The goal is to find a remainder polynomial r(x) such that:
+
+r(x) = ƒ(x) mod g(x)
+
+where g(x) is the divisor polynomial of degree m.
+
+The remainder polynomial r(x) is then appended to the message polynomial ƒ(x) to form the CRC checksum polynomial:
+
+h(x) = ƒ(x) + r(x)
+
+Taking the remainder modulo 2^m yields the final CRC checksum value:
+
+CRC = h(x) mod 2^m
+
+**Mathematical Theory**
+
+The mathematical theory behind CRC checksums is based on Galois fields and polynomial arithmetic. Specifically, we use the following concepts:
+
+1. **Finite field arithmetic**: Operations in Galois fields (GF(2^m)) and polynomial arithmetic over these fields.
+2. **Polynomial division**: Dividing polynomials using modular arithmetic in GF(2^m).
+3. **Galois Theory**: The study of finite fields, including the properties of Galois fields and their connections to polynomial algebra.
+
+These mathematical concepts allow us to analyze the properties of CRC checksums, such as:
+
+* **Determinism**: Given the same input data and divisor polynomial, the CRC checksum will always be the same.
+* **Error detection**: CRC checksums can detect single-bit errors in the input data, but they are not designed to correct such errors.
+
+**History and Progress**
+
+CRC checksums have been around since the 1960s, with early implementations using simple arithmetic operations. The first widely used CRC algorithm was the CRC-12 algorithm, developed by Robert Solomon in 1973.
+
+Since then, numerous variants of CRC algorithms have been proposed and implemented. Some notable examples include:
+
+* **CRC-16**: A widely used 16-bit CRC checksum algorithm.
+* **CRC-32**: A 32-bit CRC checksum algorithm commonly used in networking protocols.
+* **CRC-64**: A 64-bit CRC checksum algorithm used in some cryptographic applications.
+
+**C Language Implementation**
+
+Here's an example implementation of a CRC-16 checksum algorithm in C language:
+
+```c
+#include <stdint.h>
+
+uint16_t crc16(const uint8_t *data, uint16_t len) {
+    uint16_t crc = 0xFFFF;
+    uint8_t i;
+
+    for (i = 0; i < len; i++) {
+        crc = (crc >> 4) ^ ((crc & 0xF000) << 12 | data[i] << 8);
+        if (crc & 0x8000)
+            crc ^= 0x1021;
+    }
+
+    return crc;
+}
+```
+
+This implementation uses the CRC-16 algorithm with a divisor polynomial of degree 4. The `crc16` function takes a pointer to an array of bytes (`data`) and its length (`len`) as input, returning the computed CRC
+checksum value.
+
+**Conclusion**
+
+CRC checksums are a widely used error detection technique in computer systems. By understanding the mathematical theory behind CRC checksums, we can appreciate their properties and limitations. Implementing CRC
+checksum algorithms in practice, such as in the C language code provided above, enables us to integrate these techniques into real-world applications.
+
+Whether you're working on software development projects or exploring the world of cryptography, a solid grasp of CRC checksums is essential for ensuring data integrity and detecting errors.
+
+>>> what is Finite field arithmetic
+Finite field arithmetic (FFA) refers to the mathematical operations performed in finite fields, which are algebraic structures with a finite number of elements. In FFA, we work with polynomials and numbers modulo a
+prime power (2^m, where m is an integer).
+
+**Basic Concepts:**
+
+1.  **Finite Field:** A set of integers {0, 1, ..., p-1} along with two binary operations (+) and (*) that satisfy certain properties.
+2.  **Prime Power:** A positive integer q = 2^m, where m is a positive integer.
+
+**Arithmetic Operations:**
+
+1.  **Addition (mod q):** The addition operation is defined as the sum of two elements modulo q. For example, in GF(2^3), 1 + 1 = 0.
+2.  **Multiplication (mod q):** The multiplication operation is defined as the product of two elements modulo q. For example, in GF(2^3), 1 * 1 = 1 and 1 * 2 = 2.
+3.  **Modular Multiplication:** Multiplying two numbers and taking the remainder when divided by q.
+
+**Properties:**
+
+1.  **Commutativity:** a + b = b + a
+2.  **Associativity:** (a + b) + c = a + (b + c)
+3.  **Distributivity:** a * (b + c) = a * b + a * c
+4.  **Inverse Element:** For each element a in the finite field, there exists an element b such that a * b ≡ 1 (mod q)
+
+**Examples:**
+
+*  **GF(2^3):** The set {0, 1, 2} with addition and multiplication defined modulo 8.
+        + Addition: 0 + 1 = 1, 1 + 1 = 2, 2 + 1 = 3 (mod 8)
+        + Multiplication: 1 * 1 = 1, 1 * 2 = 2, 2 * 2 = 4 (mod 8)
+*  **GF(2^5):** The set {0, 1, ..., 31} with addition and multiplication defined modulo 32.
+
+FFA is used in various areas of computer science, such as:
+
+1.  **Cryptography:** FFA is used to develop cryptographic algorithms like RSA and elliptic curve cryptography.
+2.  **Error-Correcting Codes:** FFA is used to construct error-correcting codes like Reed-Solomon codes and BCH codes.
+3.  **Computer Networks:** FFA is used in network protocols, such as checksum calculations.
+
+Understanding finite field arithmetic is essential for working with cryptographic algorithms, coding theory, and computer networks.
+
+>>> Send a message (/? for help)
