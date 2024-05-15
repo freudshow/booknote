@@ -1170,3 +1170,9 @@ sudo update-grub
 	docker images    				# 测试docker命令在不加sudo时是否可以使用
 
 ```
+
+## `debian` install `open-webui` for `ollama`
+
+```shell
+    docker run -d -p 3000:8080 --network=host -v ollama-webui:/app/backend/data -e OLLAMA_API_BASE_URL=http://127.0.0.1:11434/api --name ollama-webui --restart always ghcr.io/ollama-webui/ollama-webui:main
+```
