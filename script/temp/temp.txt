@@ -1842,12 +1842,21 @@ docker restart kemp-channeld_000_0
 末端分支终端
 EndTerminal
 
-sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2404:2404 -p 2504:2504
 
-container stop e9361app
-container uninstall e9361app
+
+rm -rf /home/sysadm/e9361app* /home/sysadm/mkapp
+container stop e9361app && container uninstall e9361app && /home/sysadm/appSignTool -f /home/sysadm/e9361app/bin -b e9361app -l /home/sysadm/e9361app/lib -v SV01.007 -o e9361app && sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2404:2404 -p 2504:2504
+
+
+container stop e9361app && container uninstall e9361app && sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2404:2404 -p 2504:2504
+
+sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000-5007:5000-5007 -p 5001:5001 -p 5002:5002 -p 5003:5003 -p 5004:5004 -p 5005:5005 -p 5006:5006 -p 5007:5007
 
 container restart e9361app
+
+docker exec -it e9361app /bin/sh
+
+docker logs -f e9361app
 
 tail -f /data/app/e9361app/root/log/log.txt
 

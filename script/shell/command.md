@@ -1176,3 +1176,40 @@ sudo update-grub
 ```shell
     docker run -d -p 3000:8080 --network=host -v ollama-webui:/app/backend/data -e OLLAMA_API_BASE_URL=http://127.0.0.1:11434/api --name ollama-webui --restart always ghcr.io/ollama-webui/ollama-webui:main
 ```
+## cross-compile `openssl-1.1.1i` and `libssh2-1.11.0`
+
+```shell
+	#openssl-1.1.1i
+	./Configure linux-armv4 --prefix=/home/floyd/soft/install_openssl no-asm --cross-compile-prefix=arm-linux-gnueabihf- no-shared no-dso
+	
+	#libssh2-1.11.0
+	./configure --host=arm-linux-gnueabihf --prefix=/home/floyd/soft/install_libssh --with-libssl-prefix=/home/floyd/soft/install_openssl --enable-static --disable-shared
+	
+	./Configure linux-armv4 --prefix=/home/floyd/soft/ssh/install_openssl no-asm --cross-compile-prefix=arm-poky-linux-gnueabi-
+
+
+	#openssl
+	export CC=arm-linux-gnueabihf-gcc
+	export LD=arm-linux-gnueabihf-ld
+	export AR=arm-linux-gnueabihf-ar
+	export RANLIB=arm-linux-gnueabihf-ranlib
+	./Configure linux-armv4 --prefix=/home/floyd/soft/ssh/install_openssl --no-strip
+
+	#zlib
+	./configure --prefix=/home/floyd/soft/ssh/install_zlib
+
+	#openssh
+	export CFLAGS="-I/home/floyd/soft/ssh/install_openssl/include"
+	export LDFLAGS="-L/home/floyd/soft/ssh/install_openssl/lib"
+	./configure --prefix=/home/floyd/soft/ssh/install_openssh --host=arm-linux-gnueabihf --with-ssl-dir=/home/floyd/soft/ssh/install_openssl --with-zlib=/home/floyd/soft/ssh/install_zlib --disable-strip
+
+
+	#libssh2
+	./configure --host=arm-linux-gnueabihf --prefix=/home/floyd/soft/ssh/install_libssh --with-libssl-prefix=/home/floyd/soft/ssh/install_openssl
+	
+	#放到 /lib 下 然后 
+	cd /lib
+	ln -s /libssh2.so.1.0.1 /libssh2.so        
+	ln -s /libssh2.so.1.0.1 /libssh2.so.1
+
+```
