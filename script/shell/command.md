@@ -1201,7 +1201,7 @@ sudo update-grub
 	#openssh
 	export CFLAGS="-I/home/floyd/soft/ssh/install_openssl/include"
 	export LDFLAGS="-L/home/floyd/soft/ssh/install_openssl/lib"
-	./configure --prefix=/home/floyd/soft/ssh/install_openssh --host=arm-linux-gnueabihf --with-ssl-dir=/home/floyd/soft/ssh/install_openssl --with-zlib=/home/floyd/soft/ssh/install_zlib --disable-strip
+	./configure --host=arm-linux-gnueabihf --prefix=/usr/local/bin --host=arm-linux-gnueabihf --with-ssl-dir=/home/floyd/soft/ssh/install_openssl --with-zlib=/home/floyd/soft/ssh/install_zlib --disable-strip
 
 
 	#libssh2
@@ -1211,5 +1211,18 @@ sudo update-grub
 	cd /lib
 	ln -s /libssh2.so.1.0.1 /libssh2.so        
 	ln -s /libssh2.so.1.0.1 /libssh2.so.1
+
+
+	#融合终端添加自定义库文件，并在编译程序时指定其依赖库的位置
+	root@SCT230A:/home/sysadm# ls /etc/ld.so.conf.d/
+	00-pvr.conf  01-mali.conf  arm-linux-gnueabihf.conf  dfe.conf  libc.conf
+	root@SCT230A:/home/sysadm# cat /etc/ld.so.conf.d/dfe.conf 
+	/root/lib
+	root@SCT230A:/home/sysadm# ls /root/lib/
+	libcrypto.a  libcrypto.so  libcrypto.so.1.1  libssl.a  libssl.so  libssl.so.1.1
+	root@SCT230A:/home/sysadm# 
+	
+	#指定rpath
+	gcc -o myprogram myprogram.c -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lexample
 
 ```

@@ -1845,18 +1845,31 @@ EndTerminal
 
 
 rm -rf /home/sysadm/e9361app* /home/sysadm/mkapp
+
+appSignTool -f /home/sysadm/src/e9361app/bin -b e9361app -l /home/sysadm/src/e9361app/lib -v SV01.007 -o c_e9361app
+
+
 container stop e9361app && container uninstall e9361app && /home/sysadm/appSignTool -f /home/sysadm/e9361app/bin -b e9361app -l /home/sysadm/e9361app/lib -v SV01.007 -o e9361app && sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2404:2404 -p 2504:2504
 
 
 container stop e9361app && container uninstall e9361app && sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2404:2404 -p 2504:2504
 
-sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000-5007:5000-5007 -p 5001:5001 -p 5002:5002 -p 5003:5003 -p 5004:5004 -p 5005:5005 -p 5006:5006 -p 5007:5007
+container stop e9361app && container uninstall e9361app && sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -v /etc/timezone:/etc/timezone:ro -p 5000:5000 -p 5001:5001 -p 5002:5002 -p 5003:5003 -p 5004:5004 -p 5005:5005 -p 5006:5006 -p 5007:5007
+
+
+container stop e9361app && container uninstall e9361app && sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 5001:5001 -p 5002:5002 -p 5003:5003 -p 5004:5004 -p 5005:5005 -p 5006:5006 -p 5007:5007
+
+container stop e9361app && container uninstall e9361app && sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -v /etc:/etc -p 5000:5000 -p 22:22
+
 
 container restart e9361app
 
 docker exec -it e9361app /bin/sh
 
 docker logs -f e9361app
+
+echo 'Asia/Shanghai' > /etc/timezone
+echo 'Asia/Shanghai' > /etc/TZ
 
 tail -f /data/app/e9361app/root/log/log.txt
 
@@ -1887,3 +1900,17 @@ https://www.bilibili.com/video/BV1pf4y1974n/?spm_id_from=333.788.recommend_more_
 https://www.bilibili.com/video/BV1fJ411i7PB/?spm_id_from=333.788.recommend_more_video.0&vd_source=fa80fc7dd821b976e71b81469d25ea44
 
 https://www.bilibili.com/video/BV1JK4y1Y7xQ/?spm_id_from=333.788.recommend_more_video.4&vd_source=fa80fc7dd821b976e71b81469d25ea44
+
+
+fprintf(stderr, "\033[0m\033[35m[%s][%s()][%d]------------------****************----------\033[0m\n",
+			   __FILE__, __FUNCTION__, __LINE__);
+			   
+#windows 交叉编译		   
+arm-linux-gnueabihf-gcc -o test test.c "-ID:\\mydoc\\repo\\dfe\\LinuxApp\\linux_TTU\\src\\include"  "-LD:\\mydoc\\repo\\dfe\\LinuxApp\\linux_TTU\\src\\lib" -lm -lssh2 -lssl -lcrypto -ldl -lrt -lpthread -Wl,-rpath,/usr/local/extapps/e9361app/lib
+
+rm -f /home/sysadm/testapp.tar
+/home/sysadm/appSignTool -f /home/sysadm/testapp/bin -b test -l /home/sysadm/testapp/lib -v SV01.007 -o testapp
+
+container stop testapp && container uninstall testapp && sudo container install testapp  /home/sysadm/testapp.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -v /etc:/etc -p 22:22
+
+docker exec -it testapp /bin/sh
