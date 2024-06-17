@@ -2048,4 +2048,33 @@ Enter 'help' for a list of built-in commands.
 [6015]普通采集方案:[1]方案号: 20  
      [2]240  [3]采集当前数据 [4]00 [5][6]全部用户地址 电能表集合：MS choice=1
 全部用户地址[7]任务开始时间 
-# 
+
+
+# ZeroTier交叉编译
+# 下载ZeroTier源码
+git clone https://github.com/zerotier/ZeroTierOne.git
+cd ZeroTierOne
+ 
+# 安装交叉编译工具链（如果未安装）
+# sudo apt-get install gcc-arm-linux-gnueabihf
+ 
+# 编译ZeroTier One
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+ 
+# 将编译好的ZeroTier One文件传输到你的ARM32设备上
+# 使用scp、sftp或其他方式
+ 
+# 在ARM32设备上安装ZeroTier One
+scp zerotier-one_*_armhf.deb user@arm32-device:/path/to/file
+ssh user@arm32-device
+sudo dpkg -i /path/to/file/zerotier-one_*_armhf.deb
+ 
+# 启动ZeroTier One服务
+sudo systemctl start zerotier-one
+ 
+# 加入ZeroTier网络
+# 需要登录ZeroTier官网获取网络ID，然后使用下面的命令
+sudo zerotier-cli join your-zerotier-network-id
+
+2,654,435,761
+4,294,967,296
