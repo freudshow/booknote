@@ -2086,4 +2086,6 @@ serial -c "/dev/ttymxc5" -b 9600 -p 2 -l 1
 
 01 03 03 84 00 01 c4 67
 
+阿里云设备
 { "ProductKey": "a1mIs9WXKXQ", "DeviceName": "TTU04_ForC1Test", "DeviceSecret": "20e542c60ef424ddbe017d8f54689efa" }
+阿里云网址 139.224.42.2
