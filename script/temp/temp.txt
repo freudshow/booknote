@@ -2078,3 +2078,12 @@ sudo zerotier-cli join your-zerotier-network-id
 
 2,654,435,761
 4,294,967,296
+
+
+serial -c "/dev/ttymxc2" -b 9600 -p 0 -f"68 17 00 43 05 14 15 13 10 10 62 00 A7 4C 05 01 04 60 00 02 00 00 6B 6F 16" -i 1024
+
+serial -c "/dev/ttymxc5" -b 9600 -p 2 -l 1
+
+01 03 03 84 00 01 c4 67
+
+{ "ProductKey": "a1mIs9WXKXQ", "DeviceName": "TTU04_ForC1Test", "DeviceSecret": "20e542c60ef424ddbe017d8f54689efa" }
