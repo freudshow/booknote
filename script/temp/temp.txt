@@ -2079,8 +2079,11 @@ sudo zerotier-cli join your-zerotier-network-id
 2,654,435,761
 4,294,967,296
 
+#9600 偶校验
+serial -c "/dev/ttymxc2" -b 9600 -p 0 -f"68 17 00 43 05 14 15 13 10 10 62 00 A7 4C 05 01 04 60 00 02 00 00 6B 6F 16" -i 1024 -w 15
 
-serial -c "/dev/ttymxc2" -b 9600 -p 0 -f"68 17 00 43 05 14 15 13 10 10 62 00 A7 4C 05 01 04 60 00 02 00 00 6B 6F 16" -i 1024
+#9600 无校验
+serial -c "/dev/ttymxc2" -b 9600 -p 2 -f"68 17 00 43 05 14 15 13 10 10 62 00 A7 4C 05 01 04 60 00 02 00 00 6B 6F 16" -i 1024 -w 15
 
 serial -c "/dev/ttymxc5" -b 9600 -p 2 -l 1
 
