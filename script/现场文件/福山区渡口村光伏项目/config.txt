@@ -5,7 +5,7 @@ PASSWD:   Tiger@5511283
 http://8.130.115.4/dcs_webservice.asmx
 
 
-SIM卡不用APN
+SIM卡APN: sdgwyjy01.jnm2mapn
 
 2#台区sim卡参数
 IP地址: 105.0.27.108
@@ -24,3 +24,6 @@ IP地址: 105.0.27.103
 ICCID: 8986 0624 6500 7870 839L
 PUK: 6658 5281
 14005
+
+LNS服务器
+L2TP的VPN服务器
