@@ -29,3 +29,23 @@ LNS服务器
 L2TP的VPN服务器
 
 #经过测试，融合终端内的容器，无需端口映射，即可作为客户端连接服务器的端口
+
+
+
+2#台区集中器
+id: 00 01 00 77 08 32
+
+2#断路器
+型号: NJL2-630Y
+波特率: 在液晶上修改为9600。默认是2400，偶校验
+id: 00 00 00 00 00 01
+
+
+2#公网IP
+ppp-0     Link encap:Point-to-Point Protocol  
+          inet addr:10.36.239.171  P-t-P:10.64.64.64  Mask:255.255.255.255
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1500  Metric:1
+          RX packets:28 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:29 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:3 
+          RX bytes:1914 (1.9 KB)  TX bytes:1977 (1.9 KB)

@@ -2106,3 +2106,5 @@ RX：05 03 18 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
 阿里云设备
 { "ProductKey": "a1mIs9WXKXQ", "DeviceName": "TTU04_ForC1Test", "DeviceSecret": "20e542c60ef424ddbe017d8f54689efa" }
 阿里云网址 139.224.42.2
+
+wwan at send "AT+CSQ" dev ppp-0
