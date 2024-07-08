@@ -33,7 +33,8 @@ L2TP的VPN服务器
 
 
 2#台区集中器
-id: 00 01 00 77 08 32
+id: 00 01 00 77 08 32 - 青岛高科，被拆除
+id: 00 01 14 41 64 67 - 新安装的积成电子
 
 2#断路器
 型号: NJL2-630Y
@@ -49,3 +50,11 @@ ppp-0     Link encap:Point-to-Point Protocol
           TX packets:29 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:3 
           RX bytes:1914 (1.9 KB)  TX bytes:1977 (1.9 KB)
+
+
+
+3#台区问题
+融合终端里没有mosquitto，且1883端口已经被占用
+
+1#台区集中器
+00 01 00 77 44 58
