@@ -1,68 +1,67 @@
-WtrYcData,Link=7, Dev=1,RegStartAddr=97,YcValue=0.197800 
-WtrYcData,Link=7, Dev=1,RegStartAddr=98,YcValue=0.376400 
-WtrYcData,Link=7, Dev=1,RegStartAddr=99,YcValue=3.380600 
-WtrYcData,Link=7, Dev=1,RegStartAddr=100,YcValue=1.374000 
-WtrYcData,Link=7, Dev=1,RegStartAddr=101,YcValue=49.997002 
-WtrYcData,Link=7, Dev=1,RegStartAddr=102,YcValue=49.992001 
-WtrYcData,Link=7, Dev=1,RegStartAddr=103,YcValue=50.003002 
-WtrYcData,Link=7, Dev=1,RegStartAddr=104,YcValue=50.006001 
-[2024-07-10 17:56:18.701][..\src\protocol\ModbusBlocks.cpp][ModbusBlock_tread()][2364]: Dev=0,Array=5
-[2024-07-10 17:56:18.701][..\src\protocol\ModbusBlocks.cpp][ModbusBlock_tread()][2378]: 1:SndData:SlaveAddr=5,SlaveRegAddr=1 ,SlaveRegCnt =3, RtdbRegNo: 105
-[2024-07-10 17:56:18.720][..\src\protocol\ModbusBlocks.cpp][modbus_Func_snd()][289]: Snd FunCmd= 1  :>>>05 01 00 01 00 14 6C 41 
-[2024-07-10 17:56:18.720][..\src\protocol\ModbusBlocks.cpp][modbus_Func_snd()][290]: Snd FunCmd= 1  :>>>05 01 00 01 00 14 6C 41 
-[2024-07-10 17:56:18.770][..\src\protocol\Dlt645Master.cpp][DoRecvData()][2163]: [recv]:->>>FE FE FE FE 68 01 00 00 00 00 00 68 D1 01 35 D8 16 68 01 00 00 00 00 00 68 D1 01 35 D8 16 
-[2024-07-10 17:56:18.770][..\src\protocol\Dlt645Master.cpp][DoRecvData()][2177]: [EveRet]: 1
-[2024-07-10 17:56:18.770][..\src\protocol\Dlt645Master.cpp][DoRecvData()][2177]: [EveRet]: 1
-[2024-07-10 17:56:18.800][..\src\bsp\bsp_usart.c][USART_IRQHandler()][415]: [com-2]recv: <<<---FE FE FE FE 68 
-[2024-07-10 17:56:18.810][..\src\bsp\bsp_usart.c][USART_IRQHandler()][415]: [com-2]recv: <<<---01 00 00 00 00 00 68 D1 
-[2024-07-10 17:56:18.820][..\src\bsp\bsp_usart.c][USART_IRQHandler()][415]: [com-2]recv: <<<---01 35 D8 16 
-Input type error
-    #0 0xfbd3f in MQTTProperties_free ..\src\paho.mqtt/MQTTProperties.c:404
-    #1 0xd44ad in MQTTClient_emptyMessageQueue ..\src\paho.mqtt/MQTTClient.c:556
-    #2 0xd762d in MQTTClient_cleanSession ..\src\paho.mqtt/MQTTClient.c:1110
-    #3 0xd748b in MQTTClient_closeSession ..\src\paho.mqtt/MQTTClient.c:1095
-    #4 0xdddd5 in MQTTClient_disconnect1 ..\src\paho.mqtt/MQTTClient.c:1894
-    #5 0xddf6f in MQTTClient_disconnect_internal ..\src\paho.mqtt/MQTTClient.c:1914
-    #6 0xdf393 in MQTTClient_subscribeMany5 ..\src\paho.mqtt/MQTTClient.c:2079
-    #7 0xdf683 in MQTTClient_subscribe5 ..\src\paho.mqtt/MQTTClient.c:2115
-    #8 0xdfa73 in MQTTClient_subscribe ..\src\paho.mqtt/MQTTClient.c:2131
-    #9 0x15064f in GetDataBaseDataClass::ClassInit(linkstatus) ..\src\protocol\GetDatabseData/GetDatabaseData.cpp:1360
-    #10 0x292a67 in RtdbUpdateDb_tread ..\src\protocol/UpdateDatabase.cpp:1440
+==28608==ERROR: AddressSanitizer: heap-use-after-free on address 0xb000fbb8 at pc 0xb6a7d60b bp 0xb09fe7f8 sp 0xb09fe818
+READ of size 53 at 0xb000fbb8 thread T7
+}
+Connection lost
 
-0xb51a6368 is located 40 bytes inside of 64-byte region [0xb51a6340,0xb51a6380)
-freed by thread T9 here:
-    #0 0xb6b08aab in __interceptor_free /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_malloc_linux.cc:45
+==..\src\protocol\GetDatabseData\GetDatabaseData.cpp-1347 : --ERROR--
 
-previously allocated by thread T9 here:
-    #0 0xb6b08cc3 in __interceptor_malloc /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_malloc_linux.cc:62
+==..\src\protocol\GetDatabseData\GetDatabaseData.cpp-1347 : --ERROR--
 
-Thread T15 created by T0 here:
-[2024-07-10 17:56:18.890][..\src\bsp\bsp_usart.c][USART_IRQHandler()][415]: [com-4]recv: <<<---05 01 03 00 C0 0F 2D CE 
-[2024-07-10 17:56:18.980][..\src\bsp\bsp_usart.c][USART_IRQHandler()][415]: [com-2]recv: <<<---68 01 00 00 00 
-[2024-07-10 17:56:18.990][..\src\bsp\bsp_usart.c][USART_IRQHandler()][415]: [com-2]recv: <<<---00 00 68 D1 01 35 D8 16 
-Input type error
-Input type error
-    #0 0xb6a996c5 in __interceptor_pthread_create /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_interceptors.cc:243
+==..\src\protocol\GetDatabseData\GetDatabaseData.cpp-1347 : --ERROR--
 
-Thread T9 created by T6 here:
-    #0 0xb6a996c5 in __interceptor_pthread_create /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_interceptors.cc:243
+==..\src\protocol\GetDatabseData\GetDatabaseData.cpp-1347 : --ERROR--
 
-Thread T6 created by T0 here:
-    #0 0xb6a996c5 in __interceptor_pthread_create /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_interceptors.cc:243
+==..\src\protocol\GetDatabseData\GetDatabaseData.cpp-1347 : --ERROR--
 
-SUMMARY: AddressSanitizer: heap-use-after-free ..\src\paho.mqtt/MQTTProperties.c:404 in MQTTProperties_free
+==..\src\protocol\GetDatabseData\GetDatabaseData.cpp-1347 : --ERROR--
+
+==..\src\protocol\GetDatabseData\GetDatabaseData.cpp-1347 : --ERROR--
+[2024-07-18 17:24:13.887][..\src\protocol\UpdateDatabase.cpp][RtdbUpdateDb_tread()][1461]: get sem success
+------------------------YcCount=6---YC[0]------i=0,j=0-------------------
+     cause: (null)
+[2024-07-18 17:24:13.888][..\src\protocol\UpdateDatabase.cpp][ConnLost()][502]: reconnecting...
+[2024-07-18 17:24:13.889][..\src\protocol\UpdateDatabase.cpp][MqttInit()][837]: name: Product name, value: Eclipse Paho Synchronous MQTT C Client Library
+MQTTClient_create 
+MQTTClient_setCallbacks 
+------------------------YcCount=6---YC[1]------i=0,j=1-------------------
+------------------------YcCount=6---YC[2]------i=0,j=2-------------------
+------------------------YcCount=6---YC[3]------i=0,j=3-------------------
+------------------------YcCount=6---YC[4]------i=0,j=4-------------------
+------------------------YcCount=6---YC[5]------i=0,j=5-------------------
+    #0 0xb6a7d609 in StrstrCheck /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:382
+    #1 0xb6a7d90b in __interceptor_strstr /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:400
+    #2 0x28b3cd in MqttMsgArrvd(void*, char*, int, MQTTClient_message*) ..\src\protocol/UpdateDatabase.cpp:429
+    #3 0xd589d in MQTTClient_run ..\src\paho.mqtt/MQTTClient.c:866
+
+0xb000fbb8 is located 8 bytes inside of 80-byte region [0xb000fbb0,0xb000fc00)
+freed by thread T11 here:
+    #0 0xb6adcaab in __interceptor_free /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_malloc_linux.cc:45
+
+previously allocated by thread T7 here:
+    #0 0xb6adccc3 in __interceptor_malloc /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_malloc_linux.cc:62
+
+Thread T7 created by T5 here:
+    #0 0xb6a6d6c5 in __interceptor_pthread_create /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_interceptors.cc:243
+
+Thread T5 created by T0 here:
+    #0 0xb6a6d6c5 in __interceptor_pthread_create /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_interceptors.cc:243
+
+Thread T11 created by T0 here:
+    #0 0xb6a6d6c5 in __interceptor_pthread_create /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/asan/asan_interceptors.cc:243
+
+SUMMARY: AddressSanitizer: heap-use-after-free /home/tcwg-buildslave/workspace/tcwg-make-release_1/snapshots/gcc.git~linaro-7.5-2019.12/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:382 in StrstrCheck
 Shadow bytes around the buggy address:
-  0x36a34c10: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x36a34c20: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x36a34c30: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x36a34c40: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x36a34c50: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-=>0x36a34c60: fa fa fa fa fa fa fa fa fd fd fd fd fd[fd]fd fd
-  0x36a34c70: fa fa fa fa fd fd fd fd fd fd fd fd fa fa fa fa
-  0x36a34c80: fd fd fd fd fd fd fd fd fa fa fa fa fd fd fd fd
-  0x36a34c90: fd fd fd fd fa fa fa fa fd fd fd fd fd fd fd fd
-  0x36a34ca0: fa fa fa fa fd fd fd fd fd fd fd fd fa fa fa fa
-  0x36a34cb0: fd fd fd fd fd fd fd fd fa fa fa fa fd fd fd fd
+  0x36001f20: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x36001f30: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x36001f40: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x36001f50: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x36001f60: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+=>0x36001f70: fa fa fa fa fa fa fd[fd]fd fd fd fd fd fd fd fd
+  0x36001f80: fa fa fa fa fd fd fd fd fd fd fd fd fd fd fa fa
+  0x36001f90: fa fa fd fd fd fd fd fd fd fd fd fd fa fa fa fa
+  0x36001fa0: fd fd fd fd fd fd fd fd fd fd fa fa fa fa fd fd
+  0x36001fb0: fd fd fd fd fd fd fd fd fa fa fa fa fd fd fd fd
+  0x36001fc0: fd fd fd fd fd fd fa fa fa fa fd fd fd fd fd fd
 Shadow byte legend (one shadow byte represents 8 application bytes):
   Addressable:           00
   Partially addressable: 01 02 03 04 05 06 07 
@@ -82,5 +81,5 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
   ASan internal:           fe
   Left alloca redzone:     ca
   Right alloca redzone:    cb
-==31493==ABORTING
+==28608==ABORTING
 sysadm@SCT230A:~$ 
