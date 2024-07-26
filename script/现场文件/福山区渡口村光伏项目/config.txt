@@ -5,7 +5,7 @@ PASSWD:   Tiger@5511283
 http://8.130.115.4/dcs_webservice.asmx
 
 
-SIM卡APN: sdgwyjy01.jnm2mapn
+福山局的SIM卡APN: sdgwyjy01.jnm2mapn
 
 2#台区sim卡参数
 IP地址: 10.61.0.41
@@ -83,6 +83,8 @@ start-stop-daemon --start --background --exec /usr/sbin/security_proxy_bin #/etc
 000100774458 -- 青岛高科
 
 
+tcpdump host 10.61.0.41 -i usb0 and port 2604 -vvv
+
 #宋珍在京东办理的物联网卡
 10.61.0.41 //2台区 在 /etc/rc.local 文件加入命令 route add -host 10.61.0.42 dev FE0 gw 192.168.1.1 和 route add -host 10.61.0.43 dev FE0 gw 192.168.1.1, 即可在容器里连接到其他台区的四信模块
 10.61.0.42 //1台区, 同3台区
@@ -90,6 +92,24 @@ start-stop-daemon --start --background --exec /usr/sbin/security_proxy_bin #/etc
 
 sudo container install dfe698app  /home/sysadm/dfe698app.tar -dev /dev/ttySZ3:/dev/ttySZ3 -dev /dev/ttySZ4:/dev/ttySZ4 -dev /dev/ttySZ5:/dev/ttySZ5 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 3241:3241
 
+
+sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2604:2604 -p 2804:2804
+
+container stop e9361app
+container uninstall e9361app
+sudo container install e9361app  /home/sysadm/e9361app.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3 -dev /dev/ttyRS4:/dev/ttyRS4 -v /data/app:/data/app -p 5000:5000 -p 2604:2604 -p 2804:2804
+
+
+route add -host 10.61.0.41 dev FE0 gw 192.168.1.1
+
+
+tcpdump -n -i usb0 port 2604 or port 2804 -vvv
+
+tcpdump -n -i FE0 port 2604 or port 2804 -vvv
+
+netstat -an|grep -E "2504|2704"
+
+netstat -an|grep -E "2604|2804"
 
 mkdir -p /data/app/dfe698app/config/
 
@@ -142,12 +162,69 @@ container install dfe698app  /home/sysadm/dfe698app.tar -dev /dev/ttySZ3:/dev/tt
 
 
 
+1#台区数据中心版本号
+sysadm@SCT230A:~$ appm -I -c c_data
+Total app number 1 
+
+App index           : 0
+App name            : database
+App version         : 0000-SV02.012
+App hash            : 364325a2b42f8764cf7f857bd0e5f291
+Service index       : 0
+Service name        : srv0
+Service enable      : yes
+Service status      : running
+CPUs                : 4
+CPU threshold       : 90%
+CPU usage           : 0%
+Mem Limit           : 300m
+Mem threshold       : 90%
+Mem usage           : 9.27m
+Start time          : 2024-07-23 17:35:43
+
+patch version:SV04.042.004
 
 
 
 
 
+3#台区数据中心版本号
+sysadm@SCT230A:~$ appm -I -c c_base
+Total app number 1 
 
+App index           : 0
+App name            : SCBASEADC
+App version         : 0000-SV02.041
+App hash            : 8787d3d023435c079b2a50f2b9aa0aa9
+Service index       : 0
+Service name        : srv0
+Service enable      : yes
+Service status      : running
+CPUs                : 4
+CPU threshold       : 90%
+CPU usage           : 2%
+Mem Limit           : 300m
+Mem threshold       : 90%
+Mem usage           : 8.33m
+Start time          : 2024-07-20 01:28:05
+AlarmTime           : 60
 
-
-
+#浙江正泰断路器告警、跳闸原因
+00000	0	正常运行
+00010	2	剩余电流
+00100	4	缺零
+00101	5	过载
+00110	6	短路
+00111	7	缺相
+01000	8	欠压
+01001	9	过压
+01010	10	接地
+01011	11	停电
+01100	12	定时试验
+01101	13	远程
+01110	14	按键试验
+01111	15	闭锁
+10010	18	手动
+10000	16	互感器故障
+10001	17	合闸失败
+10011	19	设置更改
