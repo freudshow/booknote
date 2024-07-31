@@ -1146,6 +1146,25 @@ sudo update-grub
 	#连接服务器的xrdp, 可以通过Windows自带的 mstsc 或者 mobaXterm中的 rdp 远程桌面连接
 ```
 
+##`debian` 12 设置启动界面（文本或图形）
+
+```shell
+#1.查看启动界面现状:
+systemctl get-default
+
+#2.设置启动界面为文本模式:
+systemctl set-default multi-user.target
+
+#3.设置启动界面为图形模式:
+systemctl set-default graphical.target
+
+#4.重启系统:
+reboot
+
+#设置fcitx5的主题
+apt install fcitx5-material-color
+```
+
 ## `debian` install docker
 
 ```shell
