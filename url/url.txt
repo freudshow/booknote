@@ -170,3 +170,13 @@ https://www.cnblogs.com/cxuanBlog/p/14265315.html#/		ARP协议详解
 https://blog.csdn.net/YouWan797411/article/details/131347526  Bresenham直线算法
 https://deepnight.net/tutorial/bresenham-magic-raycasting-line-of-sight-pathfinding/ Bresenham直线算法
 https://zhuanlan.zhihu.com/p/22460835 从零开始写json解析器
+
+https://www.se.com/ww/en/about-us/careers/job-details/software-developer-engineer/73876/
+https://deepbluembedded.com/stm32-usb-cdc-virtual-com-port-vcp-examples/#google_vignette
+https://hjk.life/
+/var/lib/docker/overlay2/bfa0b615818ae36a0156fcef215cb719dafd3ffa40ef5ccf57a8f7a1436dd254/diff/bin
+https://www.freecodecamp.org/news/a-beginners-guide-to-docker-how-to-create-your-first-docker-application-cc03de9b639f/
+https://www.sigbus.info/compilerbook
+https://lift.cs.princeton.edu/java/mac/index.php#/
+https://cloud-atlas.readthedocs.io/zh-cn/latest/docker/startup/introduce_docker.html
+https://doc.embedfire.com/lubancat/build_and_deploy/zh/latest/building_image/use_uboot/use_uboot.html
