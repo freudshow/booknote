@@ -1409,6 +1409,7 @@ sc.exe failure ".NET Joke Service" reset=0 actions=restart/60000/restart/60000/r
 sc.exe start ".NET Joke Service"
 sc.exe stop ".NET Joke Service"
 sc.exe delete ".NET Joke Service"
+sc.exe create ".NET DCSBackgroundService" binpath="C:\software\DCSWebBackgroudService\DCSWebBackgroudService.exe"
 
 
 主卡 15589585579
