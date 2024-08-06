@@ -2014,3 +2014,49 @@ RX：FE FE FE FE 68 25 81 08 00 20 01 68 91 06 33 34 34 35 36 55 91 16
 TX：68258108002001681104333434358416
 [2024-07-17 09:16:09.976]
 RX：FE FE FE FE 68 25 81 08 00 20 01 68 91 06 33 34 34 35 3A 55 95 16 
+
+docker inspect debian:12 | grep -i 'architecture'
+docker run -t \
+--platform arm64 \
+-v /usr/bin/qemu-aarch64-static:/usr/bin/qemu-aarch64-static \
+debian:12 \
+uname -m
+
+docker run \
+--platform arm64 \
+-v /usr/bin/qemu-aarch64-static:/usr/bin/qemu-aarch64-static \
+debian:12
+
+
+
+docker pull arm32v7/ubuntu:22.04
+docker run arm32v7/ubuntu:22.04 -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static
+
+docker pull arm64v8/ubuntu:22.04
+docker run --platform linux/arm64  arm64v8/ubuntu:22.04
+
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+docker run --rm --privileged multiarch/qemu-user-static:register --reset
+
+#-i: 交互式操作。
+#-t: 终端。
+#-d: 指定容器的运行模式后台运行, 注：加了 -d 参数默认不会进入容器，想要进入容器需要使用指令 docker exec
+#/bin/bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash。
+docker run -itd --privileged --platform linux/arm64 -it arm64v8/ubuntu:22.04
+
+#删除所有停止运行的容器
+docker container prune
+
+
+docker run -d -P training/webapp python app.py
+
+
+docker run -itd --privileged --platform linux/arm64 -it debian:12
+
+#删除镜像hello-world
+docker rmi hello-world
+
+docker commit -m="has upgrade and install build-essential" -a="floyd" dreamy_ellis floyd/ubuntu:22.04v2
+
+#映射udp端口
+-p 127.0.0.1:5000:5000/udp
