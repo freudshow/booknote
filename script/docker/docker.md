@@ -32,7 +32,7 @@ docker run -it -v /home/floyd/dockermap:/map -p 5901:5901 --restart=always hello
 重启`docker`服务
 
 ```shell
-systemctl restart docker
+sudo systemctl daemon-reload && sudo systemctl restart docker
 ```
 
 查看`docker`信息

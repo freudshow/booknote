@@ -2060,3 +2060,6 @@ docker commit -m="has upgrade and install build-essential" -a="floyd" dreamy_ell
 
 #映射udp端口
 -p 127.0.0.1:5000:5000/udp
+
+
+tar cvPjf /nfsmnt/backup.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/nfsmnt --exclude=/mnt --exclude=/media --exclude=/dev --exclude=/tmp --exclude=/sys /
