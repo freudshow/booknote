@@ -2042,7 +2042,7 @@ docker run --rm --privileged multiarch/qemu-user-static:register --reset
 #-t: 终端。
 #-d: 指定容器的运行模式后台运行, 注：加了 -d 参数默认不会进入容器，想要进入容器需要使用指令 docker exec
 #/bin/bash：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash。
-docker run -itd --privileged --platform linux/arm64 -it arm64v8/ubuntu:22.04
+docker run -itd --restart=always --privileged --platform linux/arm64 -it arm64v8/ubuntu:22.04
 
 #删除所有停止运行的容器
 docker container prune
@@ -2051,7 +2051,7 @@ docker container prune
 docker run -d -P training/webapp python app.py
 
 
-docker run -itd --privileged --platform linux/arm64 -it debian:12
+docker run -itd --restart=always --privileged --platform linux/arm64 -it debian:12
 
 #删除镜像hello-world
 docker rmi hello-world
@@ -2063,3 +2063,5 @@ docker commit -m="has upgrade and install build-essential" -a="floyd" dreamy_ell
 
 
 tar cvPjf /nfsmnt/backup.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/nfsmnt --exclude=/mnt --exclude=/media --exclude=/dev --exclude=/tmp --exclude=/sys /
+
+scp main root@192.168.1.232:/root
