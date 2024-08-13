@@ -53,3 +53,15 @@ Registry: https://index.docker.io/v1/
 ...
 ```
 
+## 在`x86`系统运行`arm`架构的`docker`镜像
+
+```shell
+sudo apt install binfmt-support qemu-user-static
+#将文件系统 rootfs-console.tar.bz2 导入为docker镜像
+docker import rootfs-console.tar.bz2 imux6ull:e9361c0
+#创建容器
+docker run -itd --restart=always --privileged -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static f144f7ccec0c /bin/bash
+#进入容器
+docker exec -it d7a03cbbe259 /bin/bash
+```
+
