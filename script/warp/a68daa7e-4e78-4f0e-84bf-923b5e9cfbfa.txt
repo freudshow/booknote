@@ -1,0 +1,25 @@
+
+################################################################
+v2ray
+---------------------------------------------------------------
+vless://a68daa7e-4e78-4f0e-84bf-923b5e9cfbfa@gentle-truth-bf7f.s-baoshan.workers.dev:443?encryption=none&security=tls&sni=gentle-truth-bf7f.s-baoshan.workers.dev&fp=randomized&type=ws&host=gentle-truth-bf7f.s-baoshan.workers.dev&path=%2F%3Fed%3D2048#gentle-truth-bf7f.s-baoshan.workers.dev
+---------------------------------------------------------------
+################################################################
+clash-meta
+---------------------------------------------------------------
+- type: vless
+  name: gentle-truth-bf7f.s-baoshan.workers.dev
+  server: gentle-truth-bf7f.s-baoshan.workers.dev
+  port: 443
+  uuid: a68daa7e-4e78-4f0e-84bf-923b5e9cfbfa
+  network: ws
+  tls: true
+  udp: false
+  sni: gentle-truth-bf7f.s-baoshan.workers.dev
+  client-fingerprint: chrome
+  ws-opts:
+    path: "/?ed=2048"
+    headers:
+      host: gentle-truth-bf7f.s-baoshan.workers.dev
+---------------------------------------------------------------
+################################################################
