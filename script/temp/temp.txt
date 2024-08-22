@@ -2065,3 +2065,13 @@ docker commit -m="has upgrade and install build-essential" -a="floyd" dreamy_ell
 tar cvPjf /nfsmnt/backup.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude=/nfsmnt --exclude=/mnt --exclude=/media --exclude=/dev --exclude=/tmp --exclude=/sys /
 
 scp main root@192.168.1.232:/root
+
+fromelf.exe --bin -o  ../../Output/@L.bin   ../../Output/@L.axf
+fromelf --text -a -c -o "$L@L.dis" "#L"
+
+fromelf --bin -o  ./Output/@L.bin   ./Output/@L.axf
+fromelf --text -a -c -o "$L@L.dis" "#L"
+
+GD32E50X
+GD32E50X_HD
+USE_STDPERIPH_DRIVER
