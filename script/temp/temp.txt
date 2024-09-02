@@ -942,7 +942,8 @@ tcpdump host 162.168.100.38 -i usb0 port 2404
 
 tcpdump tcp -i usb0  -s 0 -c 1000 and dst port 2404 -w ./target.cap
 
-
+tcpdump host 192.168.100.1 and port 2404  -n -w data.cap
+tcpdump host 192.168.60.6 and port 2404  -n -w data.cap
 tcpdump ip 162.168.100.38 -i usb0 port 2404 -w ./target.cap
 
 ping 162.168.100.38
@@ -1229,6 +1230,7 @@ nandwrite -p /dev/mtd4 /mnt/kernel/kerner_221115/linux-4.1.15/arch/arm/boot/zIma
 68 59 07 37 18 21 80 68 91 18 34 35 39 38 45 67 89 AB 54 66 A7 67 34 78 99 45 AC 65 78 44 44 56 A3 4C 2B 16
 
 
+读取版本号: AA FF FF 03 00 07 01 00 05
 
 
 17:06:22.600  发送设置Dlt645地址 地址1 2 3 4 5 6
@@ -2066,7 +2068,7 @@ tar cvPjf /nfsmnt/backup.tar.bz2 --exclude=/proc --exclude=/lost+found --exclude
 
 scp main root@192.168.1.232:/root
 
-fromelf.exe --bin -o  ../../Output/@L.bin   ../../Output/@L.axf
+fromelf --bin -o  ../../Output/@L.bin   ../../Output/@L.axf
 fromelf --text -a -c -o "$L@L.dis" "#L"
 
 fromelf --bin -o  ./Output/@L.bin   ./Output/@L.axf
@@ -2075,3 +2077,6 @@ fromelf --text -a -c -o "$L@L.dis" "#L"
 GD32E50X
 GD32E50X_HD
 USE_STDPERIPH_DRIVER
+
+#Excel 条件语句
+=IF(C197=K197, "TRUE", "FALSE")
