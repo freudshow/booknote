@@ -2133,3 +2133,7 @@ RX：AA FF FF 7E 00 03 02 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 12 01 02 
 #645白名单测试
 68 01 00 00 00 00 00 68 91 04 34 38 33 37 3C 16
 68 08 07 06 05 04 03 68 91 04 34 38 33 37 5C 16
+
+Mi Box 4c.
+
+Both devices are powered by an Amlogic S905L quad-core processor and Mali-450 GPU clocked at 750 MHz.
