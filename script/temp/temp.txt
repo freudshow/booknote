@@ -2137,3 +2137,12 @@ RX：AA FF FF 7E 00 03 02 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 12 01 02 
 Mi Box 4c.
 
 Both devices are powered by an Amlogic S905L quad-core processor and Mali-450 GPU clocked at 750 MHz.
+
+01 03 04 84 00 01 C5 13
+02 03 04 84 00 01 C5 20
+03 03 04 84 00 01 C4 F1
+04 03 04 84 00 01 C5 46
+05 03 04 84 00 01 C4 97
+06 03 04 84 00 01 C4 A4
+
+saveREADOADdata()
