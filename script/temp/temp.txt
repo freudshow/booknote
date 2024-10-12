@@ -2146,3 +2146,7 @@ Both devices are powered by an Amlogic S905L quad-core processor and Mali-450 GP
 06 03 04 84 00 01 C4 A4
 
 saveREADOADdata()
+
+
+#百分比的系数设置
+COE = 100 * 逆变器协议中的百分比系数 * 100 / 逆变器总容量
