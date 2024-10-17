@@ -1245,3 +1245,18 @@ apt install fcitx5-material-color
 	gcc -o myprogram myprogram.c -L/usr/local/lib -Wl,-rpath,/usr/local/lib -lexample
 
 ```
+
+## `The Linux Programming Interface` 编译问题
+
+	```bash
+		sudo apt-get install -y libcap-dev libacl1-dev
+	```
+
+## `debian`命令行链接`WiFi`
+
+	```bash
+		#列出可用WiFi
+		sudo nmcli dev wifi list
+		#把12345678替换成实际的WiFi密码
+		sudo nmcli dev wifi connect SSID password 12345678
+	```
