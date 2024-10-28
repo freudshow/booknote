@@ -365,6 +365,9 @@ sudo apt install  -y lib32z1 lib32ncurses6 gcc-multilib libncurses5:i386 libncur
     sudo apt upgrade
     sudo apt install -y fontconfig-infinality
     sudo apt install -y libfreetype6 libfreetype6-dev freetype2-demos
+	
+	#刷新字体缓存
+	fc-cache -fv
 ```
 
 ### `debian`设置默认语言
@@ -1260,3 +1263,8 @@ apt install fcitx5-material-color
 		#把12345678替换成实际的WiFi密码
 		sudo nmcli dev wifi connect SSID password 12345678
 	```
+
+## `debian`密码最小长度修改
+
+1. 打开 /etc/pam.d/common-password
+1. `password        [success=2 default=ignore]      pam_unix.so minlen=4 sha512`, 把`minlen=4`改成`minlen=1`,  然后保存重启即可
