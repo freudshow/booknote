@@ -62,4 +62,6 @@ https://v2raya.org/en/docs/prologue/installation/debian/
 1. wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc
 2. echo "deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list && sudo apt update
 3. sudo apt install v2raya v2ray ## you can install xray package instead of if you want
-4. using http://localhost:2017 to manage servers
+4. sudo systemctl start v2raya.service
+5. sudo systemctl enable v2raya.service
+6. using http://localhost:2017 to manage servers
