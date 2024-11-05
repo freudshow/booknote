@@ -2177,3 +2177,18 @@ C5 //LRC
 
 #发送开关合闸
 01 10 1B E0 00 03 06 E5 92 00 03 00 04 CD 19
+
+magnet:?xt=urn:btih:FF0C2DA2F001C0339A6846A62BA2FC868212F762&tr=http%3A%2F%2Fbt4.t-ru.org%2Fann%3Fmagnet&dn=Xilinx%20Vitis%20Core%20Development%20Kit%202024.1.2%20%2FVitis%2C%20Vivado%2C%20PetaLinux%2F%20x64%20(Linux%2C%20Windows)%20%5B2024%2C%20ENG%5D
+
+https://www.youtube.com/playlist?list=PLtCBuHKmdxOduWhQPbEwLN2ULKMqgQ44m
+https://www.youtube.com/playlist?list=PLBlnK6fEyqRhqJPDXcvYlLfXPh37L89g3
+
+
+#eth0 参数
+MAC: 86:73:7E:47:4C:F3
+IP: 172.21.29.201
+gateway: 172.21.29.1
+掩码: 255.255.255.0
+
+#主站参数
+172.21.29.71:9001
