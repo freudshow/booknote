@@ -289,3 +289,14 @@ http://elm-chan.org/docs/fat_e.html
 https://zhuanlan.zhihu.com/p/22460835
 https://www.llvm.org/docs/WritingAnLLVMBackend.html
 https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html#/
+
+
+资源名称：迪士尼156部动画电影大合辑
+
+描述：迪士尼的动画电影可以划分为迪士尼手绘经典动画(Classics)、迪士尼真人动画(Live Action with Animation)、迪士尼计算机动画(3D Computer Animation)、迪士尼模型动画(ClaymationAnimation)和迪士尼录像带首映(VideoPremiere)等类型。
+部分外挂字幕已放在文件夹内，平均单部电影在2～3GB，最大的10GB左右，目前共491GB。
+
+保存方式: 
+第一部分链接：https://www.aliyundrive.com/s/eYwVYPGL5Yx
+第二部分链接：https://www.aliyundrive.com/s/3UWWDR711Bq
+第三部分链接：https://www.aliyundrive.com/s/yqM2SJekJZb
