@@ -49,6 +49,19 @@ git.exe clone --progress -v -- "https://github.com/DrKLO/Telegram" "C:\Users\flo
 /bin/serial -c "/dev/ttymxc5" -b 9600 -p 2 -i 3000 -f"02 03 05 84 00 06 85 1E"
 
 
+/bin/serial -c "/dev/ttymxc5" -b 9600 -p 2 -i 3000 -f"03 03 08 47 00 01 37 9D"
+
+#读取远程开关机使能寄存器
+/bin/serial -c "/dev/ttymxc5" -b 9600 -p 2 -i 3000 -f"01 03 09 00 00 01 87 96"
+#远程开关机使能寄存器读取结果
+01 03 02 00 02 39 85
+
+#远程关机
+/bin/serial -c "/dev/ttymxc5" -b 9600 -p 2 -i 3000 -f"01 10 00 01 02 00 00 A9 6C"
+
+#读取过压使能寄存器结果
+01 03 02 40 01 48 44 
+
 一共10个并网点，8、9、10号并网点在一起（室内），4、5、6、7号在一起（楼顶），1号单独（室内），2号单独（室内），3号单独（室内）
 
 
