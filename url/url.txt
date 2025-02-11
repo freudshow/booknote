@@ -309,6 +309,26 @@ https://appscross.com/blog/bypass-sni-blocking-by-configuring-browser-startup-pa
 
 
 
+#V2RayA配置
+
+#透明代理/系统代理
+大陆白名单
+#透明代理/系统代理实现方式
+redirect
+#规则端口的分流模式
+大陆白名单模式
+#防止DNS污染
+转发DNS请求
+#特殊模式
+supervisor
+#TCPFastOpen
+保持系统默认
+#多路服用
+关闭
+#自动更新订阅
+关闭
+#解析订阅链接
+跟随透明代理/系统代理
 
 
 
@@ -351,7 +371,3 @@ https://appscross.com/blog/bypass-sni-blocking-by-configuring-browser-startup-pa
 
 
 
-
-
-
->>>>>>> .theirs
