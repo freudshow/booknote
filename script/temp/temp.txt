@@ -2199,3 +2199,13 @@ WGS84(lng,lat)	121.36609807453432,37.51983223708715
 GCJ02(lng,lat)	121.371345378014,37.52084225981618
 BD09(lng,lat)	121.37793,37.526509
 CGCS2000(east,north)	620768.8568852107,4155080.2159195156,40
+
+#将GBK转为UTF-8
+find ./df9312 -type f -exec sh -c 'iconv -f GBK -t UTF-8 "{}" > "{}.utf8" && mv "{}.utf8" "{}"' \;
+
+find /home/floyd/repo/df9312 -type f -print0 | xargs -0 -I {} sh -c 'iconv -f GBK -t UTF-8 "{}" > "{}.utf8" && mv "{}.utf8" "{}"'
+
+#与中科微GPS模块交互
+/bin/echo -e "$PCAS03,0,0,0,3,3,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PCAS03,0,0,0,0,0,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
