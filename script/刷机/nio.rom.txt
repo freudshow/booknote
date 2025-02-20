@@ -2,10 +2,11 @@ First Time Install
 (Note: These releases include firmware)
 1. Download boot, dtbo, vendor_boot & rom for your device from here
 2. Reboot to bootloader
-3. fastboot flash boot boot.img
-fastboot flash dtbo dtbo.img
-fastboot flash vendor_boot vendor_boot.img
-fastboot reboot recovery
+3. 
+    fastboot flash boot boot.img
+    fastboot flash dtbo dtbo.img
+    fastboot flash vendor_boot vendor_boot.img
+    fastboot reboot recovery
 4. While in recovery, navigate to Factory reset -> Format data/factory reset and confirm to format the device.
 5. When done formatting, go back to the main menu and then navigate to Apply update -> Apply from ADB
 6. adb sideload rom.zip (replace "rom" with actual filename)
@@ -36,3 +37,9 @@ PS C:\Android\sdk\platform-tools> .\fastboot oem get_unlock_data
 OKAY [  0.041s]
 Finished. Total time: 0.042s
 PS C:\Android\sdk\platform-tools>
+
+#unlock code to send
+3A45001125805233#5A59323243365A464C54005854323132352D0000#891DEB54BF3DB4F008FA89B75CCBE6117D825B0398F53C5B55C5E02FB5399CE7#F388C39F000000000000000000000000
+
+#unlock code
+fastboot oem unlock MRRTDXGDZKFXVF2OS4NQ
