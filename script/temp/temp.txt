@@ -2209,3 +2209,34 @@ find /home/floyd/repo/df9312 -type f -print0 | xargs -0 -I {} sh -c 'iconv -f GB
 /bin/echo -e "$PCAS03,0,0,0,3,3,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
 
 /bin/echo -e "$PCAS03,0,0,0,0,0,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+
+
+
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 17 00 43 05 aa aa aa aa aa aa 00 aa 2a 05 01 01 40 01 02 00 00 c6 07 16" -t 300
+
+/bin/serial -c "/dev/ttymxc5" -b 1200 -p 0 -f"68 17 00 43 05 aa aa aa aa aa aa 00 aa 2a 05 01 01 40 01 02 00 00 c6 07 16" -t 300
+
+
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 AA AA AA AA AA AA 68 13 00 DF 16" -t 300
+
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 AA AA AA AA AA AA 68 13 00 DF 16" -t 300
+
+
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"FE FE FE FE 68 02 00 00 00 00 00 68 11 04 33 32 34 35 B5 16" -t 300
+
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 0 -f"FE FE FE FE 68 02 00 00 00 00 00 68 11 04 33 32 34 35 B5 16" -t 300
+
+
+/bin/serial -c "/dev/ttymxc4" -b 2400 -p 0 -f"FE FE FE FE 68 42 04 60 04 24 00 68 11 04 33 32 34 35 81 16" -t 300
+
+/bin/serial -c "/dev/ttymxc5" -b 1200 -p 0 -f"68 AA AA AA AA AA AA 68 13 00 DF 16" -t 300
+
+
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"FE FE FE FE 68 02 00 00 00 00 00 68 1C 06 34 34 34 39 33 35 31 16" -t 1
+
+#天津大学微断分闸
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 02 00 00 00 00 00 68 1C 0E 34 34 34 39 33 33 33 33 33 33 33 33 33 35 D1 16" -t 1
+
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 02 00 00 00 00 00 68 1C 0E 35 34 34 39 33 33 33 33 33 33 33 33 33 35 D2 16" -t 1
+
