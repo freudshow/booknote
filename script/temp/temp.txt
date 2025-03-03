@@ -2205,13 +2205,6 @@ find ./df9312 -type f -exec sh -c 'iconv -f GBK -t UTF-8 "{}" > "{}.utf8" && mv 
 
 find /home/floyd/repo/df9312 -type f -print0 | xargs -0 -I {} sh -c 'iconv -f GBK -t UTF-8 "{}" > "{}.utf8" && mv "{}.utf8" "{}"'
 
-#与中科微GPS模块交互
-/bin/echo -e "$PCAS03,0,0,0,3,3,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
-
-/bin/echo -e "$PCAS03,0,0,0,0,0,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
-
-
-
 
 /bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 17 00 43 05 aa aa aa aa aa aa 00 aa 2a 05 01 01 40 01 02 00 00 c6 07 16" -t 300
 
@@ -2240,3 +2233,60 @@ find /home/floyd/repo/df9312 -type f -print0 | xargs -0 -I {} sh -c 'iconv -f GB
 
 /bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 02 00 00 00 00 00 68 1C 0E 35 34 34 39 33 33 33 33 33 33 33 33 33 35 D2 16" -t 1
 
+
+#与中科微GPS模块交互
+/bin/echo -e "$PCAS03,0,0,0,3,3,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+$BDRMC,,V,,,,,,,,,,N,V*38
+$BDVTG,,,,,,,,,N*21
+$BDGGA,,,,,,0,00,25.5,,,,,,*6B
+$BDGSA,A,1,,,,,,,,,,,,,25.5,25.5,25.5,4*0B
+$BDGSV,1,1,00,1*75
+$BDGSV,1,1,00,3*77
+$BDGLL,,,,,,V,N*75
+$BDZDA,,,,,,*59
+$GPTXT,01,01,01,ANTENNA OPEN*25
+
+/bin/echo -e "$PCAS03,0,0,0,0,0,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PMTK353,1,0,0,0,1*2B\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PMTK285,4,100*38\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PCAS10,3*1F\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PCAS00*01\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PCAS06,1*1A\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PMTK605*31\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PCAS02,1000*2E\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+e9361appGetProtect/set/request/ProtectApp/LB/LTU/0
+{
+    "CMD": "1"
+}
+
+#define TOPIC_SET_WAVE_RECORD    "e9361appGetProtect/set/request/ProtectApp/LB/LTU/0"
+#define TOPIC_ACK_WAVE_RECORD    "ProtectApp/set/response/e9361appGetProtect/LB/LTU/0"
+
+
+ProtectApp/set/response/e9361appGetProtect/LB/LTU/0
+{
+    "status": "OK"
+}
+
+#订阅手动录波主题
+mosquitto_sub -t "e9361appGetProtect/set/request/ProtectApp/LB/LTU/0" -h localhost
+
+#发送手动录波报文
+mosquitto_pub -t "e9361appGetProtect/set/request/ProtectApp/LB/LTU/0" -m "{\"CMD\": \"1\"}" -h localhost
+
+11:34:08.582  发送手动录波
+
+11:34:08.583  COM7发送报文：AA FF FF 06 00 13 03 00 00 00 00 16
+
+11:34:08.676  接收报文：AA FF FF 07 00 13 03 01 00 00 00 00 16
+                       AA FF FF 07 00 13 03 01 00 00 00 00 16
+11:34:08.676  接收-手动录波成功
