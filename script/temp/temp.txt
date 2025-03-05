@@ -2230,8 +2230,15 @@ find /home/floyd/repo/df9312 -type f -print0 | xargs -0 -I {} sh -c 'iconv -f GB
 
 #天津大学微断分闸
 /bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 02 00 00 00 00 00 68 1C 0E 34 34 34 39 33 33 33 33 33 33 33 33 33 35 D1 16" -t 1
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 03 00 00 00 00 00 68 1C 0E 34 34 34 39 33 33 33 33 33 33 33 33 33 35 D2 16" -t 1
+#天津大学微断合闸, DI0DI1DI2DI3+PAP0P1P2(PA表示密码权限，P0P1P2为该权限对应的密码)+C0C1C2C3+DATA密码，00 00 00 00；
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 02 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 AB 89 67 45 33 35 E6 16" -t 1
+/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 03 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 AB 89 67 45 33 35 E7 16" -t 1
 
-/bin/serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"68 02 00 00 00 00 00 68 1C 0E 35 34 34 39 33 33 33 33 33 33 33 33 33 35 D2 16" -t 1
+/bin/serial -c "/dev/ttymxc5" -b 9600 -p 2 -f"FE FE FE FE 68 02 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 AB 89 67 45 33 35 E6 16" -t 1
+
+[2025-03-03 18:29:22][./src/serial.c][sendcom()][304]: [send]bufSize:30; FE FE FE FE 68 02 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 AB 89 67 45 33 35 E6 16
+[2025-03-03 18:29:22][./src/serial.c][readcom()][318]: [read]bufSize: 16; FE FE FE FE 68 02 00 00 00 00 00 68 9C 00 6E 16
 
 
 #与中科微GPS模块交互
