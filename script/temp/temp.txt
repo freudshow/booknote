@@ -2297,3 +2297,21 @@ mosquitto_pub -t "e9361appGetProtect/set/request/ProtectApp/LB/LTU/0" -m "{\"CMD
 11:34:08.676  接收报文：AA FF FF 07 00 13 03 01 00 00 00 00 16
                        AA FF FF 07 00 13 03 01 00 00 00 00 16
 11:34:08.676  接收-手动录波成功
+
+# 修改工具链前缀为软浮点版本
+export CC=arm-linux-gnueabi-gcc
+export CXX=arm-linux-gnueabi-g++
+
+# 在 configure 时使用软浮点选项
+./configure --host=arm-linux-gnueabihf- --prefix=$PWD/install CFLAGS="-mfloat-abi=soft" CXXFLAGS="-mfloat-abi=soft"
+
+# 在 configure 时添加选项
+./configure --host=arm-linux-gnueabihf --prefix=$PWD/install CFLAGS="-mcpu=cortex-a7 -march=armv7ve -mthumb -mfloat-abi=hard -mfpu=neon" CXXFLAGS="-mcpu=cortex-a7 -march=armv7ve -mthumb -mfloat-abi=hard -mfpu=neon"  --enable-only32bit
+
+CFLAGS="-marm -mcpu=cortex-a7 -march=armv7ve -mthumb -mfloat-abi=hard -mfpu=neon -mno-unaligned-access -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections" 
+
+./configure --host=arm-linux-gnueabi --prefix=$PWD/install
+
+./configure --host=arm-linux-gnueabihf --prefix=$PWD/install \
+CFLAGS="-marm -mcpu=cortex-a7 -mthumb -mfloat-abi=hard -mfpu=neon -mno-unaligned-access -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections" 
+CXXFLAGS="-mcpu=cortex-a7 -march=armv7ve -mthumb -mfloat-abi=hard -mfpu=neon -mno-unaligned-access -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections"  --enable-only32bit
