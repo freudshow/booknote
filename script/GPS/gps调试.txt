@@ -1,0 +1,78 @@
+"$PMTK000*32\r\n"
+
+/bin/echo -e "$PMTK000*32\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+/bin/echo -e "$PCAS03,0,0,0,0,0,0,0,0,0,0,0,0,0,0*02\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 500 
+
+/bin/echo -e "$PCAS06,1*1A\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 1000
+
+/bin/echo -e "$PCAS10,0*1C\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 1000
+
+/bin/echo -e "$PCAS10,3*1F\r\n" | /usr/bin/microcom -s 115200 /dev/ttymxc6 -t 1000
+
+24 50 43 41 53 31 30 2C 33 2A 31 46 0D 0A
+
+/usr/bin/microcom -s 9600 /dev/ttymxc2
+
+24 50 43 41 53 30 36 2C 31 2A 31 41 0D 0A
+
+
+#发送 "$PCAS10,3*1F\r\n", 使模块重启，重启后会收到一条模块软硬件信息
+serial -c "/dev/ttymxc6" -b 115200 -p 2 -f"24 50 43 41 53 31 30 2C 33 2A 31 46 0D 0A" -t 1
+#接收
+$GPTXT,01,01,01,ANTENNA OK*35       //天线状态, ANTENNA OK*35 表示天线状态（良好）
+$GPTXT,01,01,02,MA=CASGN*24         //厂家指示代码输出，格式为“MA=XXXX”，等号后为厂家指示代码
+$GPTXT,01,01,02,HW=ATGM336H,0004122319626*1E    //接收机的硬件信息和序列号，硬件为 ATGM336H，序列号为 0004122319626。
+$GPTXT,01,01,02,IC=AT6668B-6N-22-00000A30,EL37A4J-21-4C4235019*56   //硬件芯片信息输出，等号后为芯片信息
+$GPTXT,01,01,02,SW=URANUS6,V6.2.7.0*1B  //接收机的软件版本号，SW=URANUS6, 软件版本号V6.2.7.0
+$GPTXT,01,01,02,TB=2024-09-19,10:32:42*49 //
+$GPTXT,01,01,02,BS=BOOT8A,V8.0.1.0*53  //
+$GPTXT,01,01,02,MO=B*30   //
+$GPTXT,01,01,02,SM=00004C00,BD2,BD3*18  //
+$GPTXT,01,01,02,SR=0,031F,08,00,0,00,732,0,0*3B  //
+
+#发送 "$PCAS10,3*1A\r\n", 
+serial -c "/dev/ttymxc6" -b 115200 -p 2 -f"24 50 43 41 53 31 30 2C 33 2A 31 41 0D 0A" -t 1
+
+
+$GPTXT,01,01,02,IC=AT6558-5N-32-1C510800*48
+
+serial -l 1 serial -c "/dev/ttymxc6" -b 115200 -p 2 -l 1
+
+serial -l 1 serial -c "/dev/ttymxc6" -b 9600 -p 2 -l 1
+
+/usr/bin/microcom -s 115200 /dev/ttymxc6 -t 1000
+
+
+#发送 "$PCAS12,20*2C\r\n" 进入待机模式一段时间，这条语句20秒
+serial -c "/dev/ttymxc6" -b 115200 -p 2 -f"24 50 43 41 53 31 32 2C 32 30 2A 32 43 0D 0A" -t 1
+
+#发送 $PCAS01,1*1D\r\n,  把中科微的GPS模块的串口波特率设置为9600
+serial -c "/dev/ttymxc6" -b 115200 -p 2 -f"24 50 43 41 53 30 31 2C 31 2A 31 44 0D 0A" -t 1
+
+#发送 "$PCAS06,1*1A\r\n", 查询当前接收机的硬件型号
+serial -c "/dev/ttymxc6" -b 9600 -p 2 -f"24 50 43 41 53 30 36 2C 31 2A 31 41 0D 0A" -t 1
+#接收
+$GPTXT,01,01,01,ANTENNA OK*35
+$GPTXT,01,01,02,HW=ATGM336H,0004122319626*1E
+
+
+$BDRMC,102506.00,A,3731.12821,N,12121.95340,E,0.07,,130325,,,A,V*2E
+$BDVTG,,,,,0.07,N,0.13,K,A*2E
+$BDGGA,102506.00,3731.12821,N,12121.95340,E,1,07,2.0,126.75,M,7.38,M,,*47
+$BDGSA,A,3,07,19,20,29,30,32,40,,,,,,2.9,2.0,2.2,4*32
+$BDGSV,3,1,10,03,,,25,04,,,30,07,64,197,22,19,47,194,20,1*7A
+$BDGSV,3,2,10,20,69,083,30,29,79,072,30,30,26,119,35,32,19,041,27,1*72
+$BDGSV,3,3,10,38,72,273,14,40,63,164,34,1*7C
+$BDGSV,1,1,03,20,69,083,22,30,26,119,28,32,19,041,22,3*4A
+$BDGLL,3731.12821,N,12121.95340,E,102506.00,A,A*7C
+$BDZDA,102506.00,13,03,2025,00,00*73
+$GPTXT,01,01,01,ANTENNA OK*35
+
+#发送 "$PMTK605*31\r\n", 给SIM68, 查询硬件信息
+serial -c "/dev/ttymxc6" -b 9600 -p 2 -f"24 50 4D 54 4B 36 30 35 2A 33 31 0D 0A" -t 1
+#SIM68应答
+$PMTK705,AXN_5.10_3333_17071400,0000,B06V13SIM68MB96,1.0*40
+
+
+$PMTK000*32\r\n
+serial -c "/dev/ttymxc3" -b 9600 -p 2 -f"24 50 4D 54 4B 30 30 30 2A 33 32 0D 0A" -t 1

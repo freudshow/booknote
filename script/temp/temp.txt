@@ -2315,3 +2315,6 @@ CFLAGS="-marm -mcpu=cortex-a7 -march=armv7ve -mthumb -mfloat-abi=hard -mfpu=neon
 ./configure --host=arm-linux-gnueabihf --prefix=$PWD/install \
 CFLAGS="-marm -mcpu=cortex-a7 -mthumb -mfloat-abi=hard -mfpu=neon -mno-unaligned-access -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections" 
 CXXFLAGS="-mcpu=cortex-a7 -march=armv7ve -mthumb -mfloat-abi=hard -mfpu=neon -mno-unaligned-access -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections"  --enable-only32bit
+
+aarch64-none-linux-gnu-gcc -o ./bin/serial ./src/serial.c ./src/lib.c -I ./inc -g -Wall -DE9361_C0
+arm-linux-gnueabihf-gcc -o ./bin/serial ./src/serial.c ./src/lib.c -I ./inc -g -Wall -DE9361_C0
