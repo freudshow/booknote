@@ -1155,13 +1155,6 @@ sudo route add -host 172.10.1.1 dev FE0
 container install c_peidian  /home/sysadm/SCIEC104.tar -dev /dev/ttyRS0:/dev/ttyRS0 -dev /dev/ttyRS1:/dev/ttyRS1 -dev /dev/ttyRS2:/dev/ttyRS2 -dev /dev/ttyRS3:/dev/ttyRS3    -dev /dev/ttyS7:/dev/ttyS7 -v /data/app:/data/app  -p 2413:2413
 
 
-if (serial == null)
-{
-	MessageBox.Show("请打开通信端口!");
-	return;
-}
-
-
 SCU用户名和密码
 用户名: sysadm
 密码: Zgdky@guest123
@@ -2318,3 +2311,19 @@ CXXFLAGS="-mcpu=cortex-a7 -march=armv7ve -mthumb -mfloat-abi=hard -mfpu=neon -mn
 
 aarch64-none-linux-gnu-gcc -o ./bin/serial ./src/serial.c ./src/lib.c -I ./inc -g -Wall -DE9361_C0
 arm-linux-gnueabihf-gcc -o ./bin/serial ./src/serial.c ./src/lib.c -I ./inc -g -Wall -DE9361_C0
+
+低轨卫星通信专家 郭雅娟 15105168207
+
+//置透明传输模式的标志为1
+AA FF FF 04 00 06 09 05 00 0E
+
+//置透明传输模式的标志为0
+AA FF FF 04 00 06 09 06 00 0D
+
+//设置B0透明传输参数
+AA FF FF 16 00 06 0F 06 3D 01 80 25 00 00 08 00 01 00 00 00 00 00 00 00 00 00 00 89
+AA FF FF 05 00 06 0F 00 00 00 0C
+
+//读取B0透明传输模式
+AA FF FF 04 00 06 10 00 00 12 
+AA FF FF 16 00 06 10 06 3D 01 80 25 00 00 08 00 01 00 00 00 00 00 00 00 00 00 00 96 
