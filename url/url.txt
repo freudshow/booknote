@@ -330,17 +330,18 @@ supervisor
 #解析订阅链接
 跟随透明代理/系统代理
 
+https://houbb.github.io/2024/01/10/schedule-11-timewheel-intro 时间轮算法
 
 https://blog.csdn.net/chidaoqi1607/article/details/106074534    imx.6ull交叉编译valgrind
 
 https://github.com/Pawdroid/Free-servers    free VPN
-
-
-
-
-
-
-
+https://xmaihh.github.io/blog/2024/07/10/cloudflare-tunnel-shi-xian-nei-wang-chuan-tou-de-shi-yong-fang-fa/  Cloudflare Tunnel(实现内网穿透)的使用方法
+https://blog.csdn.net/u010522887/article/details/141621570 白嫖 Cloudflare】之 免费内网穿透，让本地AI服务，触达全球
+https://sspai.com/post/79278  CloudFlare Tunnel 免费内网穿透的简明教程
+https://www.twingate.com/blog/comparisons/the-top-10-alternatives-to-zerotier     The top 10 alternatives to Zerotier
+https://openvpn.net/openvpn-client-for-linux/    openvpn
+https://www.wireguard.com/     wireguard
+https://houbb.github.io/2025/04/29/opensource-nps  nps轻量级内网穿透代理服务器
 
 
 
