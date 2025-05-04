@@ -345,8 +345,8 @@ https://houbb.github.io/2025/04/29/opensource-nps  nps轻量级内网穿透代�
 
 
 
-
-
+https://go-compression.github.io/algorithms/huffman/    Huffman-code
+https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/    Huffman Coding 
 
 
 
