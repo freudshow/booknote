@@ -1,0 +1,1 @@
+1. add a feature to bc, use "#number" to indicate a realdatabase row number, so I can set value to it, and get value from it. eg: "#143" means realdatabase data row with number 143, I can write double value to it, and set its value by a double. just declare the get/set function, their names are float GetValueByRealNo(int realNo) and int SetValueByRealNo(int realNo, float value).
