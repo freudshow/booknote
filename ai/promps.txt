@@ -1,1 +1,3 @@
 1. add a feature to bc, use "#number" to indicate a realdatabase row number, so I can set value to it, and get value from it. eg: "#143" means realdatabase data row with number 143, I can write double value to it, and set its value by a double. just declare the get/set function, their names are float GetValueByRealNo(int realNo) and int SetValueByRealNo(int realNo, float value).
+
+2.用ANTLR和C#写一段程序，检测用户输入的算术表达式是否合法。算术表达式支持加法(+)、减法(-)、乘法(*)、除法(/)、正弦运算(sin())、余弦运算(cos())、指数运算(exp())、逻辑非(!)、逻辑与(&&)、逻辑或(||)、逻辑大于(>)、逻辑大于等于(>=)、逻辑小于(<)、逻辑小于等于(<=)、逻辑等于(==)、按位与(&)、按位或(|)、按位异或(^)、按位非(~)、按位左移(<<)、按位右移(>>)等操作，同时支持左括号('(')与右括号(')')来改变表达式的计算顺序，支持浮点数、整数、实时库标记（#后紧跟整数，比如 #123 ）。
