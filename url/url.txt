@@ -363,7 +363,7 @@ https://github.com/sagemath/sage sage math
 
 https://www.oracle.com/cn/cloud/free/ oracle free vps
 
-
+https://dashboard.ngrok.com/get-started/setup/linux   ngrok config
 
 
 
