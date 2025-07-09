@@ -2404,7 +2404,7 @@ netsh interface portproxy add v4tov4 listenport=9501 listenaddress=172.20.66.81 
 netsh interface portproxy add v4tov4 listenport=5353 listenaddress=0.0.0.0 connectport=5353 connectaddress=192.168.1.100 protocol=udp
 
 #读取传感器的地址档案，第一帧
-68 06 05 04 03 02 01 68 11 04 34 33 26 35 BC 16
+68 01 00 00 00 00 00 68 11 04 34 33 26 35 A8 16
 
 #读取传感器的地址档案，读后续帧
 68 06 05 04 03 02 01 68 12 04 34 33 26 35 BD 16
@@ -2849,3 +2849,34 @@ netsh interface portproxy add v4tov4 listenport=5353 listenaddress=0.0.0.0 conne
 68 14 05 04 03 01 12 68 14 15 39 37 3C 37 33 33 33 33 33 33 33 33 35 60 93 34 33 60 93 34 34 91 16
 #照明关-开
 68 15 05 04 03 01 12 68 14 15 39 37 3C 37 33 33 33 33 33 33 33 33 35 60 93 34 33 60 93 34 34 92 16
+
+
+
+
+###维护软件，设置645检测模式为1
+AA FF FF 04 00 0B 03 01 00 0D
+
+###维护软件，设置645地址
+AA FF FF 09 00 0B 01 06 05 04 03 02 01 00 04
+
+###维护软件，读取645地址
+AA FF FF 03 00 0B 02 00 0A 
+
+AA FF FF 09 00 0B 02 06 05 04 03 02 01 00 07 
+
+###维护软件，读取645检测模式
+AA FF FF 03 00 0B 04 00 0C
+
+AA FF FF 04 00 0B 04 01 00 0A
+
+###645探测地址，0x1F功能码
+serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"F8 FE FE FE FE 68 99 99 99 99 99 99 68 1F 02 E2 35 9E 16" -t 1
+
+###645探测地址，0x13功能码
+serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"F8 FE FE FE FE 68 AA AA AA AA AA AA 68 13 00 DF 16" -t 1
+
+
+###modbus 抄表
+serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"01 03 00 01 00 01 D5 CA" -t 1024
+
+serial -c "/dev/ttymxc5" -b 9600 -p 2 -f"01 03 00 01 00 10 15 C6" -t 1024
