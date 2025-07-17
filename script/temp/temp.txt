@@ -2880,3 +2880,53 @@ serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"F8 FE FE FE FE 68 AA AA AA AA AA AA 68 
 serial -c "/dev/ttymxc4" -b 9600 -p 2 -f"01 03 00 01 00 01 D5 CA" -t 1024
 
 serial -c "/dev/ttymxc5" -b 9600 -p 2 -f"01 03 00 01 00 10 15 C6" -t 1024
+
+###挂载nfs目录
+mount -t nfs -o nolock 192.168.0.123:/nfsroot /nfs
+
+
+### tinyexpr
+<list>      =    <expr> {"," <expr>}
+<expr>      =    <term> {("+" | "-") <term>}
+<term>      =    <factor> {("*" | "/" | "%") <factor>}
+<factor>    =    <power> {"^" <power>}
+<power>     =    {("-" | "+")} <base>
+<base>      =    <constant>
+               | <variable>
+               | <function-0> {"(" ")"}
+               | <function-1> <power>
+               | <function-X> "(" <expr> {"," <expr>} ")"
+               | "(" <list> ")"
+
+### snapdragon 870 chipcode
+SM8250-AC
+
+### install debian for armhf
+$qemu-img create -f qcow2 /media/sf_Documents/debian-armhf.img 50G
+$mkdir mnt && sudo mount -o loop /media/sf_Documents/debian-12.11.0-armhf-DVD-1.iso  mnt
+$cp mnt/install.ahf/vmlinuz ./ && cp mnt/install.ahf/initrd.gz ./
+$sudo umount mnt
+$qemu-system-arm \
+  -machine virt \
+  -cpu cortex-a7 \
+  -m 1024 \
+  -nographic \
+  -kernel ./vmlinuz \
+  -initrd ./initrd.gz \
+  -append "console=ttyAMA0" \
+  -netdev user,id=n0 -device virtio-net-device,netdev=n0 \
+  -drive file=/media/sf_Documents/debian-armhf.img,if=none,format=qcow2,id=hd0 -device virtio-blk-device,drive=hd0 \
+  -drive file=/media/sf_Documents/debian-12.11.0-armhf-DVD-1.iso,if=none,format=raw,id=hd1 -device virtio-blk-device,drive=hd1
+
+
+qemu-system-arm \
+  -machine virt \
+  -cpu cortex-a7 \
+  -m 1024 \
+  -nographic \
+  -kernel ./vmlinuz \
+  -initrd ./initrd.gz \
+  -append "root=/dev/vda console=ttyAMA0" \
+  -netdev user,id=n0 -device virtio-net-device,netdev=n0 \
+  -drive file=/media/sf_Documents/debian-armhf.img,if=none,format=qcow2,id=hd0 -device virtio-blk-device,drive=hd0 \
+  -serial stdio

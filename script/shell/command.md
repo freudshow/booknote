@@ -920,13 +920,22 @@ logout、login一下再试试
 
 'Options -> Edit default session -> Terminal -> Emulation -> Advanced -> Other -> Ignore window title change request' 把这一项勾选即可.
 
-### #VirtualBox 中 `debian` 使用物理硬盘(`windows`)
+### `VirtualBox` 中 `debian` 使用物理硬盘(`windows`)
 
 1. 运行`cmd`, `cd`进入你的`VirtualBox`目录
 
 2. 运行`VBoxManage.exe`, 如：`VBoxManage internalcommands createrawvmdk -filename  d:\localdisk.vmdk -rawdisk \\.\PhysicalDrive1`
 
    **\\.\PhysicalDrive1**  表示第二块硬盘，\\.\PhysicalDrive0 是第一块，\\.\PhysicalDrive2 是第三块, 以此类推。
+
+### `virtualbox`回收磁盘空间
+
+```bash
+cat /dev/zero > zero.fill; sync; sleep 1; sync; rm -f zero.fill
+
+.\VBoxManage.exe modifyhd "C:\Users\floyd\VirtualBox VMs\debian\debian.vdi" --compact
+```
+
 
 3. 在`virtualbox`中找到`d:\localdisk.vmdk`, 添加到虚拟机中即可
 
