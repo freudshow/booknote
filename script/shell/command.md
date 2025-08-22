@@ -161,40 +161,24 @@ deb https://security.debian.org/debian-security bookworm-security main contrib n
 # deb-src https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
 ```
 
-- `ubuntu 20.04`
+- `ubuntu 24.04`
 
 ```bash
 # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-backports main restricted universe multiverse
+
+# 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换
+deb http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
+# deb-src http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
 
 # 预发布软件源，不建议启用
-# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
-```
-
-- `ubuntu 22.04`
-
-```bash
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse
-
-# 预发布软件源，不建议启用
-# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-proposed main restricted universe multiverse
+# # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ noble-proposed main restricted universe multiverse
 ```
 
 ### 让`apt`支持`https`开头的软件源
@@ -218,7 +202,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa tftp graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools qbittorrent vlc aria2 libssl-dev libelf-dev man-db manpages-posix manpages-dev manpages-posix-dev
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa graphviz emacs slime curl curlftpfs pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools qbittorrent vlc aria2 libssl-dev libelf-dev man-db manpages-dev gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu libfreetype6 libfreetype6-dev freetype2-demos locales libcgal-dev libcgal-demo convmv samba samba-common smbclient cifs-utils
     sudo apt autoremove --purge snapd #卸载ubuntu自带的包管理软件, 否则它总是在后台运行, 不断读取磁盘
 ```
 
@@ -760,7 +744,7 @@ Ubuntu：`sudo systemctl restart nscd`, 或者 `sudo /etc/init.d/networking rest
 ```bash
 # 1. 安装 samba
 sudo apt update
-sudo apt install -y samba samba-common smbclient cifs-utils
+sudo apt install -y samba samba-common smbclient cifs cifs-utils
 # 2. 创建需要共享的目录
 sudo mkdir /home/share
 sudo chmod 777 /home/share

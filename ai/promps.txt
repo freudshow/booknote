@@ -1,3 +1,14 @@
 1. add a feature to bc, use "#number" to indicate a realdatabase row number, so I can set value to it, and get value from it. eg: "#143" means realdatabase data row with number 143, I can write double value to it, and set its value by a double. just declare the get/set function, their names are float GetValueByRealNo(int realNo) and int SetValueByRealNo(int realNo, float value).
 
 2.用ANTLR和C#写一段程序，检测用户输入的算术表达式是否合法。算术表达式支持加法(+)、减法(-)、乘法(*)、除法(/)、正弦运算(sin())、余弦运算(cos())、指数运算(exp())、逻辑非(!)、逻辑与(&&)、逻辑或(||)、逻辑大于(>)、逻辑大于等于(>=)、逻辑小于(<)、逻辑小于等于(<=)、逻辑等于(==)、按位与(&)、按位或(|)、按位异或(^)、按位非(~)、按位左移(<<)、按位右移(>>)等操作，同时支持左括号('(')与右括号(')')来改变表达式的计算顺序，支持浮点数、整数、实时库标记（#后紧跟整数，比如 #123 ）。
+
+3. 根据《DLT 790.6-2010 采用配电线载波的配电自动化 第6部分：A-XDR编码规则.pdf》这个pdf文件，用C语言写一个A-XDR的编解码程序，完整的实现整型、布尔型、枚举型、位串型、字节串类型、选择类型、标记类型、可选类型、序列类型、SEQUENCE OF类型、可视串类型、通用时间类型、ASN.1空值类型的编解码和约束检查，并给出测试用例
+
+4. 用C语言，模仿ASN1CC这个开源项目，来实现 《DLT 790.6-2010 采用配电线载波的配电自动化 第6部分：A-XDR编码规则》 中规定的编码规则，实现对其编码、解码
+
+ollama run qwen3-coder
+
+
+5. but a-xdr encode rule is: 0<= value <= 127, encode 1 byte; other case, encode 2's complementation, the first bit of the first byte is 1 to indicate that the first byte is length byte to indecate the length of value, in the value field, encode the shortest bytes to represent the value. help me to modify axdr_buffer_new_encoder()
+
+6. 用python写一个监听 mqtt 主题的程序  要求可以监听二进制和字符串2中报文；且可以监听二进制和字符串格式的主题

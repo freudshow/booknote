@@ -318,14 +318,27 @@ docker run -it --rm  --name armhfbusybox -v /usr/bin/qemu-arm-static:/usr/bin/qe
 docker run -it --rm -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static arm32v7/ubuntu:16.04
 docker run -itd -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static -v /opt:/opt arm32v7/ubuntu:16.04
 
+docker run -it --restart always     -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static -v /home/floyd/docker:/docker     arm32v7-ubuntu:18.04 /bin/bash --name ubuntu1804
+
 docker exec -it recursing_joliot /bin/bash
 
 apt install -y apt-transport-https
 
 docker export mystifying_satoshi > ubuntu1604armhf.tar
 
+docker commit my_container my-image
+docker save -o my-image.tar my-image
+
 cat ubuntu1604armhf.tar | docker import - test/ubuntu1604armhf:v1
 docker run -itd -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static -v /opt:/opt test/ubuntu1604armhf:v1 /bin/bash
+
+docker run -it --rm --platform linux/arm/v7 arm32v7/ubuntu:20.04 /bin/bash
+docker run -it --restart always     -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static     arm32v7/ubuntu:20.04 /bin/bash
+
+docker run -it --rm --platform linux/arm/v7 arm32v7/ubuntu:18.04 /bin/bash
+docker run -it --restart always     -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static     arm32v7/ubuntu:18.04 /bin/bash
+
+docker run -it --rm --platform linux/arm/v7 arm32v7/debian:buster /bin/bash
 
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ xenial main restricted universe multiverse">etc/apt/sources.list
 echo "deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ xenial-updates main restricted universe multiverse">>etc/apt/sources.list
@@ -2930,3 +2943,23 @@ qemu-system-arm \
   -netdev user,id=n0 -device virtio-net-device,netdev=n0 \
   -drive file=/media/sf_Documents/debian-armhf.img,if=none,format=qcow2,id=hd0 -device virtio-blk-device,drive=hd0 \
   -serial stdio
+
+
+# 生成base函数的调用图，放到base.dot文件中
+gcc tinyexpr.c -fdump-tree-ssa-graph=base
+# 生成svg格式的调用图片
+dot base.dot -Tsvg -o base.svg
+
+#启用所有3个端口的监控
+AA FF FF 06 00 05 01 03 00 01 02 02
+#启用单个端口的监控
+AA FF FF 04 00 05 01 01 00 01
+AA FF FF 04 00 05 01 01 01 00
+AA FF FF 04 00 05 01 01 02 03
+
+##停用单个端口的监控
+AA FF FF 04 00 05 02 01 00 02
+AA FF FF 04 00 05 02 01 01 03
+AA FF FF 04 00 05 02 01 02 00
+##停用所有3个端口的监控
+AA FF FF 06 00 05 02 03 00 01 02 01
