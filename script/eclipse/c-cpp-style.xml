@@ -81,7 +81,7 @@
         <setting id="org.eclipse.cdt.core.formatter.alignment_for_compact_if" value="16"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_after_prefix_operator" value="do not insert"/>
         <setting id="org.eclipse.cdt.core.formatter.alignment_for_declarator_list" value="16"/>
-        <setting id="org.eclipse.cdt.core.formatter.alignment_for_expressions_in_array_initializer" value="16"/>
+        <setting id="org.eclipse.cdt.core.formatter.alignment_for_expressions_in_array_initializer" value="34"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_before_closing_paren_in_method_declaration" value="do not insert"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_after_opening_paren_in_while" value="do not insert"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_between_empty_parens_in_exception_specification" value="do not insert"/>
@@ -173,7 +173,7 @@
         <setting id="org.eclipse.cdt.core.formatter.insert_space_after_question_in_conditional" value="insert"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_before_opening_paren_in_switch" value="insert"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_after_unary_operator" value="do not insert"/>
-        <setting id="org.eclipse.cdt.core.formatter.join_wrapped_lines" value="true"/>
+        <setting id="org.eclipse.cdt.core.formatter.join_wrapped_lines" value="false"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_after_colon_in_conditional" value="insert"/>
         <setting id="org.eclipse.cdt.core.formatter.insert_space_before_postfix_operator" value="do not insert"/>
         <setting id="org.eclipse.cdt.core.formatter.alignment_for_assignment" value="16"/>
