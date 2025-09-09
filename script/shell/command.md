@@ -1260,3 +1260,15 @@ apt install fcitx5-material-color
 
 1. 打开 /etc/pam.d/common-password
 1. `password        [success=2 default=ignore]      pam_unix.so minlen=4 sha512`, 把`minlen=4`改成`minlen=1`,  然后保存重启即可
+
+## `Ubuntu`自动登录
+
+```bash
+#打开gdm3的配置文件
+sudo vim /etc/gdm3/custom.conf 
+
+#修改配置
+AutomaticLoginEnable = true
+AutomaticLogin = floyd
+
+```
