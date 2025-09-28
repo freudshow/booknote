@@ -202,7 +202,7 @@ cat /etc/debian_version
 ### 安装常用软件
 
 ```bash
-    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa graphviz emacs slime curl htop pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools qbittorrent vlc aria2 libssl-dev libelf-dev man-db manpages-dev gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu libfreetype6 libfreetype6-dev freetype2-demos locales libcgal-dev libcgal-demo convmv samba samba-common smbclient cifs-utils synaptic libtirpc-dev clang clangd llvm git-lfs
+    sudo apt install -y linux-headers-$(uname -r) dkms caja-open-terminal git vim cscope universal-ctags build-essential rpcbind nfs-kernel-server nfs-common libgmp-dev libmpfr-dev libmpc-dev binutils pkg-config autoconf automake libtool zlib1g-dev libsdl1.2-dev libtool-bin libglib2.0-dev libz-dev libpixman-1-dev libbsd-dev dirmngr tftpd-hpa graphviz emacs slime curl htop pppoe pppoeconf  vim-addon-mw-utils flex bison default-jdk openssh-server net-tools qbittorrent vlc aria2 libssl-dev libelf-dev man-db manpages-dev gdb-multiarch qemu-system-misc gcc-riscv64-linux-gnu binutils-riscv64-linux-gnu libfreetype6 libfreetype6-dev freetype2-demos locales libcgal-dev libcgal-demo convmv samba samba-common smbclient cifs-utils synaptic libtirpc-dev clang clangd llvm git-lfs libncurses5-dev libgdbm-dev libnss3-dev libreadline-dev libffi-dev wget
     sudo apt autoremove --purge snapd #卸载ubuntu自带的包管理软件, 否则它总是在后台运行, 不断读取磁盘
 ```
 
