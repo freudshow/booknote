@@ -366,9 +366,22 @@ https://www.oracle.com/cn/cloud/free/ oracle free vps
 https://dashboard.ngrok.com/get-started/setup/linux   ngrok config
 
 
+develop url:
 
+https://zhuanlan.zhihu.com/p/609284043      一文直接搞懂时间轮算法的精妙之处
+https://blog.csdn.net/weixin_43172297/article/details/145202580     两万字探讨时间轮算法
+https://algs4.cs.princeton.edu/24pq/             Priority Queues
+https://www.programiz.com/dsa/priority-queue        Priority Queue
+https://www.geeksforgeeks.org/dsa/priority-queue-set-1-introduction/    Introduction to Priority Queue
+https://www.51cto.com/article/825575.html           Linux内核内存伙伴算法：高效内存管理的核心机制
+https://www.cnblogs.com/binlovetech/p/16914715.html     一步一图带你深入理解 Linux 物理内存管理
+https://blog.csdn.net/lingshengxueyuan/article/details/119913915        一文搞懂Linux 内存管理原理
+https://zhuanlan.zhihu.com/p/550400712      五万字 | 深入理解Linux内存管理
+https://arthurchiao.art/blog/linux-cfs-design-and-implementation-zh/        Linux CFS 调度器：原理、设计与内核实现（2023）
+https://zhuanlan.zhihu.com/p/556295381          一文搞懂linux cfs调度器
+https://xie.infoq.cn/article/40f9a4732f90bf7914eb43f30          Linux 进程调度 -CFS 调度器原理分析及实现，懂了
 
+https://lotabout.me/2015/write-a-C-interpreter-2/           手把手教你构建 C 语言编译器（2）- 虚拟机
+https://docs.lvgl.io/master/intro/introduction/index.html       Introduction to LVGL
 
-
-
-
+https://colah.github.io/posts/2015-09-Visual-Information/            Visual Information Theory
