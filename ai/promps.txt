@@ -12,3 +12,10 @@ ollama run qwen3-coder
 5. but a-xdr encode rule is: 0<= value <= 127, encode 1 byte; other case, encode 2's complementation, the first bit of the first byte is 1 to indicate that the first byte is length byte to indecate the length of value, in the value field, encode the shortest bytes to represent the value. help me to modify axdr_buffer_new_encoder()
 
 6. 用python写一个监听 mqtt 主题的程序  要求可以监听二进制和字符串2中报文；且可以监听二进制和字符串格式的主题
+
+7. 你现在是一位专业的Linux开发人员，和电力系统的专业软件开发人员，请使用C语言为我编写一个框架：
+    1. 程序运行的设备，有多个端口，端口可能为RS-485-1, RS-485-2, ..., hplc(高速电力线载波)-1, hplc-2, ..., CAN-1, CAN-2..., 蓝牙-1, 蓝牙-2...。
+    2. 每个端口(比如RS-485-1), 对应1个采集任务(采集电能表的电压、电流、功率、电能等数据)，且每个采集端口之间是并发执行的，以提高采集效率。
+    3. 每个端口上的采集任务，管理多个周期性执行的采集方案。比如采集方案1的周期是15分钟，采集电压数据；采集方案2的周期是1个小时，采集功率数据；采集方案3的周期是1天，采集电能量数据；采集方案4的周期是1个月，采集电能表的月冻结数据。
+    4. 每个周期性采集方案可在运行时根据主站的设置动态的创建、注销。
+    5. 每个端口上的采集任务管理的多个采集方案，按照优先级采集，优先级序号越小其优先级越高，高优先级的采集方案执行完毕，才可以执行次优先级的采集方案。

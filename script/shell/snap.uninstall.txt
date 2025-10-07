@@ -1,0 +1,70 @@
+要彻底删除snapd，可以按照以下步骤操作：
+停止snapd服务：运行命令
+sudo systemctl disable snapd.service
+sudo systemctl disable snapd.socket
+sudo systemctl disable snapd.seeded.service
+1
+卸载所有已安装的Snap软件：使用命令
+sudo snap remove --purge <软件名>
+
+sudo snap remove --purge alacritty
+sudo snap remove --purge bare
+sudo snap remove --purge blender
+sudo snap remove --purge clion
+sudo snap remove --purge copilot-desktop
+sudo snap remove --purge core
+sudo snap remove --purge core18
+sudo snap remove --purge core20
+sudo snap remove --purge core22
+sudo snap remove --purge core24
+sudo snap remove --purge cups
+sudo snap remove --purge discord
+sudo snap remove --purge drawio
+sudo snap remove --purge duck-ai
+sudo snap remove --purge ffmpeg
+sudo snap remove --purge flutter
+sudo snap remove --purge freecad
+sudo snap remove --purge fx
+sudo snap remove --purge gemini-desktop
+sudo snap remove --purge gnome-3-28-1804
+sudo snap remove --purge gnome-3-38-2004
+sudo snap remove --purge gnome-42-2204
+sudo snap remove --purge gnome-46-2404
+sudo snap remove --purge gtk-common-themes
+sudo snap remove --purge julia
+sudo snap remove --purge kalgebra
+sudo snap remove --purge kf5-core22
+sudo snap remove --purge kf6-core24
+sudo snap remove --purge kmplot
+sudo snap remove --purge maxima
+sudo snap remove --purge mesa-2404
+sudo snap remove --purge notepad-plus-plus
+sudo snap remove --purge o3de
+sudo snap remove --purge octave
+sudo snap remove --purge opengrok
+sudo snap remove --purge pycharm-community
+sudo snap remove --purge ruby
+sudo snap remove --purge snap-store
+sudo snap remove --purge snapd
+sudo snap remove --purge spotify
+sudo snap remove --purge telegram-desktop
+sudo snap remove --purge termius-app
+sudo snap remove --purge wine-platform-9-devel-core22
+sudo snap remove --purge wine-platform-runtime-core22
+sudo snap remove --purge xournalpp
+sudo snap remove --purge yacas
+
+逐个删除已安装的Snap应用。
+1
+删除Snap的核心文件：运行命令 sudo snap remove --purge snapd 来删除snapd。
+2
+清理缓存目录：删除Snap相关的缓存目录，运行命令 
+rm -rf ~/snap
+sudo rm -rf /snap
+sudo rm -rf /var/snap
+sudo rm -rf /var/lib/snapd
+2
+防止apt自动安装Snap：配置APT以防止在更新时自动重新安装Snap。
+1
+
+通过以上步骤，您可以彻底删除snapd及其相关文件。
