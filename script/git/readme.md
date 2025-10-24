@@ -26,3 +26,16 @@
 ```shell
     it config --global --add safe.directory "*"
 ```
+
+## `github`指定公钥
+
+在 `~/.ssh/config` 文件中添加:
+
+```bash
+    # 针对GitHub的配置，指定使用目标密钥
+    Host github.com
+      HostName github.com
+      User git  #替换为自己的github账户名
+      IdentityFile ~/.ssh/id_ed25519_github  # 替换为你的私钥路径
+      IdentitiesOnly yes  # 强制只使用指定的密钥，忽略其他密钥
+```
