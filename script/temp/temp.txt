@@ -2963,3 +2963,41 @@ AA FF FF 04 00 05 02 01 01 03
 AA FF FF 04 00 05 02 01 02 00
 ##停用所有3个端口的监控
 AA FF FF 06 00 05 02 03 00 01 02 01
+
+#4G棒测试命令
+echo 0 > /sys/class/leds/wd_enable/brightness && /bin/ps |/bin/grep e9361app |/bin/grep -v /bin/grep |/usr/bin/awk '{print  $1}'|/usr/bin/xargs kill -9
+rm -rf /home/sysadm/*
+rm -rf /data/app/e9361app/*
+
+ls -l /home/sysadm/src/
+
+{
+    "DelayAfterKill": 3000,
+    "ConnectCount": 3,
+    "KillAppCommands": [
+        {
+            "Command": "if [ -z \"$(pgrep -x e9361app)\" ]; then /home/sysadm/src/e9361app >/dev/null 2>&1 & fi",
+            "Description": "启动e9361app",
+            "Delay": 5000
+        },
+        {
+            "Command": "fsync /home/sysadm/src/* /data/* /data/app/e9361app/*  /data/app/e9361app/root/para/*",
+            "Description": "同步文件",
+            "Delay": 5000
+        },
+        {
+            "Command": "/bin/ps |/bin/grep e9361app |/bin/grep -v /bin/grep |/usr/bin/awk '{print  $1}'|/usr/bin/xargs kill -9",
+            "Description": "杀死e9361app",
+            "Delay": 5000
+        }
+    ]
+}
+
+#jlox语法
+expression → equality ;
+equality → comparison ( ( "!=" | "==" ) comparison )* ;
+comparison → term ( ( ">" | ">=" | "<" | "<=" ) term )* ;
+term → factor ( ( "-" | "+" ) factor )* ;
+factor → unary ( ( "/" | "*" ) unary )* ;
+unary → ( "!" | "-" ) unary | primary ;
+primary → NUMBER | STRING | "true" | "false" | "nil" | "(" expression ")" ;
