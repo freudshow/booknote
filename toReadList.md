@@ -25,3 +25,15 @@
 - 数学分析原理
 - 高等近世代数
 - 图论导引
+
+## 代码
+- lua 5.4.8
+- linux kernel
+- bc 1.08.2, basic calculater
+- tinyexpression
+- asn1c 0.9.8
+- mquikjs
+- quikjs
+- chibcc
+- sqlite3
+- ffasn1dump
