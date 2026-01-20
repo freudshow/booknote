@@ -28,13 +28,13 @@
 
 ## 代码
 - clox, jlox
-- lua 5.4.8
+- lua 5.4.8, 5.5.0
 - linux kernel
 - bc 1.08.2, basic calculater
 - tinyexpression
 - asn1c 0.9.8
 - mquikjs
 - quikjs
-- chibcc
+- chibicc
 - sqlite3
 - ffasn1dump
