@@ -44,7 +44,7 @@ ollama run qwen3-coder
     2	        ||
     1	        =
 
-9. 开发一个网络助手, 串口助手, 校验助手
+9. 用C#,  .net 9, maui, 开发一个网络助手, 一个串口助手, 一个校验助手(用tab页切换)
 	给我当前的app增加3个页签:
 	1. 网络助手:
 		① 可以作为tcp/udp, server/client, 与指定IP(监听)通信
