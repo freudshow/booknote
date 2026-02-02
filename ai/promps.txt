@@ -59,3 +59,5 @@ ollama run qwen3-coder
 		② 输入框的输入如果合法, 立即在一个标签里显示当前输入报文的字节数
 		③ 有输出框, 显示和复制校验值结果
 		④ 支持校验和, 异或校验和, MODBUS-CRC16, CRC32, FCS16, 每个字节加0x33, 每个字节减0x33, 报文字节顺序反转; u32, u16, s32, s16, float, double等常用数据类型的解析
+
+10. asn1c-0.9.28是专门为ASN1标记语言开发的著名编译器, 但是它生成的代码只支持BER, PER, XER等等. 现在给它添加新的编码格式(DLT 790.6-2010 采用配电线载波的配电自动化 第6部分：A-XDR编码规则), 这个编码规则支持integer, boolean, enumerated, bit string, byte string, choice, 隐式和显示标记, optional, sequence, sequence of, VisibleString, NULL等编码格式, 这些编码格式已经在dlt698.45.data/dlt790.6.c文件中实现, 只是sequence和sequence of这种动态的类型不知道怎么实现.
