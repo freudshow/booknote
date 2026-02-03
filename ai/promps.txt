@@ -61,3 +61,22 @@ ollama run qwen3-coder
 		④ 支持校验和, 异或校验和, MODBUS-CRC16, CRC32, FCS16, 每个字节加0x33, 每个字节减0x33, 报文字节顺序反转; u32, u16, s32, s16, float, double等常用数据类型的解析
 
 10. asn1c-0.9.28是专门为ASN1标记语言开发的著名编译器, 但是它生成的代码只支持BER, PER, XER等等. 现在给它添加新的编码格式(DLT 790.6-2010 采用配电线载波的配电自动化 第6部分：A-XDR编码规则), 这个编码规则支持integer, boolean, enumerated, bit string, byte string, choice, 隐式和显示标记, optional, sequence, sequence of, VisibleString, NULL等编码格式, 这些编码格式已经在dlt698.45.data/dlt790.6.c文件中实现, 只是sequence和sequence of这种动态的类型不知道怎么实现.
+
+11. using python to expend the rows that contains '…'(except the rows which cells are all '…' like row number 172 below "00	C2	00	01	XXXXXX.XX	4	kWh	*		(上1结算日)C相铁损有功电能补偿量
+") to multi rows, the value of the cells with '…' is its last row's cell + 1, other col just copy its last row's col's value, its text format is hex, which is 01, 02, ... 0A, 0F, ... 3E, 3F.
+eg:
+
+expand the row(00	00	…	01	XXXXXX.XX	4	kWh	*		…)
+00	00	01	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 1 电能
+00	00	…	01	XXXXXX.XX	4	kWh	*		…
+00	00	3F	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 63 电能
+
+into:
+00	00	01	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 1 电能
+00	00	02	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 2 电能
+00	00	03	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 3 电能
+00	00	04	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 4 电能
+.
+.
+.
+00	00	3F	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 63 电能
