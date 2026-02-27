@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=eclipse java
+Comment=Run eclipse java
+Exec=/home/floyd/soft/eclipse-java/eclipse
+Terminal=false
+Type=Application
+Icon=/home/floyd/soft/eclipse-java/icon.xpm
+StartupNotify=true
+MimeType=application/x-ipynb+json;
+Categories=Development;
+Keywords=eclipse-java;
+Name[zh_CN]=eclipse-java
