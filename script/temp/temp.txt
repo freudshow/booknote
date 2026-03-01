@@ -1419,7 +1419,7 @@ sc.exe stop ".NET Joke Service"
 sc.exe delete ".NET Joke Service"
 sc.exe create ".NET DCSBackgroundService" binpath="C:\software\DCSWebBackgroudService\DCSWebBackgroudService.exe"
 
-
+sc.exe create ".NET DCSBackgroundService" binpath="D:\publish\DCSWebBackgroudService.exe"
 主卡 15589585579
 副卡 18561020790
 

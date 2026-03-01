@@ -80,3 +80,21 @@ into:
 .
 .
 00	00	3F	01	XXXXXX.XX	4	kWh	*		(上 1 结算日)组合有功费率 63 电能
+
+12. using python to expend the rows that contains '…' from row 2083 to the end, in col D(use hex format) and col J, eg.:
+
+expend the following rows:
+02	0A	01	01	XX.XX	2	%	*		A 相电压 1 次谐波含量
+02	0A	01	…	XX.XX	2	%	*		…
+02	0A	01	15	XX.XX	2	%	*		A 相电压 21 次谐波含量
+
+to:
+
+02	0A	01	01	XX.XX	2	%	*		A 相电压 1 次谐波含量
+02	0A	01	02	XX.XX	2	%	*		A 相电压 2 次谐波含量
+02	0A	01	03	XX.XX	2	%	*		A 相电压 3 次谐波含量
+02	0A	01	04	XX.XX	2	%	*		A 相电压 4 次谐波含量
+...
+02	0A	01	15	XX.XX	2	%	*		A 相电压 21 次谐波含量
+
+13. give me a new python app, to copy the rows(1-773) 10 times, just increase col D from 01 to 0B(hex) and increase col J from "上 1 结算日" to "上 11 结算日", finally we get 773 x 11 = 8503 rows
