@@ -98,3 +98,38 @@ to:
 02	0A	01	15	XX.XX	2	%	*		A 相电压 21 次谐波含量
 
 13. give me a new python app, to copy the rows(1-773) 10 times, just increase col D from 01 to 0B(hex) and increase col J from "上 1 结算日" to "上 11 结算日", finally we get 773 x 11 = 8503 rows
+
+
+13. DevTypeC0WRItemClass.AttributeName, 我在数据库的json配置中, 可以指定修改哪个key, 这个key对应的目标值可以是int boolean string 等等,  这个key需要指定其所在配置的路径,  比如: 如果指定"AttributeName":"UseJson", 那么直接就从json反序列后的根节点下的"UseJson"属性直接找; 而"AttributeName":"atr0.attr1.att2[3].attr4", 用C#解析时, 就意味着从根节点的atr0找到attr1, attr1里有个att2, att2是列表类型, 找到att2的第3个元素(从0开始数), att2[3]下的attr4属性, 我要修改它的值为AttributeValue, 写一个这样的C#程序
+
+14. 当前项目使用eclipse编辑, 编译, 发布的. tools目录下啊有2个脚本, gen_git_hash.sh是Linux系统下自动获取git当前hash值的脚本, gen_git_hash.bat是Windows系统下自动获取git当前hash值的脚本, 他们都是运行git命令将获取到的hash值写到 git_version.h中. 请问怎么让eclipse的pre-buildstep, 自动根据当前的操作系统选择运行对应的脚本?
+
+15. MaintainAPN窗口, 是用来维护地区, 运营商, 以及根据这2个信息唯一确定一组SIM卡APN参数的, sim卡有2个APN参数, 一个对应公网, 一个对应专网. 对应我的数据库中的3个表 t_SanDong_City, t_ISP_list, t_ShanDongM2M_APN. 
+1. t_SanDong_City 用来维护地区, 表结构为
+CREATE TABLE t_SanDong_City
+(
+    seq  INTEGER PRIMARY KEY AUTOINCREMENT, //主键
+    name TEXT   //城市名, 中文
+);
+
+2. t_ISP_list 用来维护运营商, 表结构为
+CREATE TABLE t_ISP_list
+(
+    seq  INTEGER PRIMARY KEY AUTOINCREMENT, //主键
+    abbr TEXT,  //英文缩写
+    name TEXT   //运营商名, 中文, 比如济南联通, 中国移动, 北京电信等等
+);
+
+3. t_ShanDongM2M_APN 用来维护<城市/地区-运营商>对应的sim卡的APN, 表结构为
+CREATE TABLE t_ShanDongM2M_APN
+(
+    city         INTEGER REFERENCES t_SanDong_City (seq),   //外键
+    public_apn   TEXT,  //sim卡公网APN
+    private_apn  TEXT,  //sim卡专网APN
+    ip_pool      TEXT,  //专网的固定IP地址所在的IP池, 比如 40.112.*.*
+    network_name TEXT,  //用途名称, 比如 "山东国网光伏直采_济南"
+    seq          INTEGER PRIMARY KEY AUTOINCREMENT, //主键
+    isp                  REFERENCES t_ISP_list (seq) //外键
+);
+
+给我开发一个维护上面3个表格的WPF界面, 可以准确且方便的给用户使用

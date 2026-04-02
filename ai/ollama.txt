@@ -1,0 +1,2 @@
+### 管理员身份运行powershell, 安装ollama
+irm https://ollama.com/install.ps1 | iex
