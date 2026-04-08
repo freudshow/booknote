@@ -407,6 +407,9 @@ docker run -it /bin/bash -v /home/floyd/dockermap:/map arm32v7/ubuntu:20.04
 
 docker run -it -v /home/floyd/dockermap:/map arm32v7/ubuntu:16.04
 
+### 3568 创建app
+docker run -d  --privileged  -p 5001:5001 -v /home/sysadm/src:/home/sysadm/src --name nbq01 debian-image:1.0 /home/sysadm/src/e9361app
+
 
 "1、规约增加对E9361-C0配置的判断
 2、将log信息进行分类, 规约报文存放在历史信息中。告警、启机、故障、异常等放到系统日志、系统信息中。"
@@ -3040,3 +3043,9 @@ ps aux |grep e9361app |grep -v grep |awk '{print  $2}'|xargs kill -9
 # 手动运行puAmr和taskManager
 /usr/local/extapps/puAmr/bin/puAmr > /dev/null  2>&1 &
 /usr/local/extapps/taskManager/bin/taskManager > /dev/null  2>&1 &
+
+
+
+if [ $(/bin/ps | /bin/grep e9361app | /bin/grep -v /bin/grep | wc -l) -eq 0 ]; then nohup /home/sysadm/src/e9361app >/dev/null 2>&1 & ; fi
+
+if [ $(/bin/ps | /bin/grep e9361app | /bin/grep -v /bin/grep | wc -l) -eq 0 ]; then echo "no e9361app"; fi
