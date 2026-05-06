@@ -1267,3 +1267,8 @@ AutomaticLoginEnable = true
 AutomaticLogin = floyd
 
 ```
+
+## install zerotier
+```bash
+	curl -s https://install.zerotier.com | sudo bash
+```
