@@ -3049,3 +3049,16 @@ ps aux |grep e9361app |grep -v grep |awk '{print  $2}'|xargs kill -9
 if [ $(/bin/ps | /bin/grep e9361app | /bin/grep -v /bin/grep | wc -l) -eq 0 ]; then nohup /home/sysadm/src/e9361app >/dev/null 2>&1 & fi
 
 if [ $(/bin/ps | /bin/grep e9361app | /bin/grep -v /bin/grep | wc -l) -eq 0 ]; then echo "no e9361app"; fi
+
+如何使休眠不可用
+按下键盘上的 Windows 按钮，打开开始菜单或开始屏幕。
+搜索“cmd”。 在搜索结果中，右键单击“命令提示符”，然后选择“以管理员身份运行”。
+当用户帐户控制提示时，选择“继续”。
+在命令提示符处，键入 powercfg.exe /hibernate off，然后按 Enter。
+键入“exit”，然后按 Enter 关闭“命令提示符”窗口。
+如何使休眠可用
+按下键盘上的 Windows 按钮，打开开始菜单或开始屏幕。
+搜索“cmd”。 在搜索结果中，右键单击“命令提示符”，然后选择“以管理员身份运行”。
+当用户帐户控制提示时，选择“继续”。
+在命令提示符处，键入 powercfg.exe /hibernate on，然后按 Enter。
+键入“exit”，然后按 Enter 关闭命令提示符窗口。
