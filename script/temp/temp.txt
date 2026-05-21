@@ -3062,3 +3062,113 @@ if [ $(/bin/ps | /bin/grep e9361app | /bin/grep -v /bin/grep | wc -l) -eq 0 ]; t
 当用户帐户控制提示时，选择“继续”。
 在命令提示符处，键入 powercfg.exe /hibernate on，然后按 Enter。
 键入“exit”，然后按 Enter 关闭命令提示符窗口。
+
+
+
+参数接口调试，遥控预置合：AA FF FF 0B 00 12 03 00 01 01 00 05 01 60 00 00 7E
+
+AA FF FF 0B 00
+12 // 调试接口
+03 // 遥控接口
+00 // IEC=0
+01 // 单点遥控合
+01 00 //遥控号
+05 //预置继电器合
+01 60 //IEC规约地址 6001
+00 00 // 预留
+7E
+
+
+参数接口调试，遥控合： AA FF FF 0B 00 12 03 00 01 01 00 00 01 60 00 00 7B
+
+AA FF FF 0B 00 
+12 // 调试接口
+03 // 遥控接口
+00 // IEC=0
+01 // 单点遥控合
+01 00 // 遥控号
+00 // 预置：遥控初始化
+01 60 // IEC规约地址 6001
+00 00 // 预留
+7B
+
+
+参数接口调试，撤销预置：AA FF FF 0B 00 12 03 00 00 01 00 06 01 60 00 00 7C
+AA FF FF 0B 00 
+12 // 调试接口
+03 // 遥控接口
+00 // IEC=0
+00 // 遥控初始化
+01 00 // 遥控号
+06 // 预置继电器分
+01 60 // IEC规约地址 6001
+00 00 // 预留
+7C
+
+参数接口调试，遥控分： AA FF FF 0B 00 12 03 00 02 02 00 00 01 60 00 00 7B
+AA FF FF 0B 00 
+12 // 调试接口
+03 // 遥控接口
+00 // IEC=0
+02 // 单点遥控分
+02 00 // 遥控号
+00 // 预置：遥控初始化
+01 60 
+00 00 7B
+
+
+17:14:24.386  发送启动端口监视模式
+
+17:14:24.386  192.168.0.232发送报文：AA FF FF 04 00 05 01 02 00 02
+
+17:14:24.412  接收报文：AA FF FF 03 00 05 01 00 07
+
+17:14:24.412  接收-启动端口监视模式成功
+
+17:14:27.099  发送停止端口监视模式
+
+17:14:27.100  192.168.0.232发送报文：AA FF FF 04 00 05 02 02 00 01
+
+17:14:27.124  接收报文：AA FF FF 03 00 05 02 00 04
+
+17:14:33.948  发送停止端口监视模式
+
+17:14:33.950  192.168.0.232发送报文：AA FF FF 04 00 05 02 02 00 01
+
+
+数学领域他牛（圆周率），
+信号学他也牛（FFmpeg，5G），
+编译原理他也牛（TinyCC），
+虚拟化领域简直是执牛耳者（QEMU），
+更要命的是图形学领域他也牛（TinyGL），
+
+--- BFS Traversal from A ---
+Queue: A
+Visited: A
+current Node: A
+        A -> B (4). Visited B: False.
+        A -> C (2). Visited C: False.
+Queue: B, C
+Visited: A, B, C
+current Node: B
+        B -> A (4). Visited A: True.
+        B -> C (1). Visited C: True.
+        B -> D (5). Visited D: False.
+Queue: C, D
+Visited: A, B, C, D
+current Node: C
+        C -> A (2). Visited A: True.
+        C -> B (1). Visited B: True.
+        C -> D (8). Visited D: True.
+        C -> E (10). Visited E: False.
+Queue: D, E
+Visited: A, B, C, D, E
+current Node: D
+        D -> B (5). Visited B: True.
+        D -> C (8). Visited C: True.
+        D -> E (2). Visited E: True.
+Queue: E
+Visited: A, B, C, D, E
+current Node: E
+        E -> C (10). Visited C: True.
+        E -> D (2). Visited D: True.
