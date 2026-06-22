@@ -44,13 +44,14 @@ ollama run qwen3-coder
     2	        ||
     1	        =
 
-9. 用C#,  .net 9, maui, 开发一个网络助手, 一个串口助手, 一个校验助手(用tab页切换)
+9. 用C#,  .net 10, maui, 开发一个网络助手, 一个串口助手, 一个校验助手(用tab页切换)
 	给我当前的app增加3个页签:
 	1. 网络助手:
 		① 可以作为tcp/udp, server/client, 与指定IP(监听)通信
 		② 有接收报文窗口, 发送报文窗口, 且接收报文窗口的每条报文前面都有毫秒级的时间戳, 接收/发送报文使用不同的颜色
 		③ 可以按照指定周期发送固定的报文
 		④ 可以分别指定发送/接收 16进制或者ASCII码格式报文
+        ⑤ 界面仿照 NetAssist
 	2. 串口调试助手:
 		① 可动态监控当前电脑的有效串口名, 支持串口设备热插拔
 		② 其余功能与网络调试助手一致
@@ -176,3 +177,10 @@ ____|_____|_Node Id=14
 
 
 http://100.121.144.126/api/tags
+
+21. 用C#,  .net 10, maui, 开发一个SSH终端程序，界面仿照windterm，可以方便的自定义命令，右边侧边栏有终端列表管理；左边侧边栏有SFTP文件管理；可以记住用户执行过的命令，命令历史可设置，默认1000条
+
+22. 我想把用户设计的流程图，看成是一个类似于C语言的编程语句。输入类、输出类元器件，可以看成是寄存器/临时变量；逻辑类、算术器件（除了算术长表达式外）、比较类元器件，都可以看成C语言中的算术表达式；控制类（目前只有IF），可以看成C语言的if-else, while, for, do-while, switch-case等控制语句；请用编译器理论、图论等方法，将用户设计的流程图，排序（NextID，或者IF的TrueNextID-FalseNextID）尤为重要，因为嵌入式软件是根据NextID来决定下一个元器件的处理。
+
+23. using C language to implemente a script language, support virtual machine and byte code. support arithematic calculate, logical operations, bit-wise operations(same as C language), if-else, function call, while, for, variable delare, and sopport RealDataBase(using format #integer like #32 means the 32th realdatabase dataItem, and #(linkNo, devNo, regNo) like #(3, 45, 12) means linkNo-3, devNo-45, regNo-12 dataItem, and realdatabase item's GetValueByRealNo(), SetValueByRealNo(), GetValueByLinkDevReg(), SetValueByLinkDevReg() are my Own implementations) references.
+using context free grammer and recursive desend parsing.

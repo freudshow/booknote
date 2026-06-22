@@ -1,0 +1,313 @@
+I'll walk through `bc.y` top-to-bottom and explain each section and important lines; I'll group related lines together to keep this readable while still covering every part of the file.
+
+Checklist
+- Read the grammar file and its C prologue — Done.
+- Explain each declaration, token, precedence, and grammar rule plus the semantic actions — Will do below.
+- Highlight the custom flags/macros and how expressions are encoded — Done.
+
+Top comment / license block
+- Lines at the top (the big /* ... */): standard GNU bc file header: copyright, GPL license terms, contact info, and brief module description. It's legal and documentation metadata and has no effect on the parser.
+
+File purpose comment
+- "bc.y: The grammar for a POSIX compatable bc processor..." — documents that this Yacc/Bison grammar implements a POSIX-compatible bc with extensions (the list is shown). This explains design choices and extensions compared to pure POSIX bc.
+
+Bison prologue: %{ ... %}
+- %{ and %} delimit the C prologue inserted verbatim into the generated parser source.
+- #include "bcdefs.h", "global.h", "proto.h": include headers that declare data structures, globals, and function prototypes used in semantic actions below.
+- int cur_func = -1; — a C variable holding the current function number (index). Initialized to -1 when not inside a function.
+- The EX_* #define values:
+  - EX_ASSGN 0
+  - EX_REG   1
+  - EX_COMP  2
+  - EX_PAREN 4
+  - EX_VOID  8
+  - EX_EMPTY 16
+  These are bit flags (except EX_ASSGN = 0) used to encode properties of expressions returned by grammar rules (see the later comment on expression lval meanings). They help semantic actions detect assignment vs. non-assignment, comparisons in an expression, parenthesized expression, void expressions, and empty optional expressions.
+
+%start program
+- Tells Bison that the top-level nonterminal is `program`.
+
+%union { ... }
+- Declares the semantic value union used by the parser (`yylval` / $$ / $n).
+- Fields:
+  - char *s_value; — strings (e.g., NUMBER token text, NAME, REL_OP)
+  - char c_value; — single-character tokens (e.g., ASSIGN_OP, operator chars)
+  - int i_value; — integer-valued tokens/symbols (token codes used for keyword tokens)
+  - arg_list *a_value; — pointer used for lists of arguments/parameters
+
+Block comment: "Extensions over POSIX bc"
+- Documents language extensions implemented in this grammar: longer names, boolean operators && || !, else in if, call-by-variable-array, read(), halt, continue, optional for expressions, print/warranty/limits statements, void functions, etc.
+
+%token declarations
+- %token <i_value> ENDOFLINE AND OR NOT
+  - Declares tokens ENDOFLINE, AND, OR, NOT carrying an int in i_value.
+- %token <s_value> STRING NAME NUMBER
+  - STRING: string literal token; NAME: identifier text; NUMBER: numeric literal text; stored in s_value.
+- Comment: '-' and '+' etc. are tokens themselves — they are handled by Bison as literal tokens rather than named tokens.
+- %token <c_value> ASSIGN_OP
+  - ASSIGN_OP holds a char (operators like '=', '+=', etc.); the lexical analyzer will return this token with the char representation.
+- %token <s_value> REL_OP
+  - Relational operators like '==', '<=', '!=', etc. are returned as a string in s_value.
+- %token <c_value> INCR_DECR
+  - INCR_DECR holds the char for ++ or -- (so probably '+' or '-' stored).
+- Keyword tokens for language keywords:
+  - e.g., %token <i_value> Define Break Quit Length — these tokens carry integer codes (i_value) identifying the keyword (used in switch-like logic in actions).
+  - More keywords: Return For If While Sqrt Else, Scale Ibase Obase Auto Read Random, Warranty Halt Last Continue Print Limits, HistoryVar Void
+- These tokens let the lexer distinguish reserved words from names.
+
+%type declarations
+- Giving semantic types for nonterminals:
+  - expression, return_expression, named_expression, opt_expression -> <i_value> (they return integer flags described earlier).
+  - '+' '-' '*' '/' '%' -> <c_value> (operators carry char)
+  - opt_parameter_list, opt_auto_define_list, define_list -> <a_value> (argument/define lists)
+  - opt_argument_list, argument_list -> <a_value>
+  - program, input_item, semicolon_list, statement_list, statement, function, statement_or_error, required_eol -> <i_value>
+  - opt_void -> <i_value>
+
+Precedence directives
+- %left OR
+- %left AND
+- %nonassoc NOT
+- %left REL_OP
+- %right ASSIGN_OP
+- %left '+' '-'
+- %left '*' '/' '%'
+- %right '^'
+- %nonassoc UNARY_MINUS
+- %nonassoc INCR_DECR
+These define operator precedence and associativity for disambiguation. NOT and UNARY_MINUS are non-associative; '^' is right-associative (typical bc behavior).
+
+%% — Start of grammar rules
+
+program
+- Two alternatives:
+  - empty production: sets $$ = 0; and if interactive && !quiet show version and welcome. So at startup in interactive mode print version/welcome.
+  - program input_item: repeat input items.
+
+input_item
+- semicolon_list ENDOFLINE { run_code (); }
+  - parse a group of statements (semicolon_list) followed by end-of-line; then code generation is run (`run_code ()`).
+- function { run_code (); } — a function definition is a top-level input item and triggers run_code.
+- error ENDOFLINE { yyerrok; init_gen (); }
+  - On parse error up to end-of-line: call yyerrok (recover), and init_gen() to reset code generation state.
+
+opt_newline
+- empty, or ENDOFLINE with ct_warn "newline not allowed" — optional newline used in certain places and warns if present.
+
+semicolon_list
+- empty { $$ = 0; }
+- statement_or_error
+- semicolon_list ';' statement_or_error
+- semicolon_list ';'
+Gathers statements separated by semicolons. Empty returns 0.
+
+statement_list
+- Several variants handling lists with optional ENDOFLINE or semicolons. Used for blocks.
+
+statement_or_error
+- Either a statement or error statement { $$ = $2; } — error recovery wrapper.
+
+statement
+This is a big rule with many alternatives, each with semantic actions. I'll explain each alternative's behavior and action:
+
+- Warranty { warranty (""); }
+  - A `Warranty` keyword invokes function `warranty("")`.
+
+- Limits { limits (); }
+  - `Limits` prints processor limits via limits().
+
+- expression
+  - If the expression has EX_COMP flag, warn about comparison in expression.
+  - If EX_REG flag is set, generate "W" (presumably write/print top of stack without trailing newline?); else generate "p".
+  - So plain expressions cause printing or evaluation code generation.
+
+- STRING
+  - Generate a string printing action: generate "w", then the string, free string.
+
+- Break
+  - If break_label == 0: error "Break outside a for/while". Else create label code "J%1d:" of break_label and generate it. So break generates jump to break_label.
+
+- Continue
+  - ct_warn("Continue statement"); check continue_label; produce label "J%1d:" to jump to continue location.
+
+- Quit
+  - Call bc_exit(0) to exit program.
+
+- Halt
+  - generate "h" — code for halting.
+
+- Return return_expression
+  - generate "R" — return action.
+
+- For ... complex
+  - This is the for-loop with three expressions: first; second; third.
+  - The actions manipulate break_label and continue_label, generate labels (N, B, J), and check for void/comparison errors. They produce code sequences for initialization, condition, iteration, and loop body. Lots of label bookkeeping: next_label used to create unique labels; stored in $ variables and formatted into genstr to pass to generate().
+
+- If '(' expression ')' opt_newline statement opt_else
+  - Manage if_label; warn/raise for void expressions; generate Z and N labels (Z for conditional jump, N for end). if_label bookkeeping ensures matching else region jumps.
+
+- While '(' expression ')' opt_newline statement
+  - Manage continue_label and break_label and generate N and Z labels to implement while loop control.
+
+- '{' statement_list '}' { $$ = 0; }
+  - Block: returns 0.
+
+- Print print_list
+  - ct_warn("print statement"); print_list processes strings and expressions.
+
+print_list / print_element
+- print_element handles STRING (generate "O" + string) or expression (ensure non-void, generate "P").
+
+opt_else
+- Either empty or Else opt_newline statement with actions to warn and generate jump labels to implement else; uses ct_warn and generate to make branching code.
+
+function
+- Define opt_void NAME '(' opt_parameter_list ')' opt_newline '{' required_eol opt_auto_define_list
+  - First action chunk:
+    - check_params($5,$10); create params and autos strings via arg_str; set_genstr_size to allocate genstr space.
+    - cur_func = lookup($3,FUNCTDEF); find/allocate function index.
+    - snprintf(genstr, genlen, "F%d,%s.%s[", cur_func, params, autos); generate(genstr);
+    - record functions[cur_func].f_void = $2 (opt_void value).
+    - free_args($5), free_args($10)
+    - $1 = next_label; next_label = 1; — saves outer next_label and resets label numbering inside function.
+  - statement_list '}' action:
+    - generate("0R]"); next_label = $1; cur_func = -1; — finalize function code, reset state.
+
+opt_void
+- empty { $$ = 0; } or Void { $$ = 1; ct_warn("void functions"); } — marks function as void and warns.
+
+opt_parameter_list / opt_auto_define_list / define_list
+- define_list builds parameter and auto lists.
+- NAME -> nextarg(NULL, lookup($1,SIMPLE), FALSE) — create arg_list node by looking up symbol.
+- NAME '[]' -> lookup(..., ARRAY)
+- '*' NAME '[]' and '&' NAME '[]' -> lookup(..., ARRAY) with TRUE flag to mark call-by-variable-array and a warning (ct_warn).
+- define_list ',' ... allows building comma-separated lists.
+- opt_auto_define_list allows an `Auto` followed by define_list terminating in ENDOFLINE or ';'.
+
+opt_argument_list / argument_list
+- argument_list parses a comma-separated list of arguments passed to functions.
+- expression as argument: checks for comparisons/voids, then nextarg(NULL,0,FALSE) — placeholder.
+- NAME '[]' as argument: generates "K%d:" with negative lookup id (some convention to mark arrays), then nextarg(...,1,FALSE).
+- The actions generate code for array arguments.
+
+Comment about expression lval meanings
+- The earlier EX_ macros explained again: bits meaning for expression properties used throughout semantic actions.
+
+opt_expression
+- empty: set $$ = EX_EMPTY, ct_warn("Missing expression in for statement")
+- expression: returns expression flags.
+
+return_expression
+- empty: $$=0; generate("0"); error if not in function.
+- expression: checks and warns about comparisons and parenthesis requirements, error if in void function or outside function.
+
+expression (very large)
+- Many alternatives; each carries semantics and code generation via generate(...) and format strings in genstr. Important cases:
+
+Assignment:
+- named_expression ASSIGN_OP expression
+  - If ASSIGN_OP is not simple '=' then generate pre-operator handling for += etc.
+  - Check that RHS isn't assignment or void.
+  - Generate operator char if compound assignment.
+  - Generate store S## or s## (depending on named_expression sign) — uses negative numbers to distinguish array vs simple variable (convention used in the rest).
+  - Return EX_ASSGN
+
+Logical AND/OR:
+- expression AND expression
+  - Warn about && and uses labels and jumps (DZ and p instructions) to implement short-circuit semantics; checks for voids and generates combined flags.
+- expression OR expression
+  - Similar but for ||; uses B labels and generates sequence with J and N labels.
+
+NOT:
+- NOT expression:
+  - Checks void, generates "!" and returns flags w/o EX_PAREN, warns.
+
+Comparisons:
+- expression REL_OP expression
+  - Checks voids, sets $$ = EX_REG | EX_COMP, and switches on first character of REL_OP string to choose generate output:
+    - '=' -> "="
+    - '!' -> "#" (negation)
+    - '<' or '<=' -> "<" or "{"
+    - '>' or '>=' -> ">" or "}"
+  - free($2) — free the allocated REL_OP string.
+
+Arithmetic operators:
+- + - * / % ^: check for voids, generate the corresponding operator symbol strings; set return flags merging operand flags, clearing EX_PAREN.
+
+Unary minus:
+- '-' expression %prec UNARY_MINUS:
+  - check void, generate "n", propagate flags without EX_PAREN.
+
+named_expression (used as value)
+- On visiting named_expression as an expression, set $$ = EX_REG and generate a load instruction:
+  - If $1 < 0 -> "L%d:" with -$1 (likely array indirect load), else "l%d:".
+  - So named_expression returns an identifier index (positive for simple var, negative for array tag).
+
+NUMBER
+- Convert numeric literal string $1:
+  - If single-digit '0' -> generate "0"
+  - If single-digit '1' -> generate "1"
+  - Else generate "K" then the number string then ":" to push constant K.
+  - free($1)
+
+Parentheses:
+- '(' expression ')' -> if inner EX_VOID error; $$ = $2 | EX_REG | EX_PAREN.
+
+Function calls:
+- NAME '(' opt_argument_list ')'
+  - fn = lookup($1,FUNCT)
+  - If the function is void (functions[fn].f_void) set $$ = EX_VOID else EX_REG.
+  - If there are arguments, build a parameter string via call_str($3), set genstr size accordingly, snprintf("C%d,%s:", fn, params) and free_args($3); else snprintf("C%d:", fn).
+  - generate(genstr) to call function.
+
+Prefix and postfix ++/--:
+- INCR_DECR named_expression (prefix)
+  - Create instructions to increment/decrement variable in place and return EX_REG.
+  - Uses different instruction sequences for arrays (negative indices) vs simple variables.
+- named_expression INCR_DECR (postfix)
+  - For arrays uses "DL%d:x" and then "A%d:" or "M%d:" to implement post-inc/post-dec semantics.
+  - For simple vars loads "l%d:" then generate "i%d:" or "d%d:".
+
+Built-in functions:
+- Length '(' expression ')': generate "cL" (builtin length), set EX_REG.
+- Sqrt '(' expression ')': generate "cR".
+- Scale '(' expression ')': generate "cS".
+- Read '(' ')' : warn, generate "cI".
+- Random '(' ')' : warn, generate "cX".
+- All check for void expression arguments where relevant.
+
+named_expression nonterminals
+- NAME -> $$ = lookup($1,SIMPLE); lookup returns identifier index; positive/negative convention appears in the code.
+- NAME '[' expression ']' -> if subscript void error, warning for comparison in subscript; $$ = lookup($1,ARRAY) — note it does not combine subscript offset into returned index; the subscript presumably emitted/consumed in expression actions elsewhere.
+- Ibase / Obase / Scale / HistoryVar / Last
+  - These are named special variables: Ibase -> $$=0; Obase -> 1; Scale -> 2; HistoryVar -> 3; Last -> 4. For HistoryVar and Last warnings are given.
+
+required_eol
+- Used to enforce a required end of lines in function definitions: either calls ct_warn if none; accepts ENDOFLINE and multiple ENDOFLINEs produce warning "Too many end of lines".
+
+%% — end of grammar
+
+General notes about semantic functions used throughout (not defined here):
+- generate(char *): append the given code fragment (a small instruction string) into the generated intermediate representation / bytecode.
+- ct_warn(char *): emit a compile-time warning.
+- yyerror, yyerrok: standard Bison error handling.
+- lookup(name, kind): find or create symbol table entry, returning an integer id (positive for simple vars, negative for arrays? The code often uses negative to test array case).
+- nextarg/arg_str/free_args: manage lists of parameters/arguments.
+- check_params: validate parameter lists.
+- functions[] array: holds function metadata (e.g., f_void).
+- genstr, genlen, set_genstr_size: buffer used to build generated instruction strings.
+
+Encoding conventions observed
+- Many generated strings are concise single-letter or short tokens interpreted by the bc code generator / VM: e.g., "p", "W", "w", "K...:", "l%d:", "s%d:", "L%d:", "S%d:", "C%d:...", "F%d,...[", "0R]" — those form the compiled representation of the bc program.
+- Label names use prefixes: N, J, B, Z, DZ, etc., combined with numbers and colons to mark jump points.
+
+Summary
+- `bc.y` is a fairly standard Bison grammar implementing bc's syntax plus extended features. Tokens are lexed by a separate lexer, and semantic actions produce an internal code sequence via generate() and manage parser/compiler state (labels, functions, argument lists, warnings/errors).
+- Expression flags (EX_*) are central: they propagate properties about whether an expression is an assignment, contains comparisons, is parenthesized, is void, or is an empty optional expression — and many actions make decisions depending on these flags.
+
+If you'd like, I can:
+- Produce an annotated version of the file with inline comments next to each rule (I won't modify your file unless you ask).
+- Trace what code is generated for small example inputs (e.g., "a=1; print a").
+- Explain any particular function used in actions (like generate, lookup, nextarg) by finding their definitions in the repo.
+
+Which follow-up would you prefer?

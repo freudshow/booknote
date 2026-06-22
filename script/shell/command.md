@@ -1272,3 +1272,31 @@ AutomaticLogin = floyd
 ```bash
 	curl -s https://install.zerotier.com | sudo bash
 ```
+
+## windterm fcitx5
+
+cat windterm.desktop:
+
+```bash
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=windterm
+Comment=Run windterm
+Exec=env GTK_IM_MODULE=fcitx QT_IM_MODULE=fcitx XMODIFIERS=@im=fcitx /home/floyd/soft/WindTerm_2.7.0/WindTerm
+Terminal=false
+Type=Application
+Icon=/home/floyd/soft/WindTerm_2.7.0/windterm.png
+StartupNotify=true
+MimeType=application/x-ipynb+json;
+Categories=Development;Education;
+Keywords=windterm;
+Name[zh_CN]=windterm
+
+```
+
+## restart hostname resolv
+
+```bash
+    # If using NetworkManager, restart it too
+    sudo systemctl restart NetworkManager
+```

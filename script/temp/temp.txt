@@ -3142,33 +3142,51 @@ AA FF FF 0B 00
 虚拟化领域简直是执牛耳者（QEMU），
 更要命的是图形学领域他也牛（TinyGL），
 
---- BFS Traversal from A ---
-Queue: A
-Visited: A
-current Node: A
-        A -> B (4). Visited B: False.
-        A -> C (2). Visited C: False.
-Queue: B, C
-Visited: A, B, C
-current Node: B
-        B -> A (4). Visited A: True.
-        B -> C (1). Visited C: True.
-        B -> D (5). Visited D: False.
-Queue: C, D
-Visited: A, B, C, D
-current Node: C
-        C -> A (2). Visited A: True.
-        C -> B (1). Visited B: True.
-        C -> D (8). Visited D: True.
-        C -> E (10). Visited E: False.
-Queue: D, E
-Visited: A, B, C, D, E
-current Node: D
-        D -> B (5). Visited B: True.
-        D -> C (8). Visited C: True.
-        D -> E (2). Visited E: True.
-Queue: E
-Visited: A, B, C, D, E
-current Node: E
-        E -> C (10). Visited C: True.
-        E -> D (2). Visited D: True.
+
+14:04:47.564  发送分支固有信息查询
+
+14:04:47.573  192.168.0.232发送报文：AA FF FF 03 00 07 01 00 05
+
+14:04:47.601  接收报文：AA FF FF 2B 00 07 01 00 56 31 2E 30 30 2E 30 32 00 00 56 33 2E 30 30 2E 32 31 00 00 53 56 30 31 2E 30 32 00 00 00 53 56 30 33 2E 30 32 31 00 00 1D
+
+14:04:47.602  接收-分支固有信息查询成功 内部硬件版本号：V1.00.02 内部软件版本号：V3.00.21 外部硬件版本号：SV01.02 外部软件版本号：SV03.021
+
+MD5: f41af0ad59ecf96d7f397a58964e1024
+
+
+宁夏 D300E0193092202509150864;  192.168.10.137; route add -host 192.168.100.3 dev usb0
+
+tb14+ rustdesk: 1398918907
+
+
+### 软件发布流程
+
+#### 程序说明
+1.版本说明
+    适用E9361-A0装置的生产调试及工程现场
+2.更新说明
+    2.1、增加零序CT设置和读取。
+    2.2、bug修改：w5500作tcp服务器，建立连接时，清空发送缓冲区。
+    2.3、修正ModBus规约的crc校验bug。
+
+
+#### 程序影响分析
+1、软件版本影响分析
+    此版本程序增加了零序电压CT设置和读取、修正w5500的TCP服务器bug、修正ModBus规约的crc校验bug等问题。
+    该问题会影响现场，版本范围包括V3.03.45，以及以前的版本，问题版本必须更换。
+2、产品软件版本控制方案
+1）厂内控制
+    半成品/成品在制：在制数量80台，必须更换
+2）厂外控制
+    现场未安装：云南地区，必须更换
+    现场已安装：云南地区，必须更换
+
+
+E9361-A0装置程序
+V4.01.01
+FB 1C
+栾晓亮、吕春生
+http://172.20.88.241/svn/E9361BM/tests/E9361BM/E9361-A0/v4.00.01_蓝图程序/release
+
+windows 11 专业版序列号
+XWHF9-NJ9MR-7KKR3-PRWGG-WXCKG
