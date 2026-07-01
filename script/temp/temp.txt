@@ -3190,3 +3190,117 @@ http://172.20.88.241/svn/E9361BM/tests/E9361BM/E9361-A0/v4.00.01_蓝图程序/re
 
 windows 11 专业版序列号
 XWHF9-NJ9MR-7KKR3-PRWGG-WXCKG
+
+
+### TLCP 生成证书请求文件命令
+
+root@OpenWrt:~#
+开始一键生成所有证书文件...
+Exe cmd:   cd /data
+Exe cmd:   cd /data
+root@OpenWrt:/data# root@OpenWrt:/data# 
+Exe cmd:   mkdir -p /data/tlcp
+root@OpenWrt:/data# 
+Exe cmd:   cd /data
+Exe cmd:   mkdir -p /data/tlcp
+root@OpenWrt:/data# root@OpenWrt:/data# 
+Exe cmd:   chmod 777 -R /data/tlcp
+Exe cmd:   cd /data
+root@OpenWrt:/data# root@OpenWrt:/data# 
+
+Exe cmd:   mkdir -p /data/tlcp
+Exe cmd:   chmod 777 -R /data/tlcp
+
+Exe cmd:   cd /data/tlcp
+所有证书文件生成完成！
+root@OpenWrt:/data# root@OpenWrt:/data# root@OpenWrt:/data/tlcp# 
+Exe cmd:   mkdir -p /data/tlcp
+root@OpenWrt:/data/tlcp# 
+Exe cmd:   chmod 777 -R /data/tlcp
+
+Exe cmd:   cd /data/tlcp
+root@OpenWrt:/data/tlcp# 
+正在生成签名密钥对...
+Exe cmd:   gmssl sm2keygen -pass 123456 -out sign_key.pem -pubout sign_pub.pem
+root@OpenWrt:/data/tlcp# 
+Exe cmd:   chmod 777 -R /data/tlcp
+
+Exe cmd:   cd /data/tlcp
+
+正在生成加密密钥对...
+
+Exe cmd:   gmssl sm2keygen -pass 123456 -out enc_key.pem -pubout enc_pub.pem
+
+Exe cmd:   cd /data/tlcp
+
+正在生成签名证书请求...
+Exe cmd:   gmssl reqgen -key sign_key.pem -pass 123456 -C CN -ST Shandong -L Yantai -O DFE_Growatt -OU Yantai -CN 40.216.2.43 -SN 202602061616 -out sign_req.csr
+
+root@OpenWrt:/data/tlcp# root@OpenWrt:/data/tlcp# root@OpenWrt:/data/tlcp# 
+正在生成加密证书请求...
+Exe cmd:   gmssl reqgen -key enc_key.pem -pass 123456 -C CN -ST Shandong -L Yantai -O DFE_Growatt -OU Yantai -CN 40.216.2.43 -SN 202602061616 -out enc_req.csr
+
+
+SSH连接成功！
+开始导入证书文件...
+Exe cmd:   mkdir -p /data/tlcp
+
+
+BusyBox v1.36.1 (2025-08-27 07:29:03 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 24.10-SNAPSHOT, r0-996dd43
+ -----------------------------------------------------
+OW24.10_asr1803a7600_rls1536_1.057.081_20250827_07_58_bld29_SDK_FOR1828
+-----------------------------------------------------
+root@OpenWrt:~# root@OpenWrt:~# 
+Exe cmd:   chmod 777 -R /data/tlcp
+root@OpenWrt:~# 
+正在上传 sign_cert.pem 到设备...
+正在上传文件: D:\repo\dfe\LinuxApp\C0相关文档\C0现场文件\烟台直采直控\栖霞站-王凯\3700854665338_20260627_dongfangdianzi\40.216.2.28\40.216.2.28_20260627_dongfangdianzi\sign_cert.pem -> /data/tlcp/sign_cert.pem
+文件上传完成
+文件上传成功！
+正在更新证书链...
+Exe cmd:   cd /data/tlcp && cat sign_cert.pem > cert_chain.pem
+root@OpenWrt:/data/tlcp# 
+证书链更新完成！
+成功导入证书文件 sign_cert.pem 并更新证书链
+正在打包tlcp目录...
+Exe cmd:   cd /home && tar -czvf tlcp.tar.gz ./tlcp
+./tlcp/
+./tlcp/sign_cert.pem
+./tlcp/sign_key.pem
+./tlcp/sign_req.csr
+./tlcp/enc_pub.pem
+./tlcp/cert_chain.pem
+./tlcp/enc_key.pem
+./tlcp/enc_req.csr
+./tlcp/sign_pub.pem
+root@OpenWrt:/home# 
+tlcp目录打包完成！
+
+### 华为逆变器读取遥测数据及遥调有功功率
+01 03 7D 45 00 11 8C 7F
+
+01 03 1E 56 32 30 30 52 30 32 33 43 30 30 53 50 43 31 32 39 00 00 00 00 00 00 00 00 00 00 00 00 00 3E 5B 
+
+01 06 9D 07 01 2C 17 EA //40199
+
+01 06 9C BD 00 28 37 A0 //40125
+
+01 06 9C B8 00 64 26 54 //40120
+
+wget -c https://lf-cdn.trae.com.cn/obj/trae-com-cn/pkg/cli/releases/v0.120.42/trae-cli-linux-amd64 -O ~/.local/bin/trae
+
+https://lf-cdn.trae.com.cn/obj/trae-com-cn/trae-cli/trae-cli_0.120.42_linux_amd64.tar.gz
+
+## 职称评审
+http://sdld.zyk.yxlearning.com/index
+http://117.73.255.69:9080/
+https://117.73.253.239:9000/sdzc-web-ui/business/login/login.html
+http://119.45.112.196/

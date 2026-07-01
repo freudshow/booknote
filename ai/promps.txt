@@ -184,3 +184,9 @@ http://100.121.144.126/api/tags
 
 23. using C language to implemente a script language, support virtual machine and byte code. support arithematic calculate, logical operations, bit-wise operations(same as C language), if-else, function call, while, for, variable delare, and sopport RealDataBase(using format #integer like #32 means the 32th realdatabase dataItem, and #(linkNo, devNo, regNo) like #(3, 45, 12) means linkNo-3, devNo-45, regNo-12 dataItem, and realdatabase item's GetValueByRealNo(), SetValueByRealNo(), GetValueByLinkDevReg(), SetValueByLinkDevReg() are my Own implementations) references.
 using context free grammer and recursive desend parsing.
+
+24. 将openssh交叉编译到我的嵌入式设备。我的嵌入式设备的CPU是imx.6ull(contexA7)，文件系统是busybox，操作系统是"Linux fl-imx6ull 4.1.15 #7 SMP PREEMPT Tue May 7 18:48:12 PDT 2024 armv7l GNU/Linux", 交叉编译工具链是 arm-linux-gnueabihf-gcc, 要求编译出来的程序(ssh, sftp, scp等)是静态链接的，以免出现libc库文件依赖问题
+
+当前目录下有3个软件包, 我要用命令arm-linux-gnueabihf-gcc,将openssh中的ssh,scp,sftp等命令,交叉编译进我的contex-a7(imx.6ul)平台, 嵌入式平台的操作系统是 "Linux fl-imx6ull 4.1.15 #7 SMP PREEMPT Tue May 7 18:48:12 PDT 2024 armv7l GNU/Linux", 请静态连接所有的程序,并且我的嵌入式程序要放在 /sbin 目录下, 所以编译时为scp, sftp等命令指定ssh的安装路径为 /sbin。 所有的软件包都解压到当前目录的对应子目录里，安装文件放在opensshinstall.imx.6ul目录里。
+
+25. 我现在有台终端, ip是192.168.0.232, 里面安装linux, 有ssh scp sftp工具, 想远程连接192.168.0.96的终端, 给96这个终端升级程序, 上传配置文件, 然后运行一些升级命令, 要在232这个终端运行什么命令. 新登陆一个终端时, 232里的ssh会提示是否保存这个host, 而且要输入用户名和密码, 这一步怎么做到自动接受和自动输入用户名密码. sftp登陆和传输文件时也要做到自动传输文件

@@ -8,11 +8,11 @@
 demofun(){
     for file in `ls $1`
     do
-        if test -f $file
+        if test - f $file
         then
             echo "file:  $file"
-            dpkg -x $file . #需要执行的命令，这里解包deb文件
-        elif test -d $file
+            dpkg - x $file . #需要执行的命令，这里解包deb文件
+        elif test - d $file
         then
             echo "path: $file"
         fi
@@ -22,3 +22,41 @@ demofun(){
 path="/home/work/xxx/xxx"
 demofun $path
 ```
+
+## 常见 Terminal 快捷键
+
+在 Linux 终端中，你可以使用以下快捷键来移动光标和进行其他常见操作。这些快捷键通常适用于 Bash shell 和其他大多数常见的 shell：
+
+1. 光标移动
+ - Ctrl + A：移动光标到行首。
+ - Ctrl + E：移动光标到行尾。
+ - Ctrl + B：向左移动光标一个字符。
+ - Ctrl + F：向右移动光标一个字符。
+ - Alt + B：向左移动光标一个词。
+ - Alt + F：向右移动光标一个词。
+
+1. 删除文本
+ - Ctrl + D：删除光标所在位置的字符。
+ - Ctrl + H：删除光标前面的字符（和 Backspace 键相同）。
+ - Ctrl + W：删除光标前一个词。
+ - Alt + D：删除光标后的一个词。
+ - Ctrl + K：删除从光标到行尾的所有字符。
+ - Ctrl + U：删除从光标到行首的所有字符。
+
+1. 文本操作
+ - Ctrl + Y：粘贴（yank）最后一次被删除的文本。
+ - Alt + .：插入上一个命令的最后一个参数。
+
+1. 其他
+ - Ctrl + L：清屏（相当于 clear 命令）。
+ - Ctrl + R：反向搜索命令历史。
+ - Ctrl + C：终止当前正在运行的命令。
+ - Ctrl + Z：暂停当前正在运行的命令并放入后台（使用 fg 恢复）。
+ - Ctrl + P：向上查看命令历史。
+ - Ctrl + N：向下查看命令历史。
+
+1. 此外，macOS 系统还支持一些特定的快捷键：
+ - Cmd + K：清除终端屏幕内容。
+ - Option + Click：将光标移动到点击的位置。
+ - Cmd + Left Arrow：移动光标到行首。
+ - Cmd + Right Arrow：移动光标到行尾。

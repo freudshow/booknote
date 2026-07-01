@@ -1300,3 +1300,76 @@ Name[zh_CN]=windterm
     # If using NetworkManager, restart it too
     sudo systemctl restart NetworkManager
 ```
+
+## debian 13 运行`arm-none-linux-gnueabihf-gdb`的错误
+
+```
+# 报错找不到动态链接库 libncursesw.so.5
+sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libncursesw.so.5
+
+# 报错找不到动态链接库 libtinfo.so.5
+sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+
+# 报错找不到动态链接库
+# error while loading shared libraries: libpython3.6m.so.1.0: cannot open shared object file: No such file or directory
+# 则需要下载python3.6的源代码，编译安装：
+
+#!/bin/bash
+# 设置脚本的严格模式：遇到错误立即退出(e)、使用未定义变量报错(u)、管道中任一命令失败则整体失败(pipefail)
+set -euo pipefail
+
+# 定义需要安装的 Python 版本号
+PYTHON_VERSION="3.6.15"
+# 定义安装路径：优先使用脚本的第一个参数($1)，如果未提供则默认安装到 /opt/python3.6
+PREFIX="${1:-/opt/python3.6}"
+# 获取当前脚本所在目录的绝对路径，用于存放源码包和源码目录
+TARBALL_DIR="$(cd "$(dirname "$0")" && pwd)"
+# 拼接源码解压后的目录路径
+SRC_DIR="$TARBALL_DIR/Python-$PYTHON_VERSION"
+# 拼接源码压缩包的文件路径
+TARBALL="$TARBALL_DIR/Python-$PYTHON_VERSION.tar.xz"
+
+# 检查当前目录下是否已经存在源码压缩包
+if [ -f "$TARBALL" ]; then
+    echo "[*] Extracting $TARBALL ..."
+    # 如果存在，则直接解压压缩包到当前脚本所在目录
+    tar -xf "$TARBALL" -C "$TARBALL_DIR"
+fi
+
+# 检查源码目录是否不存在（即既没有解压过，也没有下载过）
+if [ ! -d "$SRC_DIR" ]; then
+    echo "[*] Downloading Python $PYTHON_VERSION ..."
+    # 从 Python 官方 FTP 站点静默下载指定版本的源码包，并保存为 $TARBALL
+    wget -q "https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tar.xz" -O "$TARBALL"
+    # 下载完成后，解压源码包
+    tar -xf "$TARBALL" -C "$TARBALL_DIR"
+fi
+
+# 切换到源码目录，后续的配置和编译都需要在此目录下进行
+cd "$SRC_DIR"
+
+echo "[*] Configuring with --enable-shared (prefix=$PREFIX) ..."
+# 运行配置脚本：--prefix 指定安装目录，--enable-shared 强制生成共享库（某些打包工具如 PyInstaller 必需）
+./configure --prefix="$PREFIX" --enable-shared
+
+echo "[*] Building ..."
+# 编译源码：-j$(nproc) 表示使用系统所有的 CPU 核心进行并行编译，大幅缩短编译时间
+make -j"$(nproc)"
+
+echo "[*] Installing ..."
+# 将编译好的文件安装到前面配置的 PREFIX 目录中
+make install
+
+echo "[*] Configuring dynamic linker ..."
+# 将新安装的 Python 库路径写入系统的动态链接库配置文件
+echo "$PREFIX/lib" > /etc/ld.so.conf.d/python3.6.conf
+# 更新系统的动态链接库缓存，使系统能够找到新安装的 libpython3.6m.so
+ldconfig
+
+echo "[+] Done. Python $PYTHON_VERSION installed to $PREFIX"
+# 验证安装是否成功：调用新安装的 Python 解释器打印版本号
+"$PREFIX/bin/python3.6" --version
+
+# 由于脚本中包含了 ldconfig 和写入 /etc/ld.so.conf.d/ 的操作，这两步需要 root 权限。在实际运行时，建议使用 sudo bash script.sh 来执行该脚本
+
+```
