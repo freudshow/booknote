@@ -3304,3 +3304,17 @@ http://sdld.zyk.yxlearning.com/index
 http://117.73.255.69:9080/
 https://117.73.253.239:9000/sdzc-web-ui/business/login/login.html
 http://119.45.112.196/
+https://yt.tyjrpx.com
+
+## opencode 配置文件位置
+/home/floyd/.config/opencode/opencode.json
+
+ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.0.232
+
+http://100.85.96.21/pgadmin4
+
+        internal static bool IsControlElement(IElementModel element)
+        {
+            return element != null && (element.Type == ElementTypes.IF || element.Type == ElementTypes.WHILE ||
+                   element.Type == ElementTypes.FOR || element.Type == ElementTypes.SWITCH || element.Type == ElementTypes.DO_WHILE);
+        }

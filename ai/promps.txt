@@ -105,88 +105,226 @@ to:
 
 14. 当前项目使用eclipse编辑, 编译, 发布的. tools目录下啊有2个脚本, gen_git_hash.sh是Linux系统下自动获取git当前hash值的脚本, gen_git_hash.bat是Windows系统下自动获取git当前hash值的脚本, 他们都是运行git命令将获取到的hash值写到 git_version.h中. 请问怎么让eclipse的pre-buildstep, 自动根据当前的操作系统选择运行对应的脚本?
 
-15. MaintainAPN窗口, 是用来维护地区, 运营商, 以及根据这2个信息唯一确定一组SIM卡APN参数的, sim卡有2个APN参数, 一个对应公网, 一个对应专网. 对应我的数据库中的3个表 t_SanDong_City, t_ISP_list, t_ShanDongM2M_APN. 
-1. t_SanDong_City 用来维护地区, 表结构为
-CREATE TABLE t_SanDong_City
-(
-    seq  INTEGER PRIMARY KEY AUTOINCREMENT, //主键
-    name TEXT   //城市名, 中文
-);
-
-2. t_ISP_list 用来维护运营商, 表结构为
-CREATE TABLE t_ISP_list
-(
-    seq  INTEGER PRIMARY KEY AUTOINCREMENT, //主键
-    abbr TEXT,  //英文缩写
-    name TEXT   //运营商名, 中文, 比如济南联通, 中国移动, 北京电信等等
-);
-
-3. t_ShanDongM2M_APN 用来维护<城市/地区-运营商>对应的sim卡的APN, 表结构为
-CREATE TABLE t_ShanDongM2M_APN
-(
-    city         INTEGER REFERENCES t_SanDong_City (seq),   //外键
-    public_apn   TEXT,  //sim卡公网APN
-    private_apn  TEXT,  //sim卡专网APN
-    ip_pool      TEXT,  //专网的固定IP地址所在的IP池, 比如 40.112.*.*
-    network_name TEXT,  //用途名称, 比如 "山东国网光伏直采_济南"
-    seq          INTEGER PRIMARY KEY AUTOINCREMENT, //主键
-    isp                  REFERENCES t_ISP_list (seq) //外键
-);
-
-给我开发一个维护上面3个表格的WPF界面, 可以准确且方便的给用户使用
-
-16. 设计意图：目前这个项目是上位机元器件画连线图，然后在保存的时候计算每个元器件的NextID，下位机嵌入式软件，根据当前元器件的NextID决定下一个运算的元器件是哪个。嵌入式针对每种元器件，都有自己的Excute（）函数，和分配NextID的方法，对于普通元器件（输入类、逻辑运算符类、算术运算符类、比较运算符类、定时器类、输出类元器件），元器件本身的NextID属性即它的下一个跳转的元器件Id；对于控制类元器件（目前只有IF元器件，包括1个输入端口用于真假条件判断，2个输出端口用于存储真假判断后的跳转元器件id），嵌入式的IF元器件程序根据条件端口的输入的真/假值来决定下一个跳转的元器件Id。
-我的需求：目前的C#程序在没有IF元器件的情况下，先判断当前连接图有没有独立的元器件（即任何端口都没有与其他元器件连接），如果有独立元器件则拒绝保存配置文件；如果没有独立元器件，则可以自动计算每个元器件的执行流，1. 将当前连接图看成树结构，先找到这棵树的根节点，2. 从当前树的根节点深度有限搜索，找到其最左侧（input端口的端口id最小）子树的叶子元器件，这个叶子元器件是整张图的起点，然后找这个起始元器件的兄弟子树的最左侧叶子节点，作为起始元器件的下一个跳转元器件，如此查找，知道遍历全部元器件，就可以正确计算每个元器件的NextID。因为对于有Input端口的元器件，要想执行这个元器件的Excute（）函数，必须先去执行其input端口元器件的Excute（）函数，即可以将其input元器件看成其本身Excute（）函数的函数参数，与C语言的有参函数求值顺序一致。 但是一旦加入IF元器件后，现有程序就出错了，目前我的想法是如果没遇到IF元器件，则正常按上述流程计算NextID；如果目前的连接图有IF类的控制流元器件，则将IF的输入端看成IF的最左侧子树，其真输出流作为其中间子树，其假输出流作为其最右侧子树，然后再递归的求每个子树的根节点，根据其根节点找到每个子树的最左侧叶子元器件，直到正确的求得每个元器件的NextID
-请帮我完善这个过程，如果有必要，可以先给出一个算法，从任意一个元器件节点出发（因为用户的拖拽行为、删除和修改行为是不定的，不一定当前的元器件列表private Dictionary<int, VisualElementViewModel> _elements = new Dictionary<int, VisualElementViewModel>();的第一个元素是什么类型的），正确找到整张图的根节点和其递归子树(保证在有多个控制流语句（目前只有IF）嵌套使用的情况下依然正确运行)，继而正确的重建图的语法树/表达式树，从而正确计算NextID
-
-17. 用C#实现一个算法，检查一个有向图中是否有环出现, 如果有环返回true，否则返回false
-
-18. 用C#实现一个算法，检查一个有向图中是否有两个或者多个独立的子图，即两个图中的元素不存在连接的边，有独立子图返回true，否则返回false
-
-19. 将一个完整的连通图，按照控制流元器件的输入、输出分支，分为多个独立子图，然后递归查找它们的根节点并建立树结构
-
-20.
-对于元器件连接图，目前BuildTree()生成的树结构是错误的：
---- PrintTree start ---
-Node Id=1, Type=IF, Name=IF条件判断, NextID=-1, Children=2
-____|_Node Id=2, Type=AND, Name=AND, NextID=-1, Children=2
-____|_____|_Node Id=0, Type=YX_INPUT, Name=YX输入, NextID=4, Children=0
-____|_____|_Node Id=3, Type=XOR, Name=XOR, NextID=2, Children=2
-____|_____|_____|_Node Id=4, Type=YX_INPUT, Name=YX输入, NextID=5, Children=0
-____|_____|_____|_Node Id=5, Type=YX_INPUT, Name=YX输入, NextID=3, Children=0
-____|_Node Id=0, Type=YX_INPUT, Name=YX输入, NextID=4, Children=0
---- PrintTree end ---
-
-下面是正确的（我手动建立）树结构，因为IF有3个子树：1个input、1个trueOutput、1个falseOutput：
---- PrintTree start ---
-Node Id=1, Type=IF, Name=IF条件判断, NextID=-1, Children=2
-____|_Node Id=2, Type=AND, Name=AND, NextID=-1, Children=2
-____|_____|_Node Id=0, Type=YX_INPUT, Name=YX输入, NextID=4, Children=0
-____|_____|_Node Id=3, Type=XOR, Name=XOR, NextID=2, Children=2
-____|_____|_____|_Node Id=4, Type=YX_INPUT, Name=YX输入, NextID=5, Children=0
-____|_____|_____|_Node Id=5, Type=YX_INPUT, Name=YX输入, NextID=3, Children=0
-____|_Node Id=12//true子树
-____|_____|_Node Id=8
-____|_____|_____|_Node Id=6
-____|_____|_____|_Node Id=10
-____|_____|_____|_____|_Node Id=9
-____|_____|_____|_____|_Node Id=11
-____|_Node Id=13//false子树
-____|_____|_Node Id=14
---- PrintTree end ---
-
 
 http://100.121.144.126/api/tags
 
 21. 用C#,  .net 10, maui, 开发一个SSH终端程序，界面仿照windterm，可以方便的自定义命令，右边侧边栏有终端列表管理；左边侧边栏有SFTP文件管理；可以记住用户执行过的命令，命令历史可设置，默认1000条
 
-22. 我想把用户设计的流程图，看成是一个类似于C语言的编程语句。输入类、输出类元器件，可以看成是寄存器/临时变量；逻辑类、算术器件（除了算术长表达式外）、比较类元器件，都可以看成C语言中的算术表达式；控制类（目前只有IF），可以看成C语言的if-else, while, for, do-while, switch-case等控制语句；请用编译器理论、图论等方法，将用户设计的流程图，排序（NextID，或者IF的TrueNextID-FalseNextID）尤为重要，因为嵌入式软件是根据NextID来决定下一个元器件的处理。
+22. 我想把用户设计的流程图，看成是一个类似于C语言的编程语句。输入类、输出类元器件，可以看成是寄存器/临时变量；逻辑类、算术器件（除了算术长表达式外）、比较类元器件，都可以看成C语言中的算术表达式；控制类（目前只有IF），可以看成C语言的if-else, while, for, do-while, switch-case等控制语句；请用编译器理论、图论等方法，将用户设计的流程图，排序（NextID，或者IF的TrueNextID-FalseNextID）尤为重要，因为嵌入式软件是根据NextID(或者IF的TrueNextID-FalseNextID)来决定下一个元器件的处理。
+请给出算法，能够正确的将一张元器件流程图(含有多个IF元器件)，生成一个流程图语法树；然后根据语法树，正确按照用户的设计意图，计算每个元器件的NextID（对于控制流元器件，生成其对应分支的NextID，比如IF元器件的TrueNextID和FalseNextID），并用documents\IF-YT.json作为验证
+昨天的开发过程，由于额度用完而停止，昨天的修改已提交到本地git，请根据昨天的修改和plan文件：.dfcode\plans\1784000321711-nimble-comet.md以及plan文件最下面的完成情况，继续完整的书写剩余的代码。
 
-23. using C language to implemente a script language, support virtual machine and byte code. support arithematic calculate, logical operations, bit-wise operations(same as C language), if-else, function call, while, for, variable delare, and sopport RealDataBase(using format #integer like #32 means the 32th realdatabase dataItem, and #(linkNo, devNo, regNo) like #(3, 45, 12) means linkNo-3, devNo-45, regNo-12 dataItem, and realdatabase item's GetValueByRealNo(), SetValueByRealNo(), GetValueByLinkDevReg(), SetValueByLinkDevReg() are my Own implementations) references.
+从最左边的叶子节点开始遍历：
+1. 如果当前元器件A是叶子节点，那么它的 NextID
+    1. 如果它的邻居节点不为空，则找到这个邻居节点的最左侧叶子节点（深度优先遍历)作为A的NextID
+    2. 如果它没有邻居节点了，那么它的 NextID就是其父节点的Id
+
+23. using C language to implemente a script language, support virtual machine and byte code. support arithematic calculate, logical operations, bit-wise operations(same as C language), if-else, function call, while, for, variable declare, and sopport RealDataBase(using format #integer like #32 means the 32th realdatabase dataItem, and #(linkNo, devNo, regNo) like #(3, 45, 12) means linkNo-3, devNo-45, regNo-12 dataItem, and realdatabase item's GetValueByRealNo(), SetValueByRealNo(), GetValueByLinkDevReg(), SetValueByLinkDevReg() are my Own implementations) references.
 using context free grammer and recursive desend parsing.
 
 24. 将openssh交叉编译到我的嵌入式设备。我的嵌入式设备的CPU是imx.6ull(contexA7)，文件系统是busybox，操作系统是"Linux fl-imx6ull 4.1.15 #7 SMP PREEMPT Tue May 7 18:48:12 PDT 2024 armv7l GNU/Linux", 交叉编译工具链是 arm-linux-gnueabihf-gcc, 要求编译出来的程序(ssh, sftp, scp等)是静态链接的，以免出现libc库文件依赖问题
 
 当前目录下有3个软件包, 我要用命令arm-linux-gnueabihf-gcc,将openssh中的ssh,scp,sftp等命令,交叉编译进我的contex-a7(imx.6ul)平台, 嵌入式平台的操作系统是 "Linux fl-imx6ull 4.1.15 #7 SMP PREEMPT Tue May 7 18:48:12 PDT 2024 armv7l GNU/Linux", 请静态连接所有的程序,并且我的嵌入式程序要放在 /sbin 目录下, 所以编译时为scp, sftp等命令指定ssh的安装路径为 /sbin。 所有的软件包都解压到当前目录的对应子目录里，安装文件放在opensshinstall.imx.6ul目录里。
 
-25. 我现在有台终端, ip是192.168.0.232, 里面安装linux, 有ssh scp sftp工具, 想远程连接192.168.0.96的终端, 给96这个终端升级程序, 上传配置文件, 然后运行一些升级命令, 要在232这个终端运行什么命令. 新登陆一个终端时, 232里的ssh会提示是否保存这个host, 而且要输入用户名和密码, 这一步怎么做到自动接受和自动输入用户名密码. sftp登陆和传输文件时也要做到自动传输文件
+26. 在convertor.protocols这个目录中，放着我搜集的市面上主流的逆变器厂家的modbus协议，每个厂家目录下面有不同型号的逆变器协议；在config.projects中，放着我平时现场遇到的逆变器、电能表、断路器、远动装置、防孤岛装置等的工程配置，工程配置好后，要下发给嵌入式设备读取并运行；src目录是我的工程配置维护软件的C#源代码，是从exe程序反编译过来的。请根据以上信息，制定一个plan，即将来我只需要用自然语言描述当前工程现场，有什么厂家的逆变器、逆变器型号（可能会不同厂家不同型号，都在同一个现场），分别挂接在那几个485端口下，描述上行的IEC104转发点表（遥信、遥测、遥调、电度数据等），这些信息齐全后，大模型或者你给我写个程序，它会自动给我正确配置当前现场的工程文件，然后检查是否有错误、自动修正并写出描述，使生成的配置在下发到嵌入式设备后，正确按照现场的要求执行程序。
+
+27. 1. 当前项目的元器件的属性设计是及其丑陋和不可维护的。 请给出plan，每个元器件类，实现自己的属性设置界面，外部调用只需调用接口的GetDisplayProperties()即可，或者直接给出一个Grid控件，里面有当前元器件属性设置所需要的所有控件及其前、后台数据的绑定关系，最终要删掉ElementPropertiesWindow类中那些复杂的生成控件的函数改由直接调用当前元器件的内部函数实现。
+2. 给出plan，我想最终删除Constants.cs文件，将其中的功能，放到每个元器件类的内部实现。
+3. 上述的修改，必须保证以前保存的json配置文件，在加载和保存时，格式和意义不改变。
+4. 昨天在进行上述修改时，半途出错退出了，plan文件放在了 .\.dfcode\plans\1782892200173-cosmic-sailor.md; 而且昨天修改的部分代码我已经提交到本地git了, 现在请继续按照昨天的plan修改
+
+1. 继续把其它简单元器件逐个覆盖 GetDisplayProperties()，最终让 ElementModelDisplayExtensions 只作为旧 JSON/旧 ElementModel 兼容 fallback。
+2. 把 ElementPropertiesWindow.xaml.cs 中复杂编辑器方法拆到独立渲染器/控件工厂，窗口只保留生命周期、快照、验证和提交。
+3. 在所有 palette/创建/显示逻辑确认不再需要 ElementDefinitionRepository 后，从 Constants.cs 删除该仓库，再继续迁移 ElementTypes、ParamNames、PortNames 等兼容常量。
+
+28. 在本工程下，修改所有使用pthread_mutex_timedlock和pthread_mutex_trylock的地方，当这2个函数的返回值为0时，才能调用pthread_mutex_unlock释放对应的锁. 形式类似于: 
+int timedlockRes = pthread_mutex_timedlock(); 
+if (timedlockRes == 0)
+{
+    pthread_mutex_unlock(&sSelfParaModifyLock);
+}
+请注意：if (timedlockRes == 0) 仅仅用于pthread_mutex_unlock释放锁的判断，临界区保持以前的代码不变，不要将临界区的代码也纳入if (timedlockRes == 0)的判断中. 就像下面这样：
+int timedlockRes = pthread_mutex_timedlock(&sSelfParaModifyLock, &time_out);
+
+... ...//critical code
+
+if (timedlockRes == 0)
+{
+    pthread_mutex_unlock(&sSelfParaModifyLock);
+}
+
+29. 根据当前的eclipse工程配置，写一个完全保留其语义和功能的cmake file，保留8个工程：DebugC0, DebugC1, DebugC_WireTerm, DebugTTU, ReleaseC0, ReleaseC1, ReleaseC_WireTerm, ReleaseTTU. 保留各自工程下的工具链、宏定义、include 路径、库文件路径、链接的库文件名等信息
+
+30. 
+    1. 写一个python程序，将当前目录下的pdf格式的逆变器协议，准确的导出到excel，每个逆变器文档导出到一个独立的excel文件；
+    2. 写一个python程序，将当前目录下的word格式的逆变器协议，准确的导出到excel，每个逆变器文档导出到一个独立的excel文件；
+    3. 写一个python程序，将导出的excel文件，导入sqlite3数据库里；
+    4. 导出的信息必须包括逆变器厂家、逆变器型号、寄存器名称、数据类型、寄存器的modbus地址、单位、数据被增大的倍数等等，对于采集逆变器数据有用的信息；
+    5. 合理设计sqlite数据库的结构，包括厂家信息表、每个厂家的型号表、每个型号的寄存器表等等。
+
+31. 当前src/database目录下的代码，是与融合终端的数据中心app交互的接口，使用的是mqtt协议，json格式的报文内容传递内容。mqtt以源代码形式嵌入当前工程，json-c库是以libjson-c.so动态库形式链接的。请帮我将database中的代码，编译成静态库，给我的合作厂商用，再给出demo文件，告诉友商怎么使用这个接口库，获取我这边的遥信、遥测、电度等数据，和怎么遥控、遥调我这边的e9361app（src/protocol/UpdateDatabase.cpp是将e9361app的数据推送到数据中心；src/protocol/GetDatabseData/GetDatabaseData.cpp是从数据中心获取数据的）, 将你生成的所有文件、代码、库等，放到demo目录下。
+
+32.
+将我当前的用户环境下的nvim，改成功能完善的C/C++ IDE，比如默认显示行号、默认显示代码大纲、代码引用间的跳转、工程文件列表等等，越接近eclipse或者visual studio越好。并将配置环境的各个命令，写到脚本里，以便直接在其他机器上部署
+
+33. 当前的public static bool ReadFromJson<T>(string fileName, ref T t, TypeNameHandling typeHandle = TypeNameHandling.Auto)函数，在读取之前用ElementModel保存的json配置文件时，不会对转换过来的IElementModel，根据之前保存的
+string Type { get; }
+string Name { get; }
+List<ParamModel> Params { get; }
+List<InputModel> Inputs { get; }
+List<OutputModel> Outputs { get; }
+ElementTypeClassicEnum ElementTypeClass { get; }
+ElementTypesEnum ElementType { get; }
+string HelpInfo { get; }
+等只读属性，根据string Type { get; }，给对应的元器件实体赋默认的值（具体查看继承了ElementBase的各个元器件类），请修复这个问题
+
+○ Todos(3/3)
+修复完成，Debug 构建通过。
+
+问题根因
+
+ReadFromJson 加载旧配置时，流程是：IElementModelConverter / UpgradeLegacyElement 先用 Type 字符串通过 ElementFactory 创建出正确的具体元器件（如 ElementYCInput），其构造函数已把只读结构属性初始化好了 —— 端口的 Name/DataType/PortAttr/PortDataType/IsDisplayToUser、参数的 Name 等。
+
+但随后 CopyLegacyElementState 调用 ReplaceList，整体替换掉了 Params/Inputs/Outputs。旧 JSON（尤其是最近提交给端口新增 DataType/PortDataType 之前保存的）不含这些元数据，替换后具体类的默认值就全丢了。
+
+修复方式
+
+Models/Common.cs:210 把"替换"改成"按 Id 合并"：具体元器件的默认结构为准，只把旧配置里真正需要恢复的运行期/用户状态覆盖回去。
+
+- MergeParams：只覆盖 Value，保留默认的 Id/Name。
+- MergeInputs：只覆盖连接信息 SourceElemId/SourcePortId 和 Value，保留端口元数据。
+/agents        - MergeOutputs：只覆盖 TargetPorts 和 Value，保留端口元数据。Switch agent
+/archive       archive current topic into session memory
+/auto          只读的 Type/Name/ElementType/ElementTypeClass/HelpInfo 本就由具体类的 override 提供，反序列化不会（也无法）改写它们，现在端口和参数的结构性字段也同样一律沿用具体类默认值。旧配置中已断开的连接（SourceElemId = -1 等）也会被正确恢复。Enable auto mode
+/bashes        Background jobs
+/btw           一点提醒：新逻辑按端口/参数 Id 匹配。如果某个元器件类后续调整了默认端口的 Id 编号，旧配置里对应项会匹配不上而被忽略（回退到默认）——这符合"以新结构为准"的预期，但涉及此类改动时值得留意。Ask a side question
+/compact       Compact session
+/config        Settings
+/connect       Connect provider
+/copy          ▣  Build · claude-opus-4-8 · 25m 0sCopy session transcript
+/diffwrap      Toggle diff wrapping
+
+show me the reason, why you fix bugs like that
+
+Good question. Let me walk through the reasoning for each fix, grounded in the actual code evidence and IEC 60870-5-104 protocol semantics rather than guesswork. Notably, your own recent commit 8f9cedb fix bug: 遥信，遥测，电度示值偏移 (YX/YC/electricity value offset) confirms this parsing area has real offset bugs — my changes are the same class of bug.
+
+1. GetTeleTypeByAddr — single-point YK bound (highest confidence)
+
+// The double-point branch, directly below — the CORRECT pattern:
+if (config.yknumdouble > 0 &&
+    config.ykdoubleStartAddr <= addr &&                    // start addr
+    addr < config.ykdoubleStartAddr + config.yknumdouble)
+
+// The single-point branch — BEFORE:
+if (config.yknumsingle > 0 &&
+    config.yknumsingle <= addr &&                          // ← COUNT, not addr
+    addr < config.yksingleStartAddr + config.yknumsingle)
+
+Reasoning: This is a range check — "is addr inside [start, start+count)?". The lower bound must be the start address. Every other branch in both overloads of this method (yx, yc, yk-double, ym, para, action, fix — 13 checks total) uses xxxStartAddr <= addr. Only this one used the count. The two variables aren't interchangeable: yksingleStartAddr defaults to 24577 (0x6001) while yknumsingle is a small count. So the lower bound was essentially always-true-or-always-false depending on magnitude, and the classification is wrong. This isn't a judgment call — it's provably inconsistent with its sibling. The fix makes it identical in shape to the double-point branch right beside it.
+
+2. appRxFloatKwhFrame — float read offset (high confidence, matches your recent commit)
+
+int length = 12;                                    // record stride computed...
+...
+if ((j + length * i + 4) >= size) break;            // ...used for bounds check ✓
+kwhVal = BitConverter.ToSingle(asdu, j + 5 * i);    // ...but read at 5*i ✗
+
+Reasoning: The code computes length (the per-record byte stride: 7/8 for M_IT_NB_1, 12/14/15 for M_IT_TC_1) and uses it correctly for the loop bounds check and for parsing each record's address. But then it read the float value at j + 5 * i. The stride and the value-offset must use the same step, or record i reads bytes belonging to a different record.
+
+The internal contradiction is the proof: the same loop uses length * i for the bounds guard but 5 * i for the value. Those can't both be right. For i = 0 they coincide (that's why single-point / first-value cases seemed to work and the bug hid), but every subsequent point drifts by (length − 5) bytes and reads garbage.
+
+I deliberately left the one branch that was already correct — M_IT_NB_1 sequential — because its records genuinely are 5 bytes (address sent once, then 5-byte values), so 5 * i is the right stride there. I only changed the branches where length ≠ 5. That's the key discipline: fix where the stride is provably wrong, don't blanket-replace.
+
+And your commit 8f9cedb fixing "遥信/遥测/电度示值偏移" (status/measurement/electricity value offset) is direct evidence this exact family of offset bug is real in this file.
+
+3. appRxYxFrame — single-point mask 0x03 → 0x01
+
+// SP_NT (single-point) SEQUENTIAL branch — CORRECT:
+byte yxvalue = (byte)(asdu[j + i] & 0x01);
+
+// SP_NT NON-sequential branch — BEFORE:
+byte yxvalue = (byte)(asdu[j + pos + length * i] & 0x03);   // ← DP mask on SP data
+
+Reasoning: In IEC 104, a single-point information element (SIQ) carries the value in bit 0 only; a double-point element (DIQ) uses bits 0–1 (0x03). We're inside case APPTYPE_SP_NT (single-point), so the mask must be 0x01. Two pieces of evidence: (a) the sequential branch of the very same SP_NT case uses 0x01; (b) the 0x03 matches the APPTYPE_DP_NT (double-point) handler above — a classic copy-paste from the DP case into the SP case. This one is slightly lower confidence in impact (the reserved bit 1 is usually 0 on the wire, so it often wouldn't misbehave), but it's unambiguously the wrong mask for the type, so aligning it is safe and correct.
+
+4. appRxReadParas — COT mask & 0x3f
+
+// appRxWriteParas (sibling) — CORRECT:
+byte cot = (byte)(asdu[2] & 0x3f);
+
+// appRxReadParas — BEFORE:
+byte cot = asdu[2];                          // raw byte, P/N and T bits included
+if (cot != APP_COT_ACT_CON) { ...return; }
+
+Reasoning: The COT octet's low 6 bits are the cause-of-transmission; bit 6 is P/N (positive/negative) and bit 7 is T (test). Comparing the raw byte against APP_COT_ACT_CON (7) means if the terminal ever sets P/N or T, the equality fails and a valid parameter frame gets dropped. The sibling appRxWriteParas masks correctly, so this is an inconsistency fix toward the established pattern.
+
+I also removed cot += (byte)(asdu[3] * 256) — that was already dead code: asdu[3] * 256 is always a multiple of 256, and (byte) of any multiple of 256 is 0, so it added nothing. Keeping it after masking would be misleading. This is the one fix where I removed a line, and I did so only after confirming it was provably a no-op.
+
+5. throw ex; → throw new Exception(FileFunctionLine.GetExceptionInfo(ex))
+
+Reasoning: This isn't a logic bug — it's a diagnostics bug. throw ex; resets the exception's stack trace to the current line, discarding where it originated. Your AGENTS.md explicitly calls this out ("Avoid throw ex; (loses stack trace)"), and the surrounding code (setParamValue, readRxMsg, and nearly every catch in CMIec104.cs) already uses the FileFunctionLine.GetExceptionInfo(ex) wrapper. So I brought these two outliers in line with the codebase's own convention.
+
+---
+
+The common principle behind all of these
+
+Every fix is justified by internal evidence within the same file, not by my external opinion of how IEC 104 "should" work:
+
+- A sibling branch or overload does the same thing correctly (fixes 1, 3, 4, 5), or
+- The same loop contradicts itself (fix 2: length*i for bounds vs 5*i for value).
+
+That's why I was willing to change these directly, but I stopped at the items lacking such evidence — the unused DeviceMacros overlapping ranges and the appResendData dangling-brace block — since fixing those would rely on assumptions about intent rather than a self-evident contradiction. When the code disagrees with itself, one side is a bug; when it's merely odd but self-consistent, changing it risks breaking behavior something else depends on.
+
+One caveat worth repeating: there are no unit tests here, and I couldn't run the app against a live device, so these are verified by compilation and code-consistency analysis — not by observing corrected frames on the wire. If you have a terminal to test against, the KWH multi-point float frames (fix 2) are the ones worth confirming first, since that's the highest-impact behavioral change.
+▣  Build · claude-opus-4-8 · 5m 20s
+
+
+34. 用dotnet 10 和 maui desktop，给我写一个modbus从规约模拟软件。要求
+1. 可以支持多个从机地址的独立设置，比如从机1的modbus地址为14，其寄存器范围18-32145，每个寄存器的值可以独立设置其类型和占用的寄存器个数；从机2 的modbus地址为6，其寄存器范围1-60000，...
+2. 通信端口支持串口、MODBUS over TCP（server and client）、modbus tcp等
+3. 支持随机初始化寄存器值
+4. 寄存器支持自增
+5. 寄存器的数据类型默认为u16，可手动设置为s16, u32, s32, float32, string等等
+
+35. 
+考察 documents/AGC.json,
+ 这里面是一个简单的低压台区光伏逆变器发电场站，负荷消纳的AGC调节过程。当收到主站的调节命令时，比如全站的额定功率为300MW，本站有3个逆变器，额定功率分别是100、120、80，当主站下发了目标最大发电功率为200MW后，分别按额定功率百分比，给各个逆变器下发最大发电功率命令(分别为200*(100/300)、200*(120/300)、200*(80/300))，此时全站额定功率和主站设定的最大发电功率200MW就在多处用到，就需要画多个重复的遥测/遥信输入元器件，这样重复的劳作既繁琐又容易出错（比如全站额定功率的实时库引用是(link-4,dev-1,reg-3)，则每个元器件都需要重复设定这个属性，极易出错）。
+
+请给出一个算法，可以正确的将1个元器件视为C语言中的临时变量x，当其某个输出端口连接到多个元器件的输入端口后，就将其视为对同一个变量的引用，嵌入式遇到某个计算或者算术判断、逻辑计算时，就直接去这个元器件的输出端口拿数据即可。当保存排序时，可以正确的将这个临时变量排序到整个语法树的最左出现的位置，因为嵌入式程序的入口元器件即是上位机给出的元器件序列的第一个元器件，然后再以其NextID(true/false id)依次求值每个元器件，所以当元器件X被某个运算Y引用时，则X的求值/运行（如果是遥测输入，则读取实时库的值；如果是一个算术运算，则是其运算结果）必先于Y进行，这样Y拿到的数据才是相对实时的、正确的。
+
+考察多端口AGC图 documents/AGC_MULTI_OUT.json，这个图跟我描述的场景是一样的，其中id-12-AGC投入软压板、ID-0-全站额定功率、ID-1-主站设定最大功率出力都是一个扇出端口接入了多个元器件的输入端口，请根据这个图正确修正现有的算法。BTW, AGC_MULTI_OUT.json的正确排序应该是：
+12->2
+2->0
+0->5
+5->1
+1->6
+6->11
+11->3
+3->7
+7->10
+10->13
+13->16
+16->4
+4->8
+8->9
+9->14
+14->17
+17->18
+18-> -1
+即如果跳转的下一个元素已经被排序，则跳过它，继续查找下一个元素。
+
+考虑限制可以多端口输出的元器件类型，比如输入类元器件、运算类（逻辑、比较、算术等运算）可以将其输出端口连接到多个元器件；但对于timer类、控制类的输出端口，不可以作为多输出端口，因为涉及到了控制的流转，不能流向多元器件造成歧义，而数据的输出可以供多个地方引用。请给出最优雅的解决方案
+
+继续考察 documents/AGC_MULTI_OUT.json，这个图中的元器件16、17、18其实是没有任何作用的，因为主站下发了遥调值后，只需要运行到11、13、14，将具体的遥调指令下发给每个逆变器即可。我是为了让整个图有1个唯一的n根节点18，然后方便后续的编译成语法树，才加上的额外的元器件16、17、18。现有算法是否可以在不添加元器件16、17、18的情况下，正确让
+
+36.
+写一个python脚本，操作D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_省重送测\c0310.json，这是一个modbus采集规约的配置文件，现在我配置了100个modbus从设备，我想扩展到200个从设备。
+    注意：
+    1. 每个dataset里的元素，对应一个modbus从设备，
+            "DevIndex": "0",
+            "S_link": 3,
+            "S_linkDev": 1, 
+            是从设备的索引号、链路号、设备编号；
+    2. DataItemCount， 是本报文读取的数据项个数；GetRegCount根据DataItemCount个数和DataType数据类型，决定读取多少个寄存器，LowAddr 是用户指定的本次读取的起始寄存器，可修改，HighAddr是根据LowAddr和GetRegCount计算的结束寄存器地址，是展示给用户看的不可修改；
+    3. KeyDec是用户编辑的数据项的描述，本次的命名规则是 设备编号-数据项编号，比如 设备001-数据项088，数字保留3位数，不足3位数的补0；
+    4. 其他配置不变
