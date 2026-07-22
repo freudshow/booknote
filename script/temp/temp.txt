@@ -3313,8 +3313,32 @@ ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.0.232
 
 http://100.85.96.21/pgadmin4
 
-        internal static bool IsControlElement(IElementModel element)
-        {
-            return element != null && (element.Type == ElementTypes.IF || element.Type == ElementTypes.WHILE ||
-                   element.Type == ElementTypes.FOR || element.Type == ElementTypes.SWITCH || element.Type == ElementTypes.DO_WHILE);
-        }
+BusyBox v1.36.1 (2025-08-27 07:29:03 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt 24.10-SNAPSHOT, r0-996dd43
+ -----------------------------------------------------
+OW24.10_asr1803a7600_rls1536_1.057.081_20250827_07_58_bld29_SDK_FOR1828
+-----------------------------------------------------
+root@OpenWrt:~# uname -a
+Linux OpenWrt 5.4.292 #19 PREEMPT Mon Jul 13 09:40:55 CST 2026 armv7l GNU/Linux
+root@OpenWrt:~# cat /proc/cpuinfo
+processor       : 0
+model name      : ARMv7 Processor rev 3 (v7l)
+BogoMIPS        : 2465.79
+Features        : half thumb fastmult vfp edsp thumbee neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x0
+CPU part        : 0xc07
+CPU revision    : 3
+
+Hardware        : ASR ASR1803 (Device Tree Support)
+Revision        : 0000
+Serial          : 0000000000000000
+root@OpenWrt:~#
