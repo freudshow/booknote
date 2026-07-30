@@ -328,3 +328,105 @@ One caveat worth repeating: there are no unit tests here, and I couldn't run the
     2. DataItemCount， 是本报文读取的数据项个数；GetRegCount根据DataItemCount个数和DataType数据类型，决定读取多少个寄存器，LowAddr 是用户指定的本次读取的起始寄存器，可修改，HighAddr是根据LowAddr和GetRegCount计算的结束寄存器地址，是展示给用户看的不可修改；
     3. KeyDec是用户编辑的数据项的描述，本次的命名规则是 设备编号-数据项编号，比如 设备001-数据项088，数字保留3位数，不足3位数的补0；
     4. 其他配置不变
+
+37.
+
+上位机：
+帮我添加一个时段执行元器件，当满足用户执行的时段时，输出端输出遥信1，不满足时，输出端输出0. 时段的监控周期可以是日、月、年、世纪。比如如果监控周期是日，就让用户设定0点0分0秒到23点59分59秒之间的一个时间段，比如20:34:18~23:12:09之间，当时间到达时，输出1，未到达输出0；比如用户选择监控周期是月，则让用户设定日期时间段，比如是哪个月的开始日期的00:00:00到哪个结束日期的23:59:59, 如果当前时间满足设定日期输出1，否则输出0；如果用户设定的监控周期是年，就让用户选择开始月份(默认的开始月份为当月1日00：00：00)、结束月份(默认的结束月份为当月的最后1天的23:59:59)等等
+
+推荐设计如下，请确认是否可以按这个方向实现：
+
+- 元器件名称：时段执行
+- 元器件类型：新增 TIME_PERIOD / ElementTypesEnum.TIME_PERIOD
+- 大类：计时器类，颜色沿用现有计时器绿色
+- 端口：1个输入端用于控制流；输出端为 BOOL 类型 Output
+- 输出语义：当前系统时间落在配置区间内输出 1，否则输出 0
+- 监控周期：
+  - 让用户自己选择监控周期，默认日；且用户选择了一个监控周期后，跟当前周期无关的时间设定隐藏掉，比如用户选择了日，那么只显示小时、分钟、秒钟，年、月、日期不显示
+  - 日：使用 StartHour/StartMinute/StartSecond 到 EndHour/EndMinute/EndSecond
+  - 月：使用 StartDay 00:00:00 到 EndDay 23:59:59
+  - 年：使用 StartMonth 当月 1 日 00:00:00 到 EndMonth 当月最后一天 23:59:59
+  - 世纪：我建议按“完整日期”处理，即 StartMonth/StartDay 00:00:00 到 EndMonth/EndDay 23:59:59，每年重复；如果你期望跨年份或指定年份，需要再扩展
+- 默认值：
+  - 日：00:00:00 ~ 23:59:59
+  - 月：1 ~ 31，运行时按当前月份最后一天裁剪
+  - 年：当前月 ~ 当前月
+  - 世纪：1月1日 ~ 12月31日
+- 校验：保存/编辑时约束范围，禁止开始值大于结束值；非法日期按当前周期裁剪或提示修正
+
+如果你确认这个设计，我下一步会写设计说明文件并进入实现计划。
+
+嵌入式：
+为我添加一个时段执行元器件，当满足用户配置的时段时，输出端输出遥信1，不满足时，输出端输出0.
+- 元器件名称：TIME_PERIOD
+- 元器件类型：新增 TIME_PERIOD
+- 大类：计时器类
+- 端口：1个输入端用于控制流；输出端为 BOOL 类型 Output
+- 输出语义：当前系统时间落在配置区间内输出 1，否则输出 0
+- 这个元器件有自己的私有参数数据，参数格式如下:
+
+```C
+    typedef enum
+    {
+        Day = 0,
+        Month = 1,
+        Year = 2,
+        Century = 3,
+    } TimePeriodMode_e
+
+    typedef struct
+    {
+        TimePeriodMode_e PeriodMode;
+        int StartMonth;
+        int EndMonth;
+        int StartDay;
+        int EndDay;
+        int StartHour;
+        int EndHour
+        int StartMinute;
+        int EndMinute;
+        int StartSecond;
+        int EndSecond;
+    } TimePeriodInfo_s
+```
+
+- 这个元器件的配置文件的json结果如下:
+
+```json
+"Params": [
+            {
+              "Id": 1,
+              "Name": "TIMER_PERIOD",
+              "Value": {
+                "PeriodMode": 3,
+                "StartMonth": 1,
+                "EndMonth": 11,
+                "StartDay": 1,
+                "EndDay": 1,
+                "StartHour": 2,
+                "EndHour": 13,
+                "StartMinute": 2,
+                "EndMinute": 59,
+                "StartSecond": 0,
+                "EndSecond": 59
+              }
+            }
+          ]
+````
+
+- 添加这个元器件自己的销毁程序，让其vtbl.DeInit直接指向它就可以销毁元器件申请的资源
+
+- 监控周期：
+  - 日：使用 StartHour/StartMinute/StartSecond 到 EndHour/EndMinute/EndSecond
+  - 月：使用 StartDay 00:00:00 到 EndDay 23:59:59
+  - 年：使用 StartMonth 当月 1 日 00:00:00 到 EndMonth 当月最后一天 23:59:59
+  - 世纪：从StartYear的1月1日的00:00:00开始，到EndYear的12月31日的23:59:59结束。
+- 默认值：
+  - 日：00:00:00 ~ 23:59:59
+  - 月：1 ~ 31，运行时按当前月份最后一天裁剪
+  - 年：当前月 ~ 当前月
+  - 世纪：1月1日 ~ 12月31日
+- 校验：解析时检查周期的开始和结束约束，禁止开始值大于结束值；非法日期按当前周期裁剪
+
+38.
+D:\repo\dfe\E9361_A0, 我当前的嵌入式工程，当设备在现场运行时，有几率出现文件系统崩溃从而导致日志、配置参数等丢失，请查找所有可能的原因

@@ -2413,6 +2413,9 @@ netsh interface portproxy add v4tov4 listenport=9501 connectaddress=192.168.0.96
 netsh interface portproxy add v4tov4 listenport=9502 connectaddress=192.168.0.97 connectport=5000
 netsh interface portproxy add v4tov4 listenport=9503 connectaddress=192.168.0.232 connectport=5000
 
+用户名 administrator
+密码  sys
+
 # 添加 UDP 端口转发规则
 netsh interface portproxy add v4tov4 listenport=9501 listenaddress=172.20.66.81 connectport=5000 connectaddress=192.168.0.96 protocol=udp
 
