@@ -3345,3 +3345,42 @@ Hardware        : ASR ASR1803 (Device Tree Support)
 Revision        : 0000
 Serial          : 0000000000000000
 root@OpenWrt:~#
+
+
+## mqtt遥调
+topic: testapp/set/request/e9361app/parameter
+payload:
+{
+    "token": "114253",
+    "timestamp": "2026-08-06 14:12:30.23+08000",
+    "body":
+    {
+        "name": "TotW",
+        "val": "4123",
+        "datatype": "Float"
+    }
+}
+
+## mqtt遥控
+topic: testapp/action/request/e9361app/remoteCtrl
+payload:
+{
+    "token": "114253",
+    "timestamp": "2026-08-06 14:12:30.23+08000",
+    "body":
+    {
+        "dev": "MODBUS0_1_MODBUS0",
+        "name": "YK_ON",
+        "cmd": "1"
+    }
+}
+{
+    "token": "114253",
+    "timestamp": "2026-08-06 14:12:30.23+08000",
+    "body":
+    {
+        "dev": "MODBUS0_1_MODBUS0",
+        "name": "YK_OFF",
+        "cmd": "1"
+    }
+}
