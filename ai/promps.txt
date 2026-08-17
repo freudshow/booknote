@@ -430,3 +430,34 @@ One caveat worth repeating: there are no unit tests here, and I couldn't run the
 
 38.
 D:\repo\dfe\E9361_A0, 我当前的嵌入式工程，当设备在现场运行时，有几率出现文件系统崩溃从而导致日志、配置参数等丢失，请查找所有可能的原因
+
+39.
+
+› 帮我实现python程序，能将任意输入的json文件，实现对应的C语言结构体，并以结构体为基础，实现对这个json文件的编解码。要求json中的每个object类型的结构，都有对应的结构体，复杂的json object对应于次级的结构体的组合，如果一个数组类型的json中有异构的json object，则这个数组的成员用union实现，union中实现各个异构的结构体
+
+https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0d5967853e9163b23dfea1cdb0e5d378626ccf5beed004f5001bec9bf42d2937adca1c9215b20bce42f555622e7e534bfeff19adbdb1b405a375b4f7aaeefa0ee4d3e03c904a08acc6148fc6d249921e
+
+40.
+
+查看目前数据中心接口，Message_Send()和Message_Rcv()2个函数发送/接收消息队列时，并没有按照__msgtyp来成对发送和接收，这就造成一个隐患：一个函数可能会把别的业务类型的消息读走。请设计一个严谨的__msgtyp产生机制，使用上enum   // 接口函数标志
+  {
+  	version,             // 版本查询
+  	creat_model,         // 模型注册
+  	del_model,           // 模型删除
+  	get_model,           // 查询模型信息
+  	register_device,     // 设备注册
+  	del_register,        // 删除注册的设备
+  	get_dveguid,         // 获取guid
+  	notify_data,         // 数据变化上报
+  	check_allrealdata,   // 查询所有实时数据
+  	check_partrealdata,  // 查询部分实时数据
+  	check_historydata,   // 查询历史数据
+  	event_sub,           // 事件订阅
+  	event_104soesave,     // 104soe事件存储
+  	set_parameter,       // 参数设置
+  	get_parameter,       // 参数获取
+  	del_parameter,       // 参数删除
+  	get_SOE,              //SOE查询
+  	Custorm_parameterSet, //自定义的参数设置  "+/set/request/%s/parameter",cfginfo->pad.AppName);//自定义的遥调接口
+  	Custorm_YkSet         //自定义的遥控接口  "+/action/request/%s/remoteCtrl",cfginfo->pad.AppName);//自定义的遥控接口
+  }; 这个枚举类型中定义的业务类型，在发送和接收消息时，用业务类型、线程ID、时间戳等信息，生成唯一的报文token和__msgtyp，确保发送和接收的报文成对操作。注意：每一帧发送/接收的mqtt报文中都有token，接收者在应答时会原样返回发送者的token，接收到的mqtt报文以这个token作为__msgtyp作为唯一的报文标识
