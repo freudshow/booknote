@@ -3363,6 +3363,8 @@ payload:
 
 ## mqtt遥控
 topic: testapp/action/request/e9361app/remoteCtrl
+
+合闸
 payload:
 {
     "token": "114253",
@@ -3374,6 +3376,8 @@ payload:
         "cmd": "1"
     }
 }
+
+分闸
 {
     "token": "114253",
     "timestamp": "2026-08-06 14:12:30.23+08000",
@@ -3384,3 +3388,32 @@ payload:
         "cmd": "1"
     }
 }
+
+{
+    "token": "200513",
+    "timestamp": "2026-08-10T10:37:38.076+0800",
+    "data_row": "frozen",
+    "frozentype": "realtime",
+    "body": [
+        {
+            "timestamp": "2020-04-12T11:11:11.990+0800",
+            "timestartgather": "2020-04-12T11:11:11.990+0800",
+            "timeendgather": "2020-04-13T22:22:22.880+0800",
+            "additionalcheck": "123",
+            "body": [
+                {
+                    "name": "PhV_phsA",
+                    "val": "220.150000"
+                }
+            ]
+        }
+    ]
+}
+
+### 控制底板遥控，遥控号36(0x24)
+
+[2026-08-13 17:05:16.522]# SEND HEX>
+AA FF FF 08 00 0B 04 24 01 00 00 00 00 22 
+
+[2026-08-13 17:05:17.743]# RECV HEX>
+AA FF FF 08 00 0B 04 24 00 00 00 00 00 23 
