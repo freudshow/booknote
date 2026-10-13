@@ -3468,3 +3468,39 @@ AA FF FF 08 00 0B 04 24 00 00 00 00 00 23
 在职场正式沟通中，建议**避免**用 **💀**（骷髅）或 **☠️**（死亡）来表示“作废”，容易引起误解；用 **🗑️** 或 **⛔** 会更显专业。
 
 如果你是用在 **Notion / 飞书 / Trello** 等具体软件中，需要我告诉你如何设置“自动状态标签”吗？还是说你需要针对“财务票据”或“软件开发Bug”的特殊符号集？可以告诉我你的具体场景，我再帮你细化。
+
+可视化组态配置工具系统测试方案
+
+root@ok3568:~# lscpu
+Architecture:                    aarch64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+CPU(s):                          4
+On-line CPU(s) list:             0-3
+Thread(s) per core:              1
+Core(s) per socket:              4
+Socket(s):                       1
+Vendor ID:                       ARM
+Model:                           0
+Model name:                      Cortex-A55
+Stepping:                        r2p0
+CPU max MHz:                     1416.0000
+CPU min MHz:                     408.0000
+BogoMIPS:                        48.00
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Spec store bypass: Not affected
+Vulnerability Spectre v1:        Mitigation; __user pointer sanitization
+Vulnerability Spectre v2:        Not affected
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp
+root@ok3568:~#
+
+储能的发电有功功率，靠什么来调节？我想演示一下PI调节元器件，用modbus slave软件模拟储能设备，你给我想一个配置方案，可以演示给客户效果
+
+docker run -d --name e9361-3568 --platform linux/arm64 --restart unless-stopped \
+  -p 22220:22/tcp -p 18831:1883/tcp -p 24040:2404/tcp -p 50000:5000/udp -p 50010:5001/tcp \
+  debian-bullseye:latest
