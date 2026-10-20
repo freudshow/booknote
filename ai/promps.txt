@@ -470,3 +470,15 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 42. 检查当前代码库，看看有没有哪个线程有无限循环且有那种在退出路径中没有休眠语句的情况，比如while（1）{ if(condition) {continue;}  do something; usleep(100*1000);}, 这段代码中，如果由于当时条件condition不满足（或者配置文件中的配置不正确配置）会导致while(1)循环没有休眠语句，占满cpu。再比如，提交95c6ee241825a4281de45af10deda62cb13aadc4中，ReversePower.cpp的void ReversePower::run(void)，每个case都要加osDelay(100);，因为配置文件里如果存在不正确的配置，就会导致当前线程（启用了sched_RR调度策略）占满cpu调度时间。int CreatTask(ENTRYPTR  ptfunc, int PriorityVal, int statcksize,  void   *arg, int linkid)和int CreatTaskNotInLinkTable(  int Index,void *arg)负责创建绝大多数线程，且release版本的程序会启用SCHED_RR策略
 
 43. 检查当前代码库，跟保护功能有关的参数，是否有这样的风险：当参数被设置成不合理的值后，会造成开关误动（或者其他控制类的动作、告警、SOE等）。以备自投处理逻辑为例，BZTDetectAndExecute()函数中，
+
+44. 查看9361的工程配置：D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_RQ_评测部可视化测试\， c0757.json是上位机下发给嵌入式的可视化配置，iecpara.json是PI元器件触发遥调要用到的回调函数，函数的回调索引是3，函数对应的IEC104地址是32801，我故意把系数设置为遥调输出的0.9(对应的回调3函数的参数8-90)，用模拟modbus软件来模拟反馈/被遥调的值，反馈和被设参的寄存器地址都是地址6设备的寄存器4。但是当前我的配置的PI的kp和ki，输出的值总是在1000，-1000之间反复震荡，或者其他的值反复震荡，请帮我调试一个合适的系数
+
+45.
+问题描述：
+1. 现象：进入逆功率参数设置菜单（SetOledReversePowerParameter）后，我设置一项参数，比如“刚性调节”，然后点击确认->弹出是否确认保存->选择“是”保存，然后弹出保存成功界面，然后我选择OK，这时会卡顿一会儿（通常是2~5秒左右），然后再点击一次确认OK，才能退出保存成功界面
+2. 背景：Tca955_Io_tread的GetTca955_InputVal检测硬件按键的按下和松开，lcd_ctl线程的oled_getKeys读取tca9555线程的全局变量来看是否有按键按下，如果有按键按下就将对应的按键入队，等待液晶的菜单线程led_Thread->oled_notPollShow()调用对应的菜单处理函数，根据具体的按键来处理液晶界面显示，完成人机交互
+3. 液晶是SSD1306，通过I2C接口与主芯片（imx6ul）通信；tca9555是IO扩展芯片，也是通过I2C与主芯片通信
+4. 现在只有在弹出showMsg界面时会发生TCa9555线程检测不到按键按下的情况，其他菜单界面都能正常检测到按键并响应。
+请为我分析问题的成因和修改建议
+5. 我在Release版本的程序，加上了RELEASE宏定义，只有这个宏定义有效时，system.cpp中的创建任务的函数才会真正设置线程的调度策略和优先级
+请为我查找OledReversePowerShowMessage、showMsg前后引起的按键检测不到的问题成因
