@@ -3504,3 +3504,5 @@ root@ok3568:~#
 docker run -d --name e9361-3568 --platform linux/arm64 --restart unless-stopped \
   -p 22220:22/tcp -p 18831:1883/tcp -p 24040:2404/tcp -p 50000:5000/udp -p 50010:5001/tcp \
   debian-bullseye:latest
+
+/home/sysadm/src/e9361app|grep -E "OLED|GetTca955_InputVal"
