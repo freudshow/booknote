@@ -466,3 +466,7 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 再帮我看一下PI元器件，我当前的json配置文件，发送遥调时，会把真正的遥调值乘以了0.9的系数（在回调函数中设置的系数），假设遥调设置的值是100，那么实际发送给modbus模拟软件的值是90，PI的反馈值是modbus模拟软件被修改后的寄存器的值，这样实现PI模拟的观察曲线。但是当前我的配置的PI的kp和ki，输出的值总是在100，-100之间反复震荡，这是什么原因
 
 查看9361的工程配置：D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_RQ_评测部可视化测试\， c0757.json是上位机下发给嵌入式的可视化配置，iecpara.json是PI元器件触发遥调要用到的回调函数，函数的回调索引是3，函数对应的IEC104地址是32801，我故意把系数设置为遥调输出的0.9(对应的回调3函数的参数8-90)，用模拟modbus软件来模拟反馈/被遥调的值，反馈和被设参的寄存器地址都是地址6设备的寄存器4。但是当前我的配置的PI的kp和ki，输出的值总是在1000，-1000之间反复震荡，或者其他的值反复震荡，请帮我调试一个合适的系数
+
+42. 检查当前代码库，看看有没有哪个线程有无限循环且有那种在退出路径中没有休眠语句的情况，比如while（1）{ if(condition) {continue;}  do something; usleep(100*1000);}, 这段代码中，如果由于当时条件condition不满足（或者配置文件中的配置不正确配置）会导致while(1)循环没有休眠语句，占满cpu。再比如，提交95c6ee241825a4281de45af10deda62cb13aadc4中，ReversePower.cpp的void ReversePower::run(void)，每个case都要加osDelay(100);，因为配置文件里如果存在不正确的配置，就会导致当前线程（启用了sched_RR调度策略）占满cpu调度时间。int CreatTask(ENTRYPTR  ptfunc, int PriorityVal, int statcksize,  void   *arg, int linkid)和int CreatTaskNotInLinkTable(  int Index,void *arg)负责创建绝大多数线程，且release版本的程序会启用SCHED_RR策略
+
+43. 检查当前代码库，跟保护功能有关的参数，是否有这样的风险：当参数被设置成不合理的值后，会造成开关误动（或者其他控制类的动作、告警、SOE等）。以备自投处理逻辑为例，BZTDetectAndExecute()函数中，
