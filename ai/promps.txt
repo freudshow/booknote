@@ -511,3 +511,7 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 1. 单击元器件按钮，同时在画布上的相同位置添加了2个同样的元器件，只不过元器件的Id不同
 2. 右击元器件弹出的菜单中，没有“删除元器件”按钮，添加上，同时保留选中元器件后，按下“del”键删除的功能。删除元器件时，要给用户一个删除确认提示，用户确认后方可删除
 3. 元器件之间的连线，要有输出端口到输入端口的箭头，向用户表明数据流/控制流的方向
+
+50. 问题如下：
+1. SAVE_DATA元器件的属性编辑页面，SaveByTimeEnable和SaveByChangeEnable和InitValEnable，都要做成checkbox，用户选中了，对应1，没选中对应0，默认选中
+2. 保存配置文件时，元器件列表和CompilationSourceOrder列表的顺序不是按照编译流程，将元器件按照表达式/控制流的求值顺序/控制流分析顺序保存排序，将其修正为CompilationSourceOrder列表{id，Type，NextId}元组，如果是控制流，则输出控制流的IF(TRUE,FALSE NEXTID), SWTICH (CASE[i].NextID, Default.NextID), While(NextID), Jump(loopId, NextID),... ...，将元器件列表按照表达式/控制流的求值顺序/控制流分析顺序保存排序

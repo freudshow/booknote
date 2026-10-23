@@ -3506,3 +3506,5 @@ docker run -d --name e9361-3568 --platform linux/arm64 --restart unless-stopped 
   debian-bullseye:latest
 
 /home/sysadm/src/e9361app|grep -E "OLED|GetTca955_InputVal"
+
+D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_评测部可视化测试\SndFile\ltudevlib_07.json
