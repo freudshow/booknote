@@ -515,3 +515,5 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 50. 问题如下：
 1. SAVE_DATA元器件的属性编辑页面，SaveByTimeEnable和SaveByChangeEnable和InitValEnable，都要做成checkbox，用户选中了，对应1，没选中对应0，默认选中
 2. 保存配置文件时，元器件列表和CompilationSourceOrder列表的顺序不是按照编译流程，将元器件按照表达式/控制流的求值顺序/控制流分析顺序保存排序，将其修正为CompilationSourceOrder列表{id，Type，NextId}元组，如果是控制流，则输出控制流的IF(TRUE,FALSE NEXTID), SWTICH (CASE[i].NextID, Default.NextID), While(NextID), Jump(loopId, NextID),... ...，将元器件列表按照表达式/控制流的求值顺序/控制流分析顺序保存排序
+
+51. 为我写一个定时的python脚本，或者其他工具，每天15：00~20：00（可设置），从我微信的群中，下载孩子的作业，群名是   星海一年级古筝、星海艺校一年级二班新班级群、🎖️星海一年二班家长成长同盟群，可指定每个群内的发布作业者，只要这些发布者发布了消息、文档、视频、音频等，就将其保存到一个固定的目录（可设置）中的按照日期目录分类、按照学科目录分类的文本、文档、视频、音频等
