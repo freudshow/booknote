@@ -1,0 +1,4798 @@
+{
+  "MasterPrintEnable": false,
+  "LogicEngine": {
+    "Version": "2.0.0",
+    "Description": "",
+    "LinkNo": -1,
+    "ProtocolId": 57
+  },
+  "LogicTasks": [
+    {
+      "TaskId": 1,
+      "Name": "01_IF测试",
+      "Description": "",
+      "Enable": false,
+      "ScanInterval_ms": 100,
+      "Elements": [
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 0,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 0.0,
+          "Y": 100.0,
+          "NextID": 1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 1.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [
+                {
+                  "ElemID": 2,
+                  "PortID": 0
+                }
+              ],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 1,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 160.0,
+          "Y": 100.0,
+          "NextID": 2,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 0.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [
+                {
+                  "ElemID": 2,
+                  "PortID": 1
+                }
+              ],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementCompareGreaterThan, LogicEngineConfigTool",
+          "Name": "大于",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 2,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 2,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 320.0,
+          "Y": 100.0,
+          "NextID": 3,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "COMPARE_PRECISION",
+              "Value": 1.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": 0,
+              "SourcePortId": 0,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input1",
+              "Value": "$0.0",
+              "DataType": null,
+              "PortDataType": 2047,
+              "PortAttr": 1
+            },
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": 1,
+              "SourcePortId": 0,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 1,
+              "Name": "Input2",
+              "Value": "$1.0",
+              "DataType": null,
+              "PortDataType": 2047,
+              "PortAttr": 1
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [
+                {
+                  "ElemID": 3,
+                  "PortID": 0
+                }
+              ],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Result",
+              "Value": null,
+              "DataType": "BOOL",
+              "PortDataType": 1,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "COMPARE_GT",
+          "ElementType": 14,
+          "ElementTypeClass": 2,
+          "HelpInfo": "为了消除计算误差，请设置输入端口保留精度。\n只允许 1.0、0.1、0.01 等 10 的整数次幂；默认值为 0.0001。\n如果当前精度不满足要求，请提高精度。\n比如当前精度为0.001，但是参与比较的2个浮点数分别为110.112999和110.112358，\n通常逻辑是110.112999>110.112358, \n但是由于当前精度为0.001，\n所以这2个浮点数在小数点后的第三位就截断了，\n最后的结果就变成110.112==110.112，不符合预期；\n此时就应该将精度提高到0.0001，\n那么截断后就变成110.1129>110.1123，符合预期了。"
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementControlFlowIf, LogicEngineConfigTool",
+          "Name": "IF条件判断",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 2,
+          "ContractVersion": "legacy",
+          "Id": 3,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 480.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 0,
+              "Name": "IFPara",
+              "Value": {
+                "$type": "LogicEngineConfigTool.Models.IFParaInfo, LogicEngineConfigTool",
+                "TrueNextID": 4,
+                "FalseNextID": 5
+              }
+            },
+            {
+              "Id": 1,
+              "Name": "ControlFlowInfo",
+              "Value": {
+                "$type": "LogicEngineConfigTool.Models.ControlFlowInfo, LogicEngineConfigTool",
+                "Kind": 1,
+                "JoinNextID": -1,
+                "EntryNextID": -1,
+                "LoopBackNextID": -1,
+                "ExitNextID": -1,
+                "Branches": [
+                  {
+                    "Key": "true",
+                    "Kind": 1,
+                    "Order": 0,
+                    "PortId": 0,
+                    "CaseValue": "",
+                    "TargetNextID": 4
+                  },
+                  {
+                    "Key": "false",
+                    "Kind": 2,
+                    "Order": 1,
+                    "PortId": 1,
+                    "CaseValue": "",
+                    "TargetNextID": 5
+                  }
+                ],
+                "Expressions": []
+              }
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": 2,
+              "SourcePortId": 0,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": "$2.0",
+              "DataType": null,
+              "PortDataType": 1,
+              "PortAttr": 1
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [
+                {
+                  "ElemID": 4,
+                  "PortID": 0
+                }
+              ],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "TRUE",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 2047,
+              "PortAttr": 4
+            },
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [
+                {
+                  "ElemID": 5,
+                  "PortID": 0
+                }
+              ],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 1,
+              "Name": "FALSE",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 2047,
+              "PortAttr": 4
+            }
+          ],
+          "Type": "IF",
+          "ElementType": 32,
+          "ElementTypeClass": 4,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 4,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 640.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 100.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 5,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 800.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 200.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        }
+      ],
+      "TextDesc": [],
+      "CompilationInputOrder": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "CompilationSourceOrder": [
+        {
+          "Id": 0,
+          "Type": "CONST_INPUT",
+          "NextID": 1
+        },
+        {
+          "Id": 1,
+          "Type": "CONST_INPUT",
+          "NextID": 2
+        },
+        {
+          "Id": 2,
+          "Type": "COMPARE_GT",
+          "NextID": 3
+        },
+        {
+          "Id": 3,
+          "Type": "IF",
+          "NextID": -1,
+          "ControlFlow": {
+            "Kind": 1,
+            "JoinNextID": -1,
+            "EntryNextID": -1,
+            "LoopBackNextID": -1,
+            "ExitNextID": -1,
+            "Branches": [
+              {
+                "Key": "true",
+                "Kind": 1,
+                "Order": 0,
+                "PortId": 0,
+                "CaseValue": "",
+                "TargetNextID": 4
+              },
+              {
+                "Key": "false",
+                "Kind": 2,
+                "Order": 1,
+                "PortId": 1,
+                "CaseValue": "",
+                "TargetNextID": 5
+              }
+            ],
+            "Expressions": []
+          }
+        },
+        {
+          "Id": 4,
+          "Type": "CONST_INPUT",
+          "NextID": -1
+        },
+        {
+          "Id": 5,
+          "Type": "CONST_INPUT",
+          "NextID": -1
+        }
+      ],
+      "EditorMetadata": {
+        "Version": 1,
+        "State": "project",
+        "CompilationInfo": {
+          "SourceStatus": null,
+          "CacheValidity": "unknown",
+          "CurrentReadiness": "draft",
+          "DigestVersion": "editor-canonical/1",
+          "EvidenceVersion": null,
+          "Status": "project",
+          "SourceDigest": "19083db2aa1688002d223d60de2d8641e8ae1fd3453975c2de638c0e7e99b09c",
+          "ProjectDigest": "9133ad0f514675cdab46a5abaa49d4cfa16bfd1f4836ce7d34b11bcb599fefaa",
+          "RuntimeDigest": null,
+          "CompilerVersion": "hierarchical/1",
+          "TargetProfileId": "unconfirmed",
+          "TargetVersion": "",
+          "CompiledAtUtc": "2026-10-26T09:33:52.8252958Z",
+          "SourceMap": [
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 101,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 102,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 103,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0,
+                "1": 1
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0,
+                "1": 1
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 104,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 105,
+              "RuntimeElementId": 4,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 106,
+              "RuntimeElementId": 5,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 201,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 202,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 203,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 204,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": "whileEntryReset",
+              "OwnerStructureId": "c08f3374-a917-41a0-bc73-bcbb3e20930d",
+              "SourceElementId": 301,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 2147483647,
+              "RuntimeElementId": 0,
+              "InputPortMap": {},
+              "OutputPortMap": {}
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 301,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-2": 0,
+                "-1": 1
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 302,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 303,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 401,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 402,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-1": 0
+              },
+              "OutputPortMap": {
+                "-1": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 403,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            }
+          ],
+          "Diagnostics": [],
+          "ResourceUsage": {
+            "editorElements": 16,
+            "connections": 12,
+            "task.1.runtimeElements": 6,
+            "task.2.runtimeElements": 4,
+            "task.3.runtimeElements": 4,
+            "task.4.runtimeElements": 3
+          }
+        },
+        "DocumentId": "06a630aa-4151-41c1-a316-664fd4eb215d",
+        "Revision": 28,
+        "NextElementId": 404,
+        "DesignExtensions": {},
+        "TargetRuntimeProfile": {
+          "TargetEvidence": {
+            "Purpose": "unknown",
+            "TargetIdentity": null,
+            "FirmwareIdentity": null,
+            "ProtocolVersion": null,
+            "EvidenceVersion": null,
+            "Scope": null,
+            "Capabilities": []
+          },
+          "ContractCapabilities": {
+            "WhileDualMode": null,
+            "WhileEntryReset": null,
+            "ScanLoopBudget": null,
+            "MasterPrintEnable": null,
+            "InstancePrintEnable": null,
+            "DebugStructuredReferences": null,
+            "DebugMessageEncoding": null,
+            "DebugCycleIntervalKey": null,
+            "DebugLogFileScope": null,
+            "DebugSharedFileBytes": null,
+            "TaskLogSlots": null,
+            "InstanceLogEntries": null,
+            "TaskLogStructureBytes": null,
+            "TaskLogSlotBytes": null,
+            "InstanceLogEntryBytes": null,
+            "InstanceLogStructureBytes": null,
+            "TemporaryBytes": null
+          },
+          "ResourceBudget": {
+            "SharedLogFileBytes": null,
+            "TaskBufferBytes": null,
+            "InstanceCacheBytes": null,
+            "StructureBytes": null,
+            "TemporaryBytes": null,
+            "WorstCaseSteps": null,
+            "WorstCaseMicroseconds": null
+          },
+          "ProfileId": "unconfirmed",
+          "LoopSafetyEvidence": [],
+          "Version": "",
+          "EntryMode": "unconfirmed",
+          "LinkNo": -1,
+          "ProtocolId": 0,
+          "NodeMin": 0,
+          "NodeMax": 2147483647,
+          "PortAddressing": "index",
+          "ConfirmedContracts": [],
+          "ResourceLimits": {
+            "MaxElements": 10000,
+            "MaxConnections": 50000,
+            "MaxCanvasDepth": 16,
+            "MaxPortsPerDirection": 128
+          }
+        },
+        "Task": {
+          "TaskId": 1,
+          "Name": "01_IF测试",
+          "Description": "",
+          "Enable": false,
+          "ScanInterval_ms": 100,
+          "TaskLogSettings": {
+            "Enable": false,
+            "MaxMessagesPerCycle": 100
+          },
+          "RootCanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+          "Canvases": [
+            {
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "OwnerSubprocessElementId": null,
+              "Elements": [
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 101,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 0.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 1.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 103,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 102,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 160.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 0.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 103,
+                          "PortID": 1
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementCompareGreaterThan, LogicEngineConfigTool",
+                  "Type": "COMPARE_GT",
+                  "Name": "大于",
+                  "ElementType": 14,
+                  "ElementTypeClass": 2,
+                  "HelpInfo": "为了消除计算误差，请设置输入端口保留精度。\n只允许 1.0、0.1、0.01 等 10 的整数次幂；默认值为 0.0001。\n如果当前精度不满足要求，请提高精度。\n比如当前精度为0.001，但是参与比较的2个浮点数分别为110.112999和110.112358，\n通常逻辑是110.112999>110.112358, \n但是由于当前精度为0.001，\n所以这2个浮点数在小数点后的第三位就截断了，\n最后的结果就变成110.112==110.112，不符合预期；\n此时就应该将精度提高到0.0001，\n那么截断后就变成110.1129>110.1123，符合预期了。",
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 2,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "Id": 103,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 320.0,
+                  "Y": 100.0,
+                  "NextID": 104,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "COMPARE_PRECISION",
+                      "Value": 1.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": 101,
+                      "SourcePortId": 0,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input1",
+                      "Value": "$101.0",
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 1
+                    },
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": 102,
+                      "SourcePortId": 0,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 1,
+                      "Name": "Input2",
+                      "Value": "$102.0",
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 1
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 104,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Result",
+                      "Value": null,
+                      "DataType": "BOOL",
+                      "PortDataType": 1,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementControlFlowIf, LogicEngineConfigTool",
+                  "Type": "IF",
+                  "Name": "IF条件判断",
+                  "ElementType": 32,
+                  "ElementTypeClass": 4,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 2,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 104,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 480.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 0,
+                      "Name": "IFPara",
+                      "Value": {
+                        "$type": "LogicEngineConfigTool.Models.IFParaInfo, LogicEngineConfigTool",
+                        "TrueNextID": 105,
+                        "FalseNextID": 106
+                      }
+                    },
+                    {
+                      "Id": 1,
+                      "Name": "ControlFlowInfo",
+                      "Value": {
+                        "$type": "LogicEngineConfigTool.Models.ControlFlowInfo, LogicEngineConfigTool",
+                        "Kind": 1,
+                        "JoinNextID": -1,
+                        "EntryNextID": -1,
+                        "LoopBackNextID": -1,
+                        "ExitNextID": -1,
+                        "Branches": [
+                          {
+                            "Key": "true",
+                            "Kind": 1,
+                            "Order": 0,
+                            "PortId": 0,
+                            "CaseValue": "",
+                            "TargetNextID": 105
+                          },
+                          {
+                            "Key": "false",
+                            "Kind": 2,
+                            "Order": 1,
+                            "PortId": 1,
+                            "CaseValue": "",
+                            "TargetNextID": 106
+                          }
+                        ],
+                        "Expressions": []
+                      }
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": 103,
+                      "SourcePortId": 0,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": "$103.0",
+                      "DataType": null,
+                      "PortDataType": 1,
+                      "PortAttr": 1
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 105,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "TRUE",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 4
+                    },
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 106,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 1,
+                      "Name": "FALSE",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 4
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 105,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 640.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 100.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 106,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 800.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 200.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                }
+              ],
+              "Connections": [
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "ccd3fa64-79c2-4348-a336-f2e6dd38ad7f",
+                  "Kind": "data",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 101,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 103,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "0bad6cc5-9bf5-4741-81cc-cf39b0a2f1a0",
+                  "Kind": "data",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 102,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 103,
+                    "PortId": 1,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "0552834a-21ec-4ed7-87c7-5514c76f6101",
+                  "Kind": "dataControl",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 103,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 104,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "6071d846-cf07-48f2-ac0b-7b3628881091",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 104,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 105,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "f6a43f37-cbd0-4e89-9624-f9e26202523a",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 104,
+                    "PortId": 1,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 106,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                }
+              ],
+              "BoundaryPorts": [],
+              "TextDesc": [],
+              "SourceOrder": [
+                101,
+                102,
+                103,
+                104,
+                105,
+                106
+              ],
+              "ViewState": {
+                "Zoom": 1.0,
+                "ScrollX": 0.0,
+                "ScrollY": 0.0
+              },
+              "NextBoundaryInputPortId": 0,
+              "NextBoundaryOutputPortId": 0
+            }
+          ],
+          "Structures": [],
+          "IntegralStorageBindings": []
+        }
+      }
+    },
+    {
+      "TaskId": 2,
+      "Name": "02_SWITCH测试",
+      "Description": "",
+      "Enable": false,
+      "ScanInterval_ms": 100,
+      "Elements": [
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 0,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 0.0,
+          "Y": 100.0,
+          "NextID": 1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 1.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [
+                {
+                  "ElemID": 1,
+                  "PortID": 0
+                }
+              ],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementControlFlowSwitch, LogicEngineConfigTool",
+          "Name": "SWITCH",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 2,
+          "ContractVersion": "new-elements/1",
+          "Id": 1,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 160.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 0,
+              "Name": "SwitchPara",
+              "Value": {
+                "$type": "LogicEngineConfigTool.Models.SwitchPara, LogicEngineConfigTool",
+                "DefaultNextID": 3,
+                "Cases": [
+                  {
+                    "Op": "EQ",
+                    "Value": 1.0,
+                    "Value2": 0.0,
+                    "NextID": 2
+                  }
+                ]
+              }
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": 0,
+              "SourcePortId": 0,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": "$0.0",
+              "DataType": null,
+              "PortDataType": 2046,
+              "PortAttr": 1
+            }
+          ],
+          "Outputs": [],
+          "Type": "SWITCH",
+          "ElementType": 33,
+          "ElementTypeClass": 4,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 2,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 320.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 100.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 3,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 480.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 200.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        }
+      ],
+      "TextDesc": [],
+      "CompilationInputOrder": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "CompilationSourceOrder": [
+        {
+          "Id": 0,
+          "Type": "CONST_INPUT",
+          "NextID": 1
+        },
+        {
+          "Id": 1,
+          "Type": "SWITCH",
+          "NextID": -1,
+          "Switch": {
+            "DefaultNextID": 3,
+            "Cases": [
+              {
+                "Op": "EQ",
+                "Value": 1.0,
+                "Value2": 0.0,
+                "NextID": 2
+              }
+            ]
+          }
+        },
+        {
+          "Id": 2,
+          "Type": "CONST_INPUT",
+          "NextID": -1
+        },
+        {
+          "Id": 3,
+          "Type": "CONST_INPUT",
+          "NextID": -1
+        }
+      ],
+      "EditorMetadata": {
+        "Version": 1,
+        "State": "project",
+        "CompilationInfo": {
+          "SourceStatus": null,
+          "CacheValidity": "unknown",
+          "CurrentReadiness": "draft",
+          "DigestVersion": "editor-canonical/1",
+          "EvidenceVersion": null,
+          "Status": "project",
+          "SourceDigest": "19083db2aa1688002d223d60de2d8641e8ae1fd3453975c2de638c0e7e99b09c",
+          "ProjectDigest": "9133ad0f514675cdab46a5abaa49d4cfa16bfd1f4836ce7d34b11bcb599fefaa",
+          "RuntimeDigest": null,
+          "CompilerVersion": "hierarchical/1",
+          "TargetProfileId": "unconfirmed",
+          "TargetVersion": "",
+          "CompiledAtUtc": "2026-10-26T09:33:52.8252958Z",
+          "SourceMap": [
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 101,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 102,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 103,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0,
+                "1": 1
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0,
+                "1": 1
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 104,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 105,
+              "RuntimeElementId": 4,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 106,
+              "RuntimeElementId": 5,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 201,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 202,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 203,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 204,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": "whileEntryReset",
+              "OwnerStructureId": "c08f3374-a917-41a0-bc73-bcbb3e20930d",
+              "SourceElementId": 301,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 2147483647,
+              "RuntimeElementId": 0,
+              "InputPortMap": {},
+              "OutputPortMap": {}
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 301,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-2": 0,
+                "-1": 1
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 302,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 303,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 401,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 402,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-1": 0
+              },
+              "OutputPortMap": {
+                "-1": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 403,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            }
+          ],
+          "Diagnostics": [],
+          "ResourceUsage": {
+            "editorElements": 16,
+            "connections": 12,
+            "task.1.runtimeElements": 6,
+            "task.2.runtimeElements": 4,
+            "task.3.runtimeElements": 4,
+            "task.4.runtimeElements": 3
+          }
+        },
+        "DocumentId": "06a630aa-4151-41c1-a316-664fd4eb215d",
+        "Revision": 28,
+        "NextElementId": 404,
+        "DesignExtensions": {},
+        "TargetRuntimeProfile": {
+          "TargetEvidence": {
+            "Purpose": "unknown",
+            "TargetIdentity": null,
+            "FirmwareIdentity": null,
+            "ProtocolVersion": null,
+            "EvidenceVersion": null,
+            "Scope": null,
+            "Capabilities": []
+          },
+          "ContractCapabilities": {
+            "WhileDualMode": null,
+            "WhileEntryReset": null,
+            "ScanLoopBudget": null,
+            "MasterPrintEnable": null,
+            "InstancePrintEnable": null,
+            "DebugStructuredReferences": null,
+            "DebugMessageEncoding": null,
+            "DebugCycleIntervalKey": null,
+            "DebugLogFileScope": null,
+            "DebugSharedFileBytes": null,
+            "TaskLogSlots": null,
+            "InstanceLogEntries": null,
+            "TaskLogStructureBytes": null,
+            "TaskLogSlotBytes": null,
+            "InstanceLogEntryBytes": null,
+            "InstanceLogStructureBytes": null,
+            "TemporaryBytes": null
+          },
+          "ResourceBudget": {
+            "SharedLogFileBytes": null,
+            "TaskBufferBytes": null,
+            "InstanceCacheBytes": null,
+            "StructureBytes": null,
+            "TemporaryBytes": null,
+            "WorstCaseSteps": null,
+            "WorstCaseMicroseconds": null
+          },
+          "ProfileId": "unconfirmed",
+          "LoopSafetyEvidence": [],
+          "Version": "",
+          "EntryMode": "unconfirmed",
+          "LinkNo": -1,
+          "ProtocolId": 0,
+          "NodeMin": 0,
+          "NodeMax": 2147483647,
+          "PortAddressing": "index",
+          "ConfirmedContracts": [],
+          "ResourceLimits": {
+            "MaxElements": 10000,
+            "MaxConnections": 50000,
+            "MaxCanvasDepth": 16,
+            "MaxPortsPerDirection": 128
+          }
+        },
+        "Task": {
+          "TaskId": 2,
+          "Name": "02_SWITCH测试",
+          "Description": "",
+          "Enable": false,
+          "ScanInterval_ms": 100,
+          "TaskLogSettings": {
+            "Enable": false,
+            "MaxMessagesPerCycle": 100
+          },
+          "RootCanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+          "Canvases": [
+            {
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "OwnerSubprocessElementId": null,
+              "Elements": [
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 201,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 0.0,
+                  "Y": 100.0,
+                  "NextID": 202,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 1.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 202,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementControlFlowSwitch, LogicEngineConfigTool",
+                  "Type": "SWITCH",
+                  "Name": "SWITCH",
+                  "ElementType": 33,
+                  "ElementTypeClass": 4,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 2,
+                  "ContractVersion": "new-elements/1",
+                  "HelpInfo": "",
+                  "Id": 202,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 160.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 0,
+                      "Name": "SwitchDesignInfo",
+                      "Value": {
+                        "$type": "LogicEngineConfigTool.Models.SwitchDesignInfo, LogicEngineConfigTool",
+                        "DefaultCaseKey": "default",
+                        "DefaultPortId": 0,
+                        "Cases": [
+                          {
+                            "CaseKey": "3abb0aba871146fda7c01dff5f47aaf8",
+                            "PortId": 1,
+                            "Order": 0,
+                            "Op": "EQ",
+                            "Value": 1.0,
+                            "Value2": 0.0
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": 201,
+                      "SourcePortId": 0,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": "$201.0",
+                      "DataType": null,
+                      "PortDataType": 2046,
+                      "PortAttr": 1
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 204,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "control",
+                      "GroupKey": "default",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "默认",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 4
+                    },
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 203,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 1,
+                      "Kind": "control",
+                      "GroupKey": "cases",
+                      "Unit": "",
+                      "IsRequired": false,
+                      "CanDelete": true,
+                      "Id": 1,
+                      "Name": "EQ 0",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 4
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 203,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 320.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 100.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 204,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 480.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 200.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                }
+              ],
+              "Connections": [
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "7ed98852-4854-48c8-989a-31a4ca5973e3",
+                  "Kind": "dataControl",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 201,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 202,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "9eb7efe5-1852-4e2c-82f4-720b5957c3cb",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 202,
+                    "PortId": 1,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 203,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "6219aa36-7a66-45e5-abc6-9f34a7536fdb",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 202,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 204,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                }
+              ],
+              "BoundaryPorts": [],
+              "TextDesc": [],
+              "SourceOrder": [
+                201,
+                202,
+                203,
+                204
+              ],
+              "ViewState": {
+                "Zoom": 1.0,
+                "ScrollX": 0.0,
+                "ScrollY": 0.0
+              },
+              "NextBoundaryInputPortId": 0,
+              "NextBoundaryOutputPortId": 0
+            }
+          ],
+          "Structures": [],
+          "IntegralStorageBindings": []
+        }
+      }
+    },
+    {
+      "TaskId": 3,
+      "Name": "03_WHILE测试",
+      "Description": "",
+      "Enable": false,
+      "ScanInterval_ms": 100,
+      "Elements": [
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementJump, LogicEngineConfigTool",
+          "Name": "WHILE入口",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 0,
+          "NextOutputPortId": 0,
+          "ContractVersion": "new-elements/1",
+          "Id": 0,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 0.0,
+          "Y": 0.0,
+          "NextID": 1,
+          "Params": [],
+          "Inputs": [],
+          "Outputs": [],
+          "Type": "JUMP",
+          "ElementType": 46,
+          "ElementTypeClass": 4,
+          "HelpInfo": "静态转移到同任务合法节点或声明的转移接口；运行仅输出NextID。"
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementControlFlowWhile, LogicEngineConfigTool",
+          "Name": "WHILE",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 2,
+          "ContractVersion": "new-elements/2",
+          "Id": 1,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 0.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 0,
+              "Name": "linkdev",
+              "Value": {
+                "$type": "LogicEngineConfigTool.Models.WhileRuntimePara, LogicEngineConfigTool",
+                "LoopMode": 1,
+                "MaxIterations": 3,
+                "Link": 1,
+                "Dev": 2,
+                "Reg": 3,
+                "ContinueNextID": 2,
+                "ExitNextID": 3
+              }
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": 0,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": null,
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 0
+            }
+          ],
+          "Outputs": [],
+          "Type": "WHILE",
+          "ElementType": 34,
+          "ElementTypeClass": 4,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 2,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 160.0,
+          "Y": 100.0,
+          "NextID": 1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 10.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 3,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 320.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 20.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        }
+      ],
+      "TextDesc": [],
+      "CompilationInputOrder": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "CompilationSourceOrder": [
+        {
+          "Id": 0,
+          "Type": "JUMP",
+          "NextID": 1,
+          "Jump": {
+            "TargetKind": "element",
+            "loopId": null
+          }
+        },
+        {
+          "Id": 1,
+          "Type": "WHILE",
+          "NextID": -1,
+          "While": {
+            "ContinueNextID": 2,
+            "ExitNextID": 3
+          }
+        },
+        {
+          "Id": 2,
+          "Type": "CONST_INPUT",
+          "NextID": 1
+        },
+        {
+          "Id": 3,
+          "Type": "CONST_INPUT",
+          "NextID": -1
+        }
+      ],
+      "EditorMetadata": {
+        "Version": 1,
+        "State": "project",
+        "CompilationInfo": {
+          "SourceStatus": null,
+          "CacheValidity": "unknown",
+          "CurrentReadiness": "draft",
+          "DigestVersion": "editor-canonical/1",
+          "EvidenceVersion": null,
+          "Status": "project",
+          "SourceDigest": "19083db2aa1688002d223d60de2d8641e8ae1fd3453975c2de638c0e7e99b09c",
+          "ProjectDigest": "9133ad0f514675cdab46a5abaa49d4cfa16bfd1f4836ce7d34b11bcb599fefaa",
+          "RuntimeDigest": null,
+          "CompilerVersion": "hierarchical/1",
+          "TargetProfileId": "unconfirmed",
+          "TargetVersion": "",
+          "CompiledAtUtc": "2026-10-26T09:33:52.8252958Z",
+          "SourceMap": [
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 101,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 102,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 103,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0,
+                "1": 1
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0,
+                "1": 1
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 104,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 105,
+              "RuntimeElementId": 4,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 106,
+              "RuntimeElementId": 5,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 201,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 202,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 203,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 204,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": "whileEntryReset",
+              "OwnerStructureId": "c08f3374-a917-41a0-bc73-bcbb3e20930d",
+              "SourceElementId": 301,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 2147483647,
+              "RuntimeElementId": 0,
+              "InputPortMap": {},
+              "OutputPortMap": {}
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 301,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-2": 0,
+                "-1": 1
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 302,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 303,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 401,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 402,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-1": 0
+              },
+              "OutputPortMap": {
+                "-1": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 403,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            }
+          ],
+          "Diagnostics": [],
+          "ResourceUsage": {
+            "editorElements": 16,
+            "connections": 12,
+            "task.1.runtimeElements": 6,
+            "task.2.runtimeElements": 4,
+            "task.3.runtimeElements": 4,
+            "task.4.runtimeElements": 3
+          }
+        },
+        "DocumentId": "06a630aa-4151-41c1-a316-664fd4eb215d",
+        "Revision": 28,
+        "NextElementId": 404,
+        "DesignExtensions": {},
+        "TargetRuntimeProfile": {
+          "TargetEvidence": {
+            "Purpose": "unknown",
+            "TargetIdentity": null,
+            "FirmwareIdentity": null,
+            "ProtocolVersion": null,
+            "EvidenceVersion": null,
+            "Scope": null,
+            "Capabilities": []
+          },
+          "ContractCapabilities": {
+            "WhileDualMode": null,
+            "WhileEntryReset": null,
+            "ScanLoopBudget": null,
+            "MasterPrintEnable": null,
+            "InstancePrintEnable": null,
+            "DebugStructuredReferences": null,
+            "DebugMessageEncoding": null,
+            "DebugCycleIntervalKey": null,
+            "DebugLogFileScope": null,
+            "DebugSharedFileBytes": null,
+            "TaskLogSlots": null,
+            "InstanceLogEntries": null,
+            "TaskLogStructureBytes": null,
+            "TaskLogSlotBytes": null,
+            "InstanceLogEntryBytes": null,
+            "InstanceLogStructureBytes": null,
+            "TemporaryBytes": null
+          },
+          "ResourceBudget": {
+            "SharedLogFileBytes": null,
+            "TaskBufferBytes": null,
+            "InstanceCacheBytes": null,
+            "StructureBytes": null,
+            "TemporaryBytes": null,
+            "WorstCaseSteps": null,
+            "WorstCaseMicroseconds": null
+          },
+          "ProfileId": "unconfirmed",
+          "LoopSafetyEvidence": [],
+          "Version": "",
+          "EntryMode": "unconfirmed",
+          "LinkNo": -1,
+          "ProtocolId": 0,
+          "NodeMin": 0,
+          "NodeMax": 2147483647,
+          "PortAddressing": "index",
+          "ConfirmedContracts": [],
+          "ResourceLimits": {
+            "MaxElements": 10000,
+            "MaxConnections": 50000,
+            "MaxCanvasDepth": 16,
+            "MaxPortsPerDirection": 128
+          }
+        },
+        "Task": {
+          "TaskId": 3,
+          "Name": "03_WHILE测试",
+          "Description": "",
+          "Enable": false,
+          "ScanInterval_ms": 100,
+          "TaskLogSettings": {
+            "Enable": false,
+            "MaxMessagesPerCycle": 100
+          },
+          "RootCanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+          "Canvases": [
+            {
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "OwnerSubprocessElementId": null,
+              "Elements": [
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementControlFlowWhile, LogicEngineConfigTool",
+                  "Type": "WHILE",
+                  "Name": "WHILE",
+                  "ElementType": 34,
+                  "ElementTypeClass": 4,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 0,
+                  "NextOutputPortId": 2,
+                  "ContractVersion": "new-elements/2",
+                  "HelpInfo": "",
+                  "Id": 301,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 0.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 0,
+                      "Name": "WhileDesignInfo",
+                      "Value": {
+                        "$type": "LogicEngineConfigTool.Models.WhileDesignInfo, LogicEngineConfigTool",
+                        "LoopMode": 1,
+                        "MaxIterations": 3,
+                        "Link": 1,
+                        "Dev": 2,
+                        "Reg": 3
+                      }
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "control",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": -1,
+                      "Name": "执行",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    },
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "control",
+                      "GroupKey": "loopBack",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": -2,
+                      "Name": "回环",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 302,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "control",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "继续",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 4
+                    },
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 303,
+                          "PortID": 0
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 1,
+                      "Kind": "control",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 1,
+                      "Name": "退出",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 2047,
+                      "PortAttr": 4
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 302,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 160.0,
+                  "Y": 100.0,
+                  "NextID": 301,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 10.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 301,
+                          "PortID": -2
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 303,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 320.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 20.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                }
+              ],
+              "Connections": [
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "5335d581-4b4d-4bfd-bfa5-a062ac6d1758",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 301,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 302,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "1359b597-f84e-42eb-bee5-22158781f5f2",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 301,
+                    "PortId": 1,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 303,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                },
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "fa70ecd0-75ec-46c5-844a-1792ef8dbb82",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 302,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 301,
+                    "PortId": -2,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                }
+              ],
+              "BoundaryPorts": [],
+              "TextDesc": [],
+              "SourceOrder": [
+                301,
+                302,
+                303
+              ],
+              "ViewState": {
+                "Zoom": 1.0,
+                "ScrollX": 0.0,
+                "ScrollY": 0.0
+              },
+              "NextBoundaryInputPortId": 0,
+              "NextBoundaryOutputPortId": 0
+            }
+          ],
+          "Structures": [
+            {
+              "$type": "LogicEngineConfigTool.Models.Editor.LoopStructureInfo, LogicEngineConfigTool",
+              "StructureId": "c08f3374-a917-41a0-bc73-bcbb3e20930d",
+              "Kind": "while",
+              "HeadElementId": 301,
+              "MemberElementIds": [
+                301
+              ],
+              "ParentStructureId": null,
+              "BranchKey": null,
+              "Entry": {
+                "TargetKind": "element",
+                "StructureId": null,
+                "TargetElementId": 301,
+                "ParentInterfaceRef": null,
+                "BindingState": "bound",
+                "UnboundReason": null,
+                "OriginalText": null
+              },
+              "Exit": null,
+              "BodyEntry": null,
+              "AuthorizedBackEdges": []
+            }
+          ],
+          "IntegralStorageBindings": []
+        }
+      }
+    },
+    {
+      "TaskId": 4,
+      "Name": "04_JUMP测试",
+      "Description": "",
+      "Enable": false,
+      "ScanInterval_ms": 100,
+      "Elements": [
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 0,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 0.0,
+          "Y": 100.0,
+          "NextID": 1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 1.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementJump, LogicEngineConfigTool",
+          "Name": "静态跳转",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 0,
+          "NextOutputPortId": 0,
+          "ContractVersion": "new-elements/1",
+          "Id": 1,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 160.0,
+          "Y": 100.0,
+          "NextID": 2,
+          "Params": [],
+          "Inputs": [],
+          "Outputs": [],
+          "Type": "JUMP",
+          "ElementType": 46,
+          "ElementTypeClass": 4,
+          "HelpInfo": "静态转移到同任务合法节点或声明的转移接口；运行仅输出NextID。"
+        },
+        {
+          "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+          "Name": "常量输入",
+          "Display": {
+            "SizeMode": "auto",
+            "Width": null,
+            "Height": null,
+            "FontSize": 12.0
+          },
+          "NextInputPortId": 1,
+          "NextOutputPortId": 1,
+          "ContractVersion": "legacy",
+          "Id": 2,
+          "Enable": false,
+          "ScanInterval_ms": 0,
+          "X": 320.0,
+          "Y": 100.0,
+          "NextID": -1,
+          "Params": [
+            {
+              "Id": 1,
+              "Name": "ConstValue",
+              "Value": 2.0
+            }
+          ],
+          "Inputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "SourceElemId": -1,
+              "SourcePortId": -1,
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Input",
+              "Value": null,
+              "DataType": null,
+              "PortDataType": 0,
+              "PortAttr": 4
+            }
+          ],
+          "Outputs": [
+            {
+              "IsDisplayToUser": false,
+              "CanUserModifyValue": false,
+              "TargetPorts": [],
+              "PortRole": "numeric",
+              "Order": 0,
+              "Kind": "data",
+              "GroupKey": "",
+              "Unit": "",
+              "IsRequired": true,
+              "CanDelete": false,
+              "Id": 0,
+              "Name": "Value",
+              "Value": null,
+              "DataType": "FLOAT",
+              "PortDataType": 2047,
+              "PortAttr": 2
+            }
+          ],
+          "Type": "CONST_INPUT",
+          "ElementType": 2,
+          "ElementTypeClass": 0,
+          "HelpInfo": ""
+        }
+      ],
+      "TextDesc": [],
+      "CompilationInputOrder": [
+        0,
+        1,
+        2
+      ],
+      "CompilationSourceOrder": [
+        {
+          "Id": 0,
+          "Type": "CONST_INPUT",
+          "NextID": 1
+        },
+        {
+          "Id": 1,
+          "Type": "JUMP",
+          "NextID": 2,
+          "Jump": {
+            "TargetKind": "element",
+            "loopId": null
+          }
+        },
+        {
+          "Id": 2,
+          "Type": "CONST_INPUT",
+          "NextID": -1
+        }
+      ],
+      "EditorMetadata": {
+        "Version": 1,
+        "State": "project",
+        "CompilationInfo": {
+          "SourceStatus": null,
+          "CacheValidity": "unknown",
+          "CurrentReadiness": "draft",
+          "DigestVersion": "editor-canonical/1",
+          "EvidenceVersion": null,
+          "Status": "project",
+          "SourceDigest": "19083db2aa1688002d223d60de2d8641e8ae1fd3453975c2de638c0e7e99b09c",
+          "ProjectDigest": "9133ad0f514675cdab46a5abaa49d4cfa16bfd1f4836ce7d34b11bcb599fefaa",
+          "RuntimeDigest": null,
+          "CompilerVersion": "hierarchical/1",
+          "TargetProfileId": "unconfirmed",
+          "TargetVersion": "",
+          "CompiledAtUtc": "2026-10-26T09:33:52.8252958Z",
+          "SourceMap": [
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 101,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 102,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 103,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0,
+                "1": 1
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0,
+                "1": 1
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 104,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 105,
+              "RuntimeElementId": 4,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 1,
+              "CanvasId": "29793675-cdf7-4fb5-9c3d-4dcd22ee93ab",
+              "ElementId": 106,
+              "RuntimeElementId": 5,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 201,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 202,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 203,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 2,
+              "CanvasId": "bbfec9d2-63ea-4f12-b951-34a9cb4b7fa1",
+              "ElementId": 204,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": "whileEntryReset",
+              "OwnerStructureId": "c08f3374-a917-41a0-bc73-bcbb3e20930d",
+              "SourceElementId": 301,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 2147483647,
+              "RuntimeElementId": 0,
+              "InputPortMap": {},
+              "OutputPortMap": {}
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 301,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-2": 0,
+                "-1": 1
+              },
+              "OutputPortMap": {
+                "0": 0,
+                "1": 1
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 302,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 3,
+              "CanvasId": "a95e9ca0-2f59-4aa4-9712-8ecb1024e817",
+              "ElementId": 303,
+              "RuntimeElementId": 3,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 401,
+              "RuntimeElementId": 0,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {},
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 402,
+              "RuntimeElementId": 1,
+              "InputPortMap": {
+                "-1": 0
+              },
+              "OutputPortMap": {
+                "-1": 0
+              }
+            },
+            {
+              "GeneratedRole": null,
+              "OwnerStructureId": null,
+              "SourceElementId": null,
+              "OutputSlotMap": {
+                "0": 0
+              },
+              "TaskId": 4,
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "ElementId": 403,
+              "RuntimeElementId": 2,
+              "InputPortMap": {
+                "0": 0
+              },
+              "OutputPortMap": {
+                "0": 0
+              }
+            }
+          ],
+          "Diagnostics": [],
+          "ResourceUsage": {
+            "editorElements": 16,
+            "connections": 12,
+            "task.1.runtimeElements": 6,
+            "task.2.runtimeElements": 4,
+            "task.3.runtimeElements": 4,
+            "task.4.runtimeElements": 3
+          }
+        },
+        "DocumentId": "06a630aa-4151-41c1-a316-664fd4eb215d",
+        "Revision": 28,
+        "NextElementId": 404,
+        "DesignExtensions": {},
+        "TargetRuntimeProfile": {
+          "TargetEvidence": {
+            "Purpose": "unknown",
+            "TargetIdentity": null,
+            "FirmwareIdentity": null,
+            "ProtocolVersion": null,
+            "EvidenceVersion": null,
+            "Scope": null,
+            "Capabilities": []
+          },
+          "ContractCapabilities": {
+            "WhileDualMode": null,
+            "WhileEntryReset": null,
+            "ScanLoopBudget": null,
+            "MasterPrintEnable": null,
+            "InstancePrintEnable": null,
+            "DebugStructuredReferences": null,
+            "DebugMessageEncoding": null,
+            "DebugCycleIntervalKey": null,
+            "DebugLogFileScope": null,
+            "DebugSharedFileBytes": null,
+            "TaskLogSlots": null,
+            "InstanceLogEntries": null,
+            "TaskLogStructureBytes": null,
+            "TaskLogSlotBytes": null,
+            "InstanceLogEntryBytes": null,
+            "InstanceLogStructureBytes": null,
+            "TemporaryBytes": null
+          },
+          "ResourceBudget": {
+            "SharedLogFileBytes": null,
+            "TaskBufferBytes": null,
+            "InstanceCacheBytes": null,
+            "StructureBytes": null,
+            "TemporaryBytes": null,
+            "WorstCaseSteps": null,
+            "WorstCaseMicroseconds": null
+          },
+          "ProfileId": "unconfirmed",
+          "LoopSafetyEvidence": [],
+          "Version": "",
+          "EntryMode": "unconfirmed",
+          "LinkNo": -1,
+          "ProtocolId": 0,
+          "NodeMin": 0,
+          "NodeMax": 2147483647,
+          "PortAddressing": "index",
+          "ConfirmedContracts": [],
+          "ResourceLimits": {
+            "MaxElements": 10000,
+            "MaxConnections": 50000,
+            "MaxCanvasDepth": 16,
+            "MaxPortsPerDirection": 128
+          }
+        },
+        "Task": {
+          "TaskId": 4,
+          "Name": "04_JUMP测试",
+          "Description": "",
+          "Enable": false,
+          "ScanInterval_ms": 100,
+          "TaskLogSettings": {
+            "Enable": false,
+            "MaxMessagesPerCycle": 100
+          },
+          "RootCanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+          "Canvases": [
+            {
+              "CanvasId": "1fa72db9-00f7-47e9-969a-4cf4165aa3ab",
+              "OwnerSubprocessElementId": null,
+              "Elements": [
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 401,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 0.0,
+                  "Y": 100.0,
+                  "NextID": 402,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 1.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [
+                        {
+                          "ElemID": 402,
+                          "PortID": -1
+                        }
+                      ],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementJump, LogicEngineConfigTool",
+                  "Type": "JUMP",
+                  "Name": "静态跳转",
+                  "ElementType": 46,
+                  "ElementTypeClass": 4,
+                  "HelpInfo": "静态转移到同任务合法节点或声明的转移接口；运行仅输出NextID。",
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 0,
+                  "NextOutputPortId": 0,
+                  "ContractVersion": "new-elements/1",
+                  "Id": 402,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 160.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 0,
+                      "Name": "JumpDesignInfo",
+                      "Value": {
+                        "$type": "LogicEngineConfigTool.Models.JumpDesignInfo, LogicEngineConfigTool",
+                        "Target": {
+                          "TargetKind": "element",
+                          "StructureId": null,
+                          "TargetElementId": 403,
+                          "ParentInterfaceRef": null,
+                          "BindingState": "bound",
+                          "UnboundReason": null,
+                          "OriginalText": null
+                        }
+                      }
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "control",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": -1,
+                      "Name": "执行",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "control",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": -1,
+                      "Name": "执行",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ]
+                },
+                {
+                  "$type": "LogicEngineConfigTool.Elements.ElementConstInput, LogicEngineConfigTool",
+                  "Type": "CONST_INPUT",
+                  "Name": "常量输入",
+                  "ElementType": 2,
+                  "ElementTypeClass": 0,
+                  "Display": {
+                    "SizeMode": "auto",
+                    "Width": null,
+                    "Height": null,
+                    "FontSize": 12.0
+                  },
+                  "NextInputPortId": 1,
+                  "NextOutputPortId": 1,
+                  "ContractVersion": "legacy",
+                  "HelpInfo": "",
+                  "Id": 403,
+                  "Enable": false,
+                  "ScanInterval_ms": 0,
+                  "X": 320.0,
+                  "Y": 100.0,
+                  "NextID": -1,
+                  "Params": [
+                    {
+                      "Id": 1,
+                      "Name": "ConstValue",
+                      "Value": 2.0
+                    }
+                  ],
+                  "Inputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "SourceElemId": -1,
+                      "SourcePortId": -1,
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Input",
+                      "Value": null,
+                      "DataType": null,
+                      "PortDataType": 0,
+                      "PortAttr": 4
+                    }
+                  ],
+                  "Outputs": [
+                    {
+                      "IsDisplayToUser": false,
+                      "CanUserModifyValue": false,
+                      "TargetPorts": [],
+                      "PortRole": "numeric",
+                      "Order": 0,
+                      "Kind": "data",
+                      "GroupKey": "",
+                      "Unit": "",
+                      "IsRequired": true,
+                      "CanDelete": false,
+                      "Id": 0,
+                      "Name": "Value",
+                      "Value": null,
+                      "DataType": "FLOAT",
+                      "PortDataType": 2047,
+                      "PortAttr": 2
+                    }
+                  ]
+                }
+              ],
+              "Connections": [
+                {
+                  "BindingState": null,
+                  "UnboundReason": null,
+                  "ConnectionId": "3bcd21c3-9b2c-4e62-a14b-37b2e6c77d4d",
+                  "Kind": "control",
+                  "Role": "normal",
+                  "Source": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "output",
+                    "NodeKind": "element",
+                    "ElementId": 401,
+                    "PortId": 0,
+                    "PortRole": "numeric"
+                  },
+                  "Target": {
+                    "BoundaryCanvasId": null,
+                    "Direction": "input",
+                    "NodeKind": "element",
+                    "ElementId": 402,
+                    "PortId": -1,
+                    "PortRole": "numeric"
+                  },
+                  "RoutePoints": []
+                }
+              ],
+              "BoundaryPorts": [],
+              "TextDesc": [],
+              "SourceOrder": [
+                401,
+                402,
+                403
+              ],
+              "ViewState": {
+                "Zoom": 1.0,
+                "ScrollX": 0.0,
+                "ScrollY": 0.0
+              },
+              "NextBoundaryInputPortId": 0,
+              "NextBoundaryOutputPortId": 0
+            }
+          ],
+          "Structures": [],
+          "IntegralStorageBindings": []
+        }
+      }
+    }
+  ]
+}
