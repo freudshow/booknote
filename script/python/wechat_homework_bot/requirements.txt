@@ -1,0 +1,3 @@
+wxauto>=4.0.0
+pyyaml>=6.0
+apscheduler>=3.10

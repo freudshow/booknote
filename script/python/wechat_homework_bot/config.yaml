@@ -1,0 +1,75 @@
+# 微信作业自动下载配置
+# 安装依赖: pip install wxauto pyyaml apscheduler
+
+# 监听时间窗口 (24小时制)
+schedule:
+  start_hour: 15
+  start_minute: 0
+  end_hour: 20
+  end_minute: 0
+  # 轮询间隔(秒)，在时间窗口内检查新消息的频率
+  poll_interval_seconds: 30
+
+# 保存根目录 (支持环境变量如 %USERPROFILE%)
+save_root: "C:/Users/%USERNAME%/Documents/WeChat_Homework"
+
+# 微信群配置
+groups:
+  - name: "星海一年级古筝"
+    # 指定该群内的发布作业者(群昵称或备注名)，为空则不限制发送者
+    publishers:
+      - "古筝老师"
+      - "班主任"
+    # 该群对应的学科分类关键词 (用于自动归类)
+    subject_keywords:
+      古筝: ["古筝", "琴", "曲目", "练习", "指法", "乐谱"]
+      音乐: ["音乐", "唱歌", "乐理", "节奏"]
+
+  - name: "星海艺校一年级二班新班级群"
+    publishers:
+      - "语文老师"
+      - "数学老师"
+      - "英语老师"
+      - "班主任"
+      - "体育老师"
+    subject_keywords:
+      语文: ["语文", "作文", "阅读", "生字", "词语", "课文", "背诵", "默写", "朗读"]
+      数学: ["数学", "计算", "口算", "应用题", "题目", "习题", "练习册"]
+      英语: ["英语", "单词", "句子", "阅读", "听力", "跟读", "自然拼读", "phonics"]
+      体育: ["体育", "跑步", "跳绳", "体测", "锻炼"]
+      科学: ["科学", "实验", "观察", "自然"]
+
+  - name: "🎖️星海一年二班家长成长同盟群"
+    publishers:
+      - "班主任"
+      - "语文老师"
+      - "数学老师"
+      - "英语老师"
+    subject_keywords:
+      语文: ["语文", "作文", "阅读", "生字", "词语", "课文", "背诵", "默写", "朗读"]
+      数学: ["数学", "计算", "口算", "应用题", "题目", "习题", "练习册"]
+      英语: ["英语", "单词", "句子", "阅读", "听力", "跟读", "自然拼读", "phonics"]
+      通知: ["通知", "家长会", "放假", "调课", "作息", "收费", "缴费", "报名"]
+
+# 文件类型分类映射 (wxauto消息type -> 目录名)
+file_type_dirs:
+  text: "文本"
+  image: "图片"
+  video: "视频"
+  voice: "语音"
+  file: "文档"
+  link: "链接"
+  note: "笔记"
+
+# 语音转文字设置
+voice_to_text:
+  enabled: true
+  # 需要安装: pip install wxauto[voice] (依赖funasr等，较大)
+  # 或者使用在线API (需自行配置)
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "logs/homework_bot.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
