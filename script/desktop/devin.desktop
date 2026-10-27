@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Devin
+Comment=Devin Desktop
+Exec=/home/floyd/soft/Devin/devin-desktop
+Terminal=false
+Type=Application
+Icon=/home/floyd/soft/Devin/resources/app/resources/linux/code.png
+StartupNotify=true
+MimeType=application/x-ipynb+json;
+Categories=Development;
+Keywords=Devin;
+Name[zh_CN]=Devin
