@@ -1,0 +1,1 @@
+claude update && cline update && hermes update && pi update && codex update && opencode upgrade && agy update && grok update
