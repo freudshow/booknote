@@ -3512,3 +3512,7 @@ D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_评测部可视化测试\SndFil
 Software Detailed Design Specification Document - 软件详细设计规范文档
 
 备用遥测
+
+IList<ControlFlowCompilationResult> compilations = _compiler.CompileAll(
+    clone.LogicTasks
+);
