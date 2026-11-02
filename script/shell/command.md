@@ -1134,6 +1134,10 @@ sudo update-grub
 	sudo ufw status numbered
 
 	#连接服务器的xrdp, 可以通过Windows自带的 mstsc 或者 mobaXterm中的 rdp 远程桌面连接
+
+    # 运行下面的命令修改登录后的桌面环境，然后从列表里选择相应的桌面环境编号
+    sudo update-alternatives --config x-session-manager
+
 ```
 
 ##`debian` 12 设置启动界面（文本或图形）
