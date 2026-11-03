@@ -99,15 +99,6 @@ https://github.com/olikraus/u8g2/wiki/Porting-to-new-MCU-platform Porting to new
 https://learn.microsoft.com/zh-cn/dotnet/standard/io/memory-mapped-files
 
 
-主卡 15589585579
-
-
-副卡 18561020790
-
-
-[文件]
-
-
 https://www.shortform.com/best-books/genre/best-compiler-books-of-all-time
 
 
@@ -392,3 +383,5 @@ git clone https://github.com/chengaopan/AutoMergePublicNodes.git
 git clone https://github.com/free-nodes/v2rayfree.git
 git clone https://github.com/deezertidal/freevpn.git
 git clone https://github.com/Pawdroid/Free-servers.git
+
+https://github.com/AxiomMath/CFSG.git 有限单群分类定理的LEAN形式化证明
