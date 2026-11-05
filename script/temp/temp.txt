@@ -973,7 +973,7 @@ tcpdump  -i usb0  -s 0 port 2404 -w ./target.cap
 /bin/serial -c "/dev/ttymxc5" -b 9600 -p 0 -f"68 01 00 00 00 00 00 68 1C 0E 34 34 34 39 33 33 33 33 33 33 33 33 33 35 D0 16" -t 1
 
 合闸
-./serial -c "/dev/ttymxc5" -b 9600 -p 0 -f"68 01 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 33 33 33 33 33 35 D1 16" -t 1
+/bin/serial -c "/dev/ttymxc5" -b 9600 -p 0 -f"68 01 00 00 00 00 00 68 1C 0E 34 35 34 39 33 33 33 33 33 33 33 33 33 35 D1 16" -t 1
 
 /bin/serial -c "/dev/ttymxc2" -b 9600 -p 0 -f"68 AA AA AA AA AA AA 68 13 00 DF 16" -t 3
 
@@ -3522,3 +3522,13 @@ Software Detailed Design Specification Document - 软件详细设计规范文档
 IList<ControlFlowCompilationResult> compilations = _compiler.CompileAll(
     clone.LogicTasks
 );
+
+## 2026-11-03 导出8个内蒙的加密芯片证书
+D300E0193052202607080213
+D300E0193052202607080209
+D300E0193052202607080161
+D300E0193052202607080211
+D300E0193052202607080212
+D300E0193052202607080162
+D300E0193052202607080210
+D300E0193052202607080196
