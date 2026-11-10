@@ -1,0 +1,25 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 1 - 2026/10/20 15:41:41:
+precision accuracy有什么区别
+
+GPT-6 Luna:
+<!-- **Explaining precision and accuracy in Chinese**
+
+I need to provide an answer in Chinese that clarifies the distinction between precision and accuracy, especially in the context of measurement or machine learning. Precision refers to repeatability or positive predictive value, while accuracy refers to how close a result is to the true value. I should also give examples to illustrate these concepts. It seems like it’s important to clarify their different usages in various contexts without needing any additional searches. -->
+**Accuracy** 是“准确率/准确度”，看整体结果有多少是对的；**precision** 要看语境：
+
+- **机器学习分类**：precision 通常译为“精确率”，指模型判为正的结果中，真正为正的比例。  
+  \[
+  \text{Precision}=\frac{TP}{TP+FP}
+  \]
+  accuracy 则是所有预测中正确的比例：  
+  \[
+  \text{Accuracy}=\frac{TP+TN}{TP+TN+FP+FN}
+  \]
+
+- **测量实验**：accuracy 指测量值离真实值有多近；precision 指重复测量结果彼此有多接近、是否稳定。
+
+简单说：**accuracy 看对不对，precision 看报出来的“正例”有多少是真的；在测量里，precision 也常指结果的一致性。**

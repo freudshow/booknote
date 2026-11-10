@@ -1,0 +1,36 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 1 - 2026/9/20 14:31:56:
+opencode的免费额度是怎么计算的？什么时候重置
+
+GPT-6 Luna:
+<!--  -->
+<!-- **Clarifying user requests**
+
+I need to clarify whether the user is asking about free quotas, probably referring to Zen free models rather than Go models. It seems like I should search for specific limits, so I think looking up the documentation page that covers rate limits could be a good step. This way, I can provide the user with accurate and helpful information about the quotas available to them. Let's see what I find! -->
+<!--  -->
+<!-- **Clarifying usage distinctions**
+
+I need to clarify the difference between OpenCode, which is free with no quota, and the free model quota provided by Zen, which is dynamic. The current official page states that free models are temporarily free without a reset schedule. The Go model is a paid plan at $10 per month with limits, like estimated requests every 5 hours. It's important to avoid unsupported assertions while inspecting documentation about pricing. This will help explain what free usage entails and potential rate limiting. -->
+<!--  -->
+如果你说的是 OpenCode 里 Zen 的“免费模型”，目前规则可以这样理解：
+
+- **OpenCode 软件本身没有统一的免费额度**；额度由你所使用的模型提供方决定。
+- Zen 的免费模型是“限时免费”，包括部分带 `Free` 的模型以及 Big Pickle 等，但官方没有公布一个固定的“每月多少美元”或“多少 token”的免费额度。[1]
+- 免费额度通常按**账号、模型和服务端限流规则**计算，可能同时受请求次数、输入/输出 token、并发数以及高峰期容量影响。因此，同一个模型每次能使用的次数也可能不同。
+- 官方目前**没有公开固定的重置时间**，例如每月 1 日或每天 UTC 00:00 重置。出现 `Free usage exceeded` 后，通常需要等服务端限流窗口恢复，或者换用其他免费模型/自己的模型提供商。
+
+另外，如果你指的是 **OpenCode Go**，它不是免费额度，而是 **每月 10 美元的订阅**。其页面同时展示“预估 5 小时请求数”和“每月使用额度”，不同模型的额度不同；例如 GPT 5.6 Luna、Kimi K3、DeepSeek 等对应的每月额度并不一样。[2]
+
+简单说：
+
+> **免费 Zen 模型：没有公开固定额度和明确重置时间，额度动态限流。**  
+> **Go：按订阅周期和模型额度计算，不属于免费额度。**
+
+你可以在 OpenCode 中运行 `/models` 查看当前可用的免费模型；如果某个模型提示超额，最实际的做法是先换另一个 `Free` 模型，或等待一段时间后重试。
+
+Read More
+[1] Zen — https://opencode.ai/docs/zh-cn/zen/
+[2] OpenCode Go | 人人可用的低成本编程模型 — https://opencode.ai/zh/go

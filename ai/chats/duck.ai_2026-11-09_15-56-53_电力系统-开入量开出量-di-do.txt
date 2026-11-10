@@ -1,0 +1,64 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 1 - 2026/9/22 13:36:27:
+电力系统中，什么叫开出量，什么叫开入量
+
+GPT-6 Luna:
+<!-- **Explaining DI/DO Concepts**
+
+I need to provide an explanation in Chinese regarding timeless technical concepts without web access. The developer suggests I focus on specialized knowledge when explaining scientific concepts, so I'll respond clearly first and then use a tool later. I need to clarify DI/DO in terms of power automation and distinguish between input and output relative to the device, not the power flow. Examples include dry contacts and analog signals, and I’ll also mention protection or RTU. Then, I'll include related search terms afterward. -->
+在电力系统自动化、继电保护和变电站监控中：
+
+- **开入量**：开关量输入（DI，Digital Input）
+- **开出量**：开关量输出（DO，Digital Output）
+
+这里的“开”指的是**开关状态量**，通常只有两种状态：0/1、分/合、无/有。
+
+### 开入量
+
+开入量是设备**接收到的外部开关状态或触点信号**，用于判断现场设备的状态。
+
+例如：
+
+- 断路器分位、合位
+- 隔离开关分位、合位
+- 接地开关位置
+- 保护装置动作信号
+- 重瓦斯、轻瓦斯报警
+- 远方/就地选择状态
+- 设备故障或告警信号
+
+例如，断路器合闸后，其辅助接点闭合，保护装置或测控装置检测到这个信号，就能判断断路器处于**合位**。这个信号对装置来说就是一个开入量。
+
+### 开出量
+
+开出量是设备**输出给外部设备的开关控制信号**，用于控制或触发现场设备。
+
+例如：
+
+- 控制断路器合闸
+- 控制断路器分闸
+- 控制隔离开关电机
+- 启动或停止风机、油泵
+- 发出跳闸信号
+- 发出报警或闭锁信号
+- 启动备用电源切换
+
+例如，保护装置检测到线路故障后，通过出口继电器发出跳闸信号，使断路器跳闸。这个跳闸信号对保护装置来说就是一个**开出量**。
+
+### 简单区分
+
+可以把某个装置看成观察者：
+
+| 类型 | 对装置而言 | 典型例子 |
+|---|---|---|
+| 开入量 | 外部传给装置的状态信号 | 断路器合位、保护动作 |
+| 开出量 | 装置传给外部的控制信号 | 分闸、合闸、启动风机 |
+
+一句话记忆：
+
+> **开入是“别人告诉我状态”，开出是“我告诉别人去动作”。**
+
+需要注意，开入量和开出量是**相对于具体设备而言的**。同一个继电器接点，对一个装置可能是开出，对另一个装置则可能是开入。

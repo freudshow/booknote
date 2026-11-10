@@ -1,0 +1,76 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 1 - 2026/10/9 09:47:39:
+pthread_cond_wait使用方法和原理
+
+GPT-6 Luna:
+<!-- **Searching for API usage**
+
+I see the need to provide an answer in Chinese, focusing on core knowledge. However, I'm concerned about not relying on web access for this. It might be useful to consider using specialized knowledge, and I should always explore web searches whenever necessary. In this case, I’ll look for quick authoritative information on using POSIX pthread condition wait to ensure I capture the details accurately. -->
+<!--  -->
+`pthread_cond_wait()` 用来让线程等待某个**共享条件成立**。它必须和互斥锁一起使用：调用前先锁住 mutex，等待时函数会**原子地释放 mutex 并阻塞**；被唤醒后，它会先重新锁住 mutex，再返回。[1]
+
+典型写法如下：
+
+```c
+#include <pthread.h>
+
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
+int ready = 0;
+
+void *consumer(void *arg)
+{
+    pthread_mutex_lock(&mutex);
+
+    // 条件不成立就等待；醒来后重新检查
+    while (!ready) {
+        pthread_cond_wait(&cond, &mutex);
+    }
+
+    // 此处仍持有 mutex，可以安全访问共享数据
+    /* 使用 ready 所保护的数据 */
+
+    pthread_mutex_unlock(&mutex);
+    return NULL;
+}
+
+void *producer(void *arg)
+{
+    pthread_mutex_lock(&mutex);
+
+    // 修改共享状态
+    ready = 1;
+
+    // 通知等待者：条件可能已经成立
+    pthread_cond_signal(&cond);
+
+    pthread_mutex_unlock(&mutex);
+    return NULL;
+}
+```
+
+### 运行原理
+
+1. 等待线程持有 mutex，检查条件 `ready`。
+2. 如果条件不成立，调用 `pthread_cond_wait(&cond, &mutex)`。
+3. `pthread_cond_wait()` 原子地释放 mutex 并进入等待，避免“检查完条件、还没开始等待，通知就已经发出”的竞态。
+4. 其他线程取得 mutex，修改共享状态，然后调用 `pthread_cond_signal()` 唤醒一个等待线程；`pthread_cond_broadcast()` 则唤醒所有等待线程。
+5. 被唤醒的线程先重新取得 mutex，`pthread_cond_wait()` 才返回。线程继续检查条件并处理数据，完成后自己解锁 mutex。[1]
+
+### 使用时要注意
+
+- **用 `while`，不要用 `if`。** 线程可能虚假唤醒；也可能被唤醒后，条件已被另一个线程改变。因此返回后必须重新检查条件。
+- **条件变量本身不保存通知。** `signal` 不是“记下一次通知”，而是唤醒当时正在等待的线程。所以共享状态（例子里的 `ready`）才是判断条件的依据。
+- **共享条件要用同一把 mutex 保护。** 修改条件、检查条件时都持有这把锁；通常也在持锁时调用 `signal` 或 `broadcast`。
+- **返回时 mutex 已重新加锁。** 处理完共享数据后，调用方仍要负责 `pthread_mutex_unlock()`。
+- 若多个等待线程中只需唤醒一个，用 `pthread_cond_signal()`；若条件变化后所有等待线程都应重新检查，用 `pthread_cond_broadcast()`。
+
+可以把它记成：**mutex 保护条件，condition variable 负责睡眠和唤醒；被唤醒只表示“条件可能满足”，不代表条件一定满足。**
+
+可继续了解：`pthread_cond_timedwait` 用法、条件变量虚假唤醒、生产者消费者示例
+
+Read More
+[1] pthread_cond_init(3) - Linux manual page — https://man7.org/linux/man-pages/man3/pthread_cond_init.3.html

@@ -1,0 +1,21 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 1 - 2026/11/2 09:50:00:
+目前gpt5.6-luna和GPT-6-luna，哪个模型的编程能力更强
+
+GPT-6 Luna:
+<!-- **Searching for model comparisons**
+
+I see that the user wants their question answered in Chinese about a comparison of current real-world products or models. It looks like I need to conduct a web search to find that information. I should be careful to recognize specific instructions if asked which model I am—it's gpt-6-luna—but in this case, they're looking for a comparison rather than my identity. I’ll make sure to get started on finding that information. -->
+<!-- **Evaluating coding benchmarks**
+
+I need to analyze some benchmark evidence comparing models. It seems the user might be looking for a straightforward answer. I should mention that public coding score benchmarks indicate that Luna 5.6 is slightly stronger, while GPT-6 is cheaper. The source suggests a coding score of 61.7 for Luna versus 51.4 for another model. Given the incomplete evidence, I’ll note that Luna edges out in coding, but it could be faster and cheaper in daily use. I should also consider additional related search terms for context. -->
+**按目前可比的公开编程基准，GPT‑5.6 Luna 略强一些**：一项汇总给出的编程分数是 61.7 对 51.4。不过两者的分数区间有重叠，样本和可直接对比的测试有限，所以还不能算明确胜出。[1]
+
+如果你更看重成本，GPT‑6 Luna 更便宜；实际写代码时，差异也会随任务类型而变。[1,2]
+
+Read More
+[1] GPT-5.6 Luna vs GPT-6 Luna: Benchmarks & Cost | BenchLM.ai — https://benchlm.ai/compare/gpt-5-6-luna-vs-gpt-6-luna
+[2] GPT-5.6 Luna vs GPT-6 Luna - AI Model Comparison | OpenRouter — https://openrouter.ai/compare/openai/gpt-5.6-luna/openai/gpt-6-luna

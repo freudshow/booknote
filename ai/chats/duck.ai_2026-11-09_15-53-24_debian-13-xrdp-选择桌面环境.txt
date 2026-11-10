@@ -1,0 +1,43 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 1 - 2026/11/2 20:28:37:
+debian 13里的xrdp怎么选择进入的桌面？现在我默认进去的是Mate-desktop
+
+GPT-6 Luna:
+<!-- **Searching for Linux product information**
+
+I need to answer a question in Chinese about a Linux product. It seems like I should conduct a web search to find current and factual information. Specifically, I'm looking into how to choose the MATE desktop session when using xrdp on Debian. This will help ensure that the user gets accurate and relevant details for their needs. Let's dig into that search! -->
+<!--  -->
+<!--  -->
+xrdp 通常不会在登录窗口里让你选桌面；它会启动 Debian 的默认 X 会话管理器。你可以改成系统默认，或只给当前用户指定桌面。
+
+**改系统默认桌面：**先退出当前远程桌面，在 Debian 上运行：
+
+```bash
+sudo update-alternatives --config x-session-manager
+```
+
+从列表里选你想用的桌面会话，例如 `xfce4-session`、`gnome-session` 或 `mate-session`。列表只会显示已安装的会话；选好后断开 RDP 再重新连接即可。这个设置也可能影响其他使用系统默认 X 会话的登录方式。[1]
+
+**只改当前用户：**如果不想影响其他用户，可以在该用户家目录创建 `~/.xsession`。例如要进 Xfce：
+
+```sh
+#!/bin/sh
+exec startxfce4
+```
+
+保存后执行：
+
+```bash
+chmod +x ~/.xsession
+```
+
+`~/.xsession` 会优先于系统默认会话；把 `startxfce4` 换成目标桌面的启动命令即可。[2]
+
+如果设置后仍然进入 MATE，检查当前用户是否已有 `~/.xsession`：它可能覆盖了系统默认选择。[2]
+
+Read More
+[1] Configure XRDP and XFCE on Debian 13 | TIL | deliberate.codes — https://deliberate.codes/til/2026/xrdp-xfce-debian-13/
+[2] Xsession - Debian Wiki — https://wiki.debian.org/Xsession

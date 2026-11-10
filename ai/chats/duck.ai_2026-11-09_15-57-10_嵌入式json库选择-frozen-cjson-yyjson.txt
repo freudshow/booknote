@@ -1,0 +1,1340 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 5 - 2026/9/16 17:05:07:
+在资源受限的嵌入式场景，如stm32f103zet6芯片，哪种c语言json开源库最适合作为序列化、反序列化库？
+
+GPT-6 Luna:
+<!--  -->
+<!-- **Exploring JSON parsing options**
+
+I need a nuanced answer regarding serialization and deserialization. It looks like if I'm using a tiny-json parser, it only handles parsing, not serialization. The jsmn parser could also be an option, but cJSON does both—though it incurs heap and tree overhead. I wonder if Frozen supports both as well. It seems wise to check the official repositories to gather more information and find the right tools for my needs. -->
+<!-- **Evaluating JSON libraries**
+
+I need to recommend a JSON library that handles frozen serialization without using malloc. Frozen seems suitable, utilizing a printf interface and parser, especially for embedded targets like the STM32F103. While cJSON is mature, it uses dynamic memory. Tiny-json and json-maker are options for static usage but are separate libraries. I should compare these, citing sources, and emphasize that frozen is probably the best bet, especially for fixed schemas. I’ll look into its specific APIs and memory handling.**Considering JSON setup**
+
+I want to include citations and maybe forgo additional web searches. I need to answer in Chinese with a comparison table covering four options. It’ll also be important to provide setup tips, like using static buffers and handling mutable inputs. I need to be cautious that Frozen's %Q may allocate memory, so I might avoid it if allocation is a concern, employing %T, %B, or %d instead. For the STM32F103, since there's no FPU, using integers for JSON is more efficient compared to floating-point. I should cite relevant claims. -->
+对于 **STM32F103ZET6 这类资源受限、通常没有 RTOS 或不希望依赖堆的嵌入式场景**，我首推：
+
+## 推荐：Frozen
+
+**Frozen** 同时提供 JSON 解析和生成能力，采用类似 `json_scanf()` / `json_printf()` 的接口，目标就是嵌入式系统；它还提供基于回调的低层解析接口，可以避免构造完整的 JSON 树。[1]
+
+它比较适合你的原因是：
+
+- 支持**反序列化**：JSON → C 变量或结构体字段；
+- 支持**序列化**：C 变量 → JSON 字符串；
+- 可以使用调用者提供的固定缓冲区；
+- 不需要像 cJSON 那样默认构造一棵完整的动态 JSON 树；
+- 支持低层回调解析，适合串口、TCP、HTTP 分包接收；
+- 代码量和 API 相对可控，适合裸机或简单 RTOS 环境。
+
+典型用法类似：
+
+```c
+#include "frozen.h"
+
+typedef struct
+{
+    int id;
+    int temperature;
+    int enabled;
+} device_config_t;
+
+device_config_t cfg;
+char tx_buf[128];
+
+const char *json =
+    "{\"id\":123,\"temperature\":25,\"enabled\":true}";
+
+/* 反序列化 */
+json_scanf(json,
+           strlen(json),
+           "{id:%d, temperature:%d, enabled:%B}",
+           &cfg.id,
+           &cfg.temperature,
+           &cfg.enabled);
+
+/* 序列化 */
+int len = json_printf(tx_buf,
+                      sizeof(tx_buf),
+                      "{id:%d, temperature:%d, enabled:%B}",
+                      cfg.id,
+                      cfg.temperature,
+                      cfg.enabled);
+```
+
+不过，使用 Frozen 时应避免依赖会动态分配内存的格式选项，例如字符串复制相关的用法。字符串字段最好使用固定数组、长度检查和显式拷贝，并对 `json_printf()` 的返回值进行边界判断。
+
+## 几个常见库的选择
+
+| 库 | 序列化 | 反序列化 | 动态内存风险 | 适合 STM32F103 | 评价 |
+|---|---:|---:|---:|---:|---|
+| **Frozen** | 支持 | 支持 | 较低，可控制 | **很适合** | 首选，适合固定结构和通信协议 |
+| **cJSON** | 支持 | 支持 | 较高 | 一般 | API 最容易上手，但默认使用 `malloc/free` 并构造树 |
+| **tiny-json + json-maker** | 需配合 json-maker | 支持 | 很低 | 适合 | 适合静态内存，但需要两个库 |
+| **jsmn** | 不支持 | 仅分词 | 无动态内存 | 很适合解析 | 极简，但需要自己写字段提取和 JSON 生成 |
+| **Parson** | 支持 | 支持 | 较高 | 不太推荐 | 易用，但更偏桌面/通用应用 |
+
+### cJSON
+
+cJSON 的优点是成熟、资料多、API 直观。但解析时会为每个 JSON 节点建立 `cJSON` 结构，默认使用 `malloc/free`；输出 JSON 时也可能进行动态扩容。虽然可以通过 `cJSON_InitHooks()` 替换内存分配器，也可以用 `cJSON_PrintPreallocated()` 避免输出缓冲区动态分配，但解析树本身仍然有额外内存开销。[2]
+
+因此，在 STM32F103 上：
+
+- JSON 很小；
+- 业务代码已经大量使用 cJSON；
+- 有可靠的内存池；
+- 可以接受固定的最大节点数；
+
+那么 cJSON 也可以使用。但不建议直接使用系统堆作为长期运行设备的唯一方案，因为堆碎片和异常路径上的释放问题会降低可预测性。实际嵌入式项目中，cJSON 依赖大量 `malloc/free` 可能造成内存不足或碎片问题。[3]
+
+### jsmn
+
+jsmn 非常小，约两百行代码、无依赖、无动态内存、支持增量解析，并且只保存 token 的位置和长度。[4]
+
+它适合：
+
+```text
+串口接收 JSON
+        ↓
+jsmn 分词
+        ↓
+自己查找 key
+        ↓
+strtoul / atoi / 自定义转换
+```
+
+但是 jsmn **不是完整的序列化/反序列化库**：
+
+- 没有 JSON 生成器；
+- 不会自动把 JSON 映射到 C 结构体；
+- 需要自己处理字符串转义、数值范围、字段类型和数组遍历。
+
+如果你的协议字段非常少，jsmn 加一个自定义 JSON 输出函数反而可能是最省资源的方案；如果希望直接获得可维护的双向序列化 API，则不如 Frozen。
+
+### tiny-json
+
+tiny-json 的设计很适合嵌入式：不使用动态内存，可以由用户静态预留 `json_t` 节点数组；字符串通常直接引用原始 JSON 缓冲区，不复制内容。[5]
+
+但它主要解决的是**解析**，项目说明也建议使用另一个 `json-maker` 来创建 JSON。因此它适合：
+
+- 反序列化要求高；
+- 序列化格式比较固定；
+- 愿意搭配一个轻量生成器；
+- 希望完全静态内存。
+
+## 我的具体建议
+
+### 情况一：普通设备配置、命令、状态上报
+
+选择：
+
+> **Frozen + 静态收发缓冲区**
+
+例如：
+
+```c
+#define JSON_RX_SIZE  256
+#define JSON_TX_SIZE  256
+
+static char json_rx[JSON_RX_SIZE];
+static char json_tx[JSON_TX_SIZE];
+```
+
+同时限制：
+
+- 最大 JSON 长度；
+- 最大嵌套深度；
+- 最大字符串长度；
+- 数组最大元素数量；
+- 整数取值范围；
+- 不使用浮点数，优先使用整数或定点数。
+
+### 情况二：极端节省 Flash/RAM，字段非常少
+
+选择：
+
+> **jsmn + 自定义序列化函数**
+
+例如发送数据时直接使用：
+
+```c
+int json_make_status(char *buf, size_t size,
+                     uint32_t id, int temperature)
+{
+    int n = snprintf(buf, size,
+                     "{\"id\":%lu,\"temperature\":%d}",
+                     (unsigned long)id,
+                     temperature);
+
+    if (n < 0 || (size_t)n >= size) {
+        return -1;
+    }
+
+    return n;
+}
+```
+
+接收数据时用 jsmn 查找字段。固定格式的 JSON，直接 `snprintf()` 生成通常比引入完整 JSON 生成器更简单；嵌入式开发讨论中也常建议对固定 JSON 使用 `snprintf()`。[6]
+
+### 情况三：已有大量 cJSON 代码，兼容性优先
+
+可以使用：
+
+> **cJSON + 自定义静态内存池**
+
+不要直接依赖默认的 `malloc/free`。通过 `cJSON_InitHooks()` 将内存操作重定向到固定内存池，并使用 `cJSON_PrintPreallocated()` 输出到预分配缓冲区。[2]
+
+## 最终结论
+
+如果要求是“一个 C 库同时完成序列化和反序列化”，我的排序是：
+
+1. **Frozen：最推荐**
+2. **cJSON：最成熟、最容易上手，但内存开销和堆风险较大**
+3. **tiny-json + json-maker：静态内存优先时很合适**
+4. **jsmn + 自定义生成器：资源最省，但开发工作最多**
+
+对于 STM32F103ZET6，我会采用：
+
+> **固定协议：Frozen；极简协议：jsmn + `snprintf()`；已有 cJSON 生态：cJSON + 内存池。**
+
+如果 JSON 数据量较大、传输频繁或对实时性要求较高，建议直接采用二进制协议；JSON 更适合配置、调试、设备管理和低频通信，而不是高吞吐实时数据。
+
+Read More
+[1] cesanta/frozen: JSON parser and generator for C/C++ with ... — https://github.com/cesanta/frozen
+[2] cJSON - MCUXpresso SDK API Reference Manual — https://mcuxpresso.nxp.com/api_doc/dev/1620/a00012.html
+[3] Cann't parse large string on STM32F746VGTX with cJSON — https://community.st.com/stm32cubeide-mcus-28/cann-t-parse-large-string-on-stm32f746vgtx-with-cjson-59164
+[4] The most simple JSON parser in C for small systems - Zserge — https://zserge.com/jsmn/
+[5] The tiny-json is a versatile and easy to use json parser in C ... — https://github.com/rafagafe/tiny-json
+[6] How to use JSON library in st micontrollers - ST Community — https://community.st.com/stm32-mcus-products-25/how-to-use-json-library-in-st-micontrollers-38227
+
+--------------------
+
+User prompt 2 of 5 - 2026/9/16 17:06:42:
+假设我在imx6ul平台，Linux系统，推荐哪个开源库
+
+GPT-6 Luna:
+<!-- **Researching JSON libraries for Linux**
+
+I’m looking for up-to-date recommendations for JSON libraries on Linux, especially for the imx6ul. I’m thinking that cJSON might be a solid option because it offers a good balance, while yyjson is great for performance. If I need something more robust, jansson is also a contender. If serialization and deserialization are key for embedded Linux, I’d lean towards cJSON, with yyjson for speed and json-c for integration. I’ll search for the official current resources. -->
+<!--  -->
+<!--  -->
+在 **i.MX6UL + Linux** 平台上，我建议优先选择：
+
+> **cJSON**
+
+相比 STM32 裸机环境，i.MX6UL 运行 Linux 后通常有更多 RAM、完整 libc、进程隔离和成熟的内存管理，因此 cJSON 的动态内存开销通常是可以接受的。cJSON 是 ANSI C 编写的轻量级 JSON 库，支持解析、构造、序列化，并且集成方式简单，通常只需要加入 `cJSON.c` 和 `cJSON.h`。[1]
+
+## 推荐顺序
+
+| 库 | 推荐场景 | 优点 | 主要缺点 |
+|---|---|---|---|
+| **cJSON** | 一般设备应用、协议、配置文件 | 简单、资料多、集成方便 | 使用动态内存，解析会构造 JSON 树 |
+| **yyjson** | 高频通信、大 JSON、性能敏感 | 解析和生成性能较好，功能完整 | API 比 cJSON 复杂一些 |
+| **Jansson** | 配置系统、复杂 JSON、稳定性优先 | API 完整、文档好、Unicode 支持较完整 | 体积和内存开销通常比 cJSON 大 |
+| **jsmn** | 只做轻量解析 | 极小、无动态内存、支持增量解析 | 只分词，不负责完整对象管理和序列化 |
+
+## 为什么首选 cJSON
+
+cJSON 的使用模型很直接：
+
+```c
+cJSON *root = cJSON_Parse(json_text);
+
+if (root == NULL) {
+    return -1;
+}
+
+cJSON *id = cJSON_GetObjectItemCaseSensitive(root, "id");
+if (cJSON_IsNumber(id)) {
+    printf("id = %d\n", id->valueint);
+}
+
+cJSON_Delete(root);
+```
+
+构造和序列化：
+
+```c
+cJSON *root = cJSON_CreateObject();
+
+cJSON_AddNumberToObject(root, "id", 123);
+cJSON_AddStringToObject(root, "name", "imx6ul");
+cJSON_AddBoolToObject(root, "enabled", 1);
+
+char *text = cJSON_PrintUnformatted(root);
+if (text != NULL) {
+    printf("%s\n", text);
+    free(text);
+}
+
+cJSON_Delete(root);
+```
+
+cJSON 解析时会分配并构造一棵 `cJSON` 节点树，默认使用 `malloc/free`；解析完成后需要通过 `cJSON_Delete()` 释放整个树。[1]
+
+在 Linux 用户态程序中，这种方式通常足够实用，特别适合：
+
+- 设备配置文件；
+- MQTT、HTTP、WebSocket 消息；
+- 设备状态上报；
+- 与云端或上位机通信；
+- JSON 数据量在几 KB 到几十 KB；
+- 不要求极限吞吐量。
+
+## 什么时候选择 yyjson
+
+如果你的应用有以下特点，可以优先考虑 **yyjson**：
+
+- JSON 解析频率很高；
+- 单条消息较大；
+- CPU 占用比较敏感；
+- 需要批量处理 JSON；
+- 需要比 cJSON 更好的解析和序列化性能。
+
+例如网关、协议转换、日志处理、视频或工业数据采集程序，yyjson 通常比 cJSON 更合适。它的代价是 API 和内存模型相对复杂，项目人员需要理解读模式、写模式以及内存池等概念。
+
+可以简单理解为：
+
+> **cJSON 偏向“易用和快速开发”，yyjson 偏向“性能和吞吐量”。**
+
+## 什么时候选择 Jansson
+
+如果主要用途是 Linux 配置系统、复杂配置文件或对 JSON 规范支持要求较高，可以考虑 **Jansson**。它专门提供 JSON 编码、解码和数据操作功能，API 稳定，文档和测试较完整，并且不依赖其他第三方库。[2]
+
+但在 i.MX6UL 这种嵌入式 Linux 设备上，Jansson 通常不是首选，除非：
+
+- 项目已经使用 Jansson；
+- 需要它的错误处理或数据操作 API；
+- JSON 层次较复杂；
+- 更重视完整性而不是库体积。
+
+## 不建议继续使用 Frozen
+
+前一个 STM32 场景中推荐 Frozen，是因为它更适合资源受限、避免构造完整 JSON 树的情况。
+
+但在 i.MX6UL Linux 上，通常没有必要为了节省几 KB 内存而牺牲 cJSON 的易用性和资料数量。除非你明确要求：
+
+- 无堆内存；
+- 固定缓冲区；
+- 高度可预测的内存使用；
+- 裸机式通信处理；
+
+否则 cJSON 或 yyjson 更合适。
+
+## 我的最终建议
+
+如果没有特殊性能要求：
+
+> **选择 cJSON。**
+
+如果性能要求较高：
+
+> **选择 yyjson。**
+
+如果只需要极简解析，并且序列化格式固定：
+
+> **选择 jsmn + 自己的序列化函数。**
+
+推荐的工程选择可以是：
+
+```text
+普通应用、配置、MQTT、HTTP：cJSON
+高频解析、大数据量、网关：yyjson
+复杂配置和完整 JSON 操作：Jansson
+串口协议、小数据、固定字段：jsmn
+```
+
+对于大多数 i.MX6UL Linux 项目，我会采用：
+
+> **cJSON + 统一封装层 + 输入长度限制 + 严格类型检查**
+
+不要让业务代码到处直接调用 `cJSON_GetObjectItem()`，可以封装成：
+
+```c
+int json_get_int(const cJSON *root,
+                 const char *key,
+                 int *value);
+
+int json_get_string(const cJSON *root,
+                    const char *key,
+                    char *buf,
+                    size_t buf_size);
+```
+
+这样以后即使从 cJSON 更换到 yyjson，也只需要修改 JSON 适配层。
+
+Read More
+[1] DaveGamble/cJSON: Ultralightweight JSON parser in ANSI C — https://github.com/davegamble/cjson
+[2] API Reference — Jansson 2.2.1 documentation — https://jansson.readthedocs.io/
+
+--------------------
+
+User prompt 3 of 5 - 2026/9/17 16:08:39:
+我的应用场景是融合终端里的数据中心微应用，每秒处理json报文大约500~1000条，用哪个json库合适
+
+GPT-6 Luna:
+<!-- **Researching yyjson performance**
+
+I need to find answers about the current specialized web search. I think yyjson might be a good recommendation. I should consider that for the imx6ul Cortex-A7, the processing speed might range from 500 to 1000 msg/s, and the message size is a factor to keep in mind. It's important not to make claims without backing them up, so I'll need to look for official benchmarks for yyjson and compare them to cJSON. -->
+<!--  -->
+针对 **i.MX6UL + Linux，每秒处理 500～1000 条 JSON 报文**，我建议把首选改为：
+
+> **yyjson**
+
+尤其是报文需要同时进行解析和生成时，yyjson 比 cJSON 更适合作为高频数据通道的 JSON 库。yyjson 的设计目标就是高性能 JSON 解析和生成，同时提供只读解析、可修改文档、写出 JSON、自定义内存分配器等能力。其项目定位为高性能 C JSON 库。[1]
+
+## 为什么不再优先推荐 cJSON
+
+500～1000 条/秒本身不一定很高，但要看每条报文大小和字段数量：
+
+- 500 条/秒、每条 200 字节：压力通常不大；
+- 1000 条/秒、每条 5～10 KB：压力会明显增加；
+- 如果每条报文都要解析、修改、重新序列化，内存分配和 JSON 树构建会成为重要开销；
+- 如果同时还有网络、数据库、日志、业务计算，JSON 处理的峰值延迟也需要关注。
+
+cJSON 的 API 简单，但解析时会构造完整的动态 JSON 树，并大量使用节点分配；使用完后还需要递归释放整棵树。[1] 对低频配置和普通协议非常方便，但在高频数据通道中容易产生：
+
+- `malloc/free` 调用较多；
+- 堆碎片；
+- 临时内存峰值较高；
+- p99 延迟波动；
+- JSON 树节点带来的额外内存占用。
+
+因此，cJSON 不是不能达到 1000 条/秒，而是它通常不是这个场景下的最佳默认选择。
+
+## 推荐方案
+
+### 方案一：普通高频报文
+
+使用：
+
+```text
+yyjson
+    ↓
+预分配接收缓冲区
+    ↓
+解析为只读文档
+    ↓
+提取业务字段
+    ↓
+业务处理
+    ↓
+yyjson 写入预分配输出缓冲区
+```
+
+如果只是读取字段，不修改 JSON，优先使用只读解析模式。不要为了读取几个字段而频繁创建和修改完整 JSON 对象。
+
+伪代码结构如下：
+
+```c
+yyjson_read_err err;
+yyjson_doc *doc = yyjson_read_opts(
+    rx_buf,
+    rx_len,
+    0,
+    NULL,
+    NULL,
+    &err
+);
+
+if (doc == NULL) {
+    /* 处理格式错误 */
+    return -1;
+}
+
+yyjson_val *root = yyjson_doc_get_root(doc);
+yyjson_val *id = yyjson_obj_get(root, "id");
+yyjson_val *type = yyjson_obj_get(root, "type");
+
+if (yyjson_is_uint(id)) {
+    uint64_t value = yyjson_get_uint(id);
+}
+
+yyjson_doc_free(doc);
+```
+
+实际工程中需要根据所使用的 yyjson 版本确认 API 和编译选项，但整体处理模式就是这样。
+
+### 方案二：只取少量固定字段
+
+如果每条报文的格式固定，例如：
+
+```json
+{"id":123,"temperature":25,"state":1}
+```
+
+而且只需要读取 `id`、`temperature`、`state` 等少量字段，可以考虑：
+
+```text
+jsmn + 手工字段提取
+```
+
+这种方式的内存开销更低，也可能有更稳定的延迟，但开发工作明显更多：
+
+- 自己遍历 token；
+- 自己处理字符串和数字转换；
+- 自己校验字段类型；
+- 自己生成输出 JSON；
+- 自己处理数组和嵌套对象。
+
+如果应用要求同时完成通用的序列化和反序列化，yyjson 仍然更合适。
+
+## 三个库的实际选择
+
+| 场景 | 建议 |
+|---|---|
+| 500～1000 条/秒，报文结构较复杂 | **yyjson** |
+| 只是配置文件、低频命令、开发简单优先 | cJSON |
+| 报文格式固定，只取几个字段 | jsmn + 自定义解析 |
+| 需要复杂 JSON 操作、配置系统 | Jansson |
+| 需要无堆内存和极端可预测性 | 自定义解析器或 jsmn |
+
+## 工程上需要特别注意的地方
+
+### 1. 不要每条报文都频繁申请大块缓冲区
+
+建议预分配：
+
+```c
+#define RX_BUF_SIZE  8192
+#define TX_BUF_SIZE  8192
+
+static uint8_t rx_buf[RX_BUF_SIZE];
+static uint8_t tx_buf[TX_BUF_SIZE];
+```
+
+如果报文通过 socket 接收，可以采用：
+
+```text
+接收线程
+    ↓
+固定大小消息队列
+    ↓
+JSON 处理线程
+    ↓
+业务线程/发送线程
+```
+
+不要在 socket 接收线程里执行过重的业务逻辑，也不要让无限制的生产速度把内存队列撑爆。
+
+### 2. 尽量避免“解析—修改—重新打印”整个 JSON
+
+如果只需要提取几个字段，不要这样做：
+
+```text
+JSON → 完整对象树 → 修改一个字段 → 整个 JSON 重新序列化
+```
+
+更高效的方式是：
+
+```text
+JSON → 提取字段 → 生成新的固定格式 JSON
+```
+
+对于输出结构固定的报文，甚至可以使用 `snprintf()` 或自定义 writer，而不是构造完整 JSON 树。
+
+### 3. 不要开启格式化输出
+
+生产环境使用紧凑输出：
+
+```json
+{"id":123,"state":1}
+```
+
+而不是：
+
+```json
+{
+    "id": 123,
+    "state": 1
+}
+```
+
+格式化输出会增加 CPU 消耗和输出字节数。
+
+### 4. 不要用日志拖慢测试结果
+
+测试 JSON 性能时不要在每条报文中执行：
+
+```c
+printf("json=%s\n", json);
+```
+
+串口输出、磁盘日志和 syslog 可能比 JSON 解析本身慢很多，容易导致错误判断。
+
+### 5. 重点测 p95 和 p99
+
+不要只测平均吞吐量，建议至少统计：
+
+- 单条解析耗时；
+- 单条序列化耗时；
+- p50；
+- p95；
+- p99；
+- 峰值内存；
+- 每秒 `malloc/free` 次数；
+- 丢包数量；
+- 队列最大深度。
+
+可以先在目标板上做一个 1 分钟压力测试：
+
+```text
+持续输入 1000 条/秒
+持续 60 秒
+统计总处理数、失败数、p99 延迟、内存增长
+```
+
+## 最终建议
+
+你的场景我会这样选：
+
+> **默认使用 yyjson；报文结构固定且只读取少数几个字段时，使用 jsmn + 自定义序列化；不建议把 cJSON 作为高频数据通道的首选。**
+
+比较稳妥的架构是：
+
+```text
+yyjson
++ 固定接收/发送缓冲区
++ 有界消息队列
++ 单独 JSON 工作线程
++ 严格限制单条报文最大长度
++ 目标板实测 p99 延迟和内存
+```
+
+如果每条报文小于几 KB，且主要是解析而不是复杂修改，i.MX6UL 上 500～1000 条/秒通常更可能受 **网络、线程调度、日志、业务处理和内存分配** 影响，而不是单纯受 JSON 库限制。
+
+Read More
+[1] ibireme/yyjson: The fastest JSON library in C — https://github.com/
+
+--------------------
+
+User prompt 4 of 5 - 2026/9/17 17:22:51:
+接收到的报文基本都是20k~40k的大段报文
+
+GPT-6 Luna:
+<!--  -->
+<!-- **Considering JSON libraries**
+
+I'm weighing a final recommendation on JSON libraries. For full deserialization into an object, yyjson seems like a solid choice but should avoid any DOM impact. If an event-based process is essential for handling large data, YAJL might be better because of its streaming SAX capability, although it hasn't been actively updated. I should also mention that handling incoming messages fully in JSON with a 20-40KB input per message can present challenges at real-time speeds. So, if we need efficiency, I would recommend using yyjson for serialization. -->
+这个信息会明显改变选型。
+
+20～40 KB/条、500～1000 条/秒，意味着 JSON 原始数据吞吐量约为：
+
+\[
+20\text{ KB}\times500=10\text{ MB/s}
+\]
+
+到：
+
+\[
+40\text{ KB}\times1000=40\text{ MB/s}
+\]
+
+而 i.MX6UL 是单核 Cortex-A7，最高约 696 MHz。[1] 这个场景已经不应再按“普通配置 JSON”来选库，也不建议使用 cJSON 构造完整动态树。
+
+## 结论
+
+我的建议是：
+
+> **如果必须完整反序列化和序列化：使用 yyjson。**  
+> **如果只是从大报文中提取少数业务字段：使用 YAJL 的 SAX/事件流式解析。**
+
+如果只能选一个库，我会选择：
+
+> **yyjson，并使用只读解析模式；不要使用可修改 DOM 模式。**
+
+## 为什么首选 yyjson
+
+对于 20～40 KB 的大报文，cJSON 的问题会被放大：
+
+- 解析整棵 JSON 树；
+- 每个对象、数组和键值都可能产生动态内存分配；
+- 节点和字符串会带来额外内存；
+- 每条报文处理完成后还要释放整棵树；
+- 500～1000 条/秒时，频繁 `malloc/free` 可能影响延迟稳定性。
+
+yyjson 更适合高频、大报文场景，支持读取、写入、只读文档和自定义内存分配器。对于只读业务，使用其只读文档模式可以避免不必要的对象修改和复制。[2]
+
+建议处理流程：
+
+```text
+接收完整报文
+    ↓
+yyjson 只读解析
+    ↓
+提取必要字段
+    ↓
+立即释放文档
+    ↓
+业务处理
+```
+
+不要把每条 40 KB 报文长期保存为 C 结构体或 JSON 树。
+
+## 如果只需要提取字段：YAJL 可能更合适
+
+如果报文内容类似：
+
+```json
+{
+    "header": {...},
+    "device": {...},
+    "records": [
+        {...},
+        {...}
+    ],
+    "statistics": {...}
+}
+```
+
+但你的微应用只需要：
+
+- 设备编号；
+- 时间戳；
+- 几个状态字段；
+- `records` 中部分字段；
+
+那么不必完整构造 JSON 文档，可以使用 **YAJL** 的 SAX 风格回调解析。YAJL 支持增量解析，解析到对象、数组、字符串、数字时通过回调通知应用，适合边接收边处理大报文。[2,3]
+
+这种方式的特点是：
+
+| 方式 | 内存占用 | 适合场景 |
+|---|---:|---|
+| yyjson 只读解析 | 中等 | 需要随机访问多个字段、结构较复杂 |
+| YAJL 流式解析 | 较低 | 只提取少数字段、可顺序处理 |
+| cJSON 完整树 | 较高 | 低频、小报文、开发简单优先 |
+| jsmn | 较低 | 固定字段、需要自己实现大量逻辑 |
+
+YAJL 不是典型的“解析后随机访问 JSON 树”模式，而是事件回调模式；如果业务需要先保存整棵 JSON，再多次查询字段，使用它反而会增加开发复杂度。
+
+## 推荐的具体实现方式
+
+### 方案 A：业务需要访问多个字段
+
+使用：
+
+```text
+yyjson 只读解析
++ 固定接收缓冲区
++ 固定大小消息队列
++ 独立 JSON 处理线程
+```
+
+注意：
+
+- 每条报文限制最大长度，例如 64 KB 或 128 KB；
+- 使用紧凑模式，不使用格式化 JSON；
+- 不要调用会复制大量字符串的接口；
+- JSON 处理完成后立刻释放文档；
+- 输出 JSON 时尽量写入预分配缓冲区；
+- 尽量避免同时保留多条完整 JSON 文档。
+
+### 方案 B：只提取少数字段
+
+使用：
+
+```text
+YAJL 流式解析
++ 回调中直接写入业务结构体
++ 不建立完整 JSON 树
+```
+
+例如只保存：
+
+```c
+typedef struct {
+    uint32_t device_id;
+    uint64_t timestamp;
+    int state;
+    int record_count;
+} message_info_t;
+```
+
+解析过程中直接填充 `message_info_t`，不要把 40 KB 的 JSON 再复制到另一个缓冲区。
+
+## 重要的性能判断
+
+1000 条/秒、每条 40 KB，相当于每秒处理约 40 MB JSON 文本。对 i.MX6UL 单核 Cortex-A7 来说，这已经需要实测，不能仅凭库名称保证性能。
+
+至少要测试：
+
+- 500 条/秒持续运行；
+- 1000 条/秒持续运行；
+- 20 KB、40 KB 两种报文；
+- 解析耗时平均值；
+- p95、p99、最大耗时；
+- CPU 占用率；
+- 峰值 RSS；
+- 队列最大深度；
+- 丢包和超时数量。
+
+可以用如下方式简单观察：
+
+```bash
+top -H -p $(pidof your_app)
+pidstat -p $(pidof your_app) 1
+cat /proc/$(pidof your_app)/status
+```
+
+如果 JSON 处理线程长期接近 100% CPU，或者队列不断增长，那么更换库可能只能缓解，不能根治。此时应考虑：
+
+- 减少 JSON 字段；
+- 只传输变化字段；
+- 将数组数据改为二进制；
+- 使用 MessagePack、CBOR 或 Protocol Buffers；
+- 让上游按批次或增量发送；
+- 使用多个处理线程，但要注意 i.MX6UL 只有一个 Cortex-A7 核心。
+
+## 最终建议
+
+按你的场景，我会这样定：
+
+> **完整读取、多个字段随机访问：yyjson 只读模式。**
+
+> **只提取少数关键字段：YAJL 流式解析。**
+
+> **不要使用 cJSON 完整 DOM 作为高频 20～40 KB 报文的默认方案。**
+
+如果系统确实要求每秒处理接近 1000 条、每条接近 40 KB，并且还要完整解析、修改、重新序列化，那么建议优先重新评估 JSON 协议；单核 i.MX6UL 上使用二进制协议通常比继续优化 JSON 库更有效。
+
+Read More
+[1] i.MX 6UltraLite Processor - Low-power, Secure, Arm® Cortex — https://www.nxp.com/products/i.MX6UL
+[2] Yet Another JSON Library (YAJL) — https://lloyd.github.io/yajl/yajl-2.1.0/
+[3] yajl/src/yajl at master · lloyd/yajl — https://github.com/lloyd/yajl/blob/master/src/yajl
+
+--------------------
+
+User prompt 5 of 5 - 2026/9/17 17:24:55:
+yyjson使用示例
+
+GPT-6 Luna:
+<!-- **Searching for examples**
+
+I need to provide examples in Chinese. To do that, I think it makes sense to conduct a web search because my current library might not have what I need. Also, I should verify the code with the API and look for official documentation. It’s important to ensure I’m getting reliable information. Okay, let's start searching for the right resources to get those examples! -->
+<!--  -->
+下面给出一个适合 **i.MX6UL Linux** 的 yyjson 基本示例，包含：
+
+1. 解析 JSON；
+2. 读取对象字段；
+3. 遍历数组；
+4. 构造并序列化 JSON；
+5. CMake 编译；
+6. 大报文场景下的注意事项。
+
+yyjson 提供只读文档解析、可修改文档构造和 JSON 写出接口，适合你的 20～40 KB 报文场景。[1]
+
+## 1. 准备 yyjson
+
+假设目录结构如下：
+
+```text
+project/
+├── CMakeLists.txt
+├── main.c
+└── yyjson/
+    ├── yyjson.c
+    └── yyjson.h
+```
+
+yyjson 可以直接将 `yyjson.c` 加入工程编译，也可以编译成静态库。
+
+## 2. 解析 JSON
+
+示例报文：
+
+```json
+{
+    "id": 1001,
+    "name": "terminal-01",
+    "enabled": true,
+    "temperature": 25.6,
+    "records": [
+        {
+            "timestamp": 1710000000,
+            "value": 12.5
+        },
+        {
+            "timestamp": 1710000060,
+            "value": 13.2
+        }
+    ]
+}
+```
+
+`main.c`：
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+#include <stddef.h>
+#include <string.h>
+
+#include "yyjson.h"
+
+int main(void)
+{
+    const char *json =
+        "{"
+        "\"id\":1001,"
+        "\"name\":\"terminal-01\","
+        "\"enabled\":true,"
+        "\"temperature\":25.6,"
+        "\"records\":["
+            "{\"timestamp\":1710000000,\"value\":12.5},"
+            "{\"timestamp\":1710000060,\"value\":13.2}"
+        "]"
+        "}";
+
+    /* 解析 JSON */
+    yyjson_doc *doc = yyjson_read(json, strlen(json), 0);
+
+    if (doc == NULL) {
+        fprintf(stderr, "JSON parse failed\n");
+        return -1;
+    }
+
+    /* 获取根节点 */
+    yyjson_val *root = yyjson_doc_get_root(doc);
+
+    if (!yyjson_is_obj(root)) {
+        fprintf(stderr, "root is not an object\n");
+        yyjson_doc_free(doc);
+        return -1;
+    }
+
+    /* 读取整数 */
+    yyjson_val *id_val = yyjson_obj_get(root, "id");
+    if (yyjson_is_int(id_val)) {
+        int64_t id = yyjson_get_int(id_val);
+        printf("id = %lld\n", (long long)id);
+    }
+
+    /* 读取字符串 */
+    yyjson_val *name_val = yyjson_obj_get(root, "name");
+    if (yyjson_is_str(name_val)) {
+        const char *name = yyjson_get_str(name_val);
+        printf("name = %s\n", name);
+    }
+
+    /* 读取布尔值 */
+    yyjson_val *enabled_val = yyjson_obj_get(root, "enabled");
+    if (yyjson_is_bool(enabled_val)) {
+        bool enabled = yyjson_get_bool(enabled_val);
+        printf("enabled = %s\n", enabled ? "true" : "false");
+    }
+
+    /* 读取浮点数 */
+    yyjson_val *temperature_val = yyjson_obj_get(root, "temperature");
+    if (yyjson_is_num(temperature_val)) {
+        double temperature = yyjson_get_num(temperature_val);
+        printf("temperature = %.2f\n", temperature);
+    }
+
+    /* 遍历数组 */
+    yyjson_val *records_val = yyjson_obj_get(root, "records");
+
+    if (yyjson_is_arr(records_val)) {
+        yyjson_arr_iter iter;
+        yyjson_arr_iter_init(records_val, &iter);
+
+        yyjson_val *record;
+
+        while ((record = yyjson_arr_iter_next(&iter)) != NULL) {
+            yyjson_val *timestamp_val =
+                yyjson_obj_get(record, "timestamp");
+
+            yyjson_val *value_val =
+                yyjson_obj_get(record, "value");
+
+            if (yyjson_is_uint(timestamp_val) &&
+                yyjson_is_num(value_val)) {
+
+                uint64_t timestamp =
+                    yyjson_get_uint(timestamp_val);
+
+                double value =
+                    yyjson_get_num(value_val);
+
+                printf("timestamp = %llu, value = %.2f\n",
+                       (unsigned long long)timestamp,
+                       value);
+            }
+        }
+    }
+
+    /* 释放文档 */
+    yyjson_doc_free(doc);
+
+    return 0;
+}
+```
+
+## 3. 构造并序列化 JSON
+
+yyjson 的可修改文档使用 `yyjson_mut_doc` 和 `yyjson_mut_val`。
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#include "yyjson.h"
+
+int main(void)
+{
+    yyjson_mut_doc *doc = yyjson_mut_doc_new(NULL);
+
+    if (doc == NULL) {
+        return -1;
+    }
+
+    /* 创建根对象 */
+    yyjson_mut_val *root = yyjson_mut_obj(doc);
+
+    if (root == NULL) {
+        yyjson_mut_doc_free(doc);
+        return -1;
+    }
+
+    yyjson_mut_doc_set_root(doc, root);
+
+    /* 添加基本字段 */
+    yyjson_mut_obj_add_uint(doc, root, "id", 1001);
+    yyjson_mut_obj_add_str(doc, root, "name", "terminal-01");
+    yyjson_mut_obj_add_bool(doc, root, "enabled", true);
+    yyjson_mut_obj_add_real(doc, root, "temperature", 25.6);
+
+    /* 创建数组 */
+    yyjson_mut_val *records = yyjson_mut_arr(doc);
+
+    if (records == NULL) {
+        yyjson_mut_doc_free(doc);
+        return -1;
+    }
+
+    yyjson_mut_obj_add_val(doc, root, "records", records);
+
+    /* 添加第一个数组元素 */
+    yyjson_mut_val *record1 = yyjson_mut_obj(doc);
+
+    yyjson_mut_obj_add_uint(doc, record1,
+                            "timestamp", 1710000000);
+
+    yyjson_mut_obj_add_real(doc, record1,
+                            "value", 12.5);
+
+    yyjson_mut_arr_add_val(records, record1);
+
+    /* 添加第二个数组元素 */
+    yyjson_mut_val *record2 = yyjson_mut_obj(doc);
+
+    yyjson_mut_obj_add_uint(doc, record2,
+                            "timestamp", 1710000060);
+
+    yyjson_mut_obj_add_real(doc, record2,
+                            "value", 13.2);
+
+    yyjson_mut_arr_add_val(records, record2);
+
+    /* 序列化为紧凑 JSON */
+    size_t json_len = 0;
+
+    char *json = yyjson_mut_write(doc, 0, &json_len);
+
+    if (json == NULL) {
+        fprintf(stderr, "JSON write failed\n");
+        yyjson_mut_doc_free(doc);
+        return -1;
+    }
+
+    printf("json length = %zu\n", json_len);
+    printf("%s\n", json);
+
+    /*
+     * yyjson_mut_write() 返回的字符串由 yyjson 分配，
+     * 需要使用 free() 释放。
+     */
+    free(json);
+
+    yyjson_mut_doc_free(doc);
+
+    return 0;
+}
+```
+
+输出类似：
+
+```json
+{"id":1001,"name":"terminal-01","enabled":true,"temperature":25.6,"records":[{"timestamp":1710000000,"value":12.5},{"timestamp":1710000060,"value":13.2}]}
+```
+
+## 4. 解析错误处理
+
+生产代码中建议使用 `yyjson_read_opts()` 获取错误位置和错误原因：
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+#include "yyjson.h"
+
+int parse_json(const char *data, size_t len)
+{
+    yyjson_read_err err;
+
+    yyjson_doc *doc = yyjson_read_opts(
+        (char *)data,
+        len,
+        0,
+        NULL,
+        &err
+    );
+
+    if (doc == NULL) {
+        fprintf(stderr,
+                "JSON parse error: %s, position=%zu\n",
+                err.msg,
+                err.pos);
+
+        return -1;
+    }
+
+    yyjson_val *root = yyjson_doc_get_root(doc);
+
+    if (!yyjson_is_obj(root)) {
+        yyjson_doc_free(doc);
+        return -1;
+    }
+
+    yyjson_doc_free(doc);
+    return 0;
+}
+```
+
+对于网络报文，建议至少检查：
+
+```c
+if (data == NULL || len == 0 || len > MAX_JSON_SIZE) {
+    return -1;
+}
+```
+
+## 5. CMake 编译
+
+`CMakeLists.txt`：
+
+```cmake
+cmake_minimum_required(VERSION 3.10)
+
+project(yyjson_demo C)
+
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+add_executable(yyjson_demo
+    main.c
+    yyjson/yyjson.c
+)
+
+target_include_directories(yyjson_demo PRIVATE
+    yyjson
+)
+
+target_compile_options(yyjson_demo PRIVATE
+    -O2
+    -Wall
+    -Wextra
+)
+```
+
+编译：
+
+```bash
+mkdir build
+cd build
+cmake ..
+make -j2
+```
+
+运行：
+
+```bash
+./yyjson_demo
+```
+
+如果是交叉编译，则将 CMake 的编译器替换为 ARM 交叉编译器，例如：
+
+```bash
+cmake .. \
+    -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc \
+    -DCMAKE_BUILD_TYPE=Release
+```
+
+具体编译器名称需要根据你的 Yocto、Buildroot 或 SDK 工具链调整。
+
+## 6. 大报文场景的推荐写法
+
+对于你前面提到的 20～40 KB 报文，通常采用：
+
+```c
+#define MAX_JSON_SIZE (64 * 1024)
+
+static char rx_buf[MAX_JSON_SIZE];
+```
+
+收到完整报文后：
+
+```c
+yyjson_doc *doc = yyjson_read(rx_buf, rx_len, 0);
+
+if (doc == NULL) {
+    /* 记录错误，丢弃当前报文 */
+    return -1;
+}
+
+/* 读取字段 */
+
+yyjson_doc_free(doc);
+```
+
+如果输入缓冲区可以被 yyjson 修改，可以考虑原地解析：
+
+```c
+yyjson_doc *doc = yyjson_read_opts(
+    rx_buf,
+    rx_len,
+    YYJSON_READ_INSITU,
+    NULL,
+    &err
+);
+```
+
+但要注意：
+
+- `rx_buf` 必须是可写内存；
+- 解析过程中不要修改或复用 `rx_buf`；
+- `doc` 释放前不要释放 `rx_buf`；
+- 解析完成后，字符串指针只在对应缓冲区和文档有效期内有效；
+- 不能把 `yyjson_get_str()` 返回的指针长期保存到下一次接收缓冲区复用之后。
+
+## 7. 高吞吐场景的关键注意事项
+
+### 避免重复查找字段
+
+这种方式会反复按键查找：
+
+```c
+yyjson_obj_get(root, "device");
+yyjson_obj_get(root, "device");
+yyjson_obj_get(root, "device");
+```
+
+可以先保存中间节点：
+
+```c
+yyjson_val *device = yyjson_obj_get(root, "device");
+
+if (yyjson_is_obj(device)) {
+    yyjson_val *id = yyjson_obj_get(device, "id");
+    yyjson_val *state = yyjson_obj_get(device, "state");
+}
+```
+
+### 不要用修改文档读取数据
+
+读取报文时使用：
+
+```c
+yyjson_read()
+```
+
+或：
+
+```c
+yyjson_read_opts()
+```
+
+只有构造输出 JSON 时才使用：
+
+```c
+yyjson_mut_doc
+```
+
+### 对固定格式的输出，考虑直接写缓冲区
+
+如果输出结构固定，没必要每次构造一个完整可修改 JSON 树，可以直接使用：
+
+```c
+int len = snprintf(
+    tx_buf,
+    tx_buf_size,
+    "{\"id\":%u,\"state\":%d}",
+    id,
+    state
+);
+```
+
+这样通常会比“创建可修改 JSON 树再序列化”更省内存。
+
+### 浮点数尽量减少
+
+对于设备报文中的测量值，可以使用定点整数：
+
+```json
+{
+    "temperature": 256
+}
+```
+
+表示：
+
+```text
+25.6 ℃
+```
+
+C 代码中：
+
+```c
+int temperature_x10 = 256;
+double temperature = temperature_x10 / 10.0;
+```
+
+这有助于减少浮点转换开销，也能避免不同平台上的浮点格式差异。
+
+## 最适合你的基本模式
+
+对于你的应用，我建议采用：
+
+```text
+网络线程：
+    接收完整报文到固定缓冲区
+
+JSON线程：
+    yyjson_read()
+    提取必要字段
+    复制到业务结构体
+    yyjson_doc_free()
+
+业务线程：
+    使用业务结构体处理数据
+```
+
+如果报文中只有少量字段需要使用，则进一步考虑：
+
+```text
+YAJL 流式解析
+```
+
+如果需要访问很多字段、数组和嵌套对象，则使用：
+
+```text
+yyjson 只读解析
+```
+
+不要直接使用 cJSON 对 20～40 KB 报文构造完整动态树，除非实际测试证明 CPU、内存和延迟都满足要求。
+
+Read More
+[1] yyjson/doc/API.md at master — https://github.com/

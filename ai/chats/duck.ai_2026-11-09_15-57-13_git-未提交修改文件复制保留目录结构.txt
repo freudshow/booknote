@@ -1,0 +1,124 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 1 - 2026/9/17 17:06:20:
+怎么把git仓库中的被修改但未提交的文件，按照相对目录结构 复制到另一个目录里
+
+GPT-6 Luna:
+<!-- **Explaining git commands**
+
+I need to provide an explanation in Chinese about the `git diff --name-only` command, especially about tracking uncommitted files. The user mentioned modified but uncommitted files are likely still tracked. I want to ensure I preserve the relative directories and make the commands robust. 
+
+Perhaps I could use `rsync --files-from` with `git diff --name-only -z` for copying to another directory. It’s important to include options for both staged and unstaged files. I think mentioning the necessity of dealing with untracked files using `git ls-files --others` is necessary. Additionally, I'll consider ensuring the destination is outside the repo to avoid recursion issues.**Formulating git commands**
+
+I need to focus on getting the modified files only using the command `git diff --name-only --diff-filter=ACMRTUXB HEAD -z`, which seems fine. For untracked files, I'll add `git ls-files --others --exclude-standard -z`, but combining these can get tricky. A solution might involve using a temporary list with Python.
+
+For a simple tracked file copy, I could use a command like this: `git diff --name-only -z HEAD -- | rsync -a --from0 --files-from=- --relative ./ /path/to/dest/`. Rsync does preserve directories, but the destination must be an absolute path.
+
+To incorporate untracked files, I might consider parsing `git status --porcelain`. Another option is creating a portable Python script that combines both git commands and handles spaces, which could be a neat solution. -->
+在仓库根目录执行下面的命令，可以把**已跟踪且相对 `HEAD` 有修改、但尚未提交的文件**，按原来的相对目录结构复制到另一个目录：
+
+```bash
+rsync -a \
+  --from0 \
+  --files-from=<(git diff --name-only --diff-filter=ACMRTUXB -z HEAD --) \
+  --relative \
+  ./ \
+  /path/to/目标目录/
+```
+
+例如：
+
+```bash
+rsync -a \
+  --from0 \
+  --files-from=<(git diff --name-only --diff-filter=ACMRTUXB -z HEAD --) \
+  --relative \
+  ./ \
+  ../backup/
+```
+
+如果仓库中有：
+
+```text
+src/main.c
+config/app.yaml
+README.md
+```
+
+复制后会得到：
+
+```text
+../backup/src/main.c
+../backup/config/app.yaml
+../backup/README.md
+```
+
+这里使用 `git diff HEAD`，因此会同时包含：
+
+- 工作区中修改但未暂存的文件
+- 已暂存但未提交的文件
+
+如果只想复制**未暂存的修改**，把命令中的：
+
+```bash
+git diff ... HEAD
+```
+
+改成：
+
+```bash
+git diff ...
+```
+
+也就是：
+
+```bash
+rsync -a \
+  --from0 \
+  --files-from=<(git diff --name-only --diff-filter=ACMRTUXB -z --) \
+  --relative \
+  ./ \
+  ../backup/
+```
+
+如果还要包括**未被 Git 跟踪的新文件**，可以使用这个 Python 脚本，能正确处理文件名中的空格和中文：
+
+```python
+from pathlib import Path
+import shutil
+import subprocess
+
+repo = Path(".").resolve()
+target = Path("../backup").resolve()
+
+tracked = subprocess.check_output(
+    ["git", "diff", "--name-only", "--diff-filter=ACMRTUXB", "HEAD", "--"],
+    text=True,
+).splitlines()
+
+untracked = subprocess.check_output(
+    ["git", "ls-files", "--others", "--exclude-standard"],
+    text=True,
+).splitlines()
+
+files = set(tracked + untracked)
+
+for name in files:
+    source = repo / name
+    destination = target / name
+
+    if source.is_file():
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
+        print(f"{source} -> {destination}")
+```
+
+将脚本放在仓库根目录运行即可。它会复制：
+
+- 已修改的已跟踪文件
+- 已暂存的文件
+- 未跟踪但未被 `.gitignore` 忽略的新文件
+
+已删除的文件不会被复制。

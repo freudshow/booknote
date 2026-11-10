@@ -1,0 +1,705 @@
+﻿This conversation was generated with Duck.ai (https://duck.ai) using OpenAI's GPT-6 Luna Model. AI chats may display inaccurate or offensive information (see https://duckduckgo.com/duckai/privacy-terms for more info).
+
+====================
+
+User prompt 1 of 4 - 2026/9/18 14:27:11:
+安卓手机可以安装的，类似于opencode、pi.dev、codex等的代码agent有哪些
+
+GPT-6 Luna:
+<!-- **Searching for product info**
+
+I need to provide an answer in Chinese regarding current product information. My first step is to search for details on Android installation options. It might involve exploring the web and related terms to gather accurate information. I’ll make sure I'm focused to find exactly what’s needed. It’s important to get this right to help the user effectively, so I’ll be thorough in my search without missing anything vital! -->
+<!-- **Formulating comparison options**
+
+I need to create a nuanced comparison of native Android versus Termux versus remote solutions. I should probably verify the official documentation for Termux, and also look into Gemini CLI, Qwen, Aider, and OpenCode to understand their package requirements. Searching for this info carefully will help me outline everything effectively and ensure I cover all necessary details. Let’s dig in and get this right! -->
+<!-- **Explaining strongest picks**
+
+I'm considering several options for installation. Pi seems straightforward with its explicit Termux documentation, though there's a package name discrepancy. OpenCode appears to require installation via npm in Termux, but it's not officially supported on Android. Qwen Code is compatible with Termux, but I’m not sure about its Android documentation. Codex CLI may work through Termux as well, while Claude Code doesn't have an app for Android. I'll make sure to include remote options and avoid making unsupported claims. -->
+可以，但要先区分两种情况：
+
+1. **直接在安卓本机运行**：通常依赖 Termux，适合 Pi、部分 Node.js/Python Agent。
+2. **手机只是控制远程环境**：通过 SSH、云端 Linux、桌面伴侣应用运行 Codex、Claude Code、OpenCode 等，稳定性更好。
+
+## 直接安装在安卓本机
+
+| Agent | 安卓可用性 | 推荐程度 | 说明 |
+|---|---:|---:|---|
+| **Pi coding agent** | Termux 原生支持 | ★★★★★ | 目前最适合安卓本机的选择，有专门的 Termux 文档 |
+| **OpenCode** | Termux 中可尝试 | ★★★★☆ | Node.js CLI，官方主要支持 Linux/macOS/Windows，安卓属于非官方运行方式 |
+| **Qwen Code** | Termux 中可尝试 | ★★★★☆ | Node.js CLI，适合使用 Qwen、DeepSeek、OpenRouter 等模型 |
+| **Gemini CLI / 相关分支** | 兼容性变化较大 | ★★☆☆☆ | 安卓版通常依赖第三方 Termux 分支，当前生态变化较快 |
+| **Aider** | 可以折腾，但不推荐本机安装 | ★★☆☆☆ | Python 原生依赖较多，Android ARM64 上经常遇到编译失败 |
+| **Codex CLI** | 不建议直接装在安卓 | ★★☆☆☆ | 更适合在 Linux/macOS/VPS 上运行，再通过 SSH 或远程控制 |
+| **Claude Code** | 不建议直接装在安卓 | ★★☆☆☆ | 没有真正的安卓原生 CLI 方案，远程运行更可靠 |
+
+Pi 官方文档明确提供了 Termux 安装方式，包括 Node.js、Termux:API 和 Android 存储权限配置；不过其当前安装命令使用了 `--ignore-scripts`，说明部分原生依赖在 Termux 上可能需要绕过。[1,2]
+
+### 1. Pi：最推荐
+
+先从 F-Droid 或 GitHub 安装 Termux，不建议使用 Google Play 上的旧版 Termux。然后执行：
+
+```bash
+pkg update && pkg upgrade
+pkg install nodejs git termux-api
+
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent
+
+mkdir -p ~/.pi/agent
+termux-setup-storage
+
+pi
+```
+
+它比较适合：
+
+- 在手机上修改小型项目；
+- 写脚本、网页、Python、Node.js 项目；
+- 使用 API Key 或兼容 OpenAI API 的模型；
+- 通过 Git 管理代码。
+
+注意，Termux 下 Pi 的图片剪贴板功能不可用，访问手机共享存储需要先执行 `termux-setup-storage`。[1,2]
+
+### 2. OpenCode：功能接近你提到的几个工具
+
+OpenCode 是终端型 Agent，支持多种模型提供商、LSP、多会话和 IDE 集成。官方目前列出的桌面平台是 macOS、Windows 和 Linux，并没有把 Android 作为正式平台。[3]
+
+在 Termux 中可以先尝试：
+
+```bash
+pkg update && pkg upgrade
+pkg install nodejs git
+
+npm install -g opencode-ai
+opencode
+```
+
+如果直接安装失败，可以使用 Debian/Ubuntu 用户空间：
+
+```bash
+pkg install proot-distro
+proot-distro install debian
+proot-distro login debian
+```
+
+然后在 Debian 环境中安装 Node.js，再安装 OpenCode。这样兼容性通常比直接在 Android/Bionic 环境中更好，但速度和存储占用会增加。
+
+### 3. Qwen Code：国产模型生态比较方便
+
+Qwen Code 是终端式 Agent，支持 Alibaba Model Studio，也可以连接 DeepSeek、MiniMax、Z.AI、Kimi、OpenRouter 和自定义 OpenAI 兼容接口。官方文档目前要求 Node.js 22 或更高版本；它主要面向 Linux/macOS/Windows，因此在 Termux 上属于兼容性尝试。[4]
+
+Termux 中可以尝试：
+
+```bash
+pkg update && pkg upgrade
+pkg install nodejs git
+
+node -v
+npm -v
+
+npm install -g @qwen-code/qwen-code@latest
+qwen
+```
+
+比较适合想使用以下模型的人：
+
+- Qwen-Coder；
+- DeepSeek；
+- Kimi；
+- MiniMax；
+- OpenRouter；
+- 自建 OpenAI 兼容 API。
+
+如果当前 Termux 的 Node.js 版本太低，可以尝试：
+
+```bash
+pkg install nodejs-lts
+```
+
+### 4. Aider：能用，但不建议作为第一选择
+
+Aider 本身很成熟，Git 工作流也很好，官方安装通常是：
+
+```bash
+python -m pip install aider-install
+aider-install
+```
+
+但在 Android ARM64/Termux 上，`tree-sitter`、`scipy`、`grpcio` 等依赖可能没有对应的预编译 wheel，导致 pip 尝试本地编译并失败。这个问题在 Aider 的 Termux issue 中有记录。[5,6]
+
+如果一定要用 Aider，更建议：
+
+- 在 VPS 的 Ubuntu x86_64 上运行；
+- 在 Codespaces、云开发机中运行；
+- 或通过手机 SSH 连接远程机器。
+
+## Codex、Claude Code、OpenCode 的更稳方案
+
+如果你的目标是使用 Codex、Claude Code、OpenCode 这类“可以执行命令、改文件、跑测试”的 Agent，**最稳定的方式不是把它们硬装到手机，而是让手机连接一个 Linux 环境**。
+
+### 方案一：Termux + SSH + tmux
+
+在电脑、NAS 或 VPS 上安装 Agent，然后手机连接：
+
+```bash
+pkg install openssh tmux
+ssh user@your-server
+tmux new -s coding
+```
+
+在远程服务器中运行：
+
+```bash
+codex
+# 或
+claude
+# 或
+opencode
+```
+
+即使手机断网，`tmux` 里的任务也能继续运行。重新连接后：
+
+```bash
+tmux attach -t coding
+```
+
+这是我最推荐给长期使用者的方案。
+
+### 方案二：安卓远程控制应用
+
+Google Play 上有一些终端伴侣应用，例如 **Termly**，可以把手机连接到桌面上正在运行的 Claude Code、Gemini CLI、OpenCode、Qwen Code 或其他终端 Agent。它本身通常不是在手机上执行 Agent，而是远程镜像桌面终端。[7]
+
+这类方案适合：
+
+- 代码和开发环境已经在电脑上；
+- 只想用手机查看进度、确认命令和批准修改；
+- 不想在手机上安装 Node、Python、编译器和各种依赖。
+
+### 方案三：云端安卓终端/云 IDE
+
+一些云端服务提供带 Ubuntu 容器的 Android 应用，可以直接在手机上运行 Codex、OpenCode、Claude Code 等，但通常需要付费，并且代码位于云端环境中。[8]
+
+## 我的实际推荐排序
+
+如果你想**直接在安卓手机上折腾**：
+
+1. **Pi**
+2. **OpenCode**
+3. **Qwen Code**
+4. `llm`、Open Interpreter 等轻量工具
+5. Aider
+
+如果你想**真正稳定地使用 Codex/Claude Code/OpenCode**：
+
+1. **手机 Termux + SSH + VPS/NAS/电脑**
+2. **Termux + proot-distro + Debian**
+3. **远程控制应用**
+4. 云端 Linux/云 IDE
+
+简单说：**Pi 最适合直接装在安卓上；OpenCode 和 Qwen Code 可以在 Termux 里试；Codex、Claude Code、Aider 更适合远程 Linux 环境。**
+
+Read More
+[1] pi/packages/coding-agent/docs/termux.md at main — https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/docs/termux.md
+[2] Termux (Android) Setup · Documentation — https://pi.dev/docs/latest/termux
+[3] OpenCode | The open source AI coding agent — https://opencode.ai/
+[4] Qwen Code overview | Qwen Code Docs — https://qwenlm.github.io/qwen-code-docs/en/users/overview/
+[5] HELP: Cannot install aider-chat on Termux · Issue #3913 - GitHub — https://github.com/Aider-AI/aider/issues/3913
+[6] Installation | aider — https://aider.chat/docs/install.html
+[7] Termly: Gemini CLI Claude Code - Apps on Google Play — https://play.google.com/store/apps/details?hl=en_US&id=dev.termly.app
+[8] How to Run AI Coding Agents on Your Phone — https://cosyra.com/guides/ai-coding-agents-mobile.html
+
+--------------------
+
+User prompt 2 of 4 - 2026/9/18 14:42:28:
+我的困境是，在termux安装了debian，在debian里安装了agy-cli，来用Google ai studio 的免费额度。但是agy要开vpn代理才能用，但是如果开了vpn，局域网内的电脑就连不上这部手机了，而agy登录认证的时候，又需要用浏览器来登录账号、复制认证token。这就是矛盾点，我不知道怎么让vpn软件只直连8022端口和5901端口（用来做vnc远程桌面连接，开浏览器认证Google账号）的同时，又要保证termux的agy能通过vpn连外网
+
+GPT-6 Luna:
+<!-- **Explaining OAuth token redirection**
+
+I need to clarify how OAuth token redirection works, especially regarding browser access to localhost. I see that I could print a URL in the CLI, then authenticate in the browser and paste the token. It could also work to use a browser outside of Termux. I’m considering if I need exact iptables rules, and I should look into VPN apps, mentioning Clash or v2rayNG. A web search might be useful to find current products, particularly those allowing split tunneling on Android. -->
+<!--  -->
+你的需求本质上不是“按 8022/5901 端口分流”，而是：
+
+- **来自局域网电脑的入站连接**：直连手机的 `8022`、`5901`；
+- **Termux/Debian 里的 `agy` 出站连接**：走代理或 VPN；
+- **安卓浏览器登录 Google**：不走代理也可以，或者按需走代理。
+
+关键点是：**Android 的普通 VPN 分流主要按应用、目标 IP、域名或网段分流，不是按手机上某个监听端口分流。** 而且 `proot-distro` 里的 Debian 与 Termux 共用 Android 的网络命名空间，Android 通常只能把它们看成同一个 Termux 应用，不能单独识别“Debian 里的 agy”。
+
+最稳的做法是：**不要让整个手机进入 VPN，而是只给 agy 设置代理。**
+
+## 推荐方案：VPN 开本地代理，agy 使用代理
+
+假设你的 VPN 软件提供本地代理：
+
+- HTTP 代理：`127.0.0.1:7890`
+- SOCKS5 代理：`127.0.0.1:7891`
+
+端口以你的 VPN 软件实际显示的为准。
+
+进入 Debian：
+
+```bash
+proot-distro login debian
+```
+
+先测试代理：
+
+```bash
+export HTTPS_PROXY=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+
+curl -I https://aistudio.google.com
+```
+
+如果使用 SOCKS5：
+
+```bash
+export ALL_PROXY=socks5h://127.0.0.1:7891
+
+curl -I https://aistudio.google.com
+```
+
+然后在同一个 Debian 终端里运行：
+
+```bash
+agy
+```
+
+这样：
+
+- `agy` 的外网请求通过 VPN 软件的代理出去；
+- Android 浏览器不受影响；
+- 电脑连接手机的 `8022`、`5901` 仍然可以走局域网；
+- 不需要让 Android 建立全局 TUN VPN。
+
+建议把代理变量只写入 Debian 用户的 shell 配置，不要写到 Termux 的全局配置：
+
+```bash
+echo 'export HTTP_PROXY=http://127.0.0.1:7890' >> ~/.bashrc
+echo 'export HTTPS_PROXY=http://127.0.0.1:7890' >> ~/.bashrc
+echo 'export ALL_PROXY=socks5h://127.0.0.1:7891' >> ~/.bashrc
+source ~/.bashrc
+```
+
+如果某个命令不支持环境变量，可以单独这样运行：
+
+```bash
+HTTPS_PROXY=http://127.0.0.1:7890 \
+HTTP_PROXY=http://127.0.0.1:7890 \
+agy
+```
+
+退出代理：
+
+```bash
+unset HTTP_PROXY HTTPS_PROXY ALL_PROXY
+```
+
+有些程序会识别小写变量，因此也可以一起设置：
+
+```bash
+export http_proxy="$HTTP_PROXY"
+export https_proxy="$HTTPS_PROXY"
+export all_proxy="$ALL_PROXY"
+```
+
+## Google 登录认证怎么处理
+
+如果 `agy` 输出的是一个浏览器登录 URL，直接复制到 Android 浏览器打开即可。
+
+如果它使用本机回调地址，例如：
+
+```text
+http://127.0.0.1:xxxxx/callback
+```
+
+也可以直接在这部手机的浏览器中打开。因为浏览器和 Termux 都运行在同一部手机上，通常可以访问 Termux 监听的本机端口。
+
+如果浏览器无法访问回调地址，可以尝试让 `agy` 监听：
+
+```bash
+0.0.0.0
+```
+
+或者使用它提供的“手动复制认证码/token”模式。
+
+登录时如果 Google 页面本身也需要代理，可以临时把浏览器加入 VPN 的代理应用列表；登录结束后再移除。**但不要把浏览器和 Termux 同时强制全局代理，除非确实需要。**
+
+## VPN 软件需要打开的设置
+
+如果你仍然想使用 TUN 全局 VPN，至少检查这些选项：
+
+- 绕过局域网；
+- 允许局域网访问；
+- Bypass LAN；
+- Allow LAN；
+- Exclude private networks；
+- 禁止“阻止 VPN 以外的连接”；
+- 不要开启“Block connections without VPN”或“网络锁”，除非你明确知道它不会阻断局域网入站连接。
+
+Android 本身支持按应用建立 VPN 允许列表或排除列表；加入允许列表后，只有选定应用走 VPN，其他应用使用普通网络。[1,2] 一些 Android VPN 客户端也支持按应用分流和绕过局域网，但具体名称取决于软件。[3]
+
+## 如果你的 VPN 软件只有 TUN，没有本地代理
+
+可以这样配置：
+
+### 方案 A：只让 Termux 走 VPN
+
+在 VPN 软件的“应用分流”中选择：
+
+- **仅代理选中的应用**；
+- 勾选 Termux；
+- 不勾选 Chrome、Firefox、VNC 客户端等；
+- 开启“绕过局域网”。
+
+Android 的应用级 VPN 可以配置“允许列表”或“排除列表”，但两种列表不能同时使用。[2]
+
+不过这里有一个限制：**Termux、Debian、SSH 服务、VNC 服务都属于 Termux 这一套环境。**因此无法在 Android 设置里精准做到：
+
+> Termux 里的 agy 走 VPN，但 Termux 里的 8022/5901 不走 VPN。
+
+只能依靠“绕过局域网”保证电脑连接手机的局域网流量直连。
+
+### 方案 B：在 VPN 软件中绕过局域网网段
+
+如果你的手机和电脑在例如 `192.168.1.x` 网段，可以在 VPN 的直连规则中加入：
+
+```text
+192.168.0.0/16
+10.0.0.0/8
+172.16.0.0/12
+```
+
+更精确一点的话，只加入你实际的局域网网段，例如：
+
+```text
+192.168.1.0/24
+```
+
+这比按 `8022`、`5901` 端口配置更符合 Android VPN 的工作方式。常见分流配置一般是按 LAN 网段、目标 IP、域名或应用处理，而不是按本机监听端口处理。[3]
+
+## 先确认服务监听地址
+
+在 Termux 中检查：
+
+```bash
+ss -lntp
+```
+
+你应该看到类似：
+
+```text
+0.0.0.0:8022
+0.0.0.0:5901
+```
+
+如果显示的是：
+
+```text
+127.0.0.1:8022
+127.0.0.1:5901
+```
+
+局域网电脑无法连接，需要让服务监听局域网接口。
+
+例如 SSH：
+
+```bash
+sshd
+```
+
+Termux SSH 默认一般使用 `8022` 端口。电脑连接：
+
+```bash
+ssh -p 8022 用户名@手机局域网IP
+```
+
+VNC 服务如果支持指定监听地址，也要确保不是只绑定 `127.0.0.1`。
+
+从局域网电脑测试：
+
+```bash
+nc -vz 手机IP 8022
+nc -vz 手机IP 5901
+```
+
+如果没有 `nc`，也可以使用：
+
+```bash
+telnet 手机IP 8022
+telnet 手机IP 5901
+```
+
+## 推荐的最终配置
+
+我建议你按下面的结构配置：
+
+```text
+Android VPN 软件
+├── 开启代理节点
+├── 不开启全局 TUN，或者开启“绕过局域网”
+├── 提供本地 HTTP/SOCKS5 代理
+│
+├── Android 浏览器：直连
+├── 电脑 -> 手机:8022：局域网直连
+├── 电脑 -> 手机:5901：局域网直连
+└── Debian 中的 agy：通过 HTTP_PROXY/ALL_PROXY 出网
+```
+
+也就是：
+
+```bash
+# Debian 内
+export HTTPS_PROXY=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+agy
+```
+
+这是比“全局 VPN + 试图放行两个端口”更简单、稳定的方案。若你的 VPN 软件没有本地代理，只能使用“仅 Termux 走 VPN + 绕过局域网”，但精确按 `8022/5901` 端口分流通常做不到。
+
+Read More
+[1] Set up VPN on Android devices — https://support.google.com/work/android/answer/9213914?hl=en
+[2] VPN | Connectivity — https://developer.android.com/develop/connectivity/vpn
+[3] How to Set Up Split Routing in V2RayNG — https://12vpx.com/en/docs/split-routing-v2rayng
+
+--------------------
+
+User prompt 3 of 4 - 2026/9/18 14:48:59:
+你说的这些复杂操作，如果手机里直接安装一个类似于opencode的agent，帮我搞定就好了
+
+GPT-6 Luna:
+<!-- **Searching for Android solutions**
+
+I need to respond in a way that’s empathetic and concise, while explaining that the agent can’t reconfigure the network — this might require some help from an Android app that uses browser authentication. I should recommend looking into Termux for native coding options, considering proxy issues. It makes sense to search for current Android coding agents, like “Termux AI coding agent” or “aider mobile,” to provide the user with the best options. -->
+对，你这个判断是对的：**如果目标是“装一个 App，登录 Google AI Studio，然后直接让它操作手机里的项目”，目前最接近的不是 OpenCode，而是 Cosyra 这类移动端 Agent 应用。**
+
+但要说明一个现实限制：
+
+> **能在安卓里直接安装的 Agent，通常只能操作它自己的工作区或云端工作区；要直接操作 Termux/Debian 里的项目、同时还处理 VPN、浏览器 OAuth、SSH/VNC，就必须拥有 Android 本地终端和 VPN 权限。**
+
+目前比较接近你需求的是下面几个。
+
+| 应用 | 是否安卓 App | 能否直接运行 Agent | 能否使用 OpenCode/Pi/Codex | 是否适合你的需求 |
+|---|---:|---:|---:|---:|
+| **Cosyra** | 是 | 是，云端工作区 | 支持多种 Agent/模型 | 最接近“一键使用” |
+| **Replit Mobile** | 是 | 是，云端项目 | 不是直接运行本地 OpenCode | 适合不依赖本地项目 |
+| **Termux + Pi** | 是 | 是，本机运行 | Pi 原生支持，其他 Agent 可尝试 | 免费、可控，但仍需配置 |
+| **Moshi** | 移动端工具 | 否，主要连接远程机器 | Codex、OpenCode、Pi 等 | 适合已有电脑/VPS |
+| **GitHub Mobile/Copilot** | 是 | 云端任务和代码协作 | 不是本地终端 Agent | 适合 GitHub 项目 |
+
+Cosyra 声称提供 Android 应用、内置工作区、文件浏览、Diff 审查，并且不要求自己管理 VPS；它还支持使用 Anthropic、OpenAI、OpenRouter 等模型，但目前更像是一个云端 Agent 平台，而不是“直接接管你手机上的 Termux/Debian”。[1,2]
+
+Moshi 的定位则不同：它是手机端终端控制器，连接你已有的 Mac、Linux、WSL 或 VPS，可以控制 Codex、OpenCode、Pi、Qwen Code 等，但 Agent 实际运行在远程机器上，不是在安卓手机上。[3]
+
+## 对你的场景，最现实的选择
+
+### 选择一：直接试 Cosyra
+
+如果你不强求 Agent 操作当前 Termux 里的 Debian 项目，Cosyra 是最省事的：
+
+1. 安卓安装 Cosyra；
+2. 建立或导入项目；
+3. 配置支持的模型/API；
+4. 让它在自己的工作区里改代码；
+5. 最后通过 GitHub 同步代码。
+
+但它**不一定能使用 Google AI Studio 的免费 Gemini 额度**。它目前公开页面重点展示的是 Anthropic、OpenAI、OpenRouter 等账户，不能默认认为支持 Google AI Studio OAuth。[1,2]
+
+### 选择二：Termux 里换成 Pi
+
+如果你必须使用 Google AI Studio 免费额度，并且项目就在手机本地，Pi 反而是最合适的 Agent。它支持 Google、OpenAI、Anthropic、OpenRouter 等多个提供商，也支持 OAuth/API Key；官方还专门提供 Termux 安装文档。
+
+不过它无法凭空解决 VPN。你仍然需要满足其中一个条件：
+
+- VPN 软件提供本地 HTTP/SOCKS5 代理；
+- 或 VPN 支持仅 Termux 走 VPN、绕过局域网；
+- 或 Google AI Studio 在当前网络下可以直连。
+
+也就是说，**换成 Pi 可以免去 Debian 和部分安装麻烦，但不能绕过 Android VPN 的网络规则。**
+
+### 选择三：把 Agent 放到电脑上，手机只负责操作
+
+如果你的项目原本就在局域网电脑上，这是最不折腾的长期方案：
+
+- 电脑运行 OpenCode、Codex、Pi 或 Claude Code；
+- 安卓安装一个支持 SSH/Mosh 的终端 App；
+- 手机只负责查看、确认和输入指令；
+- Google 登录和 VPN 都在电脑上完成。
+
+这种方式不需要让手机同时承担：
+
+```text
+Termux
+Debian
+Agent
+VPN
+Google OAuth
+VNC
+SSH
+```
+
+而且 Moshi 这类工具可以直接连接已有机器，并对 OpenCode、Codex、Pi 等 Agent 提供移动端界面。[3]
+
+## 直接结论
+
+如果你想要的是：
+
+> **安卓安装一个 App，直接编辑手机本地代码，并自动搞定 Google 登录、联网和 Agent 执行**
+
+目前还没有一个成熟产品能完整做到，尤其是“手机本地项目 + Google AI Studio OAuth + VPN 分流 + Termux 服务”这一组合。
+
+我的建议是：
+
+- **不要求本地项目**：试 Cosyra；
+- **必须用 Google AI Studio 免费额度**：Termux 直接安装 Pi，不必再套 Debian；
+- **项目在局域网电脑**：电脑运行 OpenCode/Codex，手机用 Moshi 或普通 SSH 客户端连接；
+- **不要继续期待某个 Agent 自动解决 VPN 分流**：Agent 本身没有权限改变 Android VPN 的系统路由。
+
+最接近你原始需求的简化路线是：
+
+```text
+Termux
+└── Pi
+    └── Google Gemini / AI Studio
+```
+
+而不是：
+
+```text
+Termux
+└── Debian
+    └── agy
+        └── VPN
+            └── 浏览器 OAuth
+                └── VNC/SSH 局域网分流
+```
+
+前者至少可以去掉 Debian、VNC 和一部分认证复杂度；Pi 官方支持多模型提供商和 OAuth/API Key，并且明确支持 Termux。
+
+Read More
+[1] How to Run AI Coding Agents on Your Phone — https://cosyra.com/
+[2] Best AI Coding Agents in 2026: Claude Code vs Codex vs ... — https://admix.software/
+[3] Best Android Terminal App for AI Coding Agents (2026) - Moshi — https://getmoshi.app/
+
+--------------------
+
+User prompt 4 of 4 - 2026/9/18 14:51:06:
+Linux上能稳定提供美国节点的vpn软件有哪些
+
+GPT-6 Luna:
+<!--  -->
+<!-- **Providing VPN recommendations**
+
+I need a final answer with tailored recommendations related to running a VPN. If Debian is in proot, it can't run a VPN client needing systemd or root access. The user may want a VPS option. If Debian is inside Termux, commercial VPN apps won't work due to lack of CAP_NET_ADMIN or TUN support. So, I suggest using an Android VPN app with LAN bypass or a local proxy. If it's an actual Linux server, Mullvad or Proton could work well. It's essential to be concise and include installation commands. -->
+如果你说的是**手机 Termux 里的 Debian**，先给结论：
+
+> **不要在这个 Debian 里安装传统 Linux VPN 客户端。**  
+> `proot-distro` 通常没有创建 TUN 网卡、修改路由和运行 systemd 所需的权限，Mullvad、Proton VPN 这类 Linux 客户端即使安装成功，也大概率不能正常建立系统级 VPN。
+
+更适合你的有两类：
+
+## 1. 商业 VPN：Linux 真机/VPS 上推荐
+
+| VPN | Linux 支持 | 美国节点 | 适合程度 | 备注 |
+|---|---:|---:|---:|---|
+| **Mullvad** | 官方 GUI/CLI | 有 | ★★★★★ | 配置简单，支持 WireGuard、分流和局域网共享 |
+| **Proton VPN** | 官方 GUI/CLI | 有 | ★★★★☆ | 节点多，Linux 支持较好，支持 WireGuard/OpenVPN |
+| **Windscribe** | Linux 客户端 | 有 | ★★★★☆ | 支持 WireGuard、OpenVPN、Stealth、WStunnel 和分流 |
+| **IVPN** | Linux 客户端 | 有 | ★★★☆☆ | 功能简洁，但价格较高、节点规模较小 |
+| **NordVPN / Surfshark** | Linux 支持 | 有 | ★★★★☆ | 节点和速度不错，但 Linux 命令行体验依具体版本而定 |
+
+Mullvad 官方 Linux 客户端支持 Debian、Ubuntu 和 Fedora，并提供 WireGuard、分流、局域网共享、混淆等功能。[1,2] Proton VPN 也提供 Linux GUI/CLI，支持 Debian、Ubuntu、Fedora，并可以选择具体服务器或手动使用 WireGuard 配置。[3,4,5] Windscribe 的 Linux 客户端支持多个协议、分流和美国节点。[6,7]
+
+### 我的排序
+
+- **想省心：Mullvad**
+- **想要节点多、连接选择多：Proton VPN**
+- **需要更强的连接兼容性：Windscribe**
+- **想要固定、长期稳定的美国出口：自建美国 VPS + WireGuard**
+
+但要注意：商业 VPN 的美国 IP 可能被 Google、Cloudflare 或其他服务识别为 VPN/机房 IP。**“能连上美国节点”不等于 Google 一定接受这个 IP。**
+
+## 2. 自建美国 VPS：最适合你的场景
+
+如果你的目的主要是让 `agy` 稳定访问 Google AI Studio，我更推荐：
+
+```text
+美国 VPS
+└── WireGuard / sing-box / Xray
+    └── 手机 Termux 中的 agy
+```
+
+相比共享 VPN，自建 VPS 的优点是：
+
+- 美国出口 IP 固定；
+- 不和大量用户共享同一个 IP；
+- 不受商业 VPN 客户端 Android 分流限制；
+- 可以只给 `agy` 配置代理；
+- 不会影响手机的 SSH、VNC 和局域网连接。
+
+不过 VPS 的 IP 仍可能被识别为数据中心 IP。如果 Google 对该 IP 段限制较严，商业 VPN 或住宅代理反而可能更容易通过。
+
+## 对你当前手机方案的最佳选择
+
+你现在的环境是：
+
+```text
+Android
+└── Termux
+    └── proot Debian
+        └── agy
+```
+
+我建议不要尝试在 Debian 内运行 Mullvad/Proton 的“系统级 VPN”，而是选下面两种之一。
+
+### 方案 A：Android VPN 软件提供本地代理
+
+例如 Windscribe、Clash、sing-box、v2rayNG 等，让它们提供：
+
+```text
+127.0.0.1:7890  HTTP
+127.0.0.1:7891  SOCKS5
+```
+
+然后只在 Debian 中设置：
+
+```bash
+export HTTPS_PROXY=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7890
+export ALL_PROXY=socks5h://127.0.0.1:7891
+
+agy
+```
+
+这样 VPN 只负责提供代理，局域网电脑连接手机的 `8022` 和 `5901` 不需要经过 VPN 路由。
+
+### 方案 B：Android VPN 的“仅 Termux 代理 + 绕过局域网”
+
+如果 VPN 软件支持按应用分流：
+
+- 仅把 **Termux** 加入 VPN；
+- 浏览器不加入 VPN；
+- 开启“绕过局域网 / Allow LAN”；
+- 不开启“阻止 VPN 外连接”。
+
+但由于 Debian 和 Termux 共用 Termux 的网络身份，不能在 Android 里精确区分 Debian 内的 `agy` 与 Termux 的 `sshd`/VNC 服务。因此，**本地代理方案通常比应用分流更稳**。
+
+## 直接推荐
+
+对于你现在的使用方式：
+
+1. **最推荐：Windscribe Android/Linux + 本地代理**
+2. **更稳定：美国 VPS + sing-box/WireGuard + 本地 SOCKS5**
+3. **如果有真正的 Ubuntu/Debian 服务器：Mullvad 或 Proton VPN**
+4. **不推荐：在 Termux 的 proot Debian 里直接安装 Linux VPN 客户端**
+
+如果你准备购买商业 VPN，优先试 **Mullvad 或 Proton VPN**；如果你最在意 `agy` 长期稳定访问 Google，优先考虑**美国 VPS 自建代理**，而不是在手机 Debian 里运行全局 VPN。
+
+Read More
+[1] Mullvad VPN for Linux — https://mullvad.net/en/download/vpn/linux
+[2] Install Mullvad app on Linux — https://mullvad.net/en/help/install-mullvad-app-linux
+[3] Download VPN for Linux — https://protonvpn.com/download-linux
+[4] Proton VPN on Linux — https://protonvpn.com/support/linux-vpn-setup
+[5] How to install Proton VPN on Debian and Ubuntu — https://protonvpn.com/support/linux-vpn-debian-ubuntu
+[6] Windscribe: Fast & Secure VPN - Apps on Google Play — https://play.google.com/store/apps/details?id=com.windscribe.vpn
+[7] How to Set Up & Use a VPN on Linux (CLI & Headless) — https://windscribe.com/
