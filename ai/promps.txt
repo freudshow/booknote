@@ -669,3 +669,46 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 64. 添加 汇聚(join)元器件， 用于 if，switch元器件各分支的共同出口，由于嵌入式不实现这个元器件，所以保存编译时要将其对应的语义编译为正确的jump元器件
 1. 汇聚元器件的输入端口有多个，可动态添加和删除
 2. 汇聚元器件的每个端口为控制和数据端口，运行数据流和控制流的连接；其输出端口是纯粹的控制端口
+
+65. 
+1. 继续迁移最近visualLogical加入的新元器件
+2. 元器件的显示信息也补充Type、Name、Id，每个端口也要有鼠标提示
+3. 端口之间的连线的箭头，在放大看的时候就消失了
+4. 可以正确加载、保存visualLogical生成的配置文件（包括10月份以前的老配置文件），可用的测试文件为：
+    - D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_评测部可视化测试\c0757.json
+    - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\multi_controls_if_switch_while_break_continue_join.json
+    - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\multi_controls.json
+    - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\switch_if_join.json
+    - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\while_continue.json
+    - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\debug_print.json
+    - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\if-while-switch.region.json
+    要求： 用skiaSharp_PowerGateway能正确加载，保存后的配置文件严格与上述的文件相等（sha256相等，如果没有c0757.json的链路信息，可以从其文件名推断为07链路）
+5. 设计一个有大量元器件（至少300个）的图，我要测试一下用avalonia和skiaSharp做前端的画布是否也有卡顿（添加/移动元器件、删除/添加连线、放大/缩小画布等等操作）
+
+66.
+完善测试矩阵并逐项测试，并根据每项测试的设计意图和测试结果修正现有代码的错误/bug：
+1. 
+    1.1 join推断，如果用户没有明确的画出join汇聚元器件，则在编译阶段创建一个Id为负数的虚拟join用于break和continue的合法跳转
+    1.2 检查用户设计的join汇聚点的合法性，是否与用户的实际设计意图相悖
+2. break - 立即退出最内层的可跳出构造，保持这个原语设计，并结合join/虚拟join跳转到正确的元器件
+3. continue - 保持原语“跳转到最内层循环的续接点”，并结合join/虚拟join跳转到正确的元器件
+4. join、break、continue有/无后续语句块的完整测试覆盖
+5. 结合当前设计的测试矩阵，保证if、while、switch、break、join、continue等控制语句，位于控制区域的首部、尾部、位于while的循环体/退出体、各种嵌套等的完整测试覆盖
+6. 保证当前代码能正确识别所有的while循环体的尾部元器件（包含普通元器件，IF的true/false属性的空臂情况，switch的case/default空臂情况，while的循环/exit空臂情况），能正确处理尾部元器件的回环的NextID
+总之对现有代码有两个要求： 1. 用户正确的设置，可以正确的线性化，交给嵌入式运行 2. 用户非法的设置，可以都检测出来，并报告具体的出错位置和出错原因
+
+67.
+1. 现有的配置文件的伴生文件，主要保存的是画布上的原始元器件信息，尤其是break、continue、join等不能出现在最终配置文件中的元器件类型，不知道这样理解对不对。如果我的理解是对的，修改jump元器件的属性，记录其转换前对应的元器件类型、坐标、端口等画布信息，以便能抛开伴生文件精确还原画布信息。
+2. 继续完善测试套件，保持对旧有元器件模型属性的兼容：
+    用以前的可视化配置软件（D:\soft\LTU维护软件\Debug\Viz_Dev)生成的配置文件，可以用目前的最新的配置软件正确打开（可以打开且完全呈现以前的图逻辑，可以通过旧配置导出矢量图，然后再让新配置软件打开旧软件生成的配置，再由新软件生成矢量图，对比两个矢量图是否一致）、保存配置（新软件另存为生成的配置文件，sha256校验码与旧软件生成的配置文件一致，sha256校验码是强要求，如果某个元器件在新软件的生成中添加了一些额外的属性键但同时也保持了之前旧有的结构属性，可以认为是弱版的兼容），这个要求要涉及到每个元器件，确保每个元器件的配置json一致（至少是嵌入式用到的属性，结构和语义一致）
+
+68.
+提炼当前代码仓库的架构、元器件约束、实现规范等等，形成工作流和知识库，以便让以后的大模型都按照现有的规范实现和修改代码。
+
+69. 日志输出元器件，属性编辑窗口，实时库选择tab，添加实时库数据项对应的名称、实时库号、遥测/遥信/遥控/电度/参数等类型列；端口选择tab，添加元器件Id列，，并添加输入还是输出端口列，且同一个元器件的行用相同的颜色与其他元器件的端口行区分开，便于用户选择。且用户双击了待添加的实时库/元器件端口行后，就自动弹出实时库/端口选择窗口，不需要用户再选择行->点击数据项选择按钮，这样操作太麻烦。
+
+70. 山东告诉策略需求：
+
+1. 如果当前光伏大发，则让储能开始充电，充电功率根据当前光伏富余功率动态调整
+2. 中午11：00~13：00之间，可以允许储能低功率从电网获取充电功率，以应对阴天光伏发电不足的问题。其他时间段不允许储能从电网获取电能。
+3. 晚上18：00~第二天早晨6：00储能允许放电
