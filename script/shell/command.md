@@ -1373,7 +1373,92 @@ ldconfig
 echo "[+] Done. Python $PYTHON_VERSION installed to $PREFIX"
 # 验证安装是否成功：调用新安装的 Python 解释器打印版本号
 "$PREFIX/bin/python3.6" --version
-
 # 由于脚本中包含了 ldconfig 和写入 /etc/ld.so.conf.d/ 的操作，这两步需要 root 权限。在实际运行时，建议使用 sudo bash script.sh 来执行该脚本
 
+```
+
+# 6. Windows 多网卡路由优先级
+
+## 分析
+
+Windows 会先按目标地址选择最长前缀的路由；只有匹配长度相同的候选路由之间，才会比较路由度量值与网卡接口度量值之和。接口度量值越大，通常表示该接口的优先级越低。度量值不会按应用程序区分流量，也不能替代公司内网所需的具体路由。
+
+检查时的网络状态与接口度量值如下：
+
+| 网卡 | 当前状态 | IPv4 接口度量值 |
+| --- | --- | ---: |
+| Remote NDIS based Internet Sharing Device（以太网 3） | 已连接 | 50 |
+| ASIX USB to Gigabit Ethernet Family Adapter（以太网 4） | 已断开 | 10 |
+| Intel(R) Wi-Fi 6 AX203（WLAN） | 已断开 | 20 |
+
+本次执行环境不是管理员权限，因此未直接更改网卡配置；需在管理员 PowerShell 中运行下方脚本。
+
+当时观察到 RNDIS 默认路由度量值为 0、ASIX 默认路由度量值为 1；加上接口度量值后，RNDIS 的总值为 50，ASIX 为 11。ASIX 和 Wi-Fi 当前均未连接，因而尚未验证三条链路同时可用时的实际流量路径。下方脚本只提高 RNDIS 的度量值，不更改 ASIX、Wi-Fi、路由表或 VPN 配置；将 RNDIS 接口度量值设为 600，使其在其他匹配路由可用时更不容易被选中。
+
+如果 ASIX 与 Wi-Fi 同时连接且都提供同一目标的默认路由，当前接口度量值会使 ASIX（10）优先于 Wi-Fi（20）。公司内网更具体的路由仍可优先走 ASIX；若要让向日葵等公网连接固定走手机 Wi-Fi，单靠网卡度量值不能保证按应用分流，还需确认服务目标地址，并设置适当的目标路由或使用应用自身的网络绑定能力。
+
+## 执行脚本
+
+在“以管理员身份运行”的 PowerShell 中执行以下脚本。脚本按网卡描述查找目标设备，不依赖易变化的接口名称或索引；同时设置 IPv4、IPv6 的持久配置和当前生效配置，并核对当前度量值。
+
+```powershell
+#requires -RunAsAdministrator
+$ErrorActionPreference = 'Stop'
+
+$description = 'Remote NDIS based Internet Sharing Device'
+$targetMetric = 600
+$adapters = @(Get-NetAdapter -IncludeHidden | Where-Object {
+    $_.InterfaceDescription -eq $description
+})
+
+if ($adapters.Count -ne 1) {
+    throw "预期找到 1 个 '$description' 网卡，实际找到 $($adapters.Count) 个；未修改配置。"
+}
+
+$adapter = $adapters[0]
+foreach ($family in @('IPv4', 'IPv6')) {
+    foreach ($store in @('PersistentStore', 'ActiveStore')) {
+        Set-NetIPInterface -InterfaceIndex $adapter.InterfaceIndex `
+            -AddressFamily $family -AutomaticMetric Disabled `
+            -InterfaceMetric $targetMetric -PolicyStore $store
+    }
+
+    $current = Get-NetIPInterface -InterfaceIndex $adapter.InterfaceIndex `
+        -AddressFamily $family -PolicyStore ActiveStore
+    if ($current.InterfaceMetric -ne $targetMetric -or $current.AutomaticMetric -ne 'Disabled') {
+        throw "$family 当前配置核验失败；期望度量值 $targetMetric 且禁用自动度量值。"
+    }
+}
+
+Get-NetIPInterface -InterfaceIndex $adapter.InterfaceIndex |
+    Select-Object InterfaceAlias, InterfaceIndex, AddressFamily,
+        ConnectionState, AutomaticMetric, InterfaceMetric |
+    Format-Table -AutoSize
+```
+
+## 验证与回滚
+
+运行脚本后，预期 RNDIS 的 IPv4、IPv6 `InterfaceMetric` 均为 `600`，且 `AutomaticMetric` 为 `Disabled`。检查当前默认路由和接口状态：
+
+```powershell
+Get-NetIPInterface -AddressFamily IPv4 |
+    Where-Object { $_.InterfaceAlias -in '以太网 3', '以太网 4', 'WLAN' } |
+    Format-Table InterfaceAlias, ConnectionState, AutomaticMetric, InterfaceMetric
+
+Get-NetRoute -AddressFamily IPv4 -DestinationPrefix '0.0.0.0/0' |
+    Format-Table InterfaceAlias, NextHop, RouteMetric, State
+```
+
+如需恢复 RNDIS 原先的固定度量值（50），在管理员 PowerShell 中执行：
+
+```powershell
+$adapter = Get-NetAdapter -IncludeHidden |
+    Where-Object { $_.InterfaceDescription -eq 'Remote NDIS based Internet Sharing Device' }
+foreach ($family in @('IPv4', 'IPv6')) {
+    foreach ($store in @('PersistentStore', 'ActiveStore')) {
+        Set-NetIPInterface -InterfaceIndex $adapter.InterfaceIndex `
+            -AddressFamily $family -AutomaticMetric Disabled `
+            -InterfaceMetric 50 -PolicyStore $store
+    }
+}
 ```
