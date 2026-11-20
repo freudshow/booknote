@@ -137,21 +137,6 @@ using context free grammer and recursive desend parsing.
 2. 把 ElementPropertiesWindow.xaml.cs 中复杂编辑器方法拆到独立渲染器/控件工厂，窗口只保留生命周期、快照、验证和提交。
 3. 在所有 palette/创建/显示逻辑确认不再需要 ElementDefinitionRepository 后，从 Constants.cs 删除该仓库，再继续迁移 ElementTypes、ParamNames、PortNames 等兼容常量。
 
-28. 在本工程下，修改所有使用pthread_mutex_timedlock和pthread_mutex_trylock的地方，当这2个函数的返回值为0时，才能调用pthread_mutex_unlock释放对应的锁. 形式类似于: 
-int timedlockRes = pthread_mutex_timedlock(); 
-if (timedlockRes == 0)
-{
-    pthread_mutex_unlock(&sSelfParaModifyLock);
-}
-请注意：if (timedlockRes == 0) 仅仅用于pthread_mutex_unlock释放锁的判断，临界区保持以前的代码不变，不要将临界区的代码也纳入if (timedlockRes == 0)的判断中. 就像下面这样：
-int timedlockRes = pthread_mutex_timedlock(&sSelfParaModifyLock, &time_out);
-
-... ...//critical code
-
-if (timedlockRes == 0)
-{
-    pthread_mutex_unlock(&sSelfParaModifyLock);
-}
 
 29. 根据当前的eclipse工程配置，写一个完全保留其语义和功能的cmake file，保留8个工程：DebugC0, DebugC1, DebugC_WireTerm, DebugTTU, ReleaseC0, ReleaseC1, ReleaseC_WireTerm, ReleaseTTU. 保留各自工程下的工具链、宏定义、include 路径、库文件路径、链接的库文件名等信息
 
@@ -167,42 +152,6 @@ if (timedlockRes == 0)
 32.
 将我当前的用户环境下的nvim，改成功能完善的C/C++ IDE，比如默认显示行号、默认显示代码大纲、代码引用间的跳转、工程文件列表等等，越接近eclipse或者visual studio越好。并将配置环境的各个命令，写到脚本里，以便直接在其他机器上部署
 
-33. 当前的public static bool ReadFromJson<T>(string fileName, ref T t, TypeNameHandling typeHandle = TypeNameHandling.Auto)函数，在读取之前用ElementModel保存的json配置文件时，不会对转换过来的IElementModel，根据之前保存的
-string Type { get; }
-string Name { get; }
-List<ParamModel> Params { get; }
-List<InputModel> Inputs { get; }
-List<OutputModel> Outputs { get; }
-ElementTypeClassicEnum ElementTypeClass { get; }
-ElementTypesEnum ElementType { get; }
-string HelpInfo { get; }
-等只读属性，根据string Type { get; }，给对应的元器件实体赋默认的值（具体查看继承了ElementBase的各个元器件类），请修复这个问题
-
-○ Todos(3/3)
-修复完成，Debug 构建通过。
-
-问题根因
-
-ReadFromJson 加载旧配置时，流程是：IElementModelConverter / UpgradeLegacyElement 先用 Type 字符串通过 ElementFactory 创建出正确的具体元器件（如 ElementYCInput），其构造函数已把只读结构属性初始化好了 —— 端口的 Name/DataType/PortAttr/PortDataType/IsDisplayToUser、参数的 Name 等。
-
-但随后 CopyLegacyElementState 调用 ReplaceList，整体替换掉了 Params/Inputs/Outputs。旧 JSON（尤其是最近提交给端口新增 DataType/PortDataType 之前保存的）不含这些元数据，替换后具体类的默认值就全丢了。
-
-修复方式
-
-Models/Common.cs:210 把"替换"改成"按 Id 合并"：具体元器件的默认结构为准，只把旧配置里真正需要恢复的运行期/用户状态覆盖回去。
-
-- MergeParams：只覆盖 Value，保留默认的 Id/Name。
-- MergeInputs：只覆盖连接信息 SourceElemId/SourcePortId 和 Value，保留端口元数据。
-/agents        - MergeOutputs：只覆盖 TargetPorts 和 Value，保留端口元数据。Switch agent
-/archive       archive current topic into session memory
-/auto          只读的 Type/Name/ElementType/ElementTypeClass/HelpInfo 本就由具体类的 override 提供，反序列化不会（也无法）改写它们，现在端口和参数的结构性字段也同样一律沿用具体类默认值。旧配置中已断开的连接（SourceElemId = -1 等）也会被正确恢复。Enable auto mode
-/bashes        Background jobs
-/btw           一点提醒：新逻辑按端口/参数 Id 匹配。如果某个元器件类后续调整了默认端口的 Id 编号，旧配置里对应项会匹配不上而被忽略（回退到默认）——这符合"以新结构为准"的预期，但涉及此类改动时值得留意。Ask a side question
-/compact       Compact session
-/config        Settings
-/connect       Connect provider
-/copy          ▣  Build · claude-opus-4-8 · 25m 0sCopy session transcript
-/diffwrap      Toggle diff wrapping
 
 show me the reason, why you fix bugs like that
 
@@ -286,37 +235,6 @@ One caveat worth repeating: there are no unit tests here, and I couldn't run the
 4. 寄存器支持自增
 5. 寄存器的数据类型默认为u16，可手动设置为s16, u32, s32, float32, string等等
 
-35. 
-考察 documents/AGC.json,
- 这里面是一个简单的低压台区光伏逆变器发电场站，负荷消纳的AGC调节过程。当收到主站的调节命令时，比如全站的额定功率为300MW，本站有3个逆变器，额定功率分别是100、120、80，当主站下发了目标最大发电功率为200MW后，分别按额定功率百分比，给各个逆变器下发最大发电功率命令(分别为200*(100/300)、200*(120/300)、200*(80/300))，此时全站额定功率和主站设定的最大发电功率200MW就在多处用到，就需要画多个重复的遥测/遥信输入元器件，这样重复的劳作既繁琐又容易出错（比如全站额定功率的实时库引用是(link-4,dev-1,reg-3)，则每个元器件都需要重复设定这个属性，极易出错）。
-
-请给出一个算法，可以正确的将1个元器件视为C语言中的临时变量x，当其某个输出端口连接到多个元器件的输入端口后，就将其视为对同一个变量的引用，嵌入式遇到某个计算或者算术判断、逻辑计算时，就直接去这个元器件的输出端口拿数据即可。当保存排序时，可以正确的将这个临时变量排序到整个语法树的最左出现的位置，因为嵌入式程序的入口元器件即是上位机给出的元器件序列的第一个元器件，然后再以其NextID(true/false id)依次求值每个元器件，所以当元器件X被某个运算Y引用时，则X的求值/运行（如果是遥测输入，则读取实时库的值；如果是一个算术运算，则是其运算结果）必先于Y进行，这样Y拿到的数据才是相对实时的、正确的。
-
-考察多端口AGC图 documents/AGC_MULTI_OUT.json，这个图跟我描述的场景是一样的，其中id-12-AGC投入软压板、ID-0-全站额定功率、ID-1-主站设定最大功率出力都是一个扇出端口接入了多个元器件的输入端口，请根据这个图正确修正现有的算法。BTW, AGC_MULTI_OUT.json的正确排序应该是：
-12->2
-2->0
-0->5
-5->1
-1->6
-6->11
-11->3
-3->7
-7->10
-10->13
-13->16
-16->4
-4->8
-8->9
-9->14
-14->17
-17->18
-18-> -1
-即如果跳转的下一个元素已经被排序，则跳过它，继续查找下一个元素。
-
-考虑限制可以多端口输出的元器件类型，比如输入类元器件、运算类（逻辑、比较、算术等运算）可以将其输出端口连接到多个元器件；但对于timer类、控制类的输出端口，不可以作为多输出端口，因为涉及到了控制的流转，不能流向多元器件造成歧义，而数据的输出可以供多个地方引用。请给出最优雅的解决方案
-
-继续考察 documents/AGC_MULTI_OUT.json，这个图中的元器件16、17、18其实是没有任何作用的，因为主站下发了遥调值后，只需要运行到11、13、14，将具体的遥调指令下发给每个逆变器即可。我是为了让整个图有1个唯一的n根节点18，然后方便后续的编译成语法树，才加上的额外的元器件16、17、18。现有算法是否可以在不添加元器件16、17、18的情况下，正确让
-
 36.
 写一个python脚本，操作D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_省重送测\c0310.json，这是一个modbus采集规约的配置文件，现在我配置了100个modbus从设备，我想扩展到200个从设备。
     注意：
@@ -329,202 +247,23 @@ One caveat worth repeating: there are no unit tests here, and I couldn't run the
     3. KeyDec是用户编辑的数据项的描述，本次的命名规则是 设备编号-数据项编号，比如 设备001-数据项088，数字保留3位数，不足3位数的补0；
     4. 其他配置不变
 
-37.
-
-上位机：
-帮我添加一个时段执行元器件，当满足用户执行的时段时，输出端输出遥信1，不满足时，输出端输出0. 时段的监控周期可以是日、月、年、世纪。比如如果监控周期是日，就让用户设定0点0分0秒到23点59分59秒之间的一个时间段，比如20:34:18~23:12:09之间，当时间到达时，输出1，未到达输出0；比如用户选择监控周期是月，则让用户设定日期时间段，比如是哪个月的开始日期的00:00:00到哪个结束日期的23:59:59, 如果当前时间满足设定日期输出1，否则输出0；如果用户设定的监控周期是年，就让用户选择开始月份(默认的开始月份为当月1日00：00：00)、结束月份(默认的结束月份为当月的最后1天的23:59:59)等等
-
-推荐设计如下，请确认是否可以按这个方向实现：
-
-- 元器件名称：时段执行
-- 元器件类型：新增 TIME_PERIOD / ElementTypesEnum.TIME_PERIOD
-- 大类：计时器类，颜色沿用现有计时器绿色
-- 端口：1个输入端用于控制流；输出端为 BOOL 类型 Output
-- 输出语义：当前系统时间落在配置区间内输出 1，否则输出 0
-- 监控周期：
-  - 让用户自己选择监控周期，默认日；且用户选择了一个监控周期后，跟当前周期无关的时间设定隐藏掉，比如用户选择了日，那么只显示小时、分钟、秒钟，年、月、日期不显示
-  - 日：使用 StartHour/StartMinute/StartSecond 到 EndHour/EndMinute/EndSecond
-  - 月：使用 StartDay 00:00:00 到 EndDay 23:59:59
-  - 年：使用 StartMonth 当月 1 日 00:00:00 到 EndMonth 当月最后一天 23:59:59
-  - 世纪：我建议按“完整日期”处理，即 StartMonth/StartDay 00:00:00 到 EndMonth/EndDay 23:59:59，每年重复；如果你期望跨年份或指定年份，需要再扩展
-- 默认值：
-  - 日：00:00:00 ~ 23:59:59
-  - 月：1 ~ 31，运行时按当前月份最后一天裁剪
-  - 年：当前月 ~ 当前月
-  - 世纪：1月1日 ~ 12月31日
-- 校验：保存/编辑时约束范围，禁止开始值大于结束值；非法日期按当前周期裁剪或提示修正
-
-如果你确认这个设计，我下一步会写设计说明文件并进入实现计划。
-
-嵌入式：
-为我添加一个时段执行元器件，当满足用户配置的时段时，输出端输出遥信1，不满足时，输出端输出0.
-- 元器件名称：TIME_PERIOD
-- 元器件类型：新增 TIME_PERIOD
-- 大类：计时器类
-- 端口：1个输入端用于控制流；输出端为 BOOL 类型 Output
-- 输出语义：当前系统时间落在配置区间内输出 1，否则输出 0
-- 这个元器件有自己的私有参数数据，参数格式如下:
-
-```C
-    typedef enum
-    {
-        Day = 0,
-        Month = 1,
-        Year = 2,
-        Century = 3,
-    } TimePeriodMode_e
-
-    typedef struct
-    {
-        TimePeriodMode_e PeriodMode;
-        int StartMonth;
-        int EndMonth;
-        int StartDay;
-        int EndDay;
-        int StartHour;
-        int EndHour
-        int StartMinute;
-        int EndMinute;
-        int StartSecond;
-        int EndSecond;
-    } TimePeriodInfo_s
-```
-
-- 这个元器件的配置文件的json结果如下:
-
-```json
-"Params": [
-            {
-              "Id": 1,
-              "Name": "TIMER_PERIOD",
-              "Value": {
-                "PeriodMode": 3,
-                "StartMonth": 1,
-                "EndMonth": 11,
-                "StartDay": 1,
-                "EndDay": 1,
-                "StartHour": 2,
-                "EndHour": 13,
-                "StartMinute": 2,
-                "EndMinute": 59,
-                "StartSecond": 0,
-                "EndSecond": 59
-              }
-            }
-          ]
-````
-
-- 添加这个元器件自己的销毁程序，让其vtbl.DeInit直接指向它就可以销毁元器件申请的资源
-
-- 监控周期：
-  - 日：使用 StartHour/StartMinute/StartSecond 到 EndHour/EndMinute/EndSecond
-  - 月：使用 StartDay 00:00:00 到 EndDay 23:59:59
-  - 年：使用 StartMonth 当月 1 日 00:00:00 到 EndMonth 当月最后一天 23:59:59
-  - 世纪：从StartYear的1月1日的00:00:00开始，到EndYear的12月31日的23:59:59结束。
-- 默认值：
-  - 日：00:00:00 ~ 23:59:59
-  - 月：1 ~ 31，运行时按当前月份最后一天裁剪
-  - 年：当前月 ~ 当前月
-  - 世纪：1月1日 ~ 12月31日
-- 校验：解析时检查周期的开始和结束约束，禁止开始值大于结束值；非法日期按当前周期裁剪
-
 38.
 D:\repo\dfe\E9361_A0, 我当前的嵌入式工程，当设备在现场运行时，有几率出现文件系统崩溃从而导致日志、配置参数等丢失，请查找所有可能的原因
 
 39.
-
-› 帮我实现python程序，能将任意输入的json文件，实现对应的C语言结构体，并以结构体为基础，实现对这个json文件的编解码。要求json中的每个object类型的结构，都有对应的结构体，复杂的json object对应于次级的结构体的组合，如果一个数组类型的json中有异构的json object，则这个数组的成员用union实现，union中实现各个异构的结构体
+帮我实现python程序，能将任意输入的json文件，实现对应的C语言结构体，并以结构体为基础，实现对这个json文件的编解码。要求json中的每个object类型的结构，都有对应的结构体，复杂的json object对应于次级的结构体的组合，如果一个数组类型的json中有异构的json object，则这个数组的成员用union实现，union中实现各个异构的结构体
 
 https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0d5967853e9163b23dfea1cdb0e5d378626ccf5beed004f5001bec9bf42d2937adca1c9215b20bce42f555622e7e534bfeff19adbdb1b405a375b4f7aaeefa0ee4d3e03c904a08acc6148fc6d249921e
-
-40.
-
-查看目前数据中心接口，Message_Send()和Message_Rcv()2个函数发送/接收消息队列时，并没有按照__msgtyp来成对发送和接收，这就造成一个隐患：一个函数可能会把别的业务类型的消息读走。请设计一个严谨的__msgtyp产生机制，使用上enum   // 接口函数标志
-  {
-  	version,             // 版本查询
-  	creat_model,         // 模型注册
-  	del_model,           // 模型删除
-  	get_model,           // 查询模型信息
-  	register_device,     // 设备注册
-  	del_register,        // 删除注册的设备
-  	get_dveguid,         // 获取guid
-  	notify_data,         // 数据变化上报
-  	check_allrealdata,   // 查询所有实时数据
-  	check_partrealdata,  // 查询部分实时数据
-  	check_historydata,   // 查询历史数据
-  	event_sub,           // 事件订阅
-  	event_104soesave,     // 104soe事件存储
-  	set_parameter,       // 参数设置
-  	get_parameter,       // 参数获取
-  	del_parameter,       // 参数删除
-  	get_SOE,              //SOE查询
-  	Custorm_parameterSet, //自定义的参数设置  "+/set/request/%s/parameter",cfginfo->pad.AppName);//自定义的遥调接口
-  	Custorm_YkSet         //自定义的遥控接口  "+/action/request/%s/remoteCtrl",cfginfo->pad.AppName);//自定义的遥控接口
-  }; 这个枚举类型中定义的业务类型，在发送和接收消息时，用业务类型、线程ID、时间戳等信息，生成唯一的报文token和__msgtyp，确保发送和接收的报文成对操作。注意：每一帧发送/接收的mqtt报文中都有token，接收者在应答时会原样返回发送者的token，接收到的mqtt报文以这个token作为__msgtyp作为唯一的报文标识
-
-41.
-再帮我看一下PI元器件，我当前的json配置文件，发送遥调时，会把真正的遥调值乘以了0.9的系数（在回调函数中设置的系数），假设遥调设置的值是100，那么实际发送给modbus模拟软件的值是90，PI的反馈值是modbus模拟软件被修改后的寄存器的值，这样实现PI模拟的观察曲线。但是当前我的配置的PI的kp和ki，输出的值总是在100，-100之间反复震荡，这是什么原因
-
-查看9361的工程配置：D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_RQ_评测部可视化测试\， c0757.json是上位机下发给嵌入式的可视化配置，iecpara.json是PI元器件触发遥调要用到的回调函数，函数的回调索引是3，函数对应的IEC104地址是32801，我故意把系数设置为遥调输出的0.9(对应的回调3函数的参数8-90)，用模拟modbus软件来模拟反馈/被遥调的值，反馈和被设参的寄存器地址都是地址6设备的寄存器4。但是当前我的配置的PI的kp和ki，输出的值总是在1000，-1000之间反复震荡，或者其他的值反复震荡，请帮我调试一个合适的系数
-
-42. 检查当前代码库，看看有没有哪个线程有无限循环且有那种在退出路径中没有休眠语句的情况，比如while（1）{ if(condition) {continue;}  do something; usleep(100*1000);}, 这段代码中，如果由于当时条件condition不满足（或者配置文件中的配置不正确配置）会导致while(1)循环没有休眠语句，占满cpu。再比如，提交95c6ee241825a4281de45af10deda62cb13aadc4中，ReversePower.cpp的void ReversePower::run(void)，每个case都要加osDelay(100);，因为配置文件里如果存在不正确的配置，就会导致当前线程（启用了sched_RR调度策略）占满cpu调度时间。int CreatTask(ENTRYPTR  ptfunc, int PriorityVal, int statcksize,  void   *arg, int linkid)和int CreatTaskNotInLinkTable(  int Index,void *arg)负责创建绝大多数线程，且release版本的程序会启用SCHED_RR策略
 
 43. 检查当前代码库，跟保护功能有关的参数，是否有这样的风险：当参数被设置成不合理的值后，会造成开关误动（或者其他控制类的动作、告警、SOE等）。以备自投处理逻辑为例，BZTDetectAndExecute()函数中，
 
 44. 查看9361的工程配置：D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_RQ_评测部可视化测试\， c0757.json是上位机下发给嵌入式的可视化配置，iecpara.json是PI元器件触发遥调要用到的回调函数，函数的回调索引是3，函数对应的IEC104地址是32801，我故意把系数设置为遥调输出的0.9(对应的回调3函数的参数8-90)，用模拟modbus软件来模拟反馈/被遥调的值，反馈和被设参的寄存器地址都是地址6设备的寄存器4。但是当前我的配置的PI的kp和ki，输出的值总是在1000，-1000之间反复震荡，或者其他的值反复震荡，请帮我调试一个合适的系数
 
-45.
-问题描述：
-1. 现象：进入逆功率参数设置菜单（SetOledReversePowerParameter）后，我设置一项参数，比如“刚性调节”，然后点击确认->弹出是否确认保存->选择“是”保存，然后弹出保存成功界面，然后我选择OK，这时会卡顿一会儿（通常是2~5秒左右），然后再点击一次确认OK，才能退出保存成功界面
-2. 背景：Tca955_Io_tread的GetTca955_InputVal检测硬件按键的按下和松开，lcd_ctl线程的oled_getKeys读取tca9555线程的全局变量来看是否有按键按下，如果有按键按下就将对应的按键入队，等待液晶的菜单线程led_Thread->oled_notPollShow()调用对应的菜单处理函数，根据具体的按键来处理液晶界面显示，完成人机交互
-3. 液晶是SSD1306，通过I2C接口与主芯片（imx6ul）通信；tca9555是IO扩展芯片，也是通过I2C与主芯片通信
-4. 现在只有在弹出showMsg界面时会发生TCa9555线程检测不到按键按下的情况，其他菜单界面都能正常检测到按键并响应。
-请为我分析问题的成因和修改建议
-5. 我在Release版本的程序，加上了RELEASE宏定义，只有这个宏定义有效时，system.cpp中的创建任务的函数才会真正设置线程的调度策略和优先级
-请为我查找OledReversePowerShowMessage、showMsg前后引起的按键检测不到的问题成因
-
 46. 当前可视化程序，在保存配置文件时，元器件的拓扑排序每次都不一样，我想要验证每次的保存结果是否一致，即保存的编译流是否正确且一致，我是这样做的，每次保存时，将配置文件保存，然后提交到本地git，下次再保存，然后观察git diff，元器件排布是否被更改，但是现在同样的流程图，即使我什么都不动，只是保存了2次，就造成了配置文件不一致。请修复这一问题
-
-47. /goal 等详细设计方案完成后，再根据其写一份可落地的一步一步的可实现的计划，也放到同目录下，后续你可以按照既定计划一步一步实现编码、测试、回测
-
-48. /goal 昨晚我让你实现的代码，有下列不满足我的要求：
-1. 画布没有背景和界限，让用户不清楚自己在哪个画布上编辑和查看
-2. 元器件端口之间无法连线
-3. 元器件上面和下面多了控制端口，让用户在连线时不清楚该用左右两侧的端口连线还是上下的端口连线。除了循环器件外，其他元器件不得出现上下两面的端口，保持数据流、控制流用同一个端口，只有循环元器件的尾元器件才能把自己的输出端口连接到循环元器件的回环端口，表示一个完整的循环体
-4. switch等可变端口数量的元器件，要在元器件的端口测增加一个功能按钮，用来增加/删除按钮，内部的属性设置列表，根据外部实际的端口数量来动态生成
-5. 顶部的按钮区域太杂乱了，将新添加的元器件，按照用途分类，放到各自所属的类型手风琴页签下，比如switch和循环元器件属于控制类元器件（与if是一类），积分器件属于算法类，数据存储属于算法类，日志打印也属于算法类
-6. 新的画布无法加载以前的配置文件（比如 D:\soft\LTU维护软件\Debug\E9361-C\Project\C0_评测部可视化测试\c0757.json)，也无法正常保存配置文件（也按照以前的配置文件格式保存，顶多增加这次修改所必须增加的param、一些其他子过程/子函数类的特殊参数等等）
-7. 每个元器件的 Type 属性，必须要写成 public override string Type => ElementType.ToString(); 这种类型，以便只维护一个 ElementTypesEnum 用于以后扩展，不能写成   public override string Type
-  {
-      get { return "DEBUG_PRINT"; }
-  } 或者
-  
-    public override string Type
-  {
-      get { return ElementType.ToString(); }
-  }
-以保持元器件源代码风格和格式的统一
-8. 生成/修改的代码，必须遵循 /csharp-code-style skill 所规定的风格，以便于我阅读和审查
-9. 如果此次额度用完，则在凌晨额度重置后，继续尝试连接大模型，直至最终完成修改和优化
-
-49. 你修改过后，有以下问题：
-1. 单击元器件按钮，同时在画布上的相同位置添加了2个同样的元器件，只不过元器件的Id不同
-2. 右击元器件弹出的菜单中，没有“删除元器件”按钮，添加上，同时保留选中元器件后，按下“del”键删除的功能。删除元器件时，要给用户一个删除确认提示，用户确认后方可删除
-3. 元器件之间的连线，要有输出端口到输入端口的箭头，向用户表明数据流/控制流的方向
-
-50. 问题如下：
-1. SAVE_DATA元器件的属性编辑页面，SaveByTimeEnable和SaveByChangeEnable和InitValEnable，都要做成checkbox，用户选中了，对应1，没选中对应0，默认选中
-2. 保存配置文件时，元器件列表和CompilationSourceOrder列表的顺序不是按照编译流程，将元器件按照表达式/控制流的求值顺序/控制流分析顺序保存排序，将其修正为CompilationSourceOrder列表{id，Type，NextId}元组，如果是控制流，则输出控制流的IF(TRUE,FALSE NEXTID), SWTICH (CASE[i].NextID, Default.NextID), While(NextID), Jump(loopId, NextID),... ...，将元器件列表按照表达式/控制流的求值顺序/控制流分析顺序保存排序
 
 51. 为我写一个定时的python脚本，或者其他工具，每天15：00~20：00（可设置），从我微信的群中，下载孩子的作业，群名是   星海一年级古筝、星海艺校一年级二班新班级群、🎖️星海一年二班家长成长同盟群，可指定每个群内的发布作业者，只要这些发布者发布了消息、文档、视频、音频等，就将其保存到一个固定的目录（可设置）中的按照日期目录分类、按照学科目录分类的文本、文档、视频、音频等
 
-52. 当前日志打印元器件的设计，不符合我的预期，在用户选择添加 DebugCustomizedMessage 后，在输入栏输入例如：遥测输入: %.2f，A相电压： %f, B相电流：%f，后台动态的检查用户输入是否合法，如果输入合法，则同时得到用户输入中的参数个数、每个参数类型，而下面的参数列表（要使用表格）同时添加对应数量的文本行，等待用户输入，合法的参数输入格式为：1. #数字，实时库索引号 2. #(链路号，设备号，寄存器号) 3. $数字1.数字2，数字1表示元器件Id(画布Id，而不是编译后的Id, 编译后要正确将用户输入的画布Id和编译Id对应，避免出错），数字2表示前面元器件的输出端口的索引，这个输出端口索引要合法。当用户点击 校验并应用时，同时检查用户的所有输入是否合法
 
-53. 目前可视化配置软件存在的偏差或者需要修改的地方
-
-1. 日志打印元器件的自定义消息中，Message_Format格式只支持%f；Message_Valist只支持"$26.3($元器件ID.输出端口ID)", "#62(#实时库号)" 这两种写法
-2. 元器件Id去掉重排，编译结果的元器件Id与画布中的Id保持一致，以免嵌入式程序打印出的Id值与画布中的Id值不一致，不能调试。当然要保证编译流正确的前提下。
-3. switch属性中的case是随着用户添加/删除的case端口来动态增加/删除的，而不是让用户自己去增加/删除/修改，属性中的Cases[i].NextID是上位机软件在用户保存的时候根据编译流计算出来的，比如用户将case[0]连接到了一个子过程，用户保存配置时，子过程要进行编译计算，会算出一个入口元器件，将这个元器件Id赋值给Cases[i].NextID，Cases[i].NextID可以展示给用户查看但不允许用户修改
 
 54. 根据 documents\new.elements 中的元器件设计文档，设计一份详细设计文档，后期可以对照这份文档生成对应的代码。要求如下：
 1. 不要改变现有的编译流
@@ -536,21 +275,6 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 7. if、switch、while元器件，用户在保存的时候，要检查是否有配对的jump元器件跳出其执行块，如果没有则提示用户，如果用户非要保存，则就按照正常流程保存即可
 8. 用户可以框选多个元器件，然后弹出提示框：添加到组合，组合就将用户框选的元器件添加到一个浅色的框选控件（zindex比元器件低，以保证用户可以正常编辑、查看里面的元器件），用户可以右键单击框选控件复制，单击框选控件移动，Ctl+鼠标左键复制。复制时保持元器件类型和其属性不变，只递增元器件Id
 
-55. 检查一下，当前的编译流程，支不支持SWITCH器件设计方案中的switch、循环器件设计方案中的while和jump的正确、稳定编译
-
-56. 按照 新增元器件与画布组合详细设计.md 的设计，先实现元器件：1. 数据存储元器件（属于输出类元器件） 2. 积分元器件（属于算法类元器件） 3. 日志打印元器件属于输出类元器件）。
-    switch元器件、while元器件、jump元器件（它们都属于控制类元器件）先不实现。
-    
-57. 新增元器件存在的问题
-1. 3个元器件背景色都没有，要按照其分类加上背景色
-2. 数据存储和积分元器件的实时库选择框，用户双击后都不像以前那样弹出实时库的数据项选择窗口，请修正
-3. 3个元器件的属性编辑窗口，信息显示不全，初始窗口请尽量大，显示信息全面一些
-
-58. 分析现有的画布的显示和连线算法，如果元器件数量增多，在加载、移动元器件、{删除/连接}连线、放大/缩小}画布等等操作时，会非常卡顿，请优化前端界面，改进连线避障算法，必要时将前台画布和后台事件处理改用多线程，然后线程之间状态同步，保证前台画布流畅不卡顿，当启用多线程时，在画布下方显示当前用户操作的进度条，操作完成后最好自动隐藏。
-
-我能想到的可行的优化方案包括：1. 用户移动鼠标时不捕获事件，只有鼠标点击（左右键都包括）了按钮、画布、连线、元器件等有效操作后，再进行事件处理；2. 用户拖动一个元器件还没有放下元器件时，不处理连线，只有当用户放下元器件，才重绘跟此元器件相关的连线，而不是重绘所有连线；3. 如果以前的动态绘制连线比较费时间，可以在用户保持配置文件的同时，保存一份当前配置配套的图副本，记录了连线、端口、位置等等信息，比如用户的配置文件叫做c0757.json，其配套的图副本信息就保存到 c0757.json.editor.json，c0757.json.editor.json记录了当前图的所有完整特性，如果当前配置文件c0757.json没有其配套的图信息文件，则退化到以前的动态绘制连线的流程。
-
-将上述问题的优化功能，拆解成详细设计方案，然后分解任务为可验收的实现矩阵的多个子任务，我好让多个大模型窗口完成子任务（降低任务窗口上下文，以尽量避免大模型在上下文累积后的降智问题）。
 
 将最终的文档放在 documents\new.elements 目录下
 
@@ -601,22 +325,11 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 
 66.
 完善测试矩阵并逐项测试，并根据每项测试的设计意图和测试结果修正现有代码的错误/bug：
-1. 
-    1.1 join推断，如果用户没有明确的画出join汇聚元器件，则在编译阶段创建一个Id为负数的虚拟join用于break和continue的合法跳转
-    1.2 检查用户设计的join汇聚点的合法性，是否与用户的实际设计意图相悖
-2. break - 立即退出最内层的可跳出构造，保持这个原语设计，并结合join/虚拟join跳转到正确的元器件
-3. continue - 保持原语“跳转到最内层循环的续接点”，并结合join/虚拟join跳转到正确的元器件
-4. join、break、continue有/无后续语句块的完整测试覆盖
-5. 结合当前设计的测试矩阵，保证if、while、switch、break、join、continue等控制语句，位于控制区域的首部、尾部、位于while的循环体/退出体、各种嵌套等的完整测试覆盖
-6. 保证当前代码能正确识别所有的while循环体的尾部元器件（包含普通元器件，IF的true/false属性的空臂情况，switch的case/default空臂情况，while的循环/exit空臂情况），能正确处理尾部元器件的回环的NextID
-总之对现有代码有两个要求： 1. 用户正确的设置，可以正确的线性化，交给嵌入式运行 2. 用户非法的设置，可以都检测出来，并报告具体的出错位置和出错原因
 
+5. 结合当前设计的测试矩阵，保证if、while、switch、break、join、continue等控制语句，位于控制区域的首部、尾部、位于while的循环体/退出体、各种嵌套等的完整测试覆盖
 
 2. 继续完善测试套件，保持对旧有元器件模型属性的兼容：
     用以前的可视化配置软件（D:\soft\LTU维护软件\Debug\Viz_Dev)生成的配置文件，可以用目前的最新的配置软件正确打开（可以打开且完全呈现以前的图逻辑，可以通过旧配置导出矢量图，然后再让新配置软件打开旧软件生成的配置，再由新软件生成矢量图，对比两个矢量图是否一致）、保存配置（新软件另存为生成的配置文件，sha256校验码与旧软件生成的配置文件一致，sha256校验码是强要求，如果某个元器件在新软件的生成中添加了一些额外的属性键但同时也保持了之前旧有的结构属性，可以认为是弱版的兼容），这个要求要涉及到每个元器件，确保每个元器件的配置json一致（至少是嵌入式用到的属性，结构和语义一致）
-
-68.
-提炼当前代码仓库的架构、元器件约束、实现规范等等，形成工作流和知识库，以便让以后的大模型都按照现有的规范实现和修改代码，以免每次大模型都要重新读取整个代码库（每个大模型的能力不一样，有可能会产生幻觉、错误），保证每个大模型都严格的在一个统一的框架下添加、修改、测试我的代码，我审核起来也就不累了。
 
 70. 山东高速策略需求：
 山东高速集团，现在有个试点项目：多个服务区都有光伏、储能、充电桩、便利店/加油站等用电负荷。现在单个服务区里的调节要求如下：
@@ -627,12 +340,19 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 请根据以上约束，给出调控策略。
 
 73. 实现以下需求：
-3. 添加一个极值元器件，1个输入端口，2个输出端口。每次运行到这个元器件就比较一下当前值跟保存的极大值和极小值，并更新极大值和极小值，极大值放在output0，极小值放在output1。
+添加一个极值元器件，1个输入端口（整型或浮点型，不允许为bool型），4个输出端口。每次运行到这个元器件就比较一下当前值跟保存的极大值和极小值，并更新极大值和极小值
+极值的属性列表：
+    - double ComparePrecision ，获取或设置输入端口、参与计算的极大值、极小值的保留精度，默认值为 0.0001。
+    - int CompareMethod，比较方式，0 - 每次运行到本器件就进行比较；1 - 按照设定的周期进行比较。
+    - int Period_ms ，获取或设置极值执行周期（单位：毫秒），默认值为 100。设定周期不小于所在任务的循环周期。
+极值的输出端口：
+    - 端口0输出极大值
+    - 端口1输出极小值
+    - 端口2，当极大值更新时输出一个翻转电平
+    - 端口3，当极小值更新时输出一个翻转电平
+翻转电平:
+    如果上一次电平为1，本次置0；如果上一次电平为0，本次置1
 
-
-74. 在一个新的worktree优化数据存储元器件：
-保存时检查优化：如果一个元器件A（比如遥测/遥信输入、输出类元器件）使用的实时库数据项，与某个数据存储元器件B的持久化的实时库数据项一致，那么只允许这个A元器件出现在B元器件的后面，即只有当元器件B将持久化后的值读取到实时库后，再允许其他元器件读取这个实时库。A在B的后面指的是，一个逻辑任务被编译、线性化后，从这个任务的第一个元器件（即任务的执行入口元器件）到达元器件A的路径中，都必须先经过元器件B，以保证终端第一次开机后要先运行B（将上次持久化的实时库值更新），再运行A，保证所有元器件拿到的数据都是上次关机持久化的数据。
-当检测到不符合上述要求的元器件A_i时，向用户报告哪些A_i，应该放在哪些B_j之后
 
 75. 设置检查级别
 不可取消的检查，取消后影响编译保存时的规范化检查和控制流/数据流分析：
@@ -643,3 +363,9 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 可以取消的检查，取消后不影响编译保存，但影响嵌入式程序解析、运行的检查：
 1. 遥测/遥信输入的实时库数据项有效性检查
 2. 
+
+76. 
+    1. 添加一个按钮，动态编译现有的逻辑图，可以分不同的色块闪烁，以标注不同的控制头及其控制域，让用户明白设计的逻辑是否正确/是否是他想要的。
+
+    2. 去掉伴生文件，按照《主配置单文件保存与编辑图恢复设计方案.md》的设计，完成画布快照的保存和恢复。
+        为了兼容以前的配置软件生成的带有/不带有伴生文件的配置，当读取到的配置文件里有JUMP时，且伴生文件缺失/校验不一致，或者经过这次去掉伴生文件后后面的压缩信息与主配置不一致，要能够从JUMP的跳转流向推断出其保存前对应的元器件是break/continue/join。保证用户不论使用最新的配置软件，都能正常加载、查看、编辑以前生成的配置文件。
