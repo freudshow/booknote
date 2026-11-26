@@ -3560,3 +3560,15 @@ for chunk in completion:
     print(reasoning, end="")
   if chunk.choices[0].delta.content is not None:
     print(chunk.choices[0].delta.content, end="")
+
+黎曼猜想及广义黎曼猜想 Lean 精简版（2026 年 11 月 25 日发布）
+GitHub 完整项目：
+https://github.com/lsernau/grh-lean
+30 万行可读版本：
+https://github.com/lsernau/grh-lean/tree/main/grh
+7.6 万行精简版本：
+https://github.com/lsernau/grh-lean/tree/main/grh-compact
+数学证明阅读指南：
+https://github.com/lsernau/grh-lean/blob/main/grh/GUIDE.md
+Levent Alpöge 原始证明说明：
+https://alpo.ge/remark.pdf
