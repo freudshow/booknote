@@ -1,6 +1,6 @@
 # 可视化编程规约 C 语言表达能力演进方案
 
-> 原稿日期：2026-09-25；本次修订：2026-10-27。
+> 原稿日期：2026-09-25；上一版修订：2026-10-27；本次修订：2026-11-26。
 >
 > 面向读者：配置工具开发者、嵌入式运行时开发者、策略开发者和测试维护人员。
 >
@@ -8,13 +8,13 @@
 
 ## 1. 结论与阅读路线
 
-建议保留现有图形配置和存量运行路径，新增一套具有明确类型、作用域、数组、函数和结构化控制流的策略语言。图形和文本先编译成同一份结构化中间表示，再生成经过独立验证的执行指令。嵌入式设备执行这些指令，而不是现场编译任意 C 源码。
+建议保留现有图形配置及其运行路径，从一个**离线、无外部副作用的脚本块**开始验证新路线。目标是让图形和受限文本共享一套有明确类型、作用域和执行顺序的中间表示，再生成由设备独立验证的执行包；不在现场编译或执行任意 C 源码。
 
 目标不是复制 C 的所有语法，而是让策略开发者具备三类能力：用变量和数组保存数据，用分支和循环表达算法，用函数和有状态功能块复用策略。同时，设备必须能拒绝不兼容、超预算或未经授权的程序。
 
 “任何现场策略都能配置”应改成可验收的目标：**在已声明的设备接口、数据规模、计算预算和安全权限范围内，常见策略无需修改固件；新增设备或新的基础能力通过受控接口扩展；超出范围时给出明确诊断，而不是勉强运行。**
 
-先固定语言和执行语义，再增加语法和元器件。否则，同一段策略可能在编辑器、仿真器和设备上产生不同结果。
+先确定当前配置能被哪些固件接受，再固定新语言的执行语义。桌面回归证明的是编辑、编译和保存行为；目标设备还需要证明实际值、执行顺序、时间和副作用符合契约。两类证据分别记录。
 
 ### 1.1 本方案区分的三种内容
 
@@ -31,7 +31,9 @@
 
 ### 1.3 主要术语
 
-IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限指令的虚拟机；AST 是解析文本得到的语法树；RTDB 是实时数据库。Host API/FFI 指程序调用固件能力的接口，本方案只开放白名单能力。YK/YT 分别指遥控和遥调，SOC 指储能荷电状态，PCS 指储能变流器。Legacy 指保留旧格式和旧语义的兼容路径；Profile 指某一目标版本的能力与资源档案；generation 指一次激活的程序代次。
+- **编译与执行**：AST 是解析文本得到的语法树；IR 是记录程序语义的中间表示；VM 是执行受限指令的虚拟机。
+- **设备接口**：RTDB 是实时数据库；Host API 是固件向程序开放的白名单接口；YK/YT 分别指遥控和遥调；SOC 是储能荷电状态，PCS 是储能变流器。
+- **版本与发布**：Legacy 指保持现有格式和语义的执行路径；Profile 是拟议的目标能力与资源档案；generation 是一次程序激活的代次，用于区分不同版本的执行和输出授权。
 
 ## 2. 核查基线与证据范围
 
@@ -39,11 +41,11 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 
 | 对象 | 工作目录 | 核查开始时的 Git HEAD |
 | --- | --- | --- |
-| C# 配置端 | `D:/repo/dfe/LinuxApp/visualconfig` | `3bdeeba6f534e68552643414a9294fe9ca271afd` |
-| 嵌入式运行时 | `D:/repo/dfe/LinuxApp/linuxttu` | `5acdca6d399b37dce4bdf2408c65193f9baa54c3` |
-| 方案文档 | `D:/repo/booknote` | `90034a16af91d70ed537ef140ca9963c63f672c4` |
+| C# 配置端 | `D:/repo/dfe/LinuxApp/visualconfig` | `3d697aa44e7688798c6ce397a45a760a7ab79213` |
+| 嵌入式运行时 | `D:/repo/dfe/LinuxApp/linuxttu` | `45c78c5a293bca343fc7d920f7dc1cf2419eda8a` |
+| 方案文档 | `D:/repo/booknote` | `9c84d19edbff1865403a8ef1240a97681fba6b6b` |
 
-这些提交号用于定位调查基线，不代表读取的是完全干净的提交快照。调查期间，配置端的 `NewElementParameters.cs`、`EditorElementWindow.cs`、`LatestContractUiTests.cs`、`VisualEditorView.xaml` 有其他工作正在修改；本次没有修改或还原这些文件。文中涉及它们的细节按读取时的工作区内容理解。
+提交号用于定位核查基线，源码位置以本次读取的工作区为准。产品构建选项、已安装固件及设备点表未纳入版本核对；不能把源码仓库的 HEAD 当成现场二进制版本。
 
 本次完成的是源码、已有说明和 Git 基线核查，**没有执行应用构建、回归程序、表达式运行、目标板测试或现场试验**。文末的 `[Hn]`、`[Rn]` 对应源码位置；“有测试源码”不表示本次已运行并通过。
 
@@ -51,14 +53,14 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 
 配置软件是经典 WPF / .NET Framework 4.8 项目。回归项目明确设置 C# 7.3；主项目没有显式 `LangVersion`，不能据此把主项目有效编译语言版本也写死为 7.3。[H1]
 
-目前应当区分两条编译和保存路径：
+当前正式保存采用**单文件、两种表示**，不是独立的分层工程保存和运行导出：
 
-1. **旧平面路径**：规范化连接、提取控制描述、分析区域、安排数据依赖、生成执行顺序和 `NextID`；`TransactionalConfigSaveService` 在副本上应用计划，写临时文件并读回比较，最后 Replace/Move。该入口拒绝新工程和非 Legacy 契约。[H2]
-2. **分层工程路径**：保存 `EditorDesign` 的任务、画布和子过程，展开后构建独立运行图，分配运行身份，记录 `CompilationInfo.SourceMap`，再经 `RuntimeConfigAdapter` 投影运行 JSON。工程保存与运行导出已有独立入口；编译失败的工程可以保存为草稿，不能由此推断它可部署。[H3、H4]
+1. **编译与提交**：完整编辑图先规范化连接，提取控制描述，识别区域，求解转移和汇合，再按数据依赖与 `CompilationSourceOrder` 生成执行计划。正式保存对隔离副本编译并校验，写同目录临时文件，回读验证后通过 `File.Replace` 或 `File.Move` 提交。已识别的运行投影按原执行目标校验，未知来源不能冒充完整编辑图重新编译。[H2、H3]
+2. **运行与恢复**：主文件包含运行配置和根级 `EditorData`（编译前编辑图及编辑状态）。新保存时，`BREAK`、`CONTINUE`、`JOIN` 和编辑态 `JUMP` 投影为运行态 `JUMP`，包含 `NextID`、完整的 `Inputs` / `Outputs` 和带版本的 `EditorOriginal`；历史运行文件不一定包含原模型。打开时优先验证内嵌快照，再尝试旧侧车（优先 `SndFile` 路径，仅在该侧车缺失时尝试同目录侧车）、原模型和有限控制流推断。不能唯一恢复时，只有仍然有效的运行投影可编辑布局。`NextID` 不用于推断数据连线。[H3、H4]
 
-当前也不只是原稿中的五种控制元件：已有 `ALGO_INTEGRAL`、`DEBUG_PRINT`、`SAVE_DATA`、`JUMP`、`SUBPROCESS` 等设计和契约。`LoopContinue`、`LoopExit` 已有结构化目标解析；子过程目前通过展开实现，不是带运行栈的函数调用。[H5、H6]
+编辑器已有 IF、SWITCH、WHILE、FOR、DO_WHILE，以及 BREAK、CONTINUE、JOIN、JUMP 等结构。当前突转解析器为 `BREAK` 寻找 WHILE 循环体或 SWITCH 分支，为 `CONTINUE` 寻找 WHILE 循环体；不把 FOR、DO_WHILE 当成突转归属区域。`JOIN` 解析显式汇合。执行跳转用 `NextID` 或分支专用目标，而非 `Outputs[].TargetPorts`。这些能力不能代替语言级局部变量、定长数组、用户函数或调用栈。[H2、H5]
 
-`FOR` 已有初始化、条件、迭代三个表达式槽和控制目标编译，但未见其三阶段完整执行语义在指定固件中实现。新版 WHILE 的配置端还能生成入口复位辅助节点，并区分首次进入与 continue；这属于另一个版本的契约，不能自动套到原稿的循环模型。[H5]
+`FOR` 已有初始化、条件、迭代表达式槽和控制目标编译，但现有固件注册表没有 `FOR`、`DO_WHILE`。当前画布的 FOR 或 DO_WHILE 能保存，不代表能在这份固件上执行。WHILE 的计数复位还依赖运行路径和输入元数据，需验证经 `JUMP` 回边时的次数与退出行为。[H5、R2、R4]
 
 ### 2.3 两端的“类型”不是同一回事
 
@@ -68,11 +70,11 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 
 因此，新语言必须定义自己的值类型，不能只把已有类型枚举直接暴露成语言类型。
 
-### 2.4 指定固件：只有 IF 注册，且存在版本契约差异
+### 2.4 固件已新增运行元件，但两端不能按名称直接配对
 
-本次读取的 `LogicEngineV2_RegisterBaseElements` 注册了 **34 种 Type**，控制流专用类型只有 `IF`；没有注册 `SWITCH`、`WHILE`、`FOR`、`DO_WHILE`、`JUMP`、`SUBPROCESS`，也没有独立积分、日志打印和数据存储元件。注册表中的极值名称是 `MAX/MIN`，与配置端名称和适配结果必须逐项对照。[R2]
+以下固件结论限于所查 C0/C1 `e9361app` 源码：产品构建定义和应用入口显示，已启用的规约 57 链路通过 `VisualProgramming_Thread` 使用 `LogicEngineV2_RegisterBaseElements`，有 **40 个有效 Type 注册项**。控制流有 `IF`、`SWITCH`、`WHILE`、`JUMP`；另有 `SAVE_DATA`、`ALGO_INTEGRAL`、`DEBUG_PRINT`。未注册 `FOR`、`DO_WHILE`、`SUBPROCESS`；极值相关项为 `MAX`、`MIN`，不是桌面时间序列 `EXTREME`。`BREAK`、`CONTINUE`、`JOIN` 是桌面编辑结构，不要求设备按这些原名注册，但须验证生成的 `JUMP` 及其目标。[H4、R2]
 
-未知 Type 会导致整份候选配置加载失败，**不是跳过该元件**。但是，根对象的版本号并未在实际加载路径中形成有效的兼容校验。配置端已有目标 Profile 和契约证据机制，不等于这份固件实现了它声明的全部能力。[R3、H4]
+未知 Type 会导致整份候选配置加载失败，**不是跳过该元件**。根对象版本号不构成完整的双端能力协商。对每个目标固件应核对 `Type`、参数名及默认值、端口类型、分支和复位约定、触发方式、效果与错误处理；编辑器保存成功或固件注册了同名元件，都不足以认定契约一致。[H3、R3]
 
 当前资源限制也有具体含义：[R1、R3]
 
@@ -85,7 +87,19 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 | 表达式文本 | 200 字节缓冲，最多保留 199 字节 | 新脚本不能复用这个缓冲保存整段代码 |
 | 执行入口 | `Elements[0]` | 不是“Id=0”，新格式应提供显式入口 |
 
-这些是源码中的容量和处理规则，不是性能测试结果。
+这些是源码中的容量和处理规则，不是性能测试结果。桌面有 500 元件规模的测试资料，也不能替代目标板的启动、内存、扫描延迟和异常负载测量。
+
+**已定位的参数差异**（以下均为源码行为，不是板上测试结果）：
+
+| 用例 | 桌面端写出 | 当前固件源码 | 部署要求 |
+| --- | --- | --- | --- |
+| YK/YT 无条件执行 | `Method=3`，意图是每次执行到元件时请求一次 | **执行期不兼容**：参数读取不拒绝 `3`；执行到边沿判断时，首次采样建立基线，后续进入不支持分支并返回错误 | 对此目标明确拒绝，不静默改成边沿模式 |
+| 日志无条件执行 | `PrintEdge=4`；仍受打印使能和周期模式约束 | **加载期拒绝**：参数解析只接受 `0..3` | 对此目标明确拒绝；`3` 是关闭边沿触发，不是 `4` 的替代值 |
+| 积分计量间隔 | `IntervalUnit` 区分 `0` 毫秒、`1` 秒 | **加载期校验**：直接下发的载荷缺少该字段时拒绝，不默认毫秒；要求整数 `0` 或 `1`，换算为毫秒并检查溢出 | 验证旧文件经桌面重存后的兼容性，以及零间隔、采样、持久化和重启恢复 |
+
+首批还应验证 IF/SWITCH/WHILE 的分支目标、`JUMP` 回边、RTDB 写入顺序，以及 YK/YT 命令次数和设备确认。应比较同一输入序列下的执行轨迹和实际效果，而不只核对 `Type`。[H5、H6、H11、R2、R4、R6、R8]
+
+桌面端已有一条可复用的静态规则：当 `SAVE_DATA` 写入某个实时库地址时，引用该地址的消费者必须与它在同一任务，且每条能到达消费者的执行路径都先经过该 `SAVE_DATA`（`SAVEORDER001`）。持久化积分还要有显式配对和编译后的先存储、后积分顺序。点表证据不足不能当作有效；这些检查不证明设备写库成功、状态已落盘或重启后能恢复。[H6]
 
 ### 2.5 运行语义：按调用更新，而非完整扫描快照
 
@@ -112,9 +126,9 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 | `&&`、`\|\|` | 两侧都会求值 | 新语言明确采用短路；旧表达式留在独立兼容模式 |
 | 除法 | 数值按 double 计算，且先算除数 | 不把旧求值顺序复制到新语言 |
 | 位运算 | double 转有符号 `long` 后运算 | 新语言固定宽度，检查移位和范围 |
-| 函数 | 配置端只统一限制最多两个参数；C 端按函数实际参数个数检查 | 建立同一份函数签名清单 |
+| 函数 | 配置端白名单语法允许零至两个实参；C 端按具体函数检查个数 | 建立同一份函数签名清单 |
 | `max/min` | C 求值器有；配置端该解析器白名单没有 | 不能笼统说双端函数表一致 |
-| RTDB 赋值 | 可以在表达式内部立即写库，写入结果未可靠传递 | 新语言的表达式保持纯计算，写入改为显式操作 |
+| RTDB 赋值 | 求值时可立即按 `float` 写库，表达式没有可靠传递写入结果；不同地址写法的加载期检查也不相同 | 新语言的表达式保持纯计算，写入改为显式操作，保留明确状态 |
 | 错误 | NULL、NaN、日志、返回码和非有限值处理混用 | 定义独立错误结果，不用 NaN 代替状态码 |
 
 此外，源码中的三角函数常量折叠会覆盖角度换算结果，而动态求值做了角度换算；常量与点位参数可能采用不同单位。此项应作为缺陷候选单独测试，不应写成新语言必须继承的行为。[R5]
@@ -127,9 +141,9 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 
 ### 2.8 现有测试能证明什么
 
-回归程序已有 `--verify-group` 分组入口，覆盖序列化、事务保存、源映射、循环编译和目标契约等；部分时段纯函数也有求值断言。不能继续写“没有测试选择器”或“完全没有求值测试”。[H9]
+桌面回归是独立的控制台程序：无参运行默认套件，也可用明确的 `--…-only` 开关验证控制流、单文件快照、实时库存储顺序等；另有时段求值断言。未识别的参数可能落入默认尾部测试，不能凭退出码为零认定某个专题运行过。第 11.8 节列出当前入口。[H9]
 
-但没有发现覆盖任意图逐扫描执行、真实积分、设备副作用和热加载状态迁移的完整通用仿真器。配置测试中的合成目标证据也不是设备执行证明。本方案后续仍需增加独立运行语义与目标板验证。
+这些桌面测试不能证明设备逐轮执行、真实积分、命令副作用或热加载状态迁移。新语言仍需独立执行模型、同向量对拍和目标板验证。
 
 ## 3. 目标、非目标与策略覆盖
 
@@ -181,17 +195,17 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 | 原稿表述或本次需要防止的误解 | 本次修订 |
 | --- | --- |
 | “表达式接近 C 的 80%” | 删除无法核验的比例，改用能力和语义差异表 |
-| 依据9月原稿认定过程和跳转都要从零开始 | 配置端已有子过程内联、LoopContinue/LoopExit、SourceMap；仍缺通用运行函数栈 |
+| 认为控制结构必须从零实现，或能直接替代通用语言 | 复用现有区域分析与跳转求解；变量、类型化函数、调用栈、显式循环迭代和运行诊断仍是新能力 |
 | “P0 先在旧引擎补齐所有循环，风险低” | P0 先做兼容核对和安全加固；新循环集中实现到新执行核心，避免重复维护两套语义 |
 | “现有结构化区域可直接当完整 IR” | 复用分析和身份映射，不把现有 mutation plan 当自足的类型化程序 |
 | “IR 必须能无损反编译回图形” | 保存源工程；只对受支持的结构互转，不可还原部分保留为脚本块 |
-| “所有元件 Execute 直接变 FFI” | 按纯计算、有状态、外部副作用分类适配，禁止裸虚表调用 |
+| “所有元件的 Execute 都能直接给脚本调用” | 按纯计算、有状态、外部副作用分类适配，不向脚本开放 C 虚表 |
 | “除零、NaN 策略沿用现状” | 新语义重新定义；保留旧模式不等于固化已发现的缺陷 |
 | 把循环超时后的安全处置理解成完整回滚 | 超时能阻止新输出，不能撤销已发动作；安全策略逐输出定义 |
 | “热加载原样复用、逻辑零改动” | 保留 Legacy 隔离路径，但安全加固和重载改造需重新验收 |
 | “ARM Linux 可以分配内存，所以 VM 无压力” | 以目标板实测资源、抖动、延迟和其他协议业务影响为准 |
 
-原稿关于另一份旧目录“仅一个文件不同、其余 MD5 相同”的说法，本次没有重新逐文件核验，不再作为结论保留。改造只以用户指定的 `LinuxApp/linuxttu` 为基线。
+不同源码树、产品构建和现场固件不能互相代证。本文对照 `LinuxApp/visualconfig` 与 `LinuxApp/linuxttu`，不以历史目录的 MD5 比较或其他分支的实现推断目标设备能力。
 
 ## 5. 推荐架构与技术路线
 
@@ -199,7 +213,7 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 
 **源工程**保存图形、文本、符号和编辑信息，是用户继续修改策略的依据。**结构化 IR**描述已检查的策略语义，是图形与文本共用的编译输入。**执行包**保存固定格式的指令、类型、资源和接口引用，是设备加载的唯一运行依据。
 
-不能把三者混成一份只有 NextID 的 JSON，也不能指望通过反编译执行指令恢复全部编辑信息。
+三者应有各自的结构和校验规则。逻辑分离不要求物理上拆成三个文件：当前配置可把运行投影和编辑快照放进同一文件，但快照不参与设备执行，也不能指望从运行指令还原全部编辑信息。新执行包在格式、版本和入口均受设备明确识别之前，不发给现有加载器。
 
 ```text
 现有图形 / 新结构化图形 / VCL 文本
@@ -330,7 +344,7 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 
 ### 6.6 分支和循环
 
-- `switch` 只接受整数或枚举；case 是编译期同类型常量，值唯一。首版禁止隐式 fall-through，每个 case 必须明确结束或 return；default 必须存在或编译器生成确定的空分支。
+- `switch` 只接受整数；支持枚举后才允许用枚举做选择。case 是编译期同类型常量，值唯一。每个分支正常结束后退出 switch，不落入下一个 case；未写 default 时，编译器生成确定的空分支。
 - `for` 严格按“初始化一次→条件→循环体→迭代→条件”执行。
 - `continue` 在 for 中先到迭代段，在 while 中到条件段，在 do/while 中到尾部条件段；`break` 结束最近的循环或 switch。
 - `do/while` 至少执行一次，条件每轮重新计算，不能用旧输入端口缓存冒充重新求值。
@@ -354,9 +368,9 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
 
 ### 7.1 工程源必须完整保存
 
-沿用当前“工程原图与运行投影分离”的基础，新增脚本源、语言版本、符号表、库依赖和类型声明。现有未知字段保留、白名单反序列化和克隆路径应继续使用；不要重新调用有损的旧式逐字段复制方法。[H3、H10]
+沿用当前“编辑图与运行投影分别校验”的做法。新源工程拟增加脚本源、语言版本、符号表、库依赖和类型声明。现有 `CommonFunctions` 的配置序列化和克隆，以及三类新协议参数对未知字段的保留规则，是兼容旧图的接入边界；不把旧载荷的字段保留能力泛化为任意新模型自动兼容。[H3、H10]
 
-工程文件允许保存未编译成功的源码，状态为 draft。运行导出必须重新编译当前源与目标能力，不能把历史 `ready` 或上一轮平面缓存当作当前程序。工程文件和执行包禁止覆盖同一路径。
+建议新增独立的源工程保存入口，允许保存未编译成功的源码；这不同于现有正式配置保存前的防丢草稿。运行导出必须以当前源码和目标能力重新编译或验证内容寻址缓存，不能把上一轮产物当作当前程序。源工程与新执行包不得覆盖同一路径。
 
 源码映射需要扩展为：
 
@@ -366,7 +380,7 @@ IR 是中间表示，用来保存编译后的程序语义；VM 是执行受限�
     -> 函数编号和指令区间
 ```
 
-映射是多对多的。内联、辅助节点和优化消除都要保留生成角色；不能将指令 PC 塞进现有 `RuntimeElementId`。只有执行包而没有源工程时，最多提供只读派生视图。
+映射是多对多的。内联、辅助节点和优化消除都要保留生成角色；新指令位置和现有配置元件 ID 分开记录。对于拟新增的 VCL 执行包，没有源工程时只提供只读派生视图，不影响现有运行投影的有限布局编辑规则。
 
 ### 7.2 统一 IR 记录的是语义，而不是数组位置
 
@@ -573,12 +587,12 @@ VM 超时、进程退出或网络中断不能保证安全命令送达；设备�
 
 | 工作项 | 现有接入位置 | 交付要求 |
 | --- | --- | --- |
-| 脚本源、变量和库模型 | `Models/Editor/`、`EditorDesignModel`、共享序列化器 | 保存完整源码、稳定身份、语言版本和未知扩展；新类型纳入项目和 binder 白名单 |
+| 脚本源、变量和库模型 | `Models/LogicEngineConfig.cs`、`Models/EditorDocumentState.cs`、`Models/Common.cs` | 新定义源工程格式；保留稳定身份、语言版本和扩展字段；明确序列化白名单及旧格式读取边界 |
 | SCRIPT 元件和属性编辑 | `Elements/ElementFactory.cs`、`ElementModel` 枚举、契约目录、编辑器 | 显式签名生成端口，禁止只增加枚举而没有目标支持检查 |
 | 前端与类型检查 | `ExpressionSyntax`、`ExpressionParser` 旁新增语句/类型模块 | 旧表达式模式与 VCL 模式分开；复用诊断位置，不强行扩展旧 evaluator 语义 |
-| 图形到语义 IR | `HierarchicalCompilationService`、`RuntimeGraphBuilder` | 从源副本导入，保留子过程和结构身份；不直接篡改权威原图 |
-| 新后端和映射 | `CompilationInfo`、`SourceMap` | 增加函数/PC/脚本区间、类型和资源统计，所有依赖参与摘要 |
-| 保存与导出 | `EditorProjectSaveService`、`RuntimeConfigAdapter` | 源保存允许 draft，部署重新检查；旧和新执行包独立选择 |
+| 图形到语义 IR | `GraphNormalizationService`、`StructuredRegionBuilder`、`AbruptControlTransferResolver`、`ExplicitJoinResolver` | 从源图导入，保留控制区域、端口和元件身份；不把当前线性计划当成完整的类型化 IR |
+| 新后端和映射 | `ExecutionLinearizer`、`RuntimeJumpProjection` 仅作现有后端参照 | 新增元件/端口到函数/指令位置/脚本区间的映射，记录类型、资源与依赖摘要 |
+| 保存与导出 | `TransactionalConfigSaveService`、`EditorStatePersistenceService` | 保持现有单文件事务；新增源工程与 VCL 执行包入口，部署前独立检查目标能力 |
 | 离线运行与调试 | 建议 `Services/Simulation/` | 注入快照、时钟、命令 stub；按 cycle 查看变量、状态和意图 |
 
 仿真可以先使用 C# 语义解释器，同时把 C VM 编成隔离的桌面测试宿主重放同一执行包。双端各自实现会产生漂移，共享一份文法也不能解决全部问题；需要共享类型/操作/函数签名表、机器可读向量和跨实现对拍。
@@ -716,7 +730,7 @@ FAULT
 6. **目标设备验证**：测量资源和扫描延迟，覆盖通信中断、线程停止和重载失败。
 7. **现场分步验收**：核实点表、量纲、极性、闭锁、反馈和人工回退。
 
-每一层记录版本、用例、预期、实际、失败项和证据文件。下层通过不能自动授予上一层的通过结论。
+每一层记录版本、用例、预期、实际、失败项和证据文件。工程读回、离线结果一致、目标板执行和现场验收是四种不同结论，不能互相替代。
 
 ### 11.3 建议的现场交付包
 
@@ -852,13 +866,14 @@ function f64 allocate_one(
 ```powershell
 MSBuild.exe LogicEngineConfigTool/LogicEngineConfigTool.sln /t:Build /p:Configuration=Debug /p:Platform="Any CPU"
 & "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe"
-& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --verify-group latest-serialization
-& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --verify-group latest-atomic-save
-& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --verify-group latest-loop-compilation
-& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --verify-group latest-runtime-contract
+& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --single-file-editor-snapshot-only
+& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --control-flow-jump-only
+& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --control-flow-real-wpf-only
+& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --realtime-storage-order-only
+& "./LogicEngineConfigTool.RegressionTests/bin/Debug/LogicEngineConfigTool.RegressionTests.exe" --new-elements-only
 ```
 
-这些分组验证工程、编译和契约基础，不替代新 VM 运行测试；不要只运行 `--verify-goal` 就认定所有 latest 分组通过。运行时构建还需匹配目标产品宏、ARM工具链和实际工程配置，不给出一条未经确认的通用本机 gcc 命令。
+专题模式只覆盖对应范围；真实 WPF 控制流专项不在无参默认套件内，也不替代人工交互验收。运行时构建需匹配产品宏、ARM 工具链和实际工程配置，不能用通用本机构建代替目标产物。
 
 ## 12. 分期路线与验收门槛
 
@@ -868,9 +883,9 @@ P0 的旧路径加固与 P1 的离线规范工作可以并行；P2 不等待在�
 
 | 阶段 | 主要工作 | 退出门槛 | 回退边界 |
 | --- | --- | --- | --- |
-| P0 兼容基线与安全加固 | 固定双端版本；列Type/契约矩阵；修动态目标、越界、截断、表达式加载和直接副作用缺口 | 存量样例通过；坏配置明确拒绝；旧循环和停止风险有明确阻断策略 | 保留已验证旧固件/旧配置，不启用新增语义 |
+| P0 兼容基线与安全加固 | 固定桌面提交、产品构建和设备固件；记录 `Type`、字段、端口、触发和效果；按源码确认动态目标、容量、表达式加载和直接副作用的缺口 | 存量样例通过；坏配置明确拒绝；未验收元件和参数组合不得下发；循环和停止风险有阻断策略 | 保留已验证旧固件和旧配置，不启用新增语义 |
 | P1 规范与原型决策 | 冻结语言/数值/时间/状态/错误；定义源/IR/包、能力及Host API；比较执行后端 | 同一正反例可唯一判定；接口、格式和目标资源测量计划评审通过 | 只离线运行，不接现场输出 |
-| P2 最小纵向执行 | SCRIPT输入输出、基本类型/变量/if、编译器、固件验证器和VM、预算、SourceMap、C#离线执行 | 从工程到执行包到模拟宿主完整贯通；非法包拒绝；缓存失效、读回、故障无未授权输出 | 新工程可draft保存，Legacy导出独立保留 |
+| P2 最小纵向执行 | 脚本块标量接口、基本类型和分支、编译器、独立验证器、预算、源码映射和离线执行 | 从源工程到执行包再到模拟宿主贯通；无效包被拒绝；工程读回，源码变更能使产物失效；故障不产生真实设备动作 | 新源工程保存和旧配置保存相互独立；不接现场输出 |
 | P3 核心表达能力 | 数组、无递归函数、全部结构循环、break/continue/return、类型扩展 | 黄金向量与回放一致；调用/栈/迭代有上界；复杂策略无需新增普通计算元件 | 未支持目标拒绝部署，不做近似降级 |
 | P4 领域接口与状态 | 快照、PI/定时/积分实例、输出仲裁、非阻塞命令、真实C适配 | 每个开放接口有状态/时间/权限/故障测试；目标板压力与HIL通过 | 默认影子，按输出逐项放开 |
 | P5 发布与有限投运 | READY屏障、代次切换、停止/状态迁移、持久版本、回退和审计 | 热切换/掉电/未知结果可恢复或受控停用；现场参数、闭锁和回退签认 | 可撤销许可并回到明确的维护或旧版接管流程 |
@@ -880,7 +895,7 @@ P0 的旧路径加固与 P1 的离线规范工作可以并行；P2 不等待在�
 
 ### 12.2 首个纵向样例的最小交付清单
 
-P2 首个纵向样例建议使用“四个标量输入→无循环的加权/限幅计算→两个分支→一个影子输出”，带除零、类型/索引错误、预算耗尽和未知类型反例。P2 的 SCRIPT 入口封装不表示已经支持通用用户函数。第11.5节的数组功率分配作为 P3 扩展样例，再加入动态下标越界、for、continue和函数调用。每个样例一次交付以下内容，而不是只交一个编辑器窗口：
+P2 首个样例用四个标量输入做无循环的加权和限幅计算，两条分支汇到一个记录式输出，不连接真实设备。反例覆盖除零、类型不符、无效执行包引用和预算耗尽。P2 的脚本入口不代表已支持通用用户函数。P3 再用第 11.5 节的数组功率分配样例，验证动态下标、`for`、`continue` 和函数调用。每个样例交付：
 
 1. 版本化语言/类型/指令/接口定义和测试向量。
 2. 可编辑工程，包含一个 SCRIPT、稳定端口身份和源码诊断。
@@ -941,25 +956,27 @@ P2 首个纵向样例建议使用“四个标量输入→无循环的加权/限�
 | 编号 | 文件与定位 | 支持的事实 |
 | --- | --- | --- |
 | H1 | `LogicEngineConfigTool/LogicEngineConfigTool.csproj:2–38`；`LogicEngineConfigTool.RegressionTests/LogicEngineConfigTool.RegressionTests.csproj:14–17` | 经典WPF/Framework4.8；测试项目语言版本7.3 |
-| H2 | `LogicEngineConfigTool/Services/ControlFlow/ControlFlowCompilationService.cs:28–80`；同目录 `TransactionalConfigSaveService.cs:87–175` | 旧编译、拒绝新契约、临时写读回与提交 |
-| H3 | `LogicEngineConfigTool/Services/ControlFlow/HierarchicalCompilationService.cs:24–46,118–199`；`Services/Editor/EditorProjectSaveService.cs:118–167,231–318,338–405` | 分层编译、源副本、draft保存、独立运行导出 |
-| H4 | `LogicEngineConfigTool/Services/Runtime/RuntimeConfigAdapter.cs:464–585`；`Models/Editor/CompilationInfo.cs:6–66` | 运行投影去编辑元数据、目标版本、摘要和SourceMap |
-| H5 | `LogicEngineConfigTool/Services/ControlFlow/RuntimeGraphBuilder.cs:781–875,1072–1252`；`HierarchicalCompilationService.cs:854–941`；`Elements/ElementControlFlowFor.cs:60–108` | 循环lowering、入口复位、continue/exit和FOR表达式 |
-| H6 | `LogicEngineConfigTool/Models/ElementModel.cs:20–76`；`Elements/ElementFactory.cs:16–84`；`Services/ControlFlow/HierarchicalCompilationService.cs:491–509,595–689` | 新元件反射发现、子过程展开和返回边界 |
-| H7 | `LogicEngineConfigTool/Models/ElementModel.cs:224–231,1384–1482`；`Elements/ElementBase.cs:185–219` | 参数载体、端口类型/字符串、位掩码兼容规则 |
-| H8 | `LogicEngineConfigTool/Models/ExpressionSyntax.cs:91–257`；`Services/ExpressionParser.cs:54–80,109–155,389–652` | 表达式AST、函数白名单、赋值与语法范围 |
-| H9 | `LogicEngineConfigTool.RegressionTests/Program.cs:24–119,2462–2535`；`LatestLoopCompilationTests.cs:19–95`；`LatestRuntimeContractTests.cs:54–135` | 分组入口、时段求值、循环和契约测试边界 |
-| H10 | `LogicEngineConfigTool/Services/Editor/EditorSerializationService.cs:87–100,243–287,311–480,794–1121`；`Models/Common.cs:209–354,776–825` | 共享序列化、扩展字段、白名单、克隆、旧有损帮助函数边界 |
-| R1 | `src/logicengine/logic_element_base.h:31–37,103–207`；`logic_engine_v2.h:22–76`；`logic_visual_programming.h:34` | 容量、值槽、虚表、privateData与任务结构 |
-| R2 | `src/logicengine/logic_engine_v2.c:70–119`；`elements/element_base.c:259–273` | 34种注册Type与精确工厂查找 |
-| R3 | `src/logicengine/logic_visual_programming.c:187–232,762–970,984–1055`；`elements/element_flow.c:129–176` | 装载、超限截断、普通引用/动态分支验证边界、未知类型拒绝 |
-| R4 | `src/logicengine/logic_visual_programming.c:638–751`；`elements/element_flow.c:64–93`；`elements/element_base.c:379–415` | 执行入口、跳转、停止检查、IF和缓存 |
-| R5 | `src/protocol/DataCalculation/eval.c:377–419,767–929,985–1668,2166–2324,2372–2479`；`src/logicengine/elements/element_arithmetic.c:744–749,822–935`；`src/realdatabase/RealDev.c:1553–1636` | 函数、求值顺序/短路差异、常量折叠、表达式缓存与RTDB精度/错误传播 |
-| R6 | `src/logicengine/elements/element_io.c:890–937,1099–1248`；`element_timer.c:153–177,344–374,541–591`；`element_arithmetic.c:1273–1418` | YK/YT立即效果、阻塞定时、计时和PI状态 |
+| H2 | `LogicEngineConfigTool/Services/ControlFlow/ControlFlowCompilationService.cs`（`Compile`）；同目录 `ExecutionLinearizer.cs`（`Linearize`） | 来源分流、控制流分析、稳定线性化与应用前校验 |
+| H3 | `LogicEngineConfigTool/Services/ControlFlow/TransactionalConfigSaveService.cs:153–155,210–405`；`LogicEngineConfigTool/Services/EditorStatePersistenceService.cs:94–252` | 副本编译、快照写入、回读提交及内嵌快照优先恢复 |
+| H4 | `LogicEngineConfigTool/Services/ControlFlow/RuntimeJumpLowerer.cs:28–76`；同目录 `RuntimeGraphRecoveryService.cs:25–163` | 运行态 JUMP、编辑模型保留、恢复与布局权限 |
+| H5 | `LogicEngineConfigTool/Services/ControlFlow/AbruptControlTransferResolver.cs:45–125`；同目录 `CompatibilityControlFlowExtractor.cs:503–522`、`ExplicitJoinResolver.cs`；`LogicEngineConfigTool/Elements/ElementControlFlowFor.cs` | 控制结构、突转归属、汇合及 FOR 表达式参数 |
+| H6 | `LogicEngineConfigTool/Services/NewElementSaveValidationService.cs`；`LogicEngineConfigTool/Services/ControlFlow/RealtimeStorageOrderValidator.cs` | 三类新协议元件参数、配对、实时库存储顺序 |
+| H7 | `LogicEngineConfigTool/Models/ElementModel.cs`（`PortDataTypeEnum`、`InputModel`、`OutputModel`、`ParamModel`）；`LogicEngineConfigTool/Elements/ElementBase.cs`（`CanConnectPorts`） | 参数载体、端口类型与位掩码兼容规则 |
+| H8 | `LogicEngineConfigTool/Models/ExpressionSyntax.cs`；`LogicEngineConfigTool/Services/ExpressionParser.cs:61–88,389–652` | 表达式 AST、函数白名单、赋值与语法范围 |
+| H9 | `LogicEngineConfigTool.RegressionTests/Program.cs:47,134–177,306,483,3848` | 专题 CLI 入口、默认套件中的时段求值断言 |
+| H10 | `LogicEngineConfigTool/Models/Common.cs`（`CloneConfig`、`DeserializeConfigJson`）；同目录 `NewElementParameterPayload.cs` | 配置序列化、克隆及新协议参数扩展字段 |
+| H11 | `LogicEngineConfigTool/Models/ElementModel.cs:727,841,1311`；`LogicEngineConfigTool/Elements/ElementDebugPrint.cs:16–19`；`LogicEngineConfigTool/Services/IntegralParameterValidator.cs:63–67` | 遥控/遥调、日志触发及积分间隔单位的桌面契约 |
+| R1 | `src/logicengine/logic_element_base.h:31–37,103–207`；同目录 `logic_engine_v2.h:22–76`、`logic_visual_programming.h:34` | 容量、值槽、虚表、私有数据与任务结构 |
+| R2 | `.cproject:20,261,969,1211`；`src/main.c:138,804–835`；`src/logicengine/logic_visual_programming.c:1124–1174,1553–1578`；`src/logicengine/logic_engine_v2.c:70–125` | C0/C1 产品构建、规约 57 入口和 40 个有效 Type |
+| R3 | `src/logicengine/logic_visual_programming.c:187–232,762–970,984–1055`；`src/logicengine/elements/element_flow.c:129–176` | 装载、超限截断、普通引用/动态分支验证边界、未知类型拒绝 |
+| R4 | `src/logicengine/logic_visual_programming.c:638–751`；`src/logicengine/elements/element_flow.c:64–93`；同目录 `element_base.c:379–415` | 执行入口、跳转、停止检查、IF 和缓存 |
+| R5 | `src/protocol/DataCalculation/eval.c:377–419,767–929,985–1019,1528–1601,1763–1892,2305–2323`；`src/logicengine/elements/element_arithmetic.c:750–755,852–944`；`src/realdatabase/RealDev.c:1553–1636` | 函数、求值顺序与短路差异、两类点位地址、常量折叠、表达式缓存与实时库写入 |
+| R6 | `src/logicengine/elements/element_io.c:890–937,1099–1248`；同目录 `element_timer.c:153–177,344–374,541–591`、`element_arithmetic.c:1273–1418` | YK/YT 即时副作用、阻塞定时、计时和 PI 状态 |
 | R6a | `src/common/common_yk.c:754–803,1097–1110,1158–1168`；`src/realdatabase/CallBackParaFuncRealize/CallBackFuncArray.c:102–129,442–505` | 遥控/遥调公共路径可包含本机动作、文件和等待；返回不等于完成确认 |
-| R7 | `src/logicengine/logic_visual_programming.c:75–175,312–465,1210–1247,1444–1539` | 稳定窗、快照、停旧/启新、对象恢复和监听 |
+| R7 | `src/logicengine/logic_visual_programming.c:76–175,313–350,363–466,475–499,1278–1303,1575–1642` | 稳定窗、快照、停旧/启新、对象恢复和监听 |
+| R8 | `src/logicengine/elements/element_io.c:896–937,1008–1015,1155–1247,1329–1336`；同目录 `element_debug_print.c:878–897`、`element_arithmetic.c:2265–2297` | 固件实际触发分支、日志参数范围和积分单位解析 |
 
-场景来源为配置端 `documents/福山区渡口村智慧配电网建设方案/渡口村三台区微网控制策略配置流程.md` 和 `documents/渡口村三台区微网控制策略点表说明.md`。它们用于提取需求，不用于证明本次设备运行通过。另有历史策略分析引用的 `test.c` 行号与本次指定树不符，因此没有拿其旧实现作为当前基线。
+场景参考配置端 `documents/渡口村3台区策略/渡口村三台区微网控制策略配置流程.md` 与同目录 `渡口村三台区微网控制策略点表说明.md`。两份材料只用于提取需求，不作为设备运行证据。
 
 外部资料只支持通用设计原则，不作为本项目已经实现的证明：
 
@@ -971,6 +988,6 @@ P2 首个纵向样例建议使用“四个标量输入→无循环的加权/限�
 
 ### 13.4 本次修订的验收边界
 
-本次交付是方案修订，不包括软件功能实现。已完成双端源码分项核查与交叉复核、原稿重写和文档一致性检查；没有进行设备实验，也没有将建议语言或执行包送入当前程序。
+本次交付是基于双端源码的方案修订，不包括功能实现。未执行桌面构建、回归、固件编译、目标板测试或现场试验，也未将拟议语言或执行包送入当前程序。
 
 下一步建议以 P0/P1 的评审产物立项：先确定目标固件、首批策略、语言语义和Host API，再用第12.2节的纵向样例验证路线。只有这些证据完整后，才安排真实输出、自动热迁移和现场扩围。

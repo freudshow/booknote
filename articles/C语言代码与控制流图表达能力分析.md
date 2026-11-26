@@ -2,17 +2,13 @@
 
 ## 1. 问题与结论
 
-Scientific Toolworks Understand 可以分析函数，并将其控制流显示为流程图；其 API 也提供控制流图对象和图形导出能力。那么，文字代码是否与“图元加连接线”严格同构？是否所有 C 程序都有对应的控制流图？
+Understand 能把 C 函数的控制转移画成图，也能导出 DOT。这回答的是**如何分析和展示代码**，不是**这张图能否作为微电网策略执行**。本文先区分这两个问题，再以 `LogicEngineConfigTool` 为例说明：什么图能通过桌面编译，保存时保留了什么，以及哪些行为必须到目标设备上验证。
 
 **结论需要分成三个层次：**
 
-1. **通常可以构建控制流图**。对于确定了预处理配置、目标语言和分析范围的有限 C 程序，通常可以为受支持的函数构建有限的静态控制流图。`if`、循环、`switch`、`goto`、`return` 等控制转移都可以用节点和有向边表示。但函数指针、跨函数跳转、外部库、信号和并发等情况可能需要额外建模或保守近似；不同工具的覆盖范围也不同。
+1. **受支持的 C 函数通常可以构建静态控制流图（CFG）**。给定预处理配置、C 方言和分析范围，`if`、循环、`switch`、`goto` 和 `return` 等可以表示为有限的节点与有向边。函数指针、非局部跳转、信号与并发等则需要额外建模，分析工具有时只能近似。
 2. **普通控制流图与源代码不严格同构**。控制流图主要回答“控制可能从哪里转到哪里”。它通常不会完整保留源代码的语法形式、注释、宏、变量名称和格式等，因而一般不能唯一还原原始代码。可转换为图，不等于存在一一对应且可逆的映射。
-3. **图形语言能否表达同样的程序，取决于图形语言的语义和运行环境**。如果图元操作、数据类型、存储、控制转移、调用、外部交互等足够完整，并定义了与 C 相匹配的执行规则，那么可以对选定的 C 子集实现行为保持的转换。一个只能画框和箭头、或者只提供有限业务元件的系统，并不自动具有全部 C 语言表达能力。
-
-所以，更准确的说法是：
-
-> C 程序的控制转移通常可以用控制流图建模；源代码和普通控制流图一般不是严格同构的。图形程序能否与某段 C 程序行为等价，需要分别定义两种语言的语义、运行环境和观察范围，并证明转换保持这些语义。
+3. **行为等价要单独验证**。给定一个 C 子集，图形语言只有在能表达所需的操作、类型、状态、调度和外部交互，并保持约定的可观察行为时，才是等价实现。箭头能画出来，既不代表目标工具接受这张图，也不代表设备会按同样的时序执行。
 
 ## 2. Understand、DOT 和控制流图分别是什么
 
@@ -151,11 +147,11 @@ while (i < 3)
 | 要求 | 要回答的问题 |
 |---|---|
 | 控制流可表示 | 在选定粒度下，能否描述可能的控制转移？ |
-| 行为等价 | 相同环境和输入下，是否保持约定的输出、副作用、终止行为和允许的不确定结果？ |
+| 行为等价 | 在约定的环境和输入范围内，是否保持输出、副作用、终止行为和允许的结果集合？ |
 | 可生成代码 | 能否从图生成目标语言中满足所需行为的某个程序？ |
 | 精确还原源码 | 能否恢复原来的语法、宏、注释、名称、格式和文件组织？ |
 
-这些要求依次涉及更多信息，但不是所有场景都需要最高一项。例如，分析某条执行路径时可能只需 CFG；修改后生成可运行程序则需要额外的操作语义；要求源码往返无损时，还需完整保存源文本及构建相关信息。
+这些问题不是逐级蕴含的。分析转移路径可以只用 CFG；生成行为等价的目标程序不要求保留原文；把原文作为附件无损保存，也不证明目标图可以独立执行。若要重现当时的编译结果，还应同时记录构建配置，而不是只保存一份源文本。
 
 ## 5. 所有 C 程序都有控制流图吗
 
@@ -171,7 +167,7 @@ while (i < 3)
 
 CFG 的边通常表示控制转移的可能性。把边任意拼接得到的路径，可能因为数据条件相互矛盾而无法发生。
 
-例如，若两次判断之间 `x` 没有变化：
+例如，若 `x` 是普通整数，且两次判断之间没有变化：
 
 ```c
 if (x > 0) { /* A */ }
@@ -201,15 +197,15 @@ if (x <= 0) { /* B */ }
 ### 6.1 两种线回答的问题不同
 
 ```text
-数据流：读取温度 ──数值──► 比较器
-控制流：比较器 ──真分支──► 打开风机
-                 └假分支──► 关闭风机
+数据流：读取温度 ──温度值──► 比较器 ──布尔值──► 条件判断
+控制流：条件判断 ──真分支──► 打开风机
+                  └假分支──► 关闭风机
 ```
 
 - **数据流边**说明某个输入值来自哪个生产者，或存在什么数据依赖。
 - **控制流边**说明执行控制可以沿哪个分支转移。
 
-一个真实程序通常同时需要两者，还需要规定变量或内存的**状态**。例如 `count = count + 1` 既读取旧值，又产生新值；如果它位于循环中，就必须说明每次迭代读取的是哪一次更新后的值。
+比较器产生的布尔值是数据；条件判断选中了哪条出口，则是控制。程序还需要定义**状态**：例如 `count = count + 1` 既读取旧值，又写入新值；若它位于循环中，要说明下一次迭代何时能看到这次更新。
 
 ### 6.2 有数据连线也不自动保证等价
 
@@ -238,7 +234,7 @@ write_output(0);
 
 在这些条件下，可以针对选定 C 子集构造从 C 到图、再从图到某种代码的转换，并验证行为保持。甚至可以把程序执行位置作为一个状态变量 `pc`：每个图节点对应一个 `pc` 值，在循环中根据 `pc` 执行相应操作并选择下一个值。这个思路说明**图形结构与文字形式可以编码相同的控制过程**；但要保持完整行为，仍然要正确实现图节点中的计算、存储和环境交互。
 
-在抽象计算模型中，如果两种语言都具有足够的计算、条件转移和可扩展存储能力，它们可以具有相同的通用计算能力。这是一种**表达能力或计算能力上的等价**，并不要求程序的文字与图节点严格一一对应。真实 C 实现及设备的整数、内存、栈和运行时间等都有实际限制，不能把理想化的“无限存储”直接当作产品能力。
+即使两种抽象语言具有相同的通用计算能力，也不能据此断定某一具体移植可行。例如，在不考虑时间的模型中能算出相同结果，并不意味着两种实现会在同一扫描周期内完成，也不意味着设备输出的先后顺序相同。真实设备的数值范围、内存和执行时间都应作为等价条件单独检查。
 
 ### 7.2 具体图形工具可能只支持其中一部分
 
@@ -252,60 +248,59 @@ write_output(0);
 
 因此，要比较某段 C 策略与某套图形系统，首先应约定 C 子集、目标设备和等价标准，再检查该系统的**编辑器、编译器、序列化协议和运行时**是否共同提供所需能力。
 
-## 8. 对本项目图形配置的具体启示
+## 8. 当前策略配置工具的表达边界
 
-以下结论依据当前编辑器与编译器源码，不把提案文档视为已经实现的功能，也不替代设备端验证。
+以下讨论的是 `LogicEngineConfigTool` 的桌面编辑、编译和保存契约，不是 DOT 的能力，也不替代设备端验证。文中的项目源码引用均相对于 `visualconfig` 仓库根目录，核对版本见第 10 节。
 
-1. **本项目的边带有领域语义和约束**。输出是否允许扇出由元件类别和端口属性决定；控制流和数据流并不只是颜色不同的线。见 `LogicEngineConfigTool/Models/ConnectionRules.cs:20-81`。
-2. **编辑器中的 JUMP 与运行投影不是同一个层次**。编辑态 JUMP 有固定的一个控制输入和一个控制输出；不能因为运行 JSON 使用 `NextID`，就认为画布端口也可以省略。见 `LogicEngineConfigTool/Elements/ElementControlFlowJump.cs:20-38`。
-3. **编辑图要经过领域校验和编译**。当前编辑器图的编译链包括规范化、控制描述提取、跳转解析、结构区域构建、突转和 JOIN 解析、线性化及计划校验；错误会阻止返回成功计划。见 `LogicEngineConfigTool/Services/ControlFlow/ControlFlowCompilationService.cs:27-32,53-101`。
-4. **编辑图不等于运行 JSON**。运行投影前会核对任务顺序、`NextID` 和 JOIN/突转的降级决策；序列化阶段再将相关伪元件映射为运行形式。见 `LogicEngineConfigTool/Services/ControlFlow/RuntimeJumpLowerer.cs:8-16,28-53`。
+### 8.1 画布能表达哪些结构
 
-据此，不能因为某个 C 函数能被 Understand 画成 DOT，就推断这张图能直接导入本项目、通过编译并在设备上等价执行。也不应把“所有环都被禁止”作为结论：**是否支持某种转移应看具体元件、图结构、编译约束和运行时契约。**
+| 结构 | 当前桌面代码的边界 |
+|---|---|
+| 条件和选择 | `IF` 的条件是布尔数据输入，`TRUE`、`FALSE` 是控制输出。`SWITCH` 走配置的 `Case` / `Default` 分支，不能只按名字假定它具有 C `switch` 的 case 贯穿语义。 |
+| 循环 | `WHILE`、`FOR`、`DO_WHILE` 有各自的循环编译规则，但当前工具箱未开放 `FOR`、`DO_WHILE` 的新建按钮。能生成循环回边也不代表接受任意闭环或跨区域转移。 |
+| 提前退出和继续 | 当前解析器只把 `WHILE` 的 `Body` 作为 `CONTINUE` 的合格归属；`BREAK` 的合格归属是 `WHILE` 的 `Body` 或 `SWITCH` 的 `Case` / `Default`。不能把 C 中 `FOR`、`DO_WHILE` 的 `break` / `continue` 规则直接套到这里。 |
+| 汇合 | `JOIN` 表示受校验的显式汇合，不是可以任意将若干箭头合并到一点的通用节点。编译器还要检查分支来源、归属和后续去向。 |
+| 跳转 | 编辑态 `JUMP` 有一个控制输入和一个控制输出，编译器根据有效的物理连线解析它，而不是把任意数字 `NextID` 当成 C 的目标标签。 |
 
-例如，判断一个具体 C 策略能否迁移到画布，可以逐项回答：
+这张表也不替代端口检查。数据连线看端口属性和类型位掩码；输入端只记录一个来源，输出端能否扇出由 `OutputConnectionRules` 决定。正常连线同时保存目标输入的 `SourceElemId` / `SourcePortId` 和源输出的 `TargetPorts` 记录；两个 `-1` 才表示该输入未连接。源码入口见 [11]。
 
-1. 控制分支、循环、提前退出和汇合是否有受支持的图元与连接方式？
-2. 使用的数据类型、数值精度、溢出处理和比较规则是否一致？
-3. 数据生产者的执行顺序、条件分支读取范围和多次执行语义是否一致？
-4. 状态变量、定时器、实时采样及设备输出的读取/更新时机是否一致？
-5. 外部调用、异常情况、任务调度与设备接口是否有明确对应？
-6. 编译后的分支目标、普通 `NextID`、循环回边和汇合目标是否正确？
-7. 是否通过保存与读回、典型输入/边界输入对照，以及目标设备测试？
+**一个对照例子：** `ControlFlowJumpRegressionTests` 构造两个互连的 `JUMP`（ID `10`、`20`），故意留下不正确的旧 `NextID`，断言编译仍按物理连线得到 `10 → 20 → 10`。两端断开同一条连接后，断言得到 `CFGJ01`；随后只恢复源输出的 `TargetPorts` 记录，断言得到 `CFG011`。因此，合法的控制回边与任意画出的环是两回事。这些是桌面回归源码中的断言，不是设备已运行该循环的记录。[12]
 
-只有对具体策略和已约定的观察范围完成这些检查，才能有依据地说两种实现等价；单凭图看起来相似、节点数量一致或编译成功，都不足以证明等价。
+### 8.2 从编辑图到运行配置
 
-## 9. 最终回答
+```text
+编辑图：图元、端口双侧记录、参数和控制元数据
+    → 规范化、校验、区域与转移解析、确定性线性化
+    → 校验并应用编译计划，再生成运行 JSON
+    → 同一主文件保留运行配置和 EditorData 编辑快照
+```
 
-- **“文字代码和图元加连接线严格同构吗”**？一般不应这样认为。可以设计可逆表示，但普通 CFG 通常会抽象掉源码信息；而图形语言与文字语言的行为等价，也不要求节点与源语句一一对应。
-- **“凡是能用 C 写的程序，都有对应控制流图吗”**？在明确语言配置、分析范围和建图约定后，通常可以为受支持函数建立表示其控制转移的静态 CFG；完整程序和复杂特性可能需要跨过程、状态、并发及环境模型，工具也可能只能给出近似结果。
-- **“有 CFG 就一定能在当前图形配置工具中实现吗”**？不能。需要检查图元、端口、编译、协议及设备执行语义；这些限制与 DOT 能否画出该图是不同问题。
+**物理连线不等于执行顺序。** 对完整编辑图，编译先产出计划；正式保存时在隔离副本上编译并应用计划。运行协议用普通 `NextID`、运行 `JUMP` 的 `NextID` 和各控制元件的专用分支目标描述去向。线性化可能先安排数据生产者，所以执行入口不一定就是物理出线所指的图元。`Outputs[].TargetPorts` 不是跳转表，也不能从 `NextID` 反推数据线。[11][13]
 
-## 10. 参考资料
+**运行投影不等于编辑快照。** 新投影把 `BREAK`、`CONTINUE`、`JOIN` 和编辑态 `JUMP` 写成运行 `JUMP`，同时保留 `Inputs`、`Outputs` 和 `EditorOriginal.Element`；这里的 `Element` 是**编译后、投影前**的节点。主文件根部的 `EditorData` 才保存**编译前**编辑图及编辑状态。正式保存回读校验后提交同一个主文件，不另写编辑侧车。[13]
 
-1. Scientific Toolworks Understand，[Control Flow](https://docs.scitools.com/graphs/Control_Flow.html)，以及 [CFGraph Python API](https://docs.scitools.com/python/api/understand.CFGraph.html)。
-2. Scientific Toolworks Understand，[Graphs Python API：生成和导出](https://docs.scitools.com/python/graph.html)。官方说明某些 DOT 输出包含自定义布局属性。
-3. Graphviz，[DOT Language](https://graphviz.org/doc/info/lang.html)。
-4. LLVM，[LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html)，函数结构、基本块与终结指令。
-5. ISO C 工作组 WG14，[N1570：C11 委员会草案](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)，尤其是 5.1.2.3、5.1.2.4、6.5、6.8、7.13。本文以该草案为举例依据，它不是对所有 C 版本或具体编译器扩展的穷尽说明。
+**能打开不等于能重编。** 重新打开时优先验证 `EditorData`；无可用快照时才尝试旧侧车和受限恢复。找不到可信的完整编辑图时，部分有效配置只能保留为可调整布局的运行投影，不应按完整画布重新推断执行目标。桌面回读也不证明固件兼容；例如，计数型 `WHILE` 经过运行 `JUMP` 回边时的表现仍需在目标设备验证。[13]
 
-本次文档分析未运行 C 到图的转换实验，也未对本项目设备端执行行为作新的测试。
+### 8.3 迁移一段 C 策略时怎么验收
 
-## 11. 本项目区域分析与 Roslyn 的比较
+1. **先定义等价标准。** 记录允许的输入和初始状态，以及要对照的输出序列、读写顺序、重复执行次数、终止条件和允许的时序偏差。明确 C 数值类型、比较、转换和溢出的适用规则。
+2. **再检查画布能不能表达。** 为分支、循环、提前退出和汇合选择受支持的图元；核对数据类型、端口、状态保持、实时库点位和外部操作。尤其不要把 C 短路表达式中只在特定分支发生的读取，直接接成条件判断前无条件执行的数据节点。
+3. **检查保存产物。** 对照预期检查分支目标、普通 `NextID`、回边、汇合、数据端口和重新打开后的可编辑性。桌面回归通过，只证明其断言覆盖的行为。
+4. **最后在目标设备比对。** 用相同输入和初始状态比较正常、边界和异常情形，并检查任务扫描间隔、设备读取时刻、输出副作用和循环开销。图形相似或桌面编译成功都不能替代这一步。
 
-### 11.1 先区分三种“区域”
+## 9. 本项目区域分析与 Roslyn 的比较
 
-这里至少有三个名字相近、目标不同的概念：
+### 9.1 谁划定区域，区域用来做什么
 
-1. **本项目的控制分支区域**：推断 IF、SWITCH、WHILE 等控制头所拥有的节点、嵌套关系及汇合边界，供编译和线性化使用。
-2. **Roslyn 的 `ControlFlowRegion`**：把 Roslyn CFG 中的基本块按局部生命周期和异常处理结构组织成嵌套树。公开 `ControlFlowRegionKind` 包含 `Root`、`LocalLifetime`、`Try`、`Catch`、`Filter`、`Finally` 等种类，并没有 `IfThen`、`IfElse`、`SwitchCase` 一类分支体种类。[6][7]
-3. **Roslyn 的 `AnalyzeControlFlow` / `AnalyzeDataFlow` 分析区域**：调用方先选定同一方法中的一个语法节点或连续语句范围，Roslyn 再分析这个给定范围的控制入口、出口、可达性和变量读写等信息。这里的 `Inside` / `Outside` 是相对于调用方选区定义的；API 不会自动推断某个画布节点归哪个 IF 分支。[8][9]
+| 概念 | 区域从哪里来 | 解决的问题 |
+|---|---|---|
+| 本项目的控制分支区域 | 编译器根据画布端口和控制元数据推断 | 节点归哪个控制头的哪个分支，哪里汇合，`BREAK`、`CONTINUE` 属于谁。 |
+| Roslyn 的 `ControlFlowRegion` | Roslyn 从已绑定的操作构建 CFG 时产生 | 表达局部值的生命周期和异常处理等嵌套边界；没有 `IfThen`、`IfElse` 或 `SwitchCase` 区域种类。[6][7] |
+| Roslyn 的 `AnalyzeControlFlow` / `AnalyzeDataFlow` | 调用方先提供受支持的语法选区 | 分析给定选区的控制边界、可达性、变量读写和赋值情况，不自动发现画布分支归属。[8][9] |
 
-因此，Roslyn 的 region tree 不能直接当成本项目分支区域算法的现成实现；Roslyn 的选区分析也不是自动发现 IF/SWITCH 归属的算法。
+### 9.2 Roslyn 如何构建 CFG 及其 `ControlFlowRegion`
 
-### 11.2 Roslyn 如何构建 CFG 及其 `ControlFlowRegion`
-
-按 Roslyn 当前公开 API 和所查源码浏览快照，其大致过程如下。具体内部实现可能随版本调整；下面不是 API 对每个版本的形状保证。[6][10][11]
+按 Roslyn 公开 API 和所查源码浏览快照，其过程可以概括为下面几步。中间构建步骤不是跨版本的 API 保证。[6][7][10]
 
 1. `ControlFlowGraph.Create` 从函数体等可执行代码块取得根 `IOperation`，作为 CFG 构建输入。
 2. builder 创建入口和出口基本块以及根 `Root` 区域，并在构建过程中跟踪当前区域。
@@ -317,65 +312,48 @@ write_output(0);
 
 概念上，含有 catch 和 finally 的代码会形成反映 `Try`、`Catch`、`Filter`、`Finally` 组合关系的区域树。实际嵌套受源码、捕获值和压缩过程影响，调用方应遍历实际 CFG，而不应硬编码某个固定树形。
 
-### 11.3 Roslyn 如何分析调用方选定的语法区域
+### 9.3 Roslyn 如何分析调用方选定的语法区域
 
-`SemanticModel.AnalyzeControlFlow` 和 `AnalyzeDataFlow` 与 CFG 的 region tree 是另一组 API。它们的输入是用户指定的语法范围，不负责为任意图推断结构化控制区域。[8][9]
+`AnalyzeControlFlow` 和 `AnalyzeDataFlow` 与 CFG 的区域树是另一组 API。调用方提供选区，例如方法内一段连续语句；先检查 `Succeeded`，再解释控制或数据结果。[8][9]
 
 以概念步骤说明：
 
-1. **验证选区**：确认节点或首尾语句构成 API 支持的有效范围；无效范围会得到失败结果，调用方必须先检查 `Succeeded`。
-2. **分析控制边界**：在所属方法的绑定语义中分析选区，报告进入点、离开点、退出选区的分支，以及起点/终点可达性等。选区边界是调用方提供的，不是区域发现算法的输出。
-3. **分析数据流**：对选区中的符号读写和赋值执行数据流分析，报告诸如 `VariablesDeclared`、`DataFlowsIn`、`DataFlowsOut`、`ReadInside`、`WrittenInside`、`DefinitelyAssignedOnEntry`、`DefinitelyAssignedOnExit` 等结果。
-4. **分开处理不同事实**：控制是否能进出选区，与某个值是否在内定义、在外使用，是不同问题；数据流结果不会自动决定节点应移入哪个 IF 分支，也不证明移动后副作用顺序不变。
+1. **控制分析**报告进入点、离开点和起点/终点可达性等；它回答的是“控制如何进出这个选区”。
+2. **数据分析**报告 `DataFlowsIn`、`DataFlowsOut`、`ReadInside`、`WrittenInside` 和入口/出口的明确赋值情况等；它回答的是“哪些符号在选区内外被读写，哪些值跨过选区边界”。
 
 对应到画布分析，这类 API 的启发更像“给定候选区域后，检查边界和变量依赖是否满足条件”，而不是“从 CFG 自动产生候选 IF/SWITCH 区域”。例如，某个计算节点虽然依赖分支外的值，但这只说明它有数据输入；若把节点搬入分支会改变设备读取时机、写入次数或其他副作用，就不能据此认定移动安全。
 
-### 11.4 当前项目算法实际在做什么
+### 9.4 当前项目算法实际在做什么
 
-项目的编译链先规范化物理边和控制描述，再由 `StructuredRegionBuilder` 构建区域；之后解析 BREAK/CONTINUE、验证显式 JOIN，最后线性化和校验计划。分析失败会产生诊断，而不是把未经验证的区域写回任务图。[12]
+项目的编译链先规范化物理边并提取控制描述，再由 `StructuredRegionBuilder` 构建区域；之后解析 BREAK/CONTINUE、验证显式 JOIN，最后线性化和校验计划。分析失败会产生诊断，而不是把未经验证的区域写回任务图。[11]
 
 当前区域构建可概括为：
 
-1. **形成用于区域分析的后继图**：合并物理边和有效控制分支目标，排除运行时 JUMP 出边；给没有后继的节点接虚拟出口，并由无物理入边节点构造虚拟入口。
-2. **计算支配和后支配信息**：通过迭代的集合交与并计算。实现对不可达节点或不能到出口的闭环有明确限制，不能把所有节点上的结果都当作常规路径语义。
-3. **检测控制汇合点**：先采用非负的 `JoinNextID` 元数据；若只有一个去重后的分支目标且它是显式 JOIN，也将其作为边界。否则尝试从图推断：优先用共同可达的最近公共后支配点；找不到时会退化为共同可达候选中 BFS 距离总和最小的节点。目标不足两个或部分分支直接终止等情况可能返回无汇合点。由此可知，项目的 join 检测并不保证每个结果都是后支配点。
-4. **逐分支收集候选区域**：`CollectUntil` 先沿后继遍历到指定 join、显式 JOIN 或出口边界；其结构后继并非只含控制边。随后还会沿 Data 入边反向加入依赖生产者，因此候选集合可能包含为分支计算提供值的节点。
-5. **剔除允许共享的依赖并检查重叠**：选择类控制的共享项取所有分支集合的交集；控制元件、JOIN、突转和 JUMP 不作为可共享依赖剔除。若仍有同级区域重叠则报错。循环不走这类共享剔除。
-6. **构建嵌套 membership**：按区域包含关系寻找唯一父分支，计算深度；将子区域裁剪到父区域，验证 membership 是唯一包围链，并拒绝绕过控制头的非数据入口（`CFG077`）。
-7. **单独验证显式 JOIN 和突转**：区域 membership 只提供 JOIN 候选所有者；显式 JOIN resolver 还验证到达来源、路径覆盖、续接及唯一所有者。BREAK/CONTINUE 在冻结的 membership 上选择最近的合格控制者。
+1. **建立分析用后继图。** 它合并规范化物理边和有效分支目标，包含数据边和 JOIN 到达边，不是设备的纯执行 CFG。源为 `JUMP` 的物理出边不参与这张分析图，但 `JUMP` 仍有单独解析的执行目标。分析加上虚拟入口和出口，再迭代计算支配、后支配；不能把不可达节点或无出口闭环上的结果当作实际路径保证。
+2. **选择汇合边界。** 优先采用非负 `JoinNextID`。需要推断时，若至少有两个有效分支条目并非所有路径都以 `BREAK` / `CONTINUE` 结束，先取这些条目再去重；否则使用所有有效分支目标。若唯一目标是显式 `JOIN`，可直接作为边界；其他情况优先找共同可达的公共后支配点，找不到时还可能按 BFS 距离和选共同可达点，或不认定汇合。因此推断结果不一定是后支配点；筛掉突转分支也不代表突转已经通过验证。
+3. **收集区域并检查重叠。** `CollectUntil` 沿后继收集节点，再沿数据入边回溯生产者。用于线性化的区域并集和用于归属判断的逐分支集合并不相同：它们在选择结构中都从**全部分支的交集**找共享项，都不把结构控制头、`JOIN`、突转或 `JUMP` 当共享依赖剔除；逐分支集合还保留有非数据入边、或被多个分支直接指向的节点。循环不做这类共享剔除，逐分支归属对循环 `Exit` 另行处理。剩余同级重叠可报 `CFG030`；从区域外绕过所属控制头进入的非数据边可报 `CFG077`。
+4. **验证突转和显式汇合。** 编译器先根据逐分支归属为 `BREAK` / `CONTINUE` 找最近的合格控制者，再验证 `JOIN`。候选边界不决定 `JOIN` 的最终归属；解析器还核对实际到达的分支、唯一所有者与汇合后的去向。未到达 `JOIN` 的分支，只有所有路径都先结束于**已验证的突转**时才可豁免。[11]
 
-这里有两个需要保留的实现细节：旧的分支区域并集服务于既有线性化，而 `BuildMembership` 会重新收集逐分支集合、补充嵌套控制的续接段，并按不同规则处理循环 Exit；两者不保证相同。其次，共享依赖是**所有**分支的交集，不等同于任意两个分支有共同节点就可提升到分支外。[12]
+### 9.5 可借鉴之处与不能照搬之处
 
-### 11.5 可借鉴之处与不能照搬之处
+**可以借鉴的是如何解释分析结果，而不是如何划定 IF 分支。** 例如，可让诊断指出汇合点来自元数据、公共后支配点还是共同可达候选，并指出哪条边绕过了控制头。这些信息有助于解释为什么某张图被接受或拒绝；Roslyn 的局部生命周期和异常处理区域本身不能替代本项目的分支归属算法。
 
-**值得借鉴的工程做法：**
+**不能把共享依赖等同于代码移动许可。** 即使两个分支都使用一个数值，也不能只凭集合相交就把取值动作提前。对设备读取、实时采样和输出操作，还必须核对移动前后的执行条件、次数和时刻。若将来进行此类优化，应单独验证可观察行为，而不是把区域分析结果直接当作运行语义。
 
-- 像 Roslyn 一样，把 region 作为显式、可查询的结构数据：保留所属头、分支类型/端口、父级、深度、边界和成员来源，而不要只在遍历期间临时算出一个节点并集。
-- 把 CFG 本身、控制分支归属、局部/异常作用域、数据依赖和执行效果分开表示。数据依赖进入候选区域，不应自动等于控制归属；边的进入/离开区域也可成为诊断和线性化验证的输入。
-- 采用“先构建不可变分析快照，再验证，再生成编译计划”的边界。失败诊断可说明候选区域、绕行入口、冲突分支、JOIN 所有者和触发的路径，减少只报“结构不合法”带来的定位困难。
-- 对每个分析结果注明语义及证据来源：元数据指定的 join、由后支配推断的 join、共同可达 fallback 应可区分；不可达节点和无出口循环应有明确定义，候选平局应有稳定次级排序。
-- 把区域识别和合法性检查拆开：先生成候选区域与父子关系，再检查重叠、入口绕行、循环入口支配、显式 JOIN 全路径覆盖及突转所有权。对边界异常返回诊断，而不是静默扩大区域。
-- 为“提升共享计算”另设保守效果条件：除值依赖外还要考虑读写状态、实时采样、I/O、副作用、执行次数和短路条件。只有纯、确定且移动不改变可观察行为的操作，才可能安全跨分支共享。
+## 10. 参考资料与核验范围
 
-**不宜直接照搬：**
-
-- Roslyn `ControlFlowRegion` 的 `LocalLifetime`/异常 region 不等于本项目 IF/SWITCH 分支区域，不能映射枚举后就替代 `StructuredRegionBuilder`。
-- Roslyn 选区流分析的输入是源码语法选区；画布没有与源码语法树等价的连续语句选区，也不能把某一分支集合直接宣称为 Roslyn 的 AnalyzeDataFlow。
-- Roslyn 的 region tree 假设和 C# 绑定后的操作图服务于编译器分析；本项目还有物理端口、控制元数据、运行 `NextID`、旧版 mirror、显式 JOIN 和设备运行契约。图上的边优先级与终止规则必须服从本项目协议。
-- 后支配或数据流事实都不能单独证明控制区域结构良好、分支动作可移动或最终设备行为等价。特别是“集合相交”不代表可消除重复操作。
-
-**建议的渐进方向：**先给现有区域快照补足可解释的边界和来源信息，并为不可达环、部分分支终止、多个共同可达候选、嵌套 Exit、显式 JOIN 缺席分支及副作用依赖补回归；再根据实际失败案例评估后支配 fallback 和共享依赖规则。若未来考虑持久化区域，需要另行设计旧配置升级、读回验证及运行投影兼容，不能把分析缓存直接写成新的运行协议。
-
-以上建议是对当前实现和 Roslyn 公开抽象的比较，不是已实施的代码改动，也未证明现有算法完整或行为正确。
-
-### 11.6 Roslyn 与项目实现的参考资料
-
+1. Scientific Toolworks Understand，[Control Flow](https://docs.scitools.com/graphs/Control_Flow.html)，以及 [CFGraph Python API](https://docs.scitools.com/python/api/understand.CFGraph.html)。
+2. Scientific Toolworks Understand，[Graphs Python API：生成和导出](https://docs.scitools.com/python/graph.html)。某些 DOT 输出包含自定义布局属性。
+3. Graphviz，[DOT Language](https://graphviz.org/doc/info/lang.html)。
+4. LLVM，[LLVM Language Reference Manual](https://llvm.org/docs/LangRef.html)，见函数结构、基本块与终结指令。
+5. ISO C 工作组 WG14，[N1570：C11 委员会草案](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)，尤其是 5.1.2.3、5.1.2.4、6.5、6.8、7.13。本文据此举例，不涵盖所有 C 版本及编译器扩展。
 6. Microsoft Learn，[ControlFlowRegionKind Enum](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.flowanalysis.controlflowregionkind)；[ControlFlowRegion Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.flowanalysis.controlflowregion)。
 7. Roslyn 源码浏览，[ControlFlowGraphBuilder.cs](https://source.dot.net/Microsoft.CodeAnalysis/Operations/ControlFlowGraphBuilder.cs.html)；[RegionBuilder.cs](https://source.dot.net/Microsoft.CodeAnalysis/Operations/ControlFlowGraphBuilder.RegionBuilder.cs.html)；[ControlFlowBranch.cs](https://source.dot.net/Microsoft.CodeAnalysis/Operations/ControlFlowBranch.cs.html)。源码浏览页未在本文中固定到 commit，因此实现步骤是所查快照的描述，不是跨版本契约。
-8. Microsoft Learn，[SemanticModel.AnalyzeControlFlow](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.semanticmodel.analyzecontrolflowcore)；[ControlFlowAnalysis Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.controlflowanalysis)。
-9. Microsoft Learn，[DataFlowAnalysis Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.dataflowanalysis)；[CSharpExtensions.AnalyzeControlFlow](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.csharp.csharpextensions.analyzecontrolflow)。
-10. Microsoft Learn，[ControlFlowGraph Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.flowanalysis.controlflowgraph)；[ControlFlowRegionKind Enum](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.flowanalysis.controlflowregionkind)。
-11. Roslyn 源码浏览，[ControlFlowGraphBuilder.RegionBuilder.cs](https://source.dot.net/Microsoft.CodeAnalysis/Operations/ControlFlowGraphBuilder.RegionBuilder.cs.html) 和 [ControlFlowBranch.cs](https://source.dot.net/Microsoft.CodeAnalysis/Operations/ControlFlowBranch.cs.html)，用于核对不可变 region 与边界元数据的实现。
-12. 本项目源码：`LogicEngineConfigTool/Services/ControlFlow/ControlFlowCompilationService.cs`、`StructuredRegionBuilder.cs`、`GraphAnalysis.cs`、`ExplicitJoinResolver.cs`、`AbruptControlTransferResolver.cs`。文件及方法以本仓库当前版本为准。
+8. Microsoft Learn，[CSharpExtensions.AnalyzeControlFlow](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.csharp.csharpextensions.analyzecontrolflow)；[ControlFlowAnalysis Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.controlflowanalysis)。
+9. Microsoft Learn，[CSharpExtensions.AnalyzeDataFlow](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.csharp.csharpextensions.analyzedataflow)；[DataFlowAnalysis Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.dataflowanalysis)。
+10. Microsoft Learn，[ControlFlowGraph Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.flowanalysis.controlflowgraph)；[ControlFlowBranch Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.codeanalysis.flowanalysis.controlflowbranch)。
+11. 本项目源码：`LogicEngineConfigTool/Models/ConnectionRules.cs`；`LogicEngineConfigTool/Elements/ElementControlFlowJump.cs:20–38`；`LogicEngineConfigTool/Views/VisualEditorView.xaml:493–498`；`LogicEngineConfigTool/Services/ControlFlow/` 下的 `ControlFlowCompilationService.cs:53–102,231–261`、`ExecutionLinearizer.cs:752–845,929–951`、`GraphAnalysis.cs:102–142,201–290`、`StructuredRegionBuilder.cs:71–216,265–592`、`ExplicitJoinResolver.cs:45–177,224–234` 和 `AbruptControlTransferResolver.cs:45–71`。
+12. 桌面回归：`LogicEngineConfigTool.RegressionTests/ControlFlowJumpRegressionTests.cs:29–55,567–574`，核对互连 JUMP、断线诊断和失败时不修改任务。
+13. 保存与恢复源码：`LogicEngineConfigTool/Services/ControlFlow/` 下的 `TransactionalConfigSaveService.cs:158–405`、`RuntimeJumpProjection.cs:231–301` 和 `RuntimeGraphRecoveryService.cs:34–168,175–229,323–489`；`LogicEngineConfigTool/Services/EditorStatePersistenceService.cs:104–189,359–401`。
 
-本节是 API 和源码的静态研究；本次没有运行 Roslyn 示例、编译 Roslyn，也没有执行本项目构建、回归或设备测试。
+本文的项目结论来自 `visualconfig` 的 `3d697aa` 源码与回归断言静态核对。未运行 C 到图的转换实验、Roslyn 示例或本项目的构建和回归，也未在设备上验证执行时序及行为等价。

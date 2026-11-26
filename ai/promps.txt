@@ -108,16 +108,6 @@ to:
 
 http://100.121.144.126/api/tags
 
-21. 用C#,  .net 10, maui, 开发一个SSH终端程序，界面仿照windterm，可以方便的自定义命令，右边侧边栏有终端列表管理；左边侧边栏有SFTP文件管理；可以记住用户执行过的命令，命令历史可设置，默认1000条
-
-22. 我想把用户设计的流程图，看成是一个类似于C语言的编程语句。输入类、输出类元器件，可以看成是寄存器/临时变量；逻辑类、算术器件（除了算术长表达式外）、比较类元器件，都可以看成C语言中的算术表达式；控制类（目前只有IF），可以看成C语言的if-else, while, for, do-while, switch-case等控制语句；请用编译器理论、图论等方法，将用户设计的流程图，排序（NextID，或者IF的TrueNextID-FalseNextID）尤为重要，因为嵌入式软件是根据NextID(或者IF的TrueNextID-FalseNextID)来决定下一个元器件的处理。
-请给出算法，能够正确的将一张元器件流程图(含有多个IF元器件)，生成一个流程图语法树；然后根据语法树，正确按照用户的设计意图，计算每个元器件的NextID（对于控制流元器件，生成其对应分支的NextID，比如IF元器件的TrueNextID和FalseNextID），并用documents\IF-YT.json作为验证
-昨天的开发过程，由于额度用完而停止，昨天的修改已提交到本地git，请根据昨天的修改和plan文件：.dfcode\plans\1784000321711-nimble-comet.md以及plan文件最下面的完成情况，继续完整的书写剩余的代码。
-
-从最左边的叶子节点开始遍历：
-1. 如果当前元器件A是叶子节点，那么它的 NextID
-    1. 如果它的邻居节点不为空，则找到这个邻居节点的最左侧叶子节点（深度优先遍历)作为A的NextID
-    2. 如果它没有邻居节点了，那么它的 NextID就是其父节点的Id
 
 23. using C language to implemente a script language, support virtual machine and byte code. support arithematic calculate, logical operations, bit-wise operations(same as C language), if-else, function call, while, for, variable declare, and sopport RealDataBase(using format #integer like #32 means the 32th realdatabase dataItem, and #(linkNo, devNo, regNo) like #(3, 45, 12) means linkNo-3, devNo-45, regNo-12 dataItem, and realdatabase item's GetValueByRealNo(), SetValueByRealNo(), GetValueByLinkDevReg(), SetValueByLinkDevReg() are my Own implementations) references.
 using context free grammer and recursive desend parsing.
@@ -321,7 +311,7 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
     - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\debug_print.json
     - D:\repo\dfe\LinuxApp\visualconfig\outputs\verification\if-while-switch.region.json
     要求： 用skiaSharp_PowerGateway能正确加载，保存后的配置文件严格与上述的文件相等（sha256相等，如果没有c0757.json的链路信息，可以从其文件名推断为07链路）
-5. 设计一个有大量元器件（至少300个）的图，我要测试一下用avalonia和skiaSharp做前端的画布是否也有卡顿（添加/移动元器件、删除/添加连线、放大/缩小画布等等操作）
+5. 设计一个有500个元器件的图，我要测试一下用avalonia和skiaSharp做前端的画布是否也有卡顿（添加/移动元器件、删除/添加连线、放大/缩小画布等等操作）
 
 66.
 完善测试矩阵并逐项测试，并根据每项测试的设计意图和测试结果修正现有代码的错误/bug：
@@ -353,19 +343,9 @@ https://files.wolframcdn.com/WolframApp/15.0.1.0/Wolfram_15.0.1.sh?4ae6ee529e4e0
 翻转电平:
     如果上一次电平为1，本次置0；如果上一次电平为0，本次置1
 
-
-75. 设置检查级别
-不可取消的检查，取消后影响编译保存时的规范化检查和控制流/数据流分析：
-1. 连接有效性检查
-    - 用户连接元器件端口的有效性检查
-    - 
-
-可以取消的检查，取消后不影响编译保存，但影响嵌入式程序解析、运行的检查：
-1. 遥测/遥信输入的实时库数据项有效性检查
-2. 
-
 76. 
     1. 添加一个按钮，动态编译现有的逻辑图，可以分不同的色块闪烁，以标注不同的控制头及其控制域，让用户明白设计的逻辑是否正确/是否是他想要的。
-
-    2. 去掉伴生文件，按照《主配置单文件保存与编辑图恢复设计方案.md》的设计，完成画布快照的保存和恢复。
-        为了兼容以前的配置软件生成的带有/不带有伴生文件的配置，当读取到的配置文件里有JUMP时，且伴生文件缺失/校验不一致，或者经过这次去掉伴生文件后后面的压缩信息与主配置不一致，要能够从JUMP的跳转流向推断出其保存前对应的元器件是break/continue/join。保证用户不论使用最新的配置软件，都能正常加载、查看、编辑以前生成的配置文件。
+    2. 设计一个有500个元器件的图，里面要有所有类型的元器件，我要测试一下画布是否有卡顿（添加/移动元器件、删除/添加连线、放大/缩小画布等等操作），也要测试一下元器件的编译逻辑对不对。注意画布打开这个图时，要求每个元器件不能重叠、能清晰的看清数据流/控制流的流向，注意左右、上下元器件的排布，元器件连线尽量从左到右清晰可见
+    3. 生成一个有10个任务、每个任务有500个元器件的配置，里面要有所有类型的元器件，我要测试一下画布是否有卡顿（添加/移动元器件、删除/添加连线、放大/缩小画布等等操作），也要测试一下元器件的编译逻辑对不对。注意画布打开这个图时，要求每个元器件不能重叠、能清晰的看清数据流/控制流的流向，注意左右、上下元器件的排布，元器件连线尽量从左到右清晰可见，放到 D:\temp\verification\five-hundred-elements下。并且你自动给我用可视化软件加载这个配置文件，如果加载有问题，就地修复配置或者代码。
+    4. 现有的元器件中，凡是从输入的某个端口作为触发遥信作为执行调节的，都在触发遥信方式的最后添加一个“无条件执行”选项，以应对if、switch、while等控制流元器件后面的触发条件，需要额外搭建一个小逻辑来解决初次进入一个分支，电平/脉冲等触发不了的问题（因为第一次进入一个分支时，嵌入式程序需要保存这个遥信状态作为后续比较的初值，导致当IF条件/SWITCH条件一直满足时，就一直进入某个分支，从而遥信状态不变位，就触发不了元器件的执行）。我能想到的元器件是遥调输出、遥控输出、日志打印、变化率等元器件，你再帮我找一下别的元器件有没有遥信触发的参数属性，一并修改。并列出我列出的，和你找到的所有需要遥信输出的元器件列表，我好跟嵌入式同事对齐需求。
+    5. 积分器件的积分单位（0-ms/1-s）做成combobox让用户选择，单位标签改成“积分间隔单位”，让用户对“单位”的功能一目了然。
