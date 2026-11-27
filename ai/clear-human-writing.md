@@ -91,3 +91,78 @@ count++;
 
 直接：
 > 主机测试通过。实板尚未烧录验证。
+
+## 配置为智能体的默认写作规则
+
+把下面的规则直接写入各智能体的**用户级指令文件**。这样，智能体从初稿就按这套规则写文章、报告、答复、代码注释、错误提示和提交说明，无需手动调用 `clear-human-writing`，也无需另做一轮润色。只把技能放进技能目录，不等同于设置全局默认规则。
+
+### 1. 找到全局指令文件
+
+下表是本次在 Windows 上实际使用的路径，`~` 表示用户主目录。其他机器如果重定向了工具的配置目录，应修改实际生效的那份文件。
+
+| 智能体 | 用户级指令文件 | 路径检查 |
+| --- | --- | --- |
+| DFCode | `~/.config/dfcode/AGENTS.md` | 在现有全局规则后追加写作小节 |
+| Pi | `~/.pi/agent/AGENTS.md` | 若设置了 `PI_CODING_AGENT_DIR`，检查该目录；若有 `AGENTS.override.md`，检查它是否取代了 `AGENTS.md` |
+| OpenCode | `~/.config/opencode/AGENTS.md` | 若设置了 `XDG_CONFIG_HOME`，检查该目录下的 `opencode/AGENTS.md` |
+| Codex | `~/.codex/AGENTS.md` | 若设置了 `CODEX_HOME`，检查该目录；非空的 `AGENTS.override.md` 优先 |
+| Claude Code | `~/.claude/CLAUDE.md` | 若设置了 `CLAUDE_CONFIG_DIR`，检查该目录下的 `CLAUDE.md` |
+
+### 2. 写入规则
+
+文件已有内容时保留原规则，追加下面的小节；文件不存在时，用 UTF-8 新建。若已经有 `clear-human-writing` 小节，更新原小节，不要重复追加。
+
+```markdown
+## 默认写作规则（clear-human-writing）
+
+- 所有写作任务从初稿起默认遵循这些规则，包括文章、文档、报告、答复、代码注释、错误消息和提交说明。无需调用技能或另做一轮润色。
+- 围绕核心论点写，先说结论，再给理解或行动所需的事实、理由和条件。表达直接、清晰、有力；每段只讲一个要点。写清谁做什么、在什么条件下做、结果如何。
+- 保留原意、事实、因果、适用条件和必要细节，不擅自补全。用读者熟悉的词解释必要术语。注释说明意图、约束和例外，不复述代码。
+- 删掉不提供信息的防御性套话，例如“当然，这并不意味着……”和“相关结论仍有待进一步验证……”。影响判断或行动的限制要保留，并直接写明。例如：“主机测试通过。实板尚未烧录验证。”
+```
+
+### 3. 复查文件并验证加载
+
+1. 保存后回读各文件，确认规则只出现一次，原有规则仍在，且没有写进被覆盖的文件。
+2. 新开会话；Pi 也可在现有会话执行 `/reload`。请智能体改写一句包含空泛免责声明、同时带有实际验证缺口的话。检查它是否直接给出结论、保留具体缺口，并且不需要先调用写作技能。
+3. 若测试结果不符合预期，先检查当前使用的用户配置目录、覆盖文件和项目指令，再修改规则。
+
+本次已回读 DFCode 的写作小节，并确认 Pi、OpenCode、Codex 和 Claude Code 的四份规则内容一致。尚未逐个启动新会话验证加载。
+
+## 智能体规则的作用范围与常见文件名
+
+### 1. 与 Linux 的 `profile` 有什么相似之处？
+
+两者都按作用范围分层，但用户级与项目级是两层。`~/.codex/AGENTS.md` 和 `~/.claude/CLAUDE.md` 最像 `$HOME/.profile`：它们给当前用户提供跨项目的默认设置。仓库里的 `AGENTS.md` 或 `CLAUDE.md` 则随项目走，提交后可供团队共享。
+
+| 层级 | 作用范围 | 适合放什么 |
+| --- | --- | --- |
+| 系统级或组织级 | 受管理的用户或设备；是否支持取决于工具 | 组织统一要求；这一层最接近 `/etc/profile` |
+| 用户级全局 | 当前用户在同一工具中的各个项目 | 写作风格、答复语言、个人工作习惯 |
+| 项目级 | 当前仓库或工作区 | 构建与测试命令、代码规范、项目约束 |
+| 目录级 | 工具支持的特定子目录或路径 | 模块特有的约定 |
+
+Shell 会执行 `.profile`；智能体工具通常把规则文件作为文本读入模型上下文。各工具的查找范围、加载时机和冲突处理不同。需要强制执行的要求应交给权限配置、构建检查或测试，而不是只写进 Markdown。
+
+### 2. 常见智能体的规则文件
+
+下表列的是常用的**规则入口**。`~` 表示用户主目录，项目路径相对于仓库或工作区。未列出的兼容文件、覆盖规则和客户端差异，见各工具的文档。
+
+| 智能体 | 用户级全局规则 | 常用项目级规则 |
+| --- | --- | --- |
+| DFCode | `~/.config/dfcode/AGENTS.md` | `AGENTS.md` |
+| [Codex](https://learn.chatgpt.com/docs/agent-configuration/agents-md.md) | `~/.codex/AGENTS.md` | `AGENTS.md`；同目录的非空 `AGENTS.override.md` 优先 |
+| [Claude Code](https://code.claude.com/docs/en/memory) | `~/.claude/CLAUDE.md` | `CLAUDE.md` 或 `.claude/CLAUDE.md`，也支持 `.claude/rules/*.md`；新版在特定条件下可直接读取项目 `AGENTS.md` |
+| [Pi](https://docs.pi.dev/latest/configuration) | `~/.pi/agent/AGENTS.md` | `AGENTS.md`；同目录还可识别 `AGENTS.override.md` 和 `CLAUDE.md` 等候选文件 |
+| [OpenCode](https://opencode.ai/docs/instructions) | `~/.config/opencode/AGENTS.md` | `AGENTS.md`；未找到时可回退到 `CLAUDE.md` |
+| [Gemini CLI](https://google-gemini.github.io/gemini-cli/docs/cli/gemini-md.html) | `~/.gemini/GEMINI.md` | 默认 `GEMINI.md`；可通过 `context.fileName` 配置读取 `AGENTS.md` |
+| [Cursor](https://cursor.com/docs/rules) | 设置中的 **User Rules** | `AGENTS.md` 或 `.cursor/rules/*.mdc` |
+| [GitHub Copilot](https://docs.github.com/en/copilot/concepts/prompting-and-context/custom-instructions) | 取决于客户端和功能 | `.github/copilot-instructions.md`；路径规则用 `.github/instructions/*.instructions.md`。部分功能也读取 `AGENTS.md`、`CLAUDE.md` 或 `GEMINI.md` |
+| [Cline](https://github.com/cline/cline/blob/main/docs/customization/cline-rules.mdx) | Cline 全局规则目录，也支持 `~/.agents/AGENTS.md` | `.clinerules/`、`.cline/rules/` 或 `AGENTS.md` |
+
+### 3. 规则文件与 `SKILL.md` 怎么分工？
+
+- **规则文件**说明“在这个范围内，默认怎么做”。例如，把“写注释时解释意图和约束”放进用户级全局规则；把团队通用的构建和测试约定放进仓库规则。
+- **`SKILL.md`** 是 [Agent Skills](https://agentskills.io/specification) 格式的技能包入口，通常放在 `<技能名>/SKILL.md`。它说明“遇到这类任务时，按什么流程做”，例如怎样生成发布说明或核对引用。技能目录和加载方式由各工具决定。
+
+要让 `clear-human-writing` 在每次写作时生效，就把核心要求写入用户级全局规则。详细流程和示例可以保留在技能文档中，按需查阅。
